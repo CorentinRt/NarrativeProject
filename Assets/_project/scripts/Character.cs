@@ -32,19 +32,19 @@ namespace NarrativeProject
             {
                 switch (drink)
                 {
-                    case DrinkType.Vin:
+                    case DrinkType.Vin_Puissance_1:
                         _state = DrunkState.Arrache;
                         break;
-                    case DrinkType.Biere:
+                    case DrinkType.Biere_Puissance_2:
                         _state = DrunkState.Clean;
                         break;
-                    case DrinkType.Whisky:
+                    case DrinkType.Whisky_Puissance_3:
                         _state = DrunkState.Coma;
                         break;
-                    case DrinkType.PierreChabrier:
+                    case DrinkType.PierreChabrier_Puissance_4:
                         _state = DrunkState.ComaEthylique;
                         break;
-                    case DrinkType.LeComteDeMentheEtCristaux:
+                    case DrinkType.LeComteDeMentheEtCristaux_Puissance_5:
                         _state = DrunkState.ComaEthylique;
                         break;
                 }

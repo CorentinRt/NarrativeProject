@@ -8,11 +8,11 @@ namespace NarrativeProject
 {
     public enum DrinkType
     {
-        Vin,
-        Biere,
-        Whisky,
-        PierreChabrier,
-        LeComteDeMentheEtCristaux
+        Vin_Puissance_1,
+        Biere_Puissance_2,
+        Whisky_Puissance_3,
+        PierreChabrier_Puissance_4,
+        LeComteDeMentheEtCristaux_Puissance_5
     };
 
     public enum DrunkState
@@ -30,11 +30,11 @@ namespace NarrativeProject
         [SerializeField] string _name;
         [SerializeField] DrunkState _defaultState;
         [SerializeField] DialogueGraphSO _dialogueGraphData;
-        [SerializeField] List<Sprite> _sprites = new List<Sprite>();
         [SerializeField] List<DrinkType> _prefs = new List<DrinkType>();
-        List<DrinkType> _drinkType = new List<DrinkType>();
-        List<DrunkState> _drinkEffect = new List<DrunkState>();
-        Dictionary<DrinkType, DrunkState> _drinkEffects = new Dictionary<DrinkType, DrunkState>();
+        [SerializeField] List<Sprite> _sprites = new List<Sprite>();
+        [VisibleInDebug][SerializeField]List<DrinkType> _drinkType = new List<DrinkType>();
+        [VisibleInDebug][SerializeField]List<DrunkState> _drinkEffect = new List<DrunkState>();
+        [SerializeField] Dictionary<DrinkType, DrunkState> _drinkEffects = new Dictionary<DrinkType, DrunkState>();
 
         public List<Sprite> Sprites { get => _sprites; }
         public List<DrinkType> Prefs { get => _prefs; }
