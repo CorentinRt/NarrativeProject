@@ -1,0 +1,16 @@
+{
+    "name": "NarrativeProject",
+    "rootNamespace": "NarrativeProject",
+    "references": [
+        "GUID:8ed19ee2326503347823cdc9cd1d7e42"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

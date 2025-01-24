@@ -1,0 +1,18 @@
+{
+    "name": "NarrativeProject.Editor",
+    "rootNamespace": "NarrativeProject.Editor",
+    "references": [
+        "GUID:a6ee14e4b1670b34c9a21746cc6df417"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
