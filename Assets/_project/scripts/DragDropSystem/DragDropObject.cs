@@ -27,6 +27,7 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
     [Header("Drag Drop physic simulation parameters")]
     [SerializeField] private bool _bUsePhysicSimulation;
     [SerializeField] private float _massSimulatedTreshhold;
+    [SerializeField] private float _physicSimLagDuration;
     private Quaternion _startRotation;
     private Vector2 _lastMousePosition;
 
@@ -43,6 +44,8 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
 
         _bUsePhysicSimulation = true;
         _massSimulatedTreshhold = 3f;
+
+        _physicSimLagDuration = 0.3f;
     }
     private void Start()
     {
@@ -105,7 +108,7 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
             _lagDragTween = transform.DOMove(_startingPointPosition, _returnToStartingPointDuration, true);
         }
 
-        _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 0f), 0.4f, RotateMode.Fast);
+        _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 0f), _returnToStartingPointDuration, RotateMode.Fast);
     }
 
 
@@ -119,18 +122,18 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
         {
             if (Mathf.Abs(move.y) > Mathf.Abs(move.x) && move.y < 0f)
             {
-                float strength = move.magnitude / 50f;
-                _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 170f * -Mathf.Sign(move.x)), 0.2f, RotateMode.Fast);
+                float strength = move.magnitude / 20f;
+                _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 170f * -Mathf.Sign(move.x) * strength), _physicSimLagDuration, RotateMode.Fast);
             }
             else
             {
                 float strength = move.magnitude / 50f;
-                _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 90f * -Mathf.Sign(move.x)), 0.2f, RotateMode.Fast);
+                _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 90f * -Mathf.Sign(move.x) * strength), _physicSimLagDuration, RotateMode.Fast);
             }
         }
         else
         {
-            _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 0f), 0.5f, RotateMode.Fast);
+            _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 0f), _physicSimLagDuration, RotateMode.Fast);
         }
 
     }
