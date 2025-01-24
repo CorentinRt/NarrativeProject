@@ -226,11 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41a85a11e43f3449138383020861dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 50}
   _startingPoint: {fileID: 2027790162836825572}
   _bDropReturnToStartingPoint: 1
   _returnToStartingPointDuration: 0.5
   _bUseLag: 1
   _lagDuration: 0.15
+  _bUsePhysicSimulation: 1
+  _massSimulatedTreshhold: 3
 --- !u!1 &2803893832974601274
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,11 +322,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41a85a11e43f3449138383020861dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 50}
   _startingPoint: {fileID: 7737715754223388548}
   _bDropReturnToStartingPoint: 1
   _returnToStartingPointDuration: 0.5
   _bUseLag: 1
   _lagDuration: 0.15
+  _bUsePhysicSimulation: 1
+  _massSimulatedTreshhold: 3
 --- !u!1 &3190939441163101503
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,11 +453,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41a85a11e43f3449138383020861dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 50}
   _startingPoint: {fileID: 973104326180240777}
   _bDropReturnToStartingPoint: 1
   _returnToStartingPointDuration: 0.5
   _bUseLag: 1
   _lagDuration: 0.15
+  _bUsePhysicSimulation: 1
+  _massSimulatedTreshhold: 3
 --- !u!1 &4149144607782358119
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,11 +549,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41a85a11e43f3449138383020861dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 50}
   _startingPoint: {fileID: 1829771674108667446}
   _bDropReturnToStartingPoint: 1
   _returnToStartingPointDuration: 0.5
   _bUseLag: 1
   _lagDuration: 0.15
+  _bUsePhysicSimulation: 1
+  _massSimulatedTreshhold: 3
 --- !u!1 &5063690421098414816
 GameObject:
   m_ObjectHideFlags: 0
