@@ -10,6 +10,7 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
 {
     [Header("Drag Drop start parameters")]
     [SerializeField] private Transform _startingPoint;
+    private Vector2 _startingPointPosition;
     [SerializeField] private bool _bDropReturnToStartingPoint;
     [SerializeField] private float _returnToStartingPointDuration;
 
@@ -24,7 +25,13 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
     {
         if (_bDropReturnToStartingPoint)
         {
-            transform.position = _startingPoint.position;
+            if (_startingPoint == null)
+            {
+                _startingPoint = transform;
+            }
+
+            _startingPointPosition = _startingPoint.position;
+            transform.position = _startingPointPosition;
         }
     }
 
@@ -60,7 +67,7 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
         _lagDragTween.Kill(true);
         if (_bDropReturnToStartingPoint)
         {
-            _lagDragTween = transform.DOMove(_startingPoint.position, _returnToStartingPointDuration, true);
+            _lagDragTween = transform.DOMove(_startingPointPosition, _returnToStartingPointDuration, true);
         }
     }
 }
