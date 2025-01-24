@@ -3,7 +3,7 @@ using UnityEditor;
 
 namespace NarrativeProject.Editor
 {
-    [CustomPropertyDrawer(typeof(VisibleInDebug)]
+    [CustomPropertyDrawer(typeof(VisibleInDebug))]
     public class VisibleInDebugDrawer : PropertyDrawer
     {
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)

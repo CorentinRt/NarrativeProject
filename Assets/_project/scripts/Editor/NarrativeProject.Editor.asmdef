@@ -1,11 +1,11 @@
 {
     "name": "NarrativeProject.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "NarrativeProject.Editor",
     "references": [
         "GUID:a6ee14e4b1670b34c9a21746cc6df417"
     ],
     "includePlatforms": [
-        "Android"
+        "Editor"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
