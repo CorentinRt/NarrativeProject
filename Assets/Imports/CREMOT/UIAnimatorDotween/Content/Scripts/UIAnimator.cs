@@ -54,6 +54,7 @@ namespace CREMOT.UIAnimatorDotween
 
         private CanvasGroup _canvasGroup;
         private Image _image;
+        private SpriteRenderer _spriteRenderer;
 
 
         #endregion
@@ -75,6 +76,10 @@ namespace CREMOT.UIAnimatorDotween
             if (TryGetComponent<Image>(out Image image))
             {
                 _image = image;
+            }
+            if (TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+            {
+                _spriteRenderer = spriteRenderer;
             }
         }
         private void Start()
@@ -110,7 +115,7 @@ namespace CREMOT.UIAnimatorDotween
         }
         private void AnimateFade(float targetAlpha, float duration, Ease ease, AnimationSettings settings)
         {
-            if (_canvasGroup == null && _image == null)
+            if (_canvasGroup == null && _image == null && _spriteRenderer == null)
             {
                 Debug.LogError("CanvasGroup or Image is required for Fade animations. Please add a CanvasGroup or Image component.");
                 return;
@@ -124,16 +129,26 @@ namespace CREMOT.UIAnimatorDotween
             {
                 _image.DOFade(targetAlpha, duration).OnComplete(() => NotifyAnimationFinished(settings));
             }
+            else if (_spriteRenderer != null)
+            {
+                _spriteRenderer.DOFade(targetAlpha, duration).OnComplete(() => NotifyAnimationFinished(settings));
+            }
         }
         private void AnimColorTo(Color targetColor, float duration, Ease ease, AnimationSettings settings)
         {
-            if (_image == null)
+            if (_image == null && _spriteRenderer == null)
             {
                 Debug.LogError("Image is required for Color animations. Please add an Image component.");
                 return;
             }
-
-            _image.DOColor(targetColor, duration).OnComplete(() => NotifyAnimationFinished(settings));
+            if (_image != null)
+            {
+                _image.DOColor(targetColor, duration).OnComplete(() => NotifyAnimationFinished(settings));
+            }
+            else if (_spriteRenderer != null)
+            {
+                _spriteRenderer.DOColor(targetColor, duration).OnComplete(() => NotifyAnimationFinished(settings));
+            }
         }
 
         private void NotifyAnimationFinished(AnimationSettings settings)
