@@ -9,7 +9,8 @@ namespace NarrativeProject
         #region Fields
         private static GameManager _instance;
 
-
+        private SoundManager _soundManager;
+        private DayManager _dayManager;
 
         #endregion
 
@@ -26,14 +27,23 @@ namespace NarrativeProject
             }
             _instance = this;
         }
+        private void Start()
+        {
+            InitManager();
+
+        }
 
         public void InitManager()
         {
-
+            _soundManager = SoundManager.Instance;
+            _dayManager = DayManager.Instance;
         }
 
         public void InitAllManagers()
         {
+            _soundManager.InitManager();
+
+            _dayManager.InitManager();
 
         }
     }

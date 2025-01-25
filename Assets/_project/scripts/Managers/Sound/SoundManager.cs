@@ -26,5 +26,10 @@ namespace NarrativeProject
             }
             _instance = this;
         }
+
+        public void InitManager()
+        {
+
+        }
     }
 }
