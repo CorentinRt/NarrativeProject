@@ -11,6 +11,7 @@ namespace NarrativeProject
 
         private SoundManager _soundManager;
         private DayManager _dayManager;
+        private PlayerInputsManager _playerInputsManager;
 
         #endregion
 
@@ -31,20 +32,44 @@ namespace NarrativeProject
         {
             InitManager();
 
+            InitAllManagers();
         }
 
         public void InitManager()
         {
             _soundManager = SoundManager.Instance;
             _dayManager = DayManager.Instance;
+            _playerInputsManager = PlayerInputsManager.Instance;
         }
 
         public void InitAllManagers()
         {
-            _soundManager.InitManager();
+            if (_soundManager != null)  // Sound Manager
+            {
+                _soundManager.InitManager();
+            }
+            else
+            {
+                Debug.LogWarning("SoundManager Manager is missing in the scene ! Some behaviors may not work correctly !");
+            }
 
-            _dayManager.InitManager();
+            if (_dayManager != null)    // Day Manager
+            {
+                _dayManager.InitManager();
+            }
+            else
+            {
+                Debug.LogWarning("DayManager Manager is missing in the scene ! Some behaviors may not work correctly !");
+            }
 
+            if (_playerInputsManager != null)   // PlayerInputs Manager
+            {
+                _playerInputsManager.InitManager();
+            }
+            else
+            {
+                Debug.LogWarning("PlayerInputs Manager is missing in the scene ! Some behaviors may not work correctly !");
+            }
         }
     }
 
