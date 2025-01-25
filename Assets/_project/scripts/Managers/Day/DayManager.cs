@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace NarrativeProject
 {
-    public class SoundManager : MonoBehaviour
+    public class DayManager : MonoBehaviour
     {
         #region Fields
-        private static SoundManager _instance;
+        private static DayManager _instance;
 
 
 
         #endregion
 
         #region Properties
-        public static SoundManager Instance { get => _instance; set => _instance = value; }
+        public static DayManager Instance { get => _instance; set => _instance = value; }
 
         #endregion
 
@@ -26,5 +26,6 @@ namespace NarrativeProject
             }
             _instance = this;
         }
+
     }
 }

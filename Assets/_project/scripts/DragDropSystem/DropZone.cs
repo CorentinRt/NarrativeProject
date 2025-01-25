@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace NarrativeProject
 {
-    public class DropZoneTest : MonoBehaviour, IDropReceiver
+    public class DropZone : MonoBehaviour, IDropReceiver
     {
         #region Fields
         private bool _bIsOvered;
