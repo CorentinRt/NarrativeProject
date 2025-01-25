@@ -11,6 +11,7 @@ namespace NarrativeProject
         #region Fields
         private bool _bIsOvered;
 
+        private bool _canReceive = true;
 
         #endregion
 
@@ -23,7 +24,7 @@ namespace NarrativeProject
         #region DropReceiver Interface
         public bool CanReceive(GameObject draggable)
         {
-            return true;
+            return _canReceive;
         }
         public void OnReceiveDropDraggable(GameObject draggable)
         {

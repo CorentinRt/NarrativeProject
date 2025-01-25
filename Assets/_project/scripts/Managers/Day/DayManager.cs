@@ -1,3 +1,5 @@
+using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,13 +19,13 @@ namespace NarrativeProject
         #region Fields
         private static DayManager _instance;
 
-        private EDayPhase _currentDayPhase;
+        [ShowNonSerializedField] private EDayPhase _currentDayPhase;
 
-        private int _currentDayIndex;
+        [ShowNonSerializedField] private int _currentDayIndex;
 
         [SerializeField] private List<DayDataSO> _daysData;
 
-        private int _currentInteractionCountRemaining;
+        [ShowNonSerializedField] private int _currentInteractionCountRemaining;
 
         private bool _canInteract;
 
@@ -32,7 +34,7 @@ namespace NarrativeProject
         #region Properties
         public static DayManager Instance { get => _instance; set => _instance = value; }
         public int CurrentDayIndex { get => _currentDayIndex; set => _currentDayIndex = value; }
-        public EDayPhase CurrentDayPhase { get => _currentDayPhase; set => _currentDayPhase = value; }
+        public EDayPhase CurrentDayPhase { get => _currentDayPhase; }
 
         #endregion
 
@@ -42,6 +44,8 @@ namespace NarrativeProject
         public UnityEvent OnEndDayUnity;
 
         public UnityEvent OnUpdateCurrentInteractionCountRemainingUnity;
+
+        public event Action<EDayPhase> OnUpdateDayPhase;
 
         #endregion
 
@@ -58,8 +62,11 @@ namespace NarrativeProject
         {
 
         }
+        [Button]
         public void InitDay()
         {
+            ChangeDayPhase(EDayPhase.PRE_DAY);
+
             if (CurrentDayIndex >= _daysData.Count) return;
 
             DayDataSO currentDayData = _daysData[CurrentDayIndex];
@@ -72,6 +79,8 @@ namespace NarrativeProject
 
             _currentInteractionCountRemaining = currentDayData.MaxInteractionCount;
         }
+
+        #region Day Global
         public void NextDay()
         {
             ++_currentDayIndex;
@@ -80,17 +89,21 @@ namespace NarrativeProject
         }
         public void BeginDay()
         {
-
+            ChangeDayPhase(EDayPhase.IN_DAY);
 
             OnBeginDayUnity?.Invoke();
         }
         public void EndDay()
         {
+            ChangeDayPhase(EDayPhase.POST_DAY);
 
+            _currentInteractionCountRemaining = 0;
 
             OnEndDayUnity?.Invoke();
         }
+        #endregion
 
+        [Button]
         public void DecrementCurrentInteractionCountRemaining()
         {
             --_currentInteractionCountRemaining;
@@ -103,5 +116,28 @@ namespace NarrativeProject
             OnUpdateCurrentInteractionCountRemainingUnity?.Invoke();
         }
 
+        [Button]
+        public void NextDayPhase()
+        {
+            switch (_currentDayPhase)
+            {
+                case EDayPhase.PRE_DAY:
+                    ChangeDayPhase(EDayPhase.IN_DAY);
+                    break;
+                case EDayPhase.IN_DAY:
+                    ChangeDayPhase(EDayPhase.POST_DAY);
+                    break;
+                case EDayPhase.POST_DAY:
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void ChangeDayPhase(EDayPhase dayPhase)
+        {
+            _currentDayPhase = dayPhase;
+
+            OnUpdateDayPhase?.Invoke(_currentDayPhase);
+        }
     }
 }
