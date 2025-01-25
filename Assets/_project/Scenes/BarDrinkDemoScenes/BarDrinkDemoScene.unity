@@ -713,22 +713,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3786281340222758897, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: _dropZonesLayerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 4065381152142859678, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 82859098}
-    - target: {fileID: 4549769850569944604, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: _dropZonesLayerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 5824861075648573380, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: _dropZonesLayerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 7392066027106130299, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_Name
       value: UI_main
