@@ -12,13 +12,14 @@ namespace CREMOT.UIAnimatorDotween
     public class UIAnimator : MonoBehaviour
     {
         #region Type / Settings
+        [System.Serializable]
         public enum EAnimationType
         {
-            FADEIN,
-            FADEOUT,
-            MOVETO,
-            SCALETO,
-            COLORTO
+            FADEIN_0 = 0,
+            FADEOUT_1 = 1,
+            MOVETO_2 = 2,
+            SCALETO_3 = 3,
+            COLORTO_4 = 4
         }
 
         [System.Serializable]
@@ -35,6 +36,8 @@ namespace CREMOT.UIAnimatorDotween
 
             [SerializeField] private bool _playOnStart;
 
+            private Tween _animationTween;
+
             public UnityEvent OnAnimationFinished;
 
             public EAnimationType AnimationType { get => _animationType; set => _animationType = value; }
@@ -44,6 +47,7 @@ namespace CREMOT.UIAnimatorDotween
             public bool PlayOnStart { get => _playOnStart; set => _playOnStart = value; }
             public Vector3 TargetScale { get => _targetScale; set => _targetScale = value; }
             public Color TargetColor { get => _targetColor; set => _targetColor = value; }
+            public Tween AnimationTween { get => _animationTween; set => _animationTween = value; }
         }
         #endregion
 
@@ -95,60 +99,64 @@ namespace CREMOT.UIAnimatorDotween
         {
             switch (settings.AnimationType)
             {
-                case EAnimationType.FADEIN:
-                    AnimateFade(1, settings.Duration, settings.Ease, settings);
+                case EAnimationType.FADEIN_0:
+                    settings.AnimationTween = AnimateFade(1, settings.Duration, settings.Ease, settings);
                     break;
-                case EAnimationType.FADEOUT:
-                    AnimateFade(0, settings.Duration, settings.Ease, settings);
+                case EAnimationType.FADEOUT_1:
+                    settings.AnimationTween = AnimateFade(0, settings.Duration, settings.Ease, settings);
                     break;
-                case EAnimationType.MOVETO:
-                    transform.DOMove(settings.TargetMove.position, settings.Duration).SetEase(settings.Ease).OnComplete(()=> NotifyAnimationFinished(settings));
+                case EAnimationType.MOVETO_2:
+                    settings.AnimationTween = transform.DOMove(settings.TargetMove.position, settings.Duration).SetEase(settings.Ease).OnComplete(()=> NotifyAnimationFinished(settings));
                     break;
-                case EAnimationType.SCALETO:
-                    transform.DOScale(settings.TargetScale, settings.Duration).SetEase(settings.Ease).OnComplete(() => NotifyAnimationFinished(settings));
+                case EAnimationType.SCALETO_3:
+                    settings.AnimationTween = transform.DOScale(settings.TargetScale, settings.Duration).SetEase(settings.Ease).OnComplete(() => NotifyAnimationFinished(settings));
                     break;
-                case EAnimationType.COLORTO:
-                    AnimColorTo(settings.TargetColor, settings.Duration, settings.Ease, settings);
+                case EAnimationType.COLORTO_4:
+                    settings.AnimationTween = AnimColorTo(settings.TargetColor, settings.Duration, settings.Ease, settings);
                     break;
 
             }
         }
-        private void AnimateFade(float targetAlpha, float duration, Ease ease, AnimationSettings settings)
+        private Tween AnimateFade(float targetAlpha, float duration, Ease ease, AnimationSettings settings)
         {
             if (_canvasGroup == null && _image == null && _spriteRenderer == null)
             {
                 Debug.LogError("CanvasGroup or Image is required for Fade animations. Please add a CanvasGroup or Image component.");
-                return;
+                return null;
             }
 
             if (_canvasGroup != null)
             {
-                _canvasGroup.DOFade(targetAlpha, duration).OnComplete(() => NotifyAnimationFinished(settings));
+                return _canvasGroup.DOFade(targetAlpha, duration).OnComplete(() => NotifyAnimationFinished(settings));
             }
             else if (_image != null)
             {
-                _image.DOFade(targetAlpha, duration).OnComplete(() => NotifyAnimationFinished(settings));
+                return _image.DOFade(targetAlpha, duration).OnComplete(() => NotifyAnimationFinished(settings));
             }
             else if (_spriteRenderer != null)
             {
-                _spriteRenderer.DOFade(targetAlpha, duration).OnComplete(() => NotifyAnimationFinished(settings));
+                return _spriteRenderer.DOFade(targetAlpha, duration).OnComplete(() => NotifyAnimationFinished(settings));
             }
+
+            return null;
         }
-        private void AnimColorTo(Color targetColor, float duration, Ease ease, AnimationSettings settings)
+        private Tween AnimColorTo(Color targetColor, float duration, Ease ease, AnimationSettings settings)
         {
             if (_image == null && _spriteRenderer == null)
             {
                 Debug.LogError("Image is required for Color animations. Please add an Image component.");
-                return;
+                return null;
             }
             if (_image != null)
             {
-                _image.DOColor(targetColor, duration).OnComplete(() => NotifyAnimationFinished(settings));
+                return _image.DOColor(targetColor, duration).OnComplete(() => NotifyAnimationFinished(settings));
             }
             else if (_spriteRenderer != null)
             {
-                _spriteRenderer.DOColor(targetColor, duration).OnComplete(() => NotifyAnimationFinished(settings));
+                return _spriteRenderer.DOColor(targetColor, duration).OnComplete(() => NotifyAnimationFinished(settings));
             }
+
+            return null;
         }
 
         private void NotifyAnimationFinished(AnimationSettings settings)
@@ -160,8 +168,46 @@ namespace CREMOT.UIAnimatorDotween
         {
             foreach (var animation in _animations)
             {
+                if (animation.AnimationTween != null)
+                {
+                    animation.AnimationTween.Kill();
+                }
                 PlayAnimation(animation);
             }
+        }
+        public void PlayAnimationAtIndex(int index)
+        {
+            if (index >= _animations.Length)    return;
+
+            AnimationSettings animation = _animations[index];
+
+            if (animation == null) return;
+
+            PlayAnimation(animation);
+        }
+
+        public void KillAllAnimationOfType(int typeIndex)
+        {
+            foreach (var animation in _animations)
+            {
+                if (animation.AnimationType != (EAnimationType)typeIndex) continue;
+                
+                if (animation.AnimationTween == null) continue;
+
+                animation.AnimationTween.Kill();
+            }
+        }
+        public void KillAnimationAtIndex(int index)
+        {
+            if (index >= _animations.Length) return;
+
+            AnimationSettings animation = _animations[index];
+
+            if (animation == null) return;
+
+            if (animation.AnimationTween == null) return;
+
+            animation.AnimationTween.Kill();
         }
 
         #endregion
