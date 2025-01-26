@@ -80,11 +80,13 @@ namespace NarrativeProject
         #region Drag
         public void OnBeginDrag(PointerEventData eventData)
         {
-
+            NotifyInteraction(EPlayerInputsState.DRAGGING);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
+            if (!CanInteract()) return;
+
             Vector2 targetPosition = eventData.position;
 
             targetPosition -= _offset;
@@ -115,6 +117,10 @@ namespace NarrativeProject
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            if (!CanInteract()) return;
+
+            NotifyEndInteraction();
+
             Drop(eventData);
 
             DraggableEndOverlappingDropReceiver();

@@ -45,7 +45,7 @@ namespace NarrativeProject
 
         public void InitManager()
         {
-
+            RegisterAllInputsInteractibleObjects();
         }
         private void RegisterAllInputsInteractibleObjects()
         {
@@ -58,6 +58,8 @@ namespace NarrativeProject
 
                 input.OnInteractionBegin += ReceiveNewInputStateDemand;
                 input.OnInteractionEnd += ReceiveInputStateEnd;
+
+                input.SetIsAbleToInteract(false);
             }
         }
         private void OnDestroy()
@@ -97,11 +99,13 @@ namespace NarrativeProject
             Debug.Log("ReceiveNewInputStateDemand accepted !!!");
         }
 
-        private void ReceiveInputStateEnd(IInputsInteractible inputsInteractible, EPlayerInputsState PlayerInputsState)
+        private void ReceiveInputStateEnd(IInputsInteractible inputsInteractible, EPlayerInputsState playerInputsState)
         {
             if (_currentInputInteractible == null) return;
 
             if (_currentInputInteractible != inputsInteractible)    return;
+
+            if (_currentPlayerInputsState != playerInputsState) return;
 
             _currentInputInteractible.SetIsAbleToInteract(false);
 
