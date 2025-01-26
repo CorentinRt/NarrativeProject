@@ -1,29 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace NarrativeProject
 {
+    public enum EPlayerInputsState
+    {
+        AVAILABLE = 0,
+        DRAGGING = 1,
+        UIINTERACTION = 2,
+        LOCKED = 3
+    }
     public class PlayerInputsManager : MonoBehaviour
     {
-        public enum EPlayerInputsState
-        {
-            AVAILABLE = 0,
-            NOTAVAILABLE = 1
-        }
 
         #region Fields
         private static PlayerInputsManager _instance;
 
-        private EPlayerInputsState _playerInputsState;
+        private EPlayerInputsState _currentPlayerInputsState = EPlayerInputsState.AVAILABLE;
 
-        private bool _bInputsLocked;
+        private List<IInputsInteractible> _inputsInteractibles;
+
+        private IInputsInteractible _currentInputInteractible;
 
         #endregion
 
         #region Properties
         public static PlayerInputsManager Instance { get => _instance; set => _instance = value; }
-        public EPlayerInputsState PlayerInputsState { get => _playerInputsState; set => _playerInputsState = value; }
+        public EPlayerInputsState PlayerInputsState { get => _currentPlayerInputsState; }
 
 
         #endregion
@@ -42,26 +47,67 @@ namespace NarrativeProject
         {
 
         }
+        private void RegisterAllInputsInteractibleObjects()
+        {
+            _inputsInteractibles = new List<IInputsInteractible>();
+            var tempInputsInteractibles = FindObjectsOfType<MonoBehaviour>().OfType<IInputsInteractible>();
 
+            foreach(var input in tempInputsInteractibles)
+            {
+                _inputsInteractibles.Add(input);
+
+                input.OnInteractionBegin += ReceiveNewInputStateDemand;
+                input.OnInteractionEnd += ReceiveInputStateEnd;
+            }
+        }
+        private void OnDestroy()
+        {
+            if (_inputsInteractibles != null)
+            {
+                foreach (var input in _inputsInteractibles)
+                {
+                    input.OnInteractionBegin -= ReceiveNewInputStateDemand;
+                    input.OnInteractionEnd -= ReceiveInputStateEnd;
+                }
+            }
+        }
+
+
+        public void SetInputsState(EPlayerInputsState state)
+        {
+            _currentPlayerInputsState = state;
+        }
         public bool InputsAvailable()
         {
-            if (_playerInputsState == EPlayerInputsState.NOTAVAILABLE) return false;
+            if (_currentPlayerInputsState == EPlayerInputsState.AVAILABLE) return true;
 
-            if (_bInputsLocked) return false;
-
-
-            return true;
+            return false;
         }
 
-        #region Lock / UNLOCK
-        public void LockInput()
+        private void ReceiveNewInputStateDemand(IInputsInteractible inputsInteractible, EPlayerInputsState playerInputsState)
         {
-            _bInputsLocked = true;
+            if (_currentPlayerInputsState != EPlayerInputsState.AVAILABLE) return;
+
+            _currentInputInteractible = inputsInteractible;
+
+            _currentInputInteractible.SetIsAbleToInteract(true);
+
+            _currentPlayerInputsState = playerInputsState;
+
+            Debug.Log("ReceiveNewInputStateDemand accepted !!!");
         }
-        public void UnlockInput()
+
+        private void ReceiveInputStateEnd(IInputsInteractible inputsInteractible, EPlayerInputsState PlayerInputsState)
         {
-            _bInputsLocked = false;
+            if (_currentInputInteractible == null) return;
+
+            if (_currentInputInteractible != inputsInteractible)    return;
+
+            _currentInputInteractible.SetIsAbleToInteract(false);
+
+            _currentInputInteractible = null;
+
+            _currentPlayerInputsState = EPlayerInputsState.AVAILABLE;
         }
-        #endregion
     }
 }

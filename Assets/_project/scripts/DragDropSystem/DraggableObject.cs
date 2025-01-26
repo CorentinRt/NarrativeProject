@@ -1,5 +1,6 @@
 using DG.Tweening;
 using PlasticGui.WorkspaceWindow.QueryViews;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ using UnityEngine.UIElements;
 namespace NarrativeProject
 {
     [RequireComponent(typeof(Image))]
-    public class DraggableObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+    public class DraggableObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IInputsInteractible
     {
         #region Fields
         [Header("Drag Drop Parameters")]
@@ -206,7 +207,60 @@ namespace NarrativeProject
                 _physicSimulationTween = transform.DORotate(new Vector3(0f, 0f, 0f), _physicSimLagDuration, RotateMode.Fast);
             }
         }
+
         #endregion
 
+        #region Input Interactible Interface
+
+        private bool _isAbleToInteract = true;
+
+        public void SetIsAbleToInteract(bool value)
+        {
+            _isAbleToInteract = value;
+        }
+
+        public bool CanInteract()
+        {
+            return _isAbleToInteract;
+        }
+
+        public void NotifyInteraction(EPlayerInputsState inputState)
+        {
+            OnInteractionBegin?.Invoke(this, inputState);
+        }
+
+        public void NotifyEndInteraction()
+        {
+            OnInteractionEnd?.Invoke(this, EPlayerInputsState.DRAGGING);
+        }
+        public event Action<IInputsInteractible, EPlayerInputsState> OnInteractionBegin;
+        public event Action<IInputsInteractible, EPlayerInputsState> OnInteractionEnd;
+        event Action<IInputsInteractible, EPlayerInputsState> IInputsInteractible.OnInteractionBegin
+        {
+            add
+            {
+                OnInteractionBegin += value;
+            }
+
+            remove
+            {
+                OnInteractionBegin -= value;
+            }
+        }
+
+        event Action<IInputsInteractible, EPlayerInputsState> IInputsInteractible.OnInteractionEnd
+        {
+            add
+            {
+                OnInteractionEnd += value;
+            }
+
+            remove
+            {
+                OnInteractionEnd -= value;
+            }
+        }
+        
+        #endregion
     }
 }
