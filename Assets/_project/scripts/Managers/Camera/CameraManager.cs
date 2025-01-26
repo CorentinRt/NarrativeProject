@@ -44,6 +44,12 @@ namespace NarrativeProject
 
         private void Awake()
         {
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+            }
+            _instance = this;
+
             _cameraMain = Camera.main;
 
             _unfocusedCameraPosition = _unfocusedCameraTransform.position;

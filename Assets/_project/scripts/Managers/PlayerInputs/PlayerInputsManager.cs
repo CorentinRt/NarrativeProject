@@ -10,7 +10,8 @@ namespace NarrativeProject
         AVAILABLE = 0,
         DRAGGING = 1,
         UIINTERACTION = 2,
-        LOCKED = 3
+        INTERACTION = 3,
+        LOCKED = 4
     }
     public class PlayerInputsManager : MonoBehaviour
     {
