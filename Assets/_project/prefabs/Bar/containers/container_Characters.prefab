@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6750957052699017992}
   - component: {fileID: 9164459556455542245}
   - component: {fileID: 4266781861223094177}
+  - component: {fileID: 4782088964789060627}
   m_Layer: 0
   m_Name: Character_03
   m_TagString: Untagged
@@ -219,6 +220,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1.9999999}
   m_Direction: 0
+--- !u!114 &4782088964789060627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569703291208032213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799f482df2802854b8abcdbe768b082a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactibleLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1740086823426802928
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +474,7 @@ GameObject:
   - component: {fileID: 8049904100630183336}
   - component: {fileID: 3699197566086176127}
   - component: {fileID: 1814393957337152587}
+  - component: {fileID: 8227879889104142419}
   m_Layer: 0
   m_Name: Character_01
   m_TagString: Untagged
@@ -633,6 +650,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1.9999999}
   m_Direction: 0
+--- !u!114 &8227879889104142419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623225069815831927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799f482df2802854b8abcdbe768b082a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactibleLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7709160642676663769
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +678,7 @@ GameObject:
   - component: {fileID: 5230513978313898214}
   - component: {fileID: 6474543730039040829}
   - component: {fileID: 1920326460812661764}
+  - component: {fileID: 3835236890539402982}
   m_Layer: 0
   m_Name: Character_02
   m_TagString: Untagged
@@ -821,6 +854,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1.9999999}
   m_Direction: 0
+--- !u!114 &3835236890539402982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7709160642676663769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799f482df2802854b8abcdbe768b082a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactibleLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8897317978169541198
 GameObject:
   m_ObjectHideFlags: 0
