@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace NarrativeProject
 {
@@ -29,11 +30,6 @@ namespace NarrativeProject
         private Tween _cameraPosShakeTween;
         private Tween _cameraRotShakeTween;
 
-        [Space(20)]
-        [HorizontalLine(2, EColor.Yellow)]
-        [Header("Test in Editor")]
-
-        [SerializeField] private Transform _testTransform;
         #endregion
 
         #region Properties
@@ -41,6 +37,23 @@ namespace NarrativeProject
 
 
         #endregion
+
+        #region Delegates
+        [Space(10)]
+        public UnityEvent OnFocusCameraUnity;
+        public UnityEvent OnUnfocusCameraUnity;
+        public UnityEvent OnShakeCameraUnity;
+
+        #endregion
+
+        #region Editor Test
+        [Space(20)]
+        [HorizontalLine(2, EColor.Yellow)]
+        [Header("Test in Editor")]
+
+        [SerializeField] private Transform _testTransform;
+        #endregion
+
 
         private void Awake()
         {
@@ -72,6 +85,8 @@ namespace NarrativeProject
             _cameraMoveYTween.Kill();
             _cameraMoveXTween = _cameraMain.transform.DOMoveX(transform.position.x, _focusedDuration);
             _cameraMoveYTween = _cameraMain.transform.DOMoveY(transform.position.y, _focusedDuration);
+
+            OnFocusCameraUnity?.Invoke();
         }
 
         [Button]
@@ -84,6 +99,8 @@ namespace NarrativeProject
             _cameraMoveYTween.Kill();
             _cameraMoveXTween = _cameraMain.transform.DOMoveX(_unfocusedCameraPosition.x, _unfocusedDuration);
             _cameraMoveYTween = _cameraMain.transform.DOMoveY(_unfocusedCameraPosition.y, _unfocusedDuration);
+
+            OnUnfocusCameraUnity?.Invoke();
         }
 
         [Button]
@@ -109,6 +126,8 @@ namespace NarrativeProject
 
             _cameraPosShakeTween = _cameraMain.DOShakePosition(duration, shakePosStrength);
             _cameraPosShakeTween = _cameraMain.DOShakeRotation(duration, shakeRotStrength);
+
+            OnShakeCameraUnity?.Invoke();
         }
     }
 }
