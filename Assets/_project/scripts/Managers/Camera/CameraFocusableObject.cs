@@ -13,6 +13,8 @@ namespace NarrativeProject
 
         private bool _isFocused = false;
 
+        [SerializeField] private Vector2 _focusCameraOffset = Vector2.zero;
+
         [SerializeField] private LayerMask _interactibleLayerMask;
 
         #endregion
@@ -64,7 +66,7 @@ namespace NarrativeProject
                 }
                 else
                 {
-                    CameraManager.Instance.FocusCameraOn(this);
+                    CameraManager.Instance.FocusCameraOn(this, _focusCameraOffset);
                     _isFocused = true;
                 }
             }

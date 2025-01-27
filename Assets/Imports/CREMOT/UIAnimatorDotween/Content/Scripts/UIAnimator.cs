@@ -38,6 +38,7 @@ namespace CREMOT.UIAnimatorDotween
 
             private Tween _animationTween;
 
+            public UnityEvent OnAnimationStarted;
             public UnityEvent OnAnimationFinished;
 
             public EAnimationType AnimationType { get => _animationType; set => _animationType = value; }
@@ -116,6 +117,9 @@ namespace CREMOT.UIAnimatorDotween
                     break;
 
             }
+
+            if (settings != null)
+                settings.OnAnimationStarted?.Invoke();
         }
         private Tween AnimateFade(float targetAlpha, float duration, Ease ease, AnimationSettings settings)
         {

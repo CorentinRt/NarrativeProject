@@ -76,7 +76,7 @@ namespace NarrativeProject
             FocusCameraOn(_testTransform);
         }
 
-        public void FocusCameraOn(CameraFocusableObject cameraFocusable)
+        public void FocusCameraOn(CameraFocusableObject cameraFocusable, Vector2? focusOffset = null)
         {
             if (cameraFocusable == null) return;
 
@@ -87,19 +87,27 @@ namespace NarrativeProject
 
             _currentFocusedObject = cameraFocusable;
             _currentFocusedObject.OnReceiveCameraFocusUnity?.Invoke();
-            FocusCameraOn(_currentFocusedObject.transform);
+
+            FocusCameraOn(_currentFocusedObject.transform, focusOffset);
         }
-        public void FocusCameraOn(Transform transform)
+        public void FocusCameraOn(Transform transform, Vector2? focusOffset = null)
         {
             if (_cameraMain == null) return;
+
+            Vector2 tempOffset = Vector2.zero;
+            if (focusOffset != null)
+            {
+                tempOffset = focusOffset.Value;
+            }
+            Debug.Log("Vector : " + tempOffset);
 
             _cameraSizeTween.Kill();
             _cameraSizeTween = _cameraMain.DOOrthoSize(_focusedCameraSize, _focusedDuration);
 
             _cameraMoveXTween.Kill();
             _cameraMoveYTween.Kill();
-            _cameraMoveXTween = _cameraMain.transform.DOMoveX(transform.position.x, _focusedDuration);
-            _cameraMoveYTween = _cameraMain.transform.DOMoveY(transform.position.y, _focusedDuration);
+            _cameraMoveXTween = _cameraMain.transform.DOMoveX(transform.position.x + tempOffset.x, _focusedDuration);
+            _cameraMoveYTween = _cameraMain.transform.DOMoveY(transform.position.y + tempOffset.y, _focusedDuration);
 
             OnFocusCameraUnity?.Invoke();
         }

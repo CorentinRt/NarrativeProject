@@ -51,6 +51,13 @@ namespace CREMOT.UIAnimatorDotween
                     }
 
                     // ---------------- Event field ---------------------
+                    SerializedObject serializedObjectStarted = new SerializedObject(animator);
+                    SerializedProperty animationsArrayStarted = serializedObjectStarted.FindProperty("_animations");
+                    SerializedProperty currentAnimationStarted = animationsArrayStarted.GetArrayElementAtIndex(i);
+                    SerializedProperty onAnimationStarted = currentAnimationStarted.FindPropertyRelative("OnAnimationStarted");
+                    EditorGUILayout.PropertyField(onAnimationStarted, new GUIContent("OnAnimationStarted"));
+                    // ------------------------------------------------------
+                    // ---------------- Event field ---------------------
                     SerializedObject serializedObject = new SerializedObject(animator);
                     SerializedProperty animationsArray = serializedObject.FindProperty("_animations");
                     SerializedProperty currentAnimation = animationsArray.GetArrayElementAtIndex(i);
@@ -59,6 +66,7 @@ namespace CREMOT.UIAnimatorDotween
                     // ------------------------------------------------------
 
 
+                    serializedObjectStarted.ApplyModifiedProperties();
                     serializedObject.ApplyModifiedProperties();
 
                     if (GUILayout.Button("Remove Animation"))
