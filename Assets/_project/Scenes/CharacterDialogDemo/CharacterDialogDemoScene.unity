@@ -595,6 +595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: temp_container_Character_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3555238925571724610, guid: 9011cf30ea3ce2246851eaf1811f28da, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 82859098}
     - target: {fileID: 4444596545269866196, guid: 9011cf30ea3ce2246851eaf1811f28da, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.9
@@ -884,6 +888,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3484647972080528511, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 82859098}
     - target: {fileID: 8266682396883513374, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: m_Name
       value: Game

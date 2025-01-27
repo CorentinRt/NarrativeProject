@@ -31,9 +31,20 @@ namespace NarrativeProject
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (Camera.main == null) return;
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)), Vector2.zero);
+
+                if (hit.collider != null)
+                {
+                    Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                }
+
+                /*
                 Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                 Collider2D detectedCollider = Physics2D.OverlapCircle(worldMousePos, 0.5f, _interactibleLayerMask);
+                */
+                Collider2D detectedCollider = hit.collider;
 
                 if (detectedCollider == null)   return;
 

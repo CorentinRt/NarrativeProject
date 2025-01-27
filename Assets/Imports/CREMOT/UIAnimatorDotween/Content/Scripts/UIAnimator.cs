@@ -190,6 +190,16 @@ namespace CREMOT.UIAnimatorDotween
             PlayAnimation(animation);
         }
 
+
+        public void KillAllAnimations()
+        {
+            foreach (var animation in _animations)
+            {
+                if (animation.AnimationTween == null) continue;
+
+                animation.AnimationTween.Kill();
+            }
+        }
         public void KillAllAnimationOfType(int typeIndex)
         {
             foreach (var animation in _animations)
