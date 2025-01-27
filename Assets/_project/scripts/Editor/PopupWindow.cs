@@ -11,8 +11,8 @@ namespace NarrativeProject.Editor
         public static void ShowWindow()
         {
             PopupWindow window = (PopupWindow)GetWindow(typeof(PopupWindow));
-            window.minSize = new Vector2(200, 100);
-            window.maxSize = new Vector2(200, 100);
+            window.minSize = new Vector2(400, 200);
+            window.maxSize = new Vector2(400, 200);
         }
 
         void OnGUI()
@@ -21,7 +21,8 @@ namespace NarrativeProject.Editor
             GUILayout.BeginHorizontal();
             GUILayout.Label("Name: ");
             _name = GUILayout.TextField(_name);
-            if((Event.current.type == EventType.KeyUp) && (Event.current.keyCode == KeyCode.Return))
+            GUILayout.EndHorizontal();
+            if ((Event.current.type == EventType.KeyUp) && (Event.current.keyCode == KeyCode.Return))
             {
                 var newDataObj = ScriptableObject.CreateInstance<SO_CharacterData>();
                 newDataObj.Name = _name;
