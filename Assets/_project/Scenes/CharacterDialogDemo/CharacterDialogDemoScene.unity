@@ -742,10 +742,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 218005944116843318, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-      propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 218005944116843318, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -810,10 +806,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b9ea86d6456684945a139369c1cacc55, type: 2}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-      propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -824,7 +816,7 @@ PrefabInstance:
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1813915171}
+      objectReference: {fileID: 0}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -839,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowDisplayer
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -847,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CREMOT.DialogSystem.DialogueDisplayer, CREMOT.DialogSystem
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -855,11 +847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1317923807912706285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: _animations.Array.data[0].OnAnimationFinished.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -881,6 +873,86 @@ PrefabInstance:
       propertyPath: _animations.Array.data[1]._targetMove
       value: 
       objectReference: {fileID: 1234932952}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraUnfocusUnity.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1813915171}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1813915172}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraUnfocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraUnfocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1813915173}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowDisplayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAllAnimations
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraUnfocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraUnfocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAllAnimations
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CREMOT.DialogSystem.DialogueDisplayer, CREMOT.DialogSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraUnfocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraFocusUnity.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063079241067306733, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: OnReceiveCameraUnfocusUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8266682396883513374, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: m_Name
       value: Game

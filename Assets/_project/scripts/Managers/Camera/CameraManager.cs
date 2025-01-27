@@ -30,6 +30,8 @@ namespace NarrativeProject
         private Tween _cameraPosShakeTween;
         private Tween _cameraRotShakeTween;
 
+        private CameraFocusableObject _currentFocusedObject;
+
         #endregion
 
         #region Properties
@@ -74,6 +76,19 @@ namespace NarrativeProject
             FocusCameraOn(_testTransform);
         }
 
+        public void FocusCameraOn(CameraFocusableObject cameraFocusable)
+        {
+            if (cameraFocusable == null) return;
+
+            if (_currentFocusedObject != null)
+            {
+                _currentFocusedObject.OnReceiveCameraUnfocusUnity?.Invoke();
+            }
+
+            _currentFocusedObject = cameraFocusable;
+            _currentFocusedObject.OnReceiveCameraFocusUnity?.Invoke();
+            FocusCameraOn(_currentFocusedObject.transform);
+        }
         public void FocusCameraOn(Transform transform)
         {
             if (_cameraMain == null) return;
@@ -101,6 +116,12 @@ namespace NarrativeProject
             _cameraMoveYTween = _cameraMain.transform.DOMoveY(_unfocusedCameraPosition.y, _unfocusedDuration);
 
             OnUnfocusCameraUnity?.Invoke();
+
+            if (_currentFocusedObject != null)
+            {
+                _currentFocusedObject.OnReceiveCameraUnfocusUnity?.Invoke();
+                _currentFocusedObject = null;
+            }
         }
 
         [Button]

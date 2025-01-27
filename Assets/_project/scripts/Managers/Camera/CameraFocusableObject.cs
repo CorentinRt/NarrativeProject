@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace NarrativeProject
 {
@@ -15,6 +16,14 @@ namespace NarrativeProject
         [SerializeField] private LayerMask _interactibleLayerMask;
 
         #endregion
+
+        #region Delegates
+        public UnityEvent OnReceiveCameraFocusUnity;
+        public UnityEvent OnReceiveCameraUnfocusUnity;
+
+
+        #endregion
+
 
         private void Update()
         {
@@ -55,7 +64,7 @@ namespace NarrativeProject
                 }
                 else
                 {
-                    CameraManager.Instance.FocusCameraOn(transform);
+                    CameraManager.Instance.FocusCameraOn(this);
                     _isFocused = true;
                 }
             }
