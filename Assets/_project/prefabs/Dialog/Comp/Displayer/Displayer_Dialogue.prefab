@@ -266,15 +266,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueController: {fileID: 0}
-  _idToDialogueSO: {fileID: 0}
-  _idToChoiceSO: {fileID: 0}
+  _idToDialogueSO: {fileID: 11400000, guid: 3fc2e39a8801b2540ac37d67005bff19, type: 2}
+  _idToChoiceSO: {fileID: 11400000, guid: b9ea86d6456684945a139369c1cacc55, type: 2}
   _displayerCanvas: {fileID: 2479267169934737800}
   _dialogueText: {fileID: 2384823193196449831}
   _choicesContainer: {fileID: 3970348632323243446}
   _buttonChoicePrefab: {fileID: 8664488508792781418, guid: 0fd138e0dc3638c4e9a8d3b301075cfa, type: 3}
   _displayButtonsElements: 1
   _neverHideDisplayer: 0
-  _startHidden: 0
+  _startHidden: 1
   _useDynamicLocalizationDisplay: 0
 --- !u!114 &8234359161505263498
 MonoBehaviour:
@@ -296,6 +296,9 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
@@ -306,6 +309,9 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
@@ -329,6 +335,9 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls:
@@ -351,6 +360,9 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
