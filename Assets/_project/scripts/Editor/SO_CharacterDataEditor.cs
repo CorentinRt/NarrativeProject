@@ -27,6 +27,7 @@ namespace NarrativeProject.Editor
                 if (!_target.DrinkEffects.ContainsKey(_target.DrinkType[i]))
                 {
                     _target.DrinkEffects.Add(_target.DrinkType[i], _target.DrinkEffect[i]);
+                    _target.DrinkEffectsFriendShip.Add(_target.DrinkType[i], _target.DrinkEffectFriendShip[i]);
                     Debug.Log("Added " + _target.DrinkType[i] + " to the dictionary at " + _target.DrinkEffect[i]);
                 }
             }
@@ -56,8 +57,9 @@ namespace NarrativeProject.Editor
             GUI.backgroundColor = Color.green;
             if (GUILayout.Button("Add Drinks Effects", background))
             {
-                _target.DrinkEffect.Add(DrunkState.Arrache);
-                _target.DrinkType.Add(DrinkType.Vin_Puissance_1);
+                _target.DrinkEffect.Add(0);
+                _target.DrinkType.Add(DrinkType.Cofee);
+                _target.DrinkEffectFriendShip.Add(0);
             }
             GUI.backgroundColor = baseColor;
             for (int i = 0; i < _target.DrinkEffect.Count; i++)
@@ -67,21 +69,23 @@ namespace NarrativeProject.Editor
                 EditorGUILayout.LabelField("Drink Type : ", GUILayout.Width(75));
                 _target.DrinkType[i] = (DrinkType)EditorGUILayout.EnumPopup(_target.DrinkType[i]);
                 EditorGUILayout.Space(25);
-                EditorGUILayout.LabelField("Drink Effect : ", GUILayout.Width(75));
-                _target.DrinkEffect[i] = (DrunkState)EditorGUILayout.EnumPopup(_target.DrinkEffect[i]);
-                EditorGUILayout.Space(40);
+                EditorGUILayout.LabelField("DrinkScale :", GUILayout.Width(75));
+                _target.DrinkEffect[i] = EditorGUILayout.IntSlider(_target.DrinkEffect[i], 0, 100);
+                EditorGUILayout.Space(25);
+                EditorGUILayout.LabelField("FriendScale :", GUILayout.Width(75));
+                _target.DrinkEffectFriendShip[i] = EditorGUILayout.IntSlider(_target.DrinkEffectFriendShip[i], 0, 100);
 
                 background.normal.background = MakeBackgroundTexture(1, 1, Color.red);
                 GUI.backgroundColor = Color.red;
 
-                if (GUILayout.Button("Remove", background))
+                EditorGUILayout.EndHorizontal();
+                if (GUILayout.Button("Remove", background, GUILayout.Width(100)))
                 {
                     _target.DrinkEffect.RemoveAt(i);
                     _target.DrinkType.RemoveAt(i);
                     _target.DrinkEffects.Remove(_target.DrinkType[i]);
                 }
                 GUI.backgroundColor = baseColor;
-                EditorGUILayout.EndHorizontal();
             }
 
         }
