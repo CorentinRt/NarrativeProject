@@ -97,7 +97,7 @@ namespace NarrativeProject
 
             _currentPlayerInputsState = playerInputsState;
 
-            Debug.Log("ReceiveNewInputStateDemand accepted !!!");
+            //Debug.Log("ReceiveNewInputStateDemand accepted !!!");
         }
 
         private void ReceiveInputStateEnd(IInputsInteractible inputsInteractible, EPlayerInputsState playerInputsState)
