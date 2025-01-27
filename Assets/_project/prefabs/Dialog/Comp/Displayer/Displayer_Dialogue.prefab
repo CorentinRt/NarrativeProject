@@ -290,11 +290,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animations:
   - _animationType: 0
-    _duration: 1
+    _duration: 0.5
     _ease: 6
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -303,11 +304,12 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - _animationType: 2
-    _duration: 1
+    _duration: 0.5
     _ease: 6
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -329,11 +331,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animations:
   - _animationType: 1
-    _duration: 1
+    _duration: 0.5
     _ease: 6
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -354,11 +357,12 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - _animationType: 2
-    _duration: 1
+    _duration: 0.5
     _ease: 6
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:

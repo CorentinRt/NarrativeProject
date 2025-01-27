@@ -714,14 +714,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
-    - target: {fileID: 8390825311212314855, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-      propertyPath: _animations.Array.data[0]._duration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8390825311212314855, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-      propertyPath: _animations.Array.data[0]._idleAmplitude
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 9127340228931722285, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: m_Camera
       value: 

@@ -170,6 +170,7 @@ MonoBehaviour:
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -183,6 +184,7 @@ MonoBehaviour:
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 1
     OnAnimationStarted:
       m_PersistentCalls:
@@ -204,11 +206,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animations:
   - _animationType: 5
-    _duration: 0.5
+    _duration: 2
     _ease: 7
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0.15
     _playOnStart: 1
     OnAnimationStarted:
       m_PersistentCalls:
@@ -272,6 +275,7 @@ MonoBehaviour:
     _targetMove: {fileID: 8495016068509179332}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -322,6 +326,7 @@ MonoBehaviour:
     _targetMove: {fileID: 4444596545269866196}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
