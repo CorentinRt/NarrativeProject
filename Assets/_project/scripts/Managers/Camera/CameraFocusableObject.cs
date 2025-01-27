@@ -43,11 +43,6 @@ namespace NarrativeProject
                     Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
                 }
 
-                /*
-                Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                Collider2D detectedCollider = Physics2D.OverlapCircle(worldMousePos, 0.5f, _interactibleLayerMask);
-                */
                 Collider2D detectedCollider = hit.collider;
 
                 if (detectedCollider == null)   return;

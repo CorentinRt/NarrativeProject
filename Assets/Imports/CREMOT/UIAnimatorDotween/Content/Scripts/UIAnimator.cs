@@ -19,7 +19,8 @@ namespace CREMOT.UIAnimatorDotween
             FADEOUT_1 = 1,
             MOVETO_2 = 2,
             SCALETO_3 = 3,
-            COLORTO_4 = 4
+            COLORTO_4 = 4,
+            IDLE_INFINITE_5 = 5
         }
 
         [System.Serializable]
@@ -33,6 +34,8 @@ namespace CREMOT.UIAnimatorDotween
             [SerializeField] private Vector3 _targetScale;
 
             [SerializeField] private Color _targetColor;
+
+            [SerializeField] private float _idleAmplitude;
 
             [SerializeField] private bool _playOnStart;
 
@@ -48,6 +51,7 @@ namespace CREMOT.UIAnimatorDotween
             public bool PlayOnStart { get => _playOnStart; set => _playOnStart = value; }
             public Vector3 TargetScale { get => _targetScale; set => _targetScale = value; }
             public Color TargetColor { get => _targetColor; set => _targetColor = value; }
+            public float IdleAmplitude { get => _idleAmplitude; set => _idleAmplitude = value; }
             public Tween AnimationTween { get => _animationTween; set => _animationTween = value; }
         }
         #endregion
@@ -115,6 +119,9 @@ namespace CREMOT.UIAnimatorDotween
                 case EAnimationType.COLORTO_4:
                     settings.AnimationTween = AnimColorTo(settings.TargetColor, settings.Duration, settings.Ease, settings);
                     break;
+                case EAnimationType.IDLE_INFINITE_5:
+                    settings.AnimationTween = AnimateIdleInfinite(1f, settings.Duration, settings.Ease, settings);
+                    break;
 
             }
 
@@ -161,6 +168,11 @@ namespace CREMOT.UIAnimatorDotween
             }
 
             return null;
+        }
+
+        private Tween AnimateIdleInfinite(float direction, float duration, Ease ease, AnimationSettings settings)
+        {
+            return transform.DOLocalMoveY(settings.IdleAmplitude * direction, duration).OnComplete(() => AnimateIdleInfinite(direction * -1f, duration, ease, settings));
         }
 
         private void NotifyAnimationFinished(AnimationSettings settings)
