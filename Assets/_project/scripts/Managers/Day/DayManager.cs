@@ -103,6 +103,7 @@ namespace NarrativeProject
         }
         #endregion
 
+        #region Day Phases / interactions
         [Button]
         public void DecrementCurrentInteractionCountRemaining()
         {
@@ -139,5 +140,6 @@ namespace NarrativeProject
 
             OnUpdateDayPhase?.Invoke(_currentDayPhase);
         }
+        #endregion
     }
 }
