@@ -91,7 +91,8 @@ namespace NarrativeProject
             if (_dayManager == null)    return;
 
             _dayManager.BeginDay();
-            _characterManager.GetCharactersThisDay();
+            if (DayManager.Instance != null)
+                _characterManager.GetCharactersThisDay(DayManager.Instance.CurrentDayIndex);
         }
     }
 
