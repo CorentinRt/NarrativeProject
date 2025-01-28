@@ -43,6 +43,7 @@ namespace NarrativeProject
 
         #endregion
 
+
         public void QuitGame()
         {
             Application.Quit();
