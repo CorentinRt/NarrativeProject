@@ -2,7 +2,8 @@
     "name": "NarrativeProject.Editor",
     "rootNamespace": "NarrativeProject.Editor",
     "references": [
-        "GUID:a6ee14e4b1670b34c9a21746cc6df417"
+        "GUID:a6ee14e4b1670b34c9a21746cc6df417",
+        "GUID:8ed19ee2326503347823cdc9cd1d7e42"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-using System.Runtime.InteropServices;
-using System.Security.Policy;
-using UnityEngine.TextCore.Text;
+using CREMOT.DialogSystem;
 
 namespace NarrativeProject.Editor
 {
@@ -10,6 +8,7 @@ namespace NarrativeProject.Editor
     public class SO_CharactersEditor : UnityEditor.Editor
     {
         SO_Characters _target;
+        bool updating = true;
 
         private void OnEnable()
         {
@@ -31,6 +30,7 @@ namespace NarrativeProject.Editor
                 PopupWindow.ShowWindow();
             }
             GUI.backgroundColor = baseColor;
+            if(updating)
             foreach (SO_CharacterData character in _target.Characters)
             {
                 EditorGUILayout.BeginVertical();
@@ -88,9 +88,12 @@ namespace NarrativeProject.Editor
                     EditorGUILayout.EndHorizontal();
                     if (GUILayout.Button("Remove", background, GUILayout.Width(100)))
                     {
+                        updating = false;
                         character.DrinkEffect.RemoveAt(i);
                         character.DrinkType.RemoveAt(i);
                         character.DrinkEffects.Remove(character.DrinkType[i]);
+                        GameObject prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/_project/prefabs/Characters/" + character.Name + ".prefab", typeof(GameObject));
+                            if(prefab != null) AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(character));
                     }
                     GUI.backgroundColor = baseColor;
                 }
@@ -102,22 +105,35 @@ namespace NarrativeProject.Editor
                 }
                 GUI.backgroundColor = baseColor;
                 EditorGUILayout.Space(50);
-                GUI.backgroundColor = Color.blue;
-                if (GUILayout.Button("Generate", background))
-                {
-                   foreach (SO_CharacterData c in _target.Characters)
-                    {
-                        GenerateCharacters(c);
-                    }
-                }
+
                 EditorGUILayout.EndVertical();
-                GUI.backgroundColor = baseColor;
             }
+            GUI.backgroundColor = Color.blue;
+            if (GUILayout.Button("Generate", background))
+            {
+                GameObject prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/_project/prefabs/Characters/Default.prefab", typeof(GameObject));
+                foreach (SO_CharacterData c in _target.Characters)
+                {
+                    GenerateCharacters(prefab, c);
+                }
+            }
+            GUI.backgroundColor = baseColor;
         }
 
-        void GenerateCharacters(SO_CharacterData character)
+        void GenerateCharacters(Object p, SO_CharacterData chara)
         {
-         
+            GameObject character = (GameObject)Instantiate(p);
+            character.name = chara.Name;
+            if(chara.Sprites[0] != null)
+            {
+                character.GetComponentInChildren<SpriteRenderer>().sprite = chara.Sprites[0];
+            }
+            if(chara.DialogueGraphData != null)
+            {
+                character.GetComponentInChildren<DialogueController>().DialogueGraphSO = chara.DialogueGraphData;
+            }
+
+            PrefabUtility.SaveAsPrefabAsset(character, "Assets/_project/prefabs/Characters/InGame/" + chara.Name + ".prefab");
         }
         private Texture2D MakeBackgroundTexture(int width, int height, Color color)
         {

@@ -21,6 +21,8 @@ namespace CREMOT.DialogSystem
         [Header("Associated Dialogue Graph")]
         [SerializeField] private DialogueGraphSO _dialogueGraphSO;
 
+        public DialogueGraphSO DialogueGraphSO { get => _dialogueGraphSO; set => _dialogueGraphSO = value; }
+
         private string _currentNodeId = "";
         private string _currentDialogueId = "";
 
@@ -40,6 +42,8 @@ namespace CREMOT.DialogSystem
         [Space(5)]
 
         public UnityEvent OnChoiceUpdatedUnity;
+
+
         public event Action<List<string>> OnChoiceUpdated;
 
         #endregion
@@ -77,10 +81,10 @@ namespace CREMOT.DialogSystem
 
         private string GetNodeIdEntryPoint()
         {
-            if (_dialogueGraphSO == null) return "";
-            if (_dialogueGraphSO.Nodes == null) return "";
+            if (DialogueGraphSO == null) return "";
+            if (DialogueGraphSO.Nodes == null) return "";
 
-            foreach (DialogueNodeSO node in _dialogueGraphSO.Nodes)
+            foreach (DialogueNodeSO node in DialogueGraphSO.Nodes)
             {
                 if (node == null) continue;
 
@@ -94,10 +98,10 @@ namespace CREMOT.DialogSystem
         }
         private string GetDialogueIdEntryPoint()
         {
-            if (_dialogueGraphSO == null) return "";
-            if (_dialogueGraphSO.Nodes == null) return "";
+            if (DialogueGraphSO == null) return "";
+            if (DialogueGraphSO.Nodes == null) return "";
 
-            foreach (DialogueNodeSO node in _dialogueGraphSO.Nodes)
+            foreach (DialogueNodeSO node in DialogueGraphSO.Nodes)
             {
                 if (node == null) continue;
 
@@ -193,7 +197,7 @@ namespace CREMOT.DialogSystem
         #region Condition Check
         private bool IsChoiceAvailable(string choiceTextId)
         {
-            DialogueNodeSO currentNode = _dialogueGraphSO.Nodes.FirstOrDefault(node => node.id == _currentNodeId);
+            DialogueNodeSO currentNode = DialogueGraphSO.Nodes.FirstOrDefault(node => node.id == _currentNodeId);
             if (currentNode == null)
             {
                 //Debug.Log("Break at current node null");
@@ -274,15 +278,15 @@ namespace CREMOT.DialogSystem
         #region Parcours Graph Data
         private DialogueNodeSO GetNextDialogueNodeByChoiceId(int choiceId)
         {
-            if (_dialogueGraphSO.Nodes == null) return null;
-            if (_dialogueGraphSO.Edges == null) return null;
+            if (DialogueGraphSO.Nodes == null) return null;
+            if (DialogueGraphSO.Edges == null) return null;
             if (string.IsNullOrEmpty(_currentNodeId)) return null;
             if (choiceId < 0) return null;
 
 
 
             // Trouve le nœud actuel
-            foreach (DialogueNodeSO node in _dialogueGraphSO.Nodes)
+            foreach (DialogueNodeSO node in DialogueGraphSO.Nodes)
             {
                 if (node.id == _currentNodeId)
                 {
@@ -291,7 +295,7 @@ namespace CREMOT.DialogSystem
                     if (edge == null) return null; // Pas d'edge trouvé pour ce choix
 
                     // Trouve le nœud cible
-                    foreach (DialogueNodeSO targetNode in _dialogueGraphSO.Nodes)
+                    foreach (DialogueNodeSO targetNode in DialogueGraphSO.Nodes)
                     {
                         if (targetNode.id == edge.toNodeId)
                         {
@@ -306,7 +310,7 @@ namespace CREMOT.DialogSystem
 
         private DialogueEdgeSO GetNextEdgeByChoiceId(int choiceId, string currentNodeId)    // Retourne l'edge qui fait le lien vers le node cible
         {
-            foreach (DialogueEdgeSO edge in _dialogueGraphSO.Edges)
+            foreach (DialogueEdgeSO edge in DialogueGraphSO.Edges)
             {
                 if (edge.fromNodeId == currentNodeId && edge.fromPortIndex == choiceId) // Si depuis bon node && bon choix
                 {
