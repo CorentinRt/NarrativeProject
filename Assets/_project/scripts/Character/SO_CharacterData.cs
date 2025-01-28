@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CREMOT.DialogSystem;
+using System;
 
 
 namespace NarrativeProject
@@ -26,10 +27,11 @@ namespace NarrativeProject
         Sad
     };
 
+    [Serializable]
     public struct DayInteractions
     {
-        public int InteractionsBeforeComing { get; set; }
-        public int InteractionsBeforeLeaving { get; set; }  
+        public int InteractionsBeforeComing;
+        public int InteractionsBeforeLeaving;  
     }
 
 

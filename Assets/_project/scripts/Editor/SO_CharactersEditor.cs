@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using CREMOT.DialogSystem;
+using System.Collections.Generic;
 
 namespace NarrativeProject.Editor
 {
@@ -13,10 +14,58 @@ namespace NarrativeProject.Editor
         private void OnEnable()
         {
             _target = (SO_Characters)target;
+            string[] files = AssetDatabase.FindAssets("t:SO_CharacterData");
+            foreach (string file in files)
+            {
+                if(!_target.Characters.Contains((SO_CharacterData)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(file), typeof(SO_CharacterData))))
+                _target.Characters.Add((SO_CharacterData)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(file), typeof(SO_CharacterData)));
+            }
+            foreach (SO_CharacterData character in _target.Characters)
+            {
+                for (int i = 0; i < character.DrinkType.Count; i++)
+                {
+                    if (!character.DrinkEffects.ContainsKey(character.DrinkType[i]))
+                    {
+                        character.DrinkEffects.Add(character.DrinkType[i], character.DrinkEffect[i]);
+                        character.DrinkEffectsFriendShip.Add(character.DrinkType[i], character.DrinkEffectFriendShip[i]);
+                        Debug.Log("Added " + character.DrinkType[i] + " to the dictionary at " + character.DrinkEffect[i]);
+                    }
+                }
+                for (int i = 0; i < character.DaysComing.Count; i++)
+                {
+                    Debug.Log("checking");
+                    if (!character.DaysComingData.ContainsKey(character.DaysComing[i]))
+                    {
+                        Debug.Log("add eleemtn");
+                        character.DaysComingData.Add(character.DaysComing[i], character.InteractionsData[i]);
+                    }
+                }
+            }
         }
         private void OnDisable()
         {
-            
+            foreach(SO_CharacterData character in _target.Characters)
+            {
+                for (int i = 0; i < character.DrinkType.Count; i++)
+                {
+                    if (!character.DrinkEffects.ContainsKey(character.DrinkType[i]))
+                    {
+                        character.DrinkEffects.Add(character.DrinkType[i], character.DrinkEffect[i]);
+                        character.DrinkEffectsFriendShip.Add(character.DrinkType[i], character.DrinkEffectFriendShip[i]);
+                        Debug.Log("Added " + character.DrinkType[i] + " to the dictionary at " + character.DrinkEffect[i]);
+                    }
+                }
+                for (int i = 0; i < character.DaysComing.Count; i++)
+                {
+                    Debug.Log("checking");
+                    if (!character.DaysComingData.ContainsKey(character.DaysComing[i]))
+                    {
+                        Debug.Log("add eleemtn");
+                        character.DaysComingData.Add(character.DaysComing[i], character.InteractionsData[i]);
+                    }
+                }
+            }
+
         }
 
         public override void OnInspectorGUI()
@@ -157,6 +206,7 @@ namespace NarrativeProject.Editor
 
         void GenerateCharacters(Object p, SO_CharacterData chara)
         {
+            Debug.Log("Generating " + chara.Name);
             GameObject character = (GameObject)Instantiate(p);
             character.name = chara.Name;
             if(chara.Sprites[0] != null)
@@ -169,6 +219,7 @@ namespace NarrativeProject.Editor
             }
 
             PrefabUtility.SaveAsPrefabAsset(character, "Assets/_project/prefabs/Characters/InGame/" + chara.Name + ".prefab");
+            DestroyImmediate(character);
         }
         private Texture2D MakeBackgroundTexture(int width, int height, Color color)
         {

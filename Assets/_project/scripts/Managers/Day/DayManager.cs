@@ -35,6 +35,7 @@ namespace NarrativeProject
         public static DayManager Instance { get => _instance; set => _instance = value; }
         public int CurrentDayIndex { get => _currentDayIndex; set => _currentDayIndex = value; }
         public EDayPhase CurrentDayPhase { get => _currentDayPhase; }
+        public int CurrentInteractionCountRemaining { get => _currentInteractionCountRemaining; set => _currentInteractionCountRemaining = value; }
 
         #endregion
 
@@ -46,6 +47,7 @@ namespace NarrativeProject
         public UnityEvent OnUpdateCurrentInteractionCountRemainingUnity;
 
         public event Action<EDayPhase> OnUpdateDayPhase;
+        public event Action<int, int> OnUpdateCurrentInteractionCountRemaining;
 
         #endregion
 
@@ -77,7 +79,7 @@ namespace NarrativeProject
                 return;
             }
 
-            _currentInteractionCountRemaining = currentDayData.MaxInteractionCount;
+            CurrentInteractionCountRemaining = currentDayData.MaxInteractionCount;
         }
 
         #region Day Global
@@ -97,7 +99,7 @@ namespace NarrativeProject
         {
             ChangeDayPhase(EDayPhase.POST_DAY);
 
-            _currentInteractionCountRemaining = 0;
+            CurrentInteractionCountRemaining = 0;
 
             OnEndDayUnity?.Invoke();
         }
@@ -107,14 +109,15 @@ namespace NarrativeProject
         [Button]
         public void DecrementCurrentInteractionCountRemaining()
         {
-            --_currentInteractionCountRemaining;
+            --CurrentInteractionCountRemaining;
 
-            if (_currentInteractionCountRemaining <= 0)
+            if (CurrentInteractionCountRemaining <= 0)
             {
                 EndDay();
             }
 
             OnUpdateCurrentInteractionCountRemainingUnity?.Invoke();
+            OnUpdateCurrentInteractionCountRemaining?.Invoke(_currentDayIndex, CurrentInteractionCountRemaining);
         }
 
         [Button]
