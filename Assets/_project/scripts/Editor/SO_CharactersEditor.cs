@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
+using UnityEngine.TextCore.Text;
 
 namespace NarrativeProject.Editor
 {
@@ -93,19 +94,31 @@ namespace NarrativeProject.Editor
                     }
                     GUI.backgroundColor = baseColor;
                 }
-                    GUI.backgroundColor = Color.red;
-                    if (GUILayout.Button("Delete", background))
+                GUI.backgroundColor = Color.red;
+                if (GUILayout.Button("Delete", background))
+                {
+                    AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(character));
+                    _target.Characters.Remove(character);
+                }
+                GUI.backgroundColor = baseColor;
+                EditorGUILayout.Space(50);
+                GUI.backgroundColor = Color.blue;
+                if (GUILayout.Button("Generate", background))
+                {
+                   foreach (SO_CharacterData c in _target.Characters)
                     {
-                        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(character));
-                        _target.Characters.Remove(character);
+                        GenerateCharacters(c);
                     }
-                    GUI.backgroundColor = baseColor;
-                    EditorGUILayout.Space(50);
-                    EditorGUILayout.EndVertical();
-                
+                }
+                EditorGUILayout.EndVertical();
+                GUI.backgroundColor = baseColor;
             }
         }
 
+        void GenerateCharacters(SO_CharacterData character)
+        {
+         
+        }
         private Texture2D MakeBackgroundTexture(int width, int height, Color color)
         {
             Color[] pixels = new Color[width * height];
