@@ -13,6 +13,7 @@ namespace NarrativeProject
         private DayManager _dayManager;
         private PlayerInputsManager _playerInputsManager;
         private CharacterManager _characterManager;
+        private List<Character> _charactersCurrent = new List<Character>();
 
         #endregion
 
@@ -91,7 +92,9 @@ namespace NarrativeProject
             if (_dayManager == null)    return;
 
             _dayManager.BeginDay();
-            _characterManager.GetCharactersThisDay();
+            _characterManager.GetCharactersThisDay(DayManager.Instance.CurrentDayIndex);
+            _characterManager.CheckWhoIsComing(DayManager.Instance.CurrentDayIndex, _dayManager.CurrentInteractionCountRemaining);
+            _characterManager.BringCharacters();
         }
     }
 

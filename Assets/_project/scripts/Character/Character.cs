@@ -1,6 +1,7 @@
 using CREMOT.DialogSystem;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace NarrativeProject
 {
@@ -9,6 +10,7 @@ namespace NarrativeProject
     {
         Coming,
         Here,
+        Leaving,
         Left
     };
     public class Character : MonoBehaviour
@@ -20,6 +22,9 @@ namespace NarrativeProject
         [VisibleInDebug] int _drunkScale, _friendshipScale;
         [VisibleInDebug] bool _isDead;
         [VisibleInDebug] ComingState _comingState;
+
+        public UnityEvent _onCharacterComing = new UnityEvent();
+        public UnityEvent _onCharacterLeaving = new UnityEvent();
 
         public SO_CharacterData Data { get => _data; }
         public bool IsDead { get => _isDead; set => _isDead = value; }
@@ -97,6 +102,16 @@ namespace NarrativeProject
         public void ReactToState()
         {
             DialogueInventory.Instance.AddItem(Data.Name + "_" + _state + "_" + _friendshipState, 1);
+        }
+        public void Coming()
+        {
+            _onCharacterComing?.Invoke();
+        }
+
+        public void Leaving()
+        {
+            _onCharacterLeaving?.Invoke();
+            _comingState = ComingState.Left;
         }
 
         public bool CheckComingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeComing <= currentInteractionCount;

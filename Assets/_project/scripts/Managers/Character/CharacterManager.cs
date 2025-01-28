@@ -15,6 +15,7 @@ namespace NarrativeProject
         List<Character> _charactersThisDay = new List<Character>();
 
         public static CharacterManager Instance { get => _instance; set => _instance = value; }
+        public List<Character> CharactersThisDay { get => _charactersThisDay; set => _charactersThisDay = value; }
 
         private void Awake()
         {
@@ -35,20 +36,20 @@ namespace NarrativeProject
 
         public List<Character> GetCharactersThisDay(int day)
         {
-            _charactersThisDay = new List<Character>();
+            CharactersThisDay = new List<Character>();
             foreach (Character character in _characterList)
             {
                 if (character.Data.DaysComingData.ContainsKey(day))
                 {
-                    _charactersThisDay.Add(character);
+                    CharactersThisDay.Add(character);
                 }
             }
-            return _charactersThisDay;
+            return CharactersThisDay;
         }
 
         public void CheckWhoIsComing(int currentDay, int interactions)
         {
-            foreach (Character character in _charactersThisDay)
+            foreach (Character character in CharactersThisDay)
             {
                 if (character.CheckComingAtDay(currentDay, interactions) && character.ComingState == ComingState.Coming)
                 {
@@ -60,12 +61,33 @@ namespace NarrativeProject
 
         public void CheckWhoIsLeaving(int currentDay, int interactions)
         {
-            foreach (Character character in _charactersThisDay)
+            foreach (Character character in CharactersThisDay)
             {
                 if (character.CheckLeavingAtDay(currentDay, interactions) && character.ComingState == ComingState.Here)
                 {
                     //TODO FAIRE PLUS VIENDRE LE PERSO
-                    character.ComingState = ComingState.Left;
+                    character.ComingState = ComingState.Leaving;
+                }
+            }
+        }
+
+        public void BringCharacters()
+        {
+            foreach (Character character in CharacterManager.Instance.CharactersThisDay)
+            {
+                if (character.ComingState == ComingState.Here)
+                {
+                    character.Coming();
+                }
+            }
+        }
+        public void RemoveCharacters()
+        {
+            foreach (Character character in CharacterManager.Instance.CharactersThisDay)
+            {
+                if (character.ComingState == ComingState.Leaving)
+                {
+                    character.Leaving();
                 }
             }
         }
