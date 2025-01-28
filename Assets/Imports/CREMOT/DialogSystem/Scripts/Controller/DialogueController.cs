@@ -226,7 +226,19 @@ namespace CREMOT.DialogSystem
         {
             if (DialogueInventory.Instance == null) return false;
 
-            return DialogueInventory.Instance.HasItem(condition.requiredItem, condition.requiredQuantity);
+            switch (condition.conditionType)
+            {
+                case EConditionType.REACHOREQUAL:
+                    return DialogueInventory.Instance.HasItem(condition.requiredItem, condition.requiredQuantity);
+                case EConditionType.UNDER:
+                    return DialogueInventory.Instance.IsUnderItem(condition.requiredItem, condition.requiredQuantity);
+                default:
+                    break;
+            }
+
+            return false;
+
+            //return DialogueInventory.Instance.HasItem(condition.requiredItem, condition.requiredQuantity);
         }
 
         #endregion
