@@ -47,6 +47,7 @@ namespace NarrativeProject
         public UnityEvent OnUpdateCurrentInteractionCountRemainingUnity;
 
         public event Action<EDayPhase> OnUpdateDayPhase;
+        public event Action<int, int> OnUpdateCurrentInteractionCountRemaining;
 
         #endregion
 
@@ -116,6 +117,7 @@ namespace NarrativeProject
             }
 
             OnUpdateCurrentInteractionCountRemainingUnity?.Invoke();
+            OnUpdateCurrentInteractionCountRemaining?.Invoke(_currentDayIndex, CurrentInteractionCountRemaining);
         }
 
         [Button]

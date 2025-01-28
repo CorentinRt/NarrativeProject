@@ -32,6 +32,8 @@ namespace NarrativeProject
             {
                 character.Init();
             }
+            DayManager.Instance.OnUpdateCurrentInteractionCountRemaining += CheckWhoIsComing;
+            DayManager.Instance.OnUpdateCurrentInteractionCountRemaining += CheckWhoIsLeaving;
         }
 
         public List<Character> GetCharactersThisDay(int day)
@@ -42,6 +44,7 @@ namespace NarrativeProject
                 if (character.Data.DaysComingData.ContainsKey(day))
                 {
                     CharactersThisDay.Add(character);
+                    Debug.Log("Add " + character.Data.Name);
                 }
             }
             return CharactersThisDay;
@@ -49,26 +52,32 @@ namespace NarrativeProject
 
         public void CheckWhoIsComing(int currentDay, int interactions)
         {
+            bool changed = false;
             foreach (Character character in CharactersThisDay)
             {
                 if (character.CheckComingAtDay(currentDay, interactions) && character.ComingState == ComingState.Coming)
                 {
                     //TODO FAIRE VIENDRE LE PERSO
                     character.ComingState = ComingState.Here;
+                    changed = true;
                 }
             }
+            if (changed) BringCharacters();
         }
 
         public void CheckWhoIsLeaving(int currentDay, int interactions)
         {
+            bool changed = false;
             foreach (Character character in CharactersThisDay)
             {
                 if (character.CheckLeavingAtDay(currentDay, interactions) && character.ComingState == ComingState.Here)
                 {
                     //TODO FAIRE PLUS VIENDRE LE PERSO
                     character.ComingState = ComingState.Leaving;
+                    changed = true;
                 }
             }
+            if (changed) RemoveCharacters();
         }
 
         public void BringCharacters()
@@ -78,6 +87,7 @@ namespace NarrativeProject
                 if (character.ComingState == ComingState.Here)
                 {
                     character.Coming();
+
                 }
             }
         }
