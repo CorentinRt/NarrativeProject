@@ -71,7 +71,11 @@ MonoBehaviour:
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
@@ -81,7 +85,11 @@ MonoBehaviour:
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
@@ -935,7 +943,11 @@ MonoBehaviour:
     _targetMove: {fileID: 2686517356686941093}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
@@ -945,7 +957,11 @@ MonoBehaviour:
     _targetMove: {fileID: 5278221256121043706}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
+    _idleAmplitude: 0
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []

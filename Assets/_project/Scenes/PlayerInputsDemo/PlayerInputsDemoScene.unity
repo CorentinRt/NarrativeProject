@@ -338,16 +338,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!224 &492945226 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3901344761272171681, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-  m_PrefabInstance: {fileID: 7466598838320584516}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &553345315 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6497624896251145726, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-  m_PrefabInstance: {fileID: 7466598838320584516}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &697636116 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 304050878070421824, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
@@ -569,7 +559,11 @@ MonoBehaviour:
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0.42851046, g: 0.8490566, b: 0.3003738, a: 1}
+    _idleAmplitude: 0
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
@@ -579,7 +573,11 @@ MonoBehaviour:
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
+    _idleAmplitude: 0
     _playOnStart: 0
+    OnAnimationStarted:
+      m_PersistentCalls:
+        m_Calls: []
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
@@ -708,18 +706,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3467983619155140050, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3681572539178296700, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5698184565017864158, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8266682396883513374, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: m_Name
       value: Game
@@ -737,10 +723,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1021492632035498122, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1722872920235532548, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -789,14 +771,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_main
       objectReference: {fileID: 0}
-    - target: {fileID: 8324919338858977010, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: _animations.Array.data[0]._targetMove
-      value: 
-      objectReference: {fileID: 553345315}
-    - target: {fileID: 8324919338858977010, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: _animations.Array.data[1]._targetMove
-      value: 
-      objectReference: {fileID: 492945226}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
