@@ -19,17 +19,45 @@ namespace NarrativeProject.Editor
             _target = (SO_CharacterData)target;
             t = AssetDatabase.LoadAssetAtPath<Texture>("Assets/_project/scripts/Editor/icon.png");
             Debug.Log(t);
-        }
-
-        private void OnDisable()
-        {
-            for(int i = 0; i < _target.DrinkType.Count; i++)
+            _updating = true;
+            for (int i = 0; i < _target.DrinkType.Count; i++)
             {
                 if (!_target.DrinkEffects.ContainsKey(_target.DrinkType[i]))
                 {
                     _target.DrinkEffects.Add(_target.DrinkType[i], _target.DrinkEffect[i]);
                     _target.DrinkEffectsFriendShip.Add(_target.DrinkType[i], _target.DrinkEffectFriendShip[i]);
                     Debug.Log("Added " + _target.DrinkType[i] + " to the dictionary at " + _target.DrinkEffect[i]);
+                }
+            }
+            for (int i = 0; i < _target.DaysComing.Count; i++)
+            {
+                Debug.Log("checking" + _target.DaysComing[i]);
+                if (!_target.DaysComingData.ContainsKey(_target.DaysComing[i]))
+                {
+                    Debug.Log("add eleemtn at " + _target.DaysComing[i]);
+                    _target.DaysComingData.Add(_target.DaysComing[i], _target.InteractionsData[i]);
+                }
+            }
+        }
+
+        private void OnDisable()
+        {
+            for (int i = 0; i < _target.DrinkType.Count; i++)
+            {
+                if (!_target.DrinkEffects.ContainsKey(_target.DrinkType[i]))
+                {
+                    _target.DrinkEffects.Add(_target.DrinkType[i], _target.DrinkEffect[i]);
+                    _target.DrinkEffectsFriendShip.Add(_target.DrinkType[i], _target.DrinkEffectFriendShip[i]);
+                    Debug.Log("Added " + _target.DrinkType[i] + " to the dictionary at " + _target.DrinkEffect[i]);
+                }
+            }
+            for (int i = 0; i < _target.DaysComing.Count; i++)
+            {
+                Debug.Log("checking");
+                if (!_target.DaysComingData.ContainsKey(_target.DaysComing[i]))
+                {
+                    Debug.Log("add eleemtn");
+                    _target.DaysComingData.Add(_target.DaysComing[i], _target.InteractionsData[i]);
                 }
             }
         }
@@ -81,7 +109,7 @@ namespace NarrativeProject.Editor
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.BeginHorizontal();
 
-                DayInteractions interactions = _target.InteractionsData[i];
+                DayInteractions interactions = _target.DaysComingData[_target.DaysComing[i]];
                 interactions.InteractionsBeforeComing = EditorGUILayout.IntField("Interactions Before Coming : ", interactions.InteractionsBeforeComing);
                 interactions.InteractionsBeforeLeaving = EditorGUILayout.IntField("Interactions Before Leaving : ", interactions.InteractionsBeforeLeaving);
                 _target.InteractionsData[i] = interactions;
