@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace NarrativeProject
         public UnityEvent OnBeginDragOverlappingUnity;
         public UnityEvent OnEndDragOverlappingUnity;
 
+        public event Action<GameObject> OnReceiveDrop;
+
 
         #region DropReceiver Interface
         public bool CanReceive(GameObject draggable)
@@ -28,6 +31,7 @@ namespace NarrativeProject
         }
         public void OnReceiveDropDraggable(GameObject draggable)
         {
+            OnReceiveDrop?.Invoke(draggable);
             OnReceiveDropUnity?.Invoke();
         }
 
