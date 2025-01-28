@@ -95,7 +95,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -376,6 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6045595912616319828}
   - component: {fileID: 518112722193905718}
+  - component: {fileID: 8224032962181385300}
   m_Layer: 7
   m_Name: Trigger_CameraFocus
   m_TagString: Untagged
@@ -431,8 +432,114 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 3, y: 6}
   m_Direction: 0
+--- !u!114 &8224032962181385300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918301045035211181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799f482df2802854b8abcdbe768b082a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _focusCameraOffset: {x: -4.5, y: 2}
+  _interactibleLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  OnReceiveCameraFocusUnity:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3717512147171124751}
+        m_TargetAssemblyTypeName: CREMOT.DialogSystem.DialogueDisplayer, CREMOT.DialogSystem
+        m_MethodName: ShowDisplayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2917496192428179762}
+        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
+        m_MethodName: KillAllAnimations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6208210293950992318}
+        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
+        m_MethodName: KillAllAnimations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2917496192428179762}
+        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
+        m_MethodName: PlayAllAnimations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnReceiveCameraUnfocusUnity:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6208210293950992318}
+        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
+        m_MethodName: KillAllAnimations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6208210293950992318}
+        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
+        m_MethodName: KillAllAnimations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6208210293950992318}
+        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
+        m_MethodName: PlayAllAnimations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8658242220081192605
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +551,6 @@ GameObject:
   - component: {fileID: 2199496595574098912}
   - component: {fileID: 6503960301330613154}
   - component: {fileID: 5408263052022059129}
-  - component: {fileID: 2877041562184031650}
   m_Layer: 0
   m_Name: Default
   m_TagString: Untagged
@@ -573,112 +679,6 @@ MonoBehaviour:
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &2877041562184031650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8658242220081192605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 799f482df2802854b8abcdbe768b082a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _focusCameraOffset: {x: -4.5, y: 2}
-  _interactibleLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  OnReceiveCameraFocusUnity:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3717512147171124751}
-        m_TargetAssemblyTypeName: CREMOT.DialogSystem.DialogueDisplayer, CREMOT.DialogSystem
-        m_MethodName: ShowDisplayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2917496192428179762}
-        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-        m_MethodName: KillAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6208210293950992318}
-        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-        m_MethodName: KillAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2917496192428179762}
-        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-        m_MethodName: PlayAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnReceiveCameraUnfocusUnity:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6208210293950992318}
-        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-        m_MethodName: KillAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6208210293950992318}
-        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-        m_MethodName: KillAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6208210293950992318}
-        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-        m_MethodName: PlayAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &8697166963143013139
 GameObject:
   m_ObjectHideFlags: 0

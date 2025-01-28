@@ -57,6 +57,13 @@ namespace CREMOT.DialogSystem
         [CREMOT.DialogSystem.ReadOnly] public string requiredItem; // Nom de l'item requis
         [CREMOT.DialogSystem.ReadOnly] public int requiredQuantity; // Quantité requise
         [CREMOT.DialogSystem.ReadOnly] public bool isMet; // État de la condition (calculé à l'exécution)
+        [CREMOT.DialogSystem.ReadOnly] public EConditionType conditionType;
+    }
+    [System.Serializable]
+    public enum EConditionType
+    {
+        REACHOREQUAL = 0,
+        UNDER = 1
     }
 
     [System.Serializable]

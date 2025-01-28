@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,11 @@ namespace CREMOT.DialogSystem
                 GUILayout.BeginHorizontal();
                 _conditions[i].requiredItem = EditorGUILayout.TextField("Item", _conditions[i].requiredItem);
                 _conditions[i].requiredQuantity = EditorGUILayout.IntField("Quantity", _conditions[i].requiredQuantity);
+
+                string[] conditionTypeList = new string[2];
+                conditionTypeList[0] = "REACHOREQUAL";
+                conditionTypeList[1] = "UNDER";
+                _conditions[i].conditionType = (EConditionType)EditorGUILayout.Popup((int)_conditions[i].conditionType, conditionTypeList);
 
                 if (GUILayout.Button("Remove"))
                 {
