@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace NarrativeProject
 {
@@ -12,17 +14,38 @@ namespace NarrativeProject
 
         private bool _isFocused = false;
 
+        [SerializeField] private Vector2 _focusCameraOffset = Vector2.zero;
+
         [SerializeField] private LayerMask _interactibleLayerMask;
 
         #endregion
+
+        #region Delegates
+        public UnityEvent OnReceiveCameraFocusUnity;
+        public UnityEvent OnReceiveCameraUnfocusUnity;
+
+
+        #endregion
+
 
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (Camera.main == null) return;
 
-                Collider2D detectedCollider = Physics2D.OverlapCircle(worldMousePos, 0.5f, _interactibleLayerMask);
+                if (EventSystem.current.IsPointerOverGameObject()) return;
+                
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)), Vector2.zero);
+
+                /*
+                if (hit.collider != null)
+                {
+                    Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                }
+                */
+
+                Collider2D detectedCollider = hit.collider;
 
                 if (detectedCollider == null)   return;
 
@@ -55,7 +78,7 @@ namespace NarrativeProject
                 }
                 else
                 {
-                    CameraManager.Instance.FocusCameraOn(transform);
+                    CameraManager.Instance.FocusCameraOn(this, _focusCameraOffset);
                     _isFocused = true;
                 }
             }

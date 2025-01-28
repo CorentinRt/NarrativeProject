@@ -33,6 +33,8 @@ namespace NarrativeProject
             InitManager();
 
             InitAllManagers();
+
+            StartGame();
         }
 
         public void InitManager()
@@ -70,6 +72,13 @@ namespace NarrativeProject
             {
                 Debug.LogWarning("PlayerInputs Manager is missing in the scene ! Some behaviors may not work correctly !");
             }
+        }
+
+        private void StartGame()
+        {
+            if (_dayManager == null)    return;
+
+            _dayManager.BeginDay();
         }
     }
 

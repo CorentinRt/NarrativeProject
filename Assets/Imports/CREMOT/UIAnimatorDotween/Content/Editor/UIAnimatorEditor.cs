@@ -50,6 +50,18 @@ namespace CREMOT.UIAnimatorDotween
                         animator.Animations[i].TargetColor = EditorGUILayout.ColorField("Target Color", animator.Animations[i].TargetColor);
                     }
 
+                    if (animator.Animations[i].AnimationType == UIAnimator.EAnimationType.IDLE_INFINITE_5)
+                    {
+                        animator.Animations[i].IdleAmplitude = EditorGUILayout.FloatField("Idle Amplitude", animator.Animations[i].IdleAmplitude);
+                    }
+
+                    // ---------------- Event field ---------------------
+                    SerializedObject serializedObjectStarted = new SerializedObject(animator);
+                    SerializedProperty animationsArrayStarted = serializedObjectStarted.FindProperty("_animations");
+                    SerializedProperty currentAnimationStarted = animationsArrayStarted.GetArrayElementAtIndex(i);
+                    SerializedProperty onAnimationStarted = currentAnimationStarted.FindPropertyRelative("OnAnimationStarted");
+                    EditorGUILayout.PropertyField(onAnimationStarted, new GUIContent("OnAnimationStarted"));
+                    // ------------------------------------------------------
                     // ---------------- Event field ---------------------
                     SerializedObject serializedObject = new SerializedObject(animator);
                     SerializedProperty animationsArray = serializedObject.FindProperty("_animations");
@@ -59,6 +71,7 @@ namespace CREMOT.UIAnimatorDotween
                     // ------------------------------------------------------
 
 
+                    serializedObjectStarted.ApplyModifiedProperties();
                     serializedObject.ApplyModifiedProperties();
 
                     if (GUILayout.Button("Remove Animation"))
