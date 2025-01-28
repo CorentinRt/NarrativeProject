@@ -1,6 +1,8 @@
+using Codice.Client.BaseCommands;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlasticPipe.Server.MonitorStats;
 
 namespace NarrativeProject
 {
@@ -9,6 +11,8 @@ namespace NarrativeProject
         static CharacterManager _instance;
 
         [SerializeField] List<Character> _characterList;
+
+        List<Character> _charactersThisDay = new List<Character>();
 
         public static CharacterManager Instance { get => _instance; set => _instance = value; }
 
@@ -29,17 +33,41 @@ namespace NarrativeProject
             }
         }
 
-        public List<Character> GetCharactersThisDay()
+        public List<Character> GetCharactersThisDay(int day)
         {
-            List<Character> charactersThisDay = new List<Character>();
+            _charactersThisDay = new List<Character>();
             foreach (Character character in _characterList)
             {
-                if (character.InComingDays <= 0)
+                if (character.Data.DaysComingData.ContainsKey(day))
                 {
-                    charactersThisDay.Add(character);
+                    _charactersThisDay.Add(character);
                 }
             }
-            return charactersThisDay;
+            return _charactersThisDay;
+        }
+
+        public void CheckWhoIsComing(int currentDay, int interactions)
+        {
+            foreach (Character character in _charactersThisDay)
+            {
+                if (character.CheckComingAtDay(currentDay, interactions) && character.ComingState == ComingState.Coming)
+                {
+                    //TODO FAIRE VIENDRE LE PERSO
+                    character.ComingState = ComingState.Here;
+                }
+            }
+        }
+
+        public void CheckWhoIsLeaving(int currentDay, int interactions)
+        {
+            foreach (Character character in _charactersThisDay)
+            {
+                if (character.CheckLeavingAtDay(currentDay, interactions) && character.ComingState == ComingState.Here)
+                {
+                    //TODO FAIRE PLUS VIENDRE LE PERSO
+                    character.ComingState = ComingState.Left;
+                }
+            }
         }
     }
 }
