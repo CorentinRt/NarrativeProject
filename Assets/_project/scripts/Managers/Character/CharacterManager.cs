@@ -41,6 +41,7 @@ namespace NarrativeProject
             CharactersThisDay = new List<Character>();
             foreach (Character character in _characterList)
             {
+                Debug.Log(character.Data.DaysComingData.ContainsKey(day));
                 if (character.Data.DaysComingData.ContainsKey(day))
                 {
                     CharactersThisDay.Add(character);

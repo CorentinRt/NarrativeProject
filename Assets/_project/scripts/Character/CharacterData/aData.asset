@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec06fcefcb1954a4193a3b36f683e64a, type: 3}
-  m_Name: ExampleData
+  m_Name: aData
   m_EditorClassIdentifier: 
-  _name: Example
+  _name: a
   _defaultFriendShipScale: 0
   _defaultdrunkScale: 0
   _dialogueGraphData: {fileID: 0}
@@ -23,7 +23,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _drinkType: 0200000001000000
-  _drinkEffect: 4000000014000000
-  _daysComing: 0000000001000000
-  _drinkEffectFriendShip: 0000000000000000
+  _drinkType: 
+  _drinkEffect: 
+  _daysComing: 0100000000000000
+  _interactionsData:
+  - InteractionsBeforeComing: 0
+    InteractionsBeforeLeaving: 6
+  - InteractionsBeforeComing: 0
+    InteractionsBeforeLeaving: 7
+  _drinkEffectFriendShip: 
