@@ -62,6 +62,39 @@ namespace NarrativeProject.Editor
                     EditorGUILayout.EndHorizontal();
                 }
                 GUI.backgroundColor = Color.green;
+                if (GUILayout.Button("Add Days Coming", background))
+                {
+                    character.DaysComing.Add(0);
+                    character.InteractionsData.Add(new DayInteractions());
+                }
+
+                for (int i = 0; i < character.DaysComing.Count; i++)
+                {
+                    GUILayout.BeginHorizontal();
+                    GUI.backgroundColor = baseColor;
+                    EditorGUILayout.LabelField("Day :");
+                    character.DaysComing[i] = EditorGUILayout.IntSlider(character.DaysComing[i], 0, 7);
+                    background.normal.background = MakeBackgroundTexture(1, 1, Color.red);
+                    GUI.backgroundColor = Color.red;
+
+                    if (GUILayout.Button("Remove", background))
+                    {
+                        character.DaysComing.RemoveAt(i);
+                        character.InteractionsData.RemoveAt(i);
+                        character.DaysComingData.Remove(character.DaysComing[i]);
+                    }
+
+                    EditorGUILayout.EndHorizontal();
+                    EditorGUILayout.BeginHorizontal();
+
+                    DayInteractions interactions = character.InteractionsData[i];
+                    interactions.InteractionsBeforeComing = EditorGUILayout.IntField("Interactions Before Coming : ", interactions.InteractionsBeforeComing);
+                    interactions.InteractionsBeforeLeaving = EditorGUILayout.IntField("Interactions Before Leaving : ", interactions.InteractionsBeforeLeaving);
+                    character.InteractionsData[i] = interactions;
+
+                    EditorGUILayout.EndHorizontal();
+                }
+                GUI.backgroundColor = Color.green;
                 if (GUILayout.Button("Add Drinks Effects", background))
                 {
                     character.DrinkEffect.Add(0);
@@ -69,6 +102,8 @@ namespace NarrativeProject.Editor
                     character.DrinkEffectFriendShip.Add(0);
                 }
                 GUI.backgroundColor = baseColor;
+
+             
                 for (int i = 0; i < character.DrinkEffect.Count; i++)
                 {
                     EditorGUILayout.BeginHorizontal();

@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.TextCore.Text;
 
 namespace NarrativeProject.Editor
 {   
@@ -54,6 +55,39 @@ namespace NarrativeProject.Editor
             Color baseColor = GUI.backgroundColor;
             GUIStyle background = new GUIStyle(GUI.skin.button);
             background.normal.background = MakeBackgroundTexture(1, 1, Color.green);
+            GUI.backgroundColor = Color.green;
+
+            if(GUILayout.Button("Add Days Coming", background))
+            {
+                _target.DaysComing.Add(0);
+                _target.InteractionsData.Add(new DayInteractions());
+            }
+            GUI.backgroundColor = baseColor;
+            for(int i = 0; i < _target.DaysComing.Count; i++)
+            {
+                GUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("Day :");
+                _target.DaysComing[i] = EditorGUILayout.IntSlider(_target.DaysComing[i], 0, 7);
+                background.normal.background = MakeBackgroundTexture(1, 1, Color.red);
+                GUI.backgroundColor = Color.red;
+
+                if (GUILayout.Button("Remove", background))
+                {
+                    _target.DaysComing.RemoveAt(i);
+                    _target.InteractionsData.RemoveAt(i);
+                    _target.DaysComingData.Remove(_target.DaysComing[i]);
+                }
+
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.BeginHorizontal();
+
+                DayInteractions interactions = _target.InteractionsData[i];
+                interactions.InteractionsBeforeComing = EditorGUILayout.IntField("Interactions Before Coming : ", interactions.InteractionsBeforeComing);
+                interactions.InteractionsBeforeLeaving = EditorGUILayout.IntField("Interactions Before Leaving : ", interactions.InteractionsBeforeLeaving);
+                _target.InteractionsData[i] = interactions;
+
+                EditorGUILayout.EndHorizontal();
+            }
             GUI.backgroundColor = Color.green;
             if (GUILayout.Button("Add Drinks Effects", background))
             {

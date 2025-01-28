@@ -12,21 +12,22 @@ namespace NarrativeProject
         [VisibleInDebug] int _inComingDays, _drunkScale, _friendshipScale;
         [VisibleInDebug] bool _isDead;
 
-        void Init()
+        public int InComingDays { get => _inComingDays; }
+
+        public void Init()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _spriteRenderer.sprite = _data.Sprites[0];
             SetDrunkState();
             SetFriendShipState();
-            _inComingDays = 0;
             _isDead = false;
         }
-        void DecrementInComingDays() => _inComingDays--;
+        public void DecrementInComingDays() => _inComingDays--;
 
-        void Die() => _isDead = true;
+        public void Die() => _isDead = true;
 
 
-        DrunkState Drink(DrinkType drink)
+        public DrunkState Drink(DrinkType drink)
         {
             switch (drink)
             {
@@ -46,7 +47,7 @@ namespace NarrativeProject
             return SetDrunkState();
         }
 
-        DrunkState SetDrunkState()
+        public DrunkState SetDrunkState()
         {
             if(_drunkScale <= 3)
             {
@@ -64,7 +65,7 @@ namespace NarrativeProject
                 return _state;
             }
         }
-        FriendshipState SetFriendShipState()
+        public FriendshipState SetFriendShipState()
         {
             if (_friendshipScale <= 3)
             {
@@ -83,7 +84,7 @@ namespace NarrativeProject
             }
         }
 
-        void ReactToState()
+        public void ReactToState()
         {
             DialogueInventory.Instance.AddItem(_data.Name + "_" + _state + "_" + _friendshipState, 1);
         }

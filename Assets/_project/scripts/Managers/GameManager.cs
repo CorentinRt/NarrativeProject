@@ -12,6 +12,7 @@ namespace NarrativeProject
         private SoundManager _soundManager;
         private DayManager _dayManager;
         private PlayerInputsManager _playerInputsManager;
+        private CharacterManager _characterManager;
 
         #endregion
 
@@ -42,6 +43,8 @@ namespace NarrativeProject
             _soundManager = SoundManager.Instance;
             _dayManager = DayManager.Instance;
             _playerInputsManager = PlayerInputsManager.Instance;
+            _characterManager = CharacterManager.Instance;
+
         }
 
         public void InitAllManagers()
@@ -72,6 +75,15 @@ namespace NarrativeProject
             {
                 Debug.LogWarning("PlayerInputs Manager is missing in the scene ! Some behaviors may not work correctly !");
             }
+
+            if(_characterManager != null)   // Character Manager
+            {
+                _characterManager.InitManager();
+            }
+            else
+            {
+                Debug.LogWarning("Character Manager is missing in the scene ! Some behaviors may not work correctly !");
+            }
         }
 
         private void StartGame()
@@ -79,6 +91,7 @@ namespace NarrativeProject
             if (_dayManager == null)    return;
 
             _dayManager.BeginDay();
+            _characterManager.GetCharactersThisDay();
         }
     }
 
