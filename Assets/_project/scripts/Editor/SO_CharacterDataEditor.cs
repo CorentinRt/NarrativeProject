@@ -103,7 +103,7 @@ namespace NarrativeProject.Editor
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.BeginHorizontal();
 
-                DayInteractions interactions = _target.DaysComingData[_target.DaysComing[i]];
+                DayInteractions interactions = _target.InteractionsData[_target.DaysComing[i]];
                 EditorGUILayout.LabelField("Interactions Before Coming : ", GUILayout.Width(175));
                 interactions.InteractionsBeforeComing = EditorGUILayout.IntField(interactions.InteractionsBeforeComing, GUILayout.Width(50));
                 GUILayout.Space(15);
