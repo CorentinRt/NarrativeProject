@@ -2,6 +2,7 @@ using CREMOT.DialogSystem;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 
 namespace NarrativeProject
 {
@@ -32,6 +33,24 @@ namespace NarrativeProject
 
         public void Init()
         {
+            for (int i = 0; i < _data.DrinkType.Count; i++)
+            {
+                if (!_data.DrinkEffects.ContainsKey(_data.DrinkType[i]))
+                {
+                    _data.DrinkEffects.Add(_data.DrinkType[i], _data.DrinkEffect[i]);
+                    _data.DrinkEffectsFriendShip.Add(_data.DrinkType[i], _data.DrinkEffectFriendShip[i]);
+                    Debug.Log("Added " + _data.DrinkType[i] + " to the dictionary at " + _data.DrinkEffect[i]);
+                }
+            }
+            for (int i = 0; i < _data.DaysComing.Count; i++)
+            {
+                Debug.Log("checking");
+                if (!_data.DaysComingData.ContainsKey(_data.DaysComing[i]))
+                {
+                    Debug.Log("add eleemtn");
+                    _data.DaysComingData.Add(_data.DaysComing[i], _data.InteractionsData[i]);
+                }
+            }
             _visual.GetComponent<SpriteRenderer>().sprite = Data.Sprites[0];
             SetDrunkState();
             SetFriendShipState();
