@@ -45,10 +45,10 @@ namespace NarrativeProject
             }
             for (int i = 0; i < _data.DaysComing.Count; i++)
             {
-                Debug.Log("checking");
+                //Debug.Log("checking");
                 if (!_data.DaysComingData.ContainsKey(_data.DaysComing[i]))
                 {
-                    Debug.Log("add eleemtn");
+                    //Debug.Log("add eleemtn");
                     _data.DaysComingData.Add(_data.DaysComing[i], _data.InteractionsData[i]);
                 }
             }

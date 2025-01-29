@@ -653,6 +653,14 @@ PrefabInstance:
       propertyPath: OnUnfocusCameraUnity.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 67281043}
+    - target: {fileID: 7499418009334355227, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
+      propertyPath: _characterList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499418009334355227, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
+      propertyPath: _autoFillCharacterListOnStart
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -706,10 +714,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 808747551312952051, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 7640056c458146e4e86caf3929102989, type: 2}
     - target: {fileID: 8266682396883513374, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+    - target: {fileID: 8271858267363705615, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c925ccd9a403de4296e39f1a044f948, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

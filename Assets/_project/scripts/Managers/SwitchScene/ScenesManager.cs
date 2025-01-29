@@ -41,7 +41,7 @@ namespace NarrativeProject
             SceneManager.LoadScene(_gameScene);
         }
 
-        public void ReloadCurrentScene(string sceneName)
+        public void ReloadCurrentScene()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

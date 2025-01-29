@@ -12,6 +12,8 @@ namespace NarrativeProject
 
         [SerializeField] List<Character> _characterList;
 
+        [SerializeField] private bool _autoFillCharacterListOnStart;
+
         List<Character> _charactersThisDay = new List<Character>();
 
         public static CharacterManager Instance { get => _instance; set => _instance = value; }
@@ -40,6 +42,18 @@ namespace NarrativeProject
             if (_characterList == null)
             {
                 Debug.LogWarning("Character List is missing in Character Manager");
+            }
+
+            if (_autoFillCharacterListOnStart)
+            {
+                Character[] tempAllChara = GameObject.FindObjectsOfType<Character>();
+
+                _characterList.Clear();
+                foreach (var character in tempAllChara)
+                {
+                    if (character ==  null) continue;
+                    _characterList.Add(character);
+                }
             }
 
             foreach(Character character in _characterList)
