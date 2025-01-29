@@ -8,6 +8,6 @@ namespace NarrativeProject
     {
         public abstract bool CanFocus();
 
-        public abstract void Focus();
+        public abstract void ToggleFocus();
     }
 }
