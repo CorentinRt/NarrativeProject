@@ -82,21 +82,71 @@ namespace NarrativeProject
         public void CheckWhoIsComing(int currentDay, int interactions)
         {
             bool changed = false;
+            bool b = false;
+            bool c = false;
             foreach (Character character in CharactersThisDay)
             {
-                if (character.CheckComingAtDay(currentDay, interactions) && character.ComingState == ComingState.Coming)
+                if (character.ComingState == ComingState.Coming)
                 {
                     //TODO FAIRE VIENDRE LE PERSO
-                    character.ComingState = ComingState.Here;
-                    changed = true;
+                    if(character.CheckComingAtDay(currentDay, interactions))
+                    {
+                        character.ComingState = ComingState.Here;
+                        changed = true;
+                    }
+                    
+                    b = true;
+                    c = true;
                 }
             }
+            if (!changed && c)  // Si il reste des perso derriere mais plus personne au bar
+            {
+                Debug.LogWarning("Call force endDay test 0");
+
+                if (GetNextCharacter(currentDay, interactions) != null) changed = true;
+                else
+                {
+                    /*
+                    if (DayManager.Instance != null)
+                    {
+                        Debug.LogWarning("Call force endDay");
+                        DayManager.Instance.EndDay();
+                    }
+                    return;
+                    */
+                }
+            }
+
             if (changed) BringCharacters();
         }
 
+        public Character GetNextCharacter(int currentDay, int interactions)
+        {
+            Character chosenCharacter = null;
+            int minInteraction = 1000;
+            foreach(Character character in CharactersThisDay)
+            {
+                if(character.ComingState != ComingState.Coming) continue;
+                if ((character.Data.DaysComingData[currentDay].InteractionsBeforeComing - interactions) < minInteraction )
+                {
+                    chosenCharacter = character;
+                    minInteraction = character.Data.DaysComingData[currentDay].InteractionsBeforeComing - interactions;
+
+                }
+            }
+            if (chosenCharacter != null)
+            {
+                DayInteractions newDayInteraction = new DayInteractions();
+                newDayInteraction.InteractionsBeforeComing = 0;
+                newDayInteraction.InteractionsBeforeLeaving = chosenCharacter.Data.DaysComingData[currentDay].InteractionsBeforeLeaving;
+                chosenCharacter.Data.DaysComingData[currentDay] = newDayInteraction;
+            }
+            return chosenCharacter;
+        }
         public void CheckWhoIsLeaving(int currentDay, int interactions)
         {
             bool changed = false;
+            bool b = false;
             foreach (Character character in CharactersThisDay)
             {
                 if (character.CheckLeavingAtDay(currentDay, interactions) && character.ComingState == ComingState.Here)
@@ -104,14 +154,30 @@ namespace NarrativeProject
                     //TODO FAIRE PLUS VIENDRE LE PERSO
                     character.ComingState = ComingState.Leaving;
                     changed = true;
+
+                }
+                if (character.ComingState == ComingState.Here || character.ComingState == ComingState.Coming)
+                {
+                    Debug.LogWarning("c'est vrai !");
+                    b = true;
                 }
             }
+
+            if (!b)
+            {
+                if (DayManager.Instance != null)
+                {
+                    Debug.LogWarning("Call force endDay");
+                    DayManager.Instance.EndDay();
+                }
+            }
+
             if (changed) RemoveCharacters();
         }
 
         public void BringCharacters()
         {
-            foreach (Character character in CharacterManager.Instance.CharactersThisDay)
+            foreach (Character character in CharactersThisDay)
             {
                 if (character.ComingState == ComingState.Here)
                 {
@@ -122,7 +188,7 @@ namespace NarrativeProject
         }
         public void RemoveCharacters()
         {
-            foreach (Character character in CharacterManager.Instance.CharactersThisDay)
+            foreach (Character character in CharactersThisDay)
             {
                 if (character.ComingState == ComingState.Leaving)
                 {

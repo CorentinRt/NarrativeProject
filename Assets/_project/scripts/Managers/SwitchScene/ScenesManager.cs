@@ -41,6 +41,10 @@ namespace NarrativeProject
             SceneManager.LoadScene(_gameScene);
         }
 
+        public void ReloadCurrentScene(string sceneName)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         #endregion
 
 
