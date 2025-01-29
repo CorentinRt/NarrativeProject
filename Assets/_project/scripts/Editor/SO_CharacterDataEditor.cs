@@ -82,8 +82,8 @@ namespace NarrativeProject.Editor
             EditorGUILayout.EndHorizontal();
             Color baseColor = GUI.backgroundColor;
             GUIStyle background = new GUIStyle(GUI.skin.button);
-            background.normal.background = MakeBackgroundTexture(1, 1, Color.green);
-            GUI.backgroundColor = Color.green;
+            background.normal.background = MakeBackgroundTexture(1, 1, Color.cyan);
+            GUI.backgroundColor = Color.cyan;
             GUILayout.Space(25);
             if (GUILayout.Button("Add Days Coming", background))
             {
@@ -113,7 +113,7 @@ namespace NarrativeProject.Editor
 
                 EditorGUILayout.EndHorizontal();
                 GUI.backgroundColor = Color.red;
-                if (GUILayout.Button("Remove", background, GUILayout.Width(100)))
+                if (GUILayout.Button("Remove Item", background, GUILayout.Width(125)))
                 {
                     _target.DaysComing.RemoveAt(i);
                     _target.InteractionsData.RemoveAt(i);
@@ -154,7 +154,7 @@ namespace NarrativeProject.Editor
                 GUI.backgroundColor = Color.red;
 
                 EditorGUILayout.EndHorizontal();
-                if (GUILayout.Button("Remove", background, GUILayout.Width(100)))
+                if (GUILayout.Button("Remove Item", background, GUILayout.Width(125)))
                 {
                     _target.DrinkEffect.RemoveAt(i);
                     _target.DrinkType.RemoveAt(i);

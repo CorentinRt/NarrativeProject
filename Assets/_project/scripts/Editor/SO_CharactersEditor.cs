@@ -72,8 +72,8 @@ namespace NarrativeProject.Editor
         {
             Color baseColor = GUI.backgroundColor;
             GUIStyle background = new GUIStyle(GUI.skin.button);
-            background.normal.background = MakeBackgroundTexture(1, 1, Color.green);
-            GUI.backgroundColor = Color.green;
+            background.normal.background = MakeBackgroundTexture(1, 1, new Color(0.75f, 0.75f, 0.75f, 1));
+            GUI.backgroundColor = Color.grey;
             if (GUILayout.Button("Add Character Data", background))
             {
                 PopupWindow.ShowWindow();
@@ -110,7 +110,9 @@ namespace NarrativeProject.Editor
 
                     EditorGUILayout.EndHorizontal();
                 }
-                GUI.backgroundColor = Color.green;
+                background.normal.background = MakeBackgroundTexture(1, 1, Color.cyan);
+                GUI.backgroundColor = Color.cyan;
+                GUILayout.Space(25);
                 if (GUILayout.Button("Add Days Coming", background))
                 {
                     character.DaysComing.Add(0);
@@ -119,31 +121,37 @@ namespace NarrativeProject.Editor
 
                 for (int i = 0; i < character.DaysComing.Count; i++)
                 {
+                    EditorGUILayout.Space(20);
                     GUILayout.BeginHorizontal();
                     GUI.backgroundColor = baseColor;
-                    EditorGUILayout.LabelField("Day :");
-                    character.DaysComing[i] = EditorGUILayout.IntSlider(character.DaysComing[i], 0, 7);
+                    EditorGUILayout.LabelField("Day : ", GUILayout.Width(30));
+                    character.DaysComing[i] = EditorGUILayout.IntSlider(character.DaysComing[i], 0, 7, GUILayout.Width(500));
                     background.normal.background = MakeBackgroundTexture(1, 1, Color.red);
-                    GUI.backgroundColor = Color.red;
-
-                    if (GUILayout.Button("Remove", background))
-                    {
-                        character.DaysComing.RemoveAt(i);
-                        character.InteractionsData.RemoveAt(i);
-                        character.DaysComingData.Remove(character.DaysComing[i]);
-                    }
 
                     EditorGUILayout.EndHorizontal();
                     EditorGUILayout.BeginHorizontal();
 
                     DayInteractions interactions = character.InteractionsData[i];
-                    interactions.InteractionsBeforeComing = EditorGUILayout.IntField("Interactions Before Coming : ", interactions.InteractionsBeforeComing);
-                    interactions.InteractionsBeforeLeaving = EditorGUILayout.IntField("Interactions Before Leaving : ", interactions.InteractionsBeforeLeaving);
+                    EditorGUILayout.LabelField("Interactions Before Coming : ", GUILayout.Width(175));
+                    interactions.InteractionsBeforeComing = EditorGUILayout.IntField(interactions.InteractionsBeforeComing, GUILayout.Width(50));
+                    GUILayout.Space(15);
+                    EditorGUILayout.LabelField("Interactions Before Leaving : ", GUILayout.Width(175));
+                    interactions.InteractionsBeforeLeaving = EditorGUILayout.IntField(interactions.InteractionsBeforeLeaving, GUILayout.Width(50));
                     character.InteractionsData[i] = interactions;
 
                     EditorGUILayout.EndHorizontal();
+                    GUI.backgroundColor = Color.red;
+
+                    if (GUILayout.Button("Remove Item", background, GUILayout.Width(125)))
+                    {
+                        character.DaysComing.RemoveAt(i);
+                        character.InteractionsData.RemoveAt(i);
+                        character.DaysComingData.Remove(character.DaysComing[i]);
+                    }
                 }
+                background.normal.background = MakeBackgroundTexture(1, 1, Color.green);
                 GUI.backgroundColor = Color.green;
+                GUILayout.Space(25);
                 if (GUILayout.Button("Add Drinks Effects", background))
                 {
                     character.DrinkEffect.Add(0);
@@ -151,7 +159,7 @@ namespace NarrativeProject.Editor
                     character.DrinkEffectFriendShip.Add(0);
                 }
                 GUI.backgroundColor = baseColor;
-
+                GUILayout.Space(20);
              
                 for (int i = 0; i < character.DrinkEffect.Count; i++)
                 {
@@ -160,19 +168,24 @@ namespace NarrativeProject.Editor
                     EditorGUILayout.LabelField("Drink Type : ", GUILayout.Width(75));
                     character.DrinkType[i] = (DrinkType)EditorGUILayout.EnumPopup(character.DrinkType[i]);
                     EditorGUILayout.Space(25);
+
                     EditorGUILayout.LabelField("DrinkScale :", GUILayout.Width(75));
-                    character.DrinkEffect[i] = EditorGUILayout.IntSlider(character.DrinkEffect[i], 0, 100);
+                    character.DrinkEffect[i] = EditorGUILayout.IntField(character.DrinkEffect[i], GUILayout.Width(50));
+                    if (character.DrinkEffect[i] < 0) character.DrinkEffect[i] = 0;
+                    else if (character.DrinkEffect[i] > 100) character.DrinkEffect[i] = 100;
+                    
                     EditorGUILayout.Space(25);
                     EditorGUILayout.LabelField("FriendScale :", GUILayout.Width(75));
-                    character.DrinkEffectFriendShip[i] = EditorGUILayout.IntSlider(character.DrinkEffectFriendShip[i], 0, 100);
-
+                    character.DrinkEffectFriendShip[i] = EditorGUILayout.IntField(character.DrinkEffectFriendShip[i], GUILayout.Width(50));
+                    if (character.DrinkEffectFriendShip[i] < 0) character.DrinkEffectFriendShip[i] = 0;
+                    else if (character.DrinkEffectFriendShip[i] > 100) character.DrinkEffectFriendShip[i] = 100;
                     background.normal.background = MakeBackgroundTexture(1, 1, Color.red);
                     GUI.backgroundColor = Color.red;
 
                     EditorGUILayout.EndHorizontal();
-                    if (GUILayout.Button("Remove", background, GUILayout.Width(100)))
+                    if (GUILayout.Button("Remove Item", background, GUILayout.Width(125)))
                     {
-                        updating = false;
+                        //updating = false;
                         character.DrinkEffect.RemoveAt(i);
                         character.DrinkType.RemoveAt(i);
                         character.DrinkEffects.Remove(character.DrinkType[i]);
@@ -182,6 +195,7 @@ namespace NarrativeProject.Editor
                     GUI.backgroundColor = baseColor;
                 }
                 GUI.backgroundColor = Color.red;
+                GUILayout.Space(25);
                 if (GUILayout.Button("Delete", background))
                 {
                     AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(character));
@@ -192,8 +206,9 @@ namespace NarrativeProject.Editor
 
                 EditorGUILayout.EndVertical();
             }
+            background.normal.background = MakeBackgroundTexture(1, 1, Color.blue);
             GUI.backgroundColor = Color.blue;
-            if (GUILayout.Button("Generate", background))
+            if (GUILayout.Button("Generate", background, GUILayout.Height(50)))
             {
                 GameObject prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/_project/prefabs/Characters/Default.prefab", typeof(GameObject));
                 foreach (SO_CharacterData c in _target.Characters)
