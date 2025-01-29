@@ -33,6 +33,8 @@ namespace NarrativeProject
 
         private void Start()
         {
+            InitTransition();
+
             if (DayManager.Instance != null)
             {
                 DayManager.Instance.OnPreDay += ShowTransition;
@@ -49,6 +51,12 @@ namespace NarrativeProject
             {
                 DayManager.Instance.OnPreDay -= ShowTransition;
             }
+        }
+
+        private void InitTransition()
+        {
+            _btnNewsPaper.transform.rotation = Quaternion.identity;
+            _btnNewsPaper.transform.localScale = Vector3.zero;
         }
 
         [Button] private void TestShowTransition() => ShowTransition();
