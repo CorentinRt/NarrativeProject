@@ -1,5 +1,6 @@
 using CREMOT.DialogSystem;
 using JetBrains.Annotations;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.GraphicsBuffer;
@@ -17,7 +18,7 @@ namespace NarrativeProject
     public class Character : MonoBehaviour
     {
         [SerializeField] SO_CharacterData _data;
-        [SerializeField] GameObject _visual;
+        [SerializeField] GameObject _visual, Collision;
         [SerializeField] DrunkState _state;
         [SerializeField] FriendshipState _friendshipState;
         [SerializeField] int _drunkScale, _friendshipScale;
@@ -52,9 +53,36 @@ namespace NarrativeProject
                 }
             }
             _visual.GetComponent<SpriteRenderer>().sprite = Data.Sprites[0];
+            _friendshipScale = Data.DefaultFriendShipScale;
+            _drunkScale = Data.DefaultdrunkScale;
             SetDrunkState();
             SetFriendShipState();
             IsDead = false;
+            Collision.GetComponentInChildren<DropZone>().OnReceiveDrop += ReceiveDrop;
+        }
+
+        public void ResetValues()
+        {
+            _friendshipScale = Data.DefaultFriendShipScale;
+            _drunkScale = Data.DefaultdrunkScale;
+            SetDrunkState();
+            SetFriendShipState();
+        }
+        private void OnDestroy()
+        {
+            Collision.GetComponentInChildren<DropZone>().OnReceiveDrop -= ReceiveDrop;
+        }
+
+        private void ReceiveDrop(GameObject obj)
+        {
+            Drink _drink = obj.GetComponent<Drink>();
+            if (_drink != null)
+            {
+                Drink(_drink.DrinkType);
+
+                ReactToState();
+                Debug.Log("Drink " + _drink.DrinkType + "Reaction :" + _state + " " + _friendshipState);
+            }
         }
 
         public void Die() => IsDead = true;
@@ -77,19 +105,20 @@ namespace NarrativeProject
                     //_friendshipScale += 2;
                     break;
             }
+            SetFriendShipState();
             return SetDrunkState();
         }
 
         public DrunkState SetDrunkState()
         {
-            if(_drunkScale <= 3)
+            if(_drunkScale <= 30)
             {
                 _state = DrunkState.Clean;
                 return _state;
             }
-            else if (_drunkScale > 3 && _drunkScale <= 6)
+            else if (_drunkScale > 30 && _drunkScale <= 60)
             {
-                _state = DrunkState.Happy;
+                _state = DrunkState.Dizzy;
                 return _state;
             }
             else
@@ -100,19 +129,19 @@ namespace NarrativeProject
         }
         public FriendshipState SetFriendShipState()
         {
-            if (_friendshipScale <= 3)
+            if (_friendshipScale <= 30)
             {
-                _state = DrunkState.Clean;
+                _friendshipState = FriendshipState.Sad;
                 return _friendshipState;
             }
-            else if (_friendshipScale > 3 && _friendshipScale <= 6)
+            else if (_friendshipScale > 30 && _friendshipScale <= 60)
             {
-                _state = DrunkState.Happy;
+                _friendshipState = FriendshipState.Neutral;
                 return _friendshipState;
             }
             else
             {
-                _state = DrunkState.Drunk;
+                _friendshipState = FriendshipState.Happy;
                 return _friendshipState;
             }
         }
