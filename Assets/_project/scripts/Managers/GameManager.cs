@@ -63,6 +63,8 @@ namespace NarrativeProject
             if (_dayManager != null)    // Day Manager
             {
                 _dayManager.InitManager();
+
+                _dayManager.OnBeginDay += AllowCharacterComing;
             }
             else
             {
@@ -87,12 +89,22 @@ namespace NarrativeProject
                 Debug.LogWarning("Character Manager is missing in the scene ! Some behaviors may not work correctly !");
             }
         }
+        private void OnDestroy()
+        {
+            if (_dayManager != null)
+            {
+                _dayManager.OnBeginDay -= AllowCharacterComing;
+            }
+        }
 
         private void StartGame()
         {
             if (_dayManager == null)    return;
 
-            _dayManager.BeginDay();
+            _dayManager.InitDay();
+        }
+        private void AllowCharacterComing(int _ = 0)
+        {
             _characterManager.GetCharactersThisDay(DayManager.Instance.CurrentDayIndex);
             _characterManager.CheckWhoIsComing(DayManager.Instance.CurrentDayIndex, _dayManager.CurrentInteractionCountRemaining);
             _characterManager.BringCharacters();
