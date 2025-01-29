@@ -85,7 +85,7 @@ namespace NarrativeProject
                 return;
             }
 
-            CurrentInteractionCount = currentDayData.MaxInteractionCount;
+            CurrentInteractionCount = 0;
         }
 
         #region Day Global
@@ -99,6 +99,8 @@ namespace NarrativeProject
         }
         public void BeginDay()
         {
+            CurrentInteractionCount = 0;
+
             ChangeDayPhase(EDayPhase.IN_DAY);
 
             OnBeginDay?.Invoke(CurrentDayIndex);
@@ -121,7 +123,9 @@ namespace NarrativeProject
         public void IncrementCurrentInteractionCount()
         {
             ++CurrentInteractionCount;
-            
+
+            CurrentInteractionCount = Mathf.Clamp(CurrentInteractionCount, 0, _daysData[_currentDayIndex].MaxInteractionCount);
+
             OnUpdateCurrentInteractionCountUnity?.Invoke();
             OnUpdateCurrentInteractionCount?.Invoke(_currentDayIndex, CurrentInteractionCount);
 
