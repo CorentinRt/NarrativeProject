@@ -95,25 +95,24 @@ namespace NarrativeProject
                         changed = true;
                     }
                     
-                    b = true;
                     c = true;
                 }
-            }
-            if (!changed && c)  // Si il reste des perso derriere mais plus personne au bar
-            {
-                Debug.LogWarning("Call force endDay test 0");
-
-                if (GetNextCharacter(currentDay, interactions) != null) changed = true;
-                else
+                if (character.ComingState == ComingState.Here && character.Data.DaysComingData[currentDay].InteractionsBeforeLeaving != interactions)  // Check si y a au moins une personne au bar
                 {
-                    /*
-                    if (DayManager.Instance != null)
-                    {
-                        Debug.LogWarning("Call force endDay");
-                        DayManager.Instance.EndDay();
-                    }
-                    return;
-                    */
+                    b = true;
+                }
+            }
+            if (!changed && c && !b)  // Si il reste des perso derriere mais plus personne au bar
+            {
+                //Debug.LogWarning("Call force endDay test 0");
+
+                var tempChara = GetNextCharacter(currentDay, interactions);
+
+                if (tempChara != null)
+                {
+                    changed = true;
+                    tempChara.ComingState = ComingState.Here;
+                    //Debug.LogWarning("Call force endDay test 1 : " + tempChara.name);
                 }
             }
 
@@ -158,7 +157,7 @@ namespace NarrativeProject
                 }
                 if (character.ComingState == ComingState.Here || character.ComingState == ComingState.Coming)
                 {
-                    Debug.LogWarning("c'est vrai !");
+                    //Debug.LogWarning("c'est vrai !");
                     b = true;
                 }
             }
@@ -167,7 +166,7 @@ namespace NarrativeProject
             {
                 if (DayManager.Instance != null)
                 {
-                    Debug.LogWarning("Call force endDay");
+                    //Debug.LogWarning("Call force endDay");
                     DayManager.Instance.EndDay();
                 }
             }
