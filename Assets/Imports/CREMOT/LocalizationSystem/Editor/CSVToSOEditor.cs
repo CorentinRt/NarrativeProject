@@ -84,9 +84,17 @@ public class CSVToSOEditor : EditorWindow
                 continue;
             }
 
+            /*
+            // OLD (column and lign were inversed)
             // The first column contains the language ID
             string languageID = columns[0].Trim();
+            */
 
+            // The First Column contain the id of the sentence
+            string sentenceID = columns[0].Trim();
+
+            /*
+            // OLD (column and lign were inversed)
             // Loop through the remaining columns to get the keys and translations
             for (int j = 1; j < columns.Length; j++)
             {
@@ -96,6 +104,18 @@ public class CSVToSOEditor : EditorWindow
                 // Add the data to the ScriptableObject
                 localizationDataSO.AddEntry(key, languageID, text);
             }
+            */
+
+            // Loop trough the remaining columns to get the 
+            for (int j = 1; j < columns.Length; j++)
+            {
+                string languageID = headers[j].Trim();         // Main key (from the header)
+                string text = columns[j].Trim();       // Translation text
+
+                // Add the data to the ScriptableObject
+                localizationDataSO.AddEntry(sentenceID, languageID, text);
+            }
+            
         }
 
         // Save the ScriptableObject after filling it
