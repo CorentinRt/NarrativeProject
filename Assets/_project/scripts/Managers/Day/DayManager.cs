@@ -50,6 +50,9 @@ namespace NarrativeProject
         public event Action<int> OnEndDay;
         public UnityEvent OnEndDayUnity;
 
+        public event Action OnEndGame;
+        public UnityEvent OnEndGameUnity;
+
         public UnityEvent OnUpdateCurrentInteractionCountUnity;
 
         public event Action<EDayPhase> OnUpdateDayPhase;
@@ -92,7 +95,13 @@ namespace NarrativeProject
         public void NextDay()
         {
             ++_currentDayIndex;
-
+            if(_currentDayIndex >= _daysData.Count)
+            {
+                _currentDayIndex = 0;
+                OnEndGame?.Invoke();
+                OnEndGameUnity?.Invoke();
+                return;
+            }
             ChangeDayPhase(EDayPhase.PRE_DAY);
 
             OnNextDayUnity?.Invoke();
