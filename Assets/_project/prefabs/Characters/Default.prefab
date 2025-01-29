@@ -723,6 +723,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db14043e6a9bf4943aead6b28ae11b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _data: {fileID: 0}
+  _visual: {fileID: 7432107011642609883}
+  _state: 0
+  _friendshipState: 0
+  _drunkScale: 0
+  _friendshipScale: 0
+  _isDead: 0
+  _comingState: 0
   _onCharacterComing:
     m_PersistentCalls:
       m_Calls:

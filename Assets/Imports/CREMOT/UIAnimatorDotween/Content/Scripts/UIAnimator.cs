@@ -91,7 +91,7 @@ namespace CREMOT.UIAnimatorDotween
                 _spriteRenderer = spriteRenderer;
             }
         }
-        private void Start()
+        private void OnEnable()
         {
             foreach (var animation in _animations)
             {
