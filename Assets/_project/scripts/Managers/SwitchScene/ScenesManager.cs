@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,15 +35,18 @@ namespace NarrativeProject
         #region Open Scene
         public void OpenMenuScene()
         {
+            DOTween.Clear();
             SceneManager.LoadScene(_menuScene);
         }
         public void OpenGameScene()
         {
+            DOTween.Clear();
             SceneManager.LoadScene(_gameScene);
         }
 
         public void ReloadCurrentScene()
         {
+            DOTween.Clear();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         #endregion
