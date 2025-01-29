@@ -25,15 +25,31 @@ namespace NarrativeProject
             }
             Instance = this;
         }
+        private void OnDestroy()
+        {
+            if (DayManager.Instance != null)
+            {
+                DayManager.Instance.OnUpdateCurrentInteractionCountRemaining -= CheckWhoIsComing;
+                DayManager.Instance.OnUpdateCurrentInteractionCountRemaining -= CheckWhoIsLeaving;
+            }
+        }
 
         public void InitManager()
         {
+            if (_characterList == null)
+            {
+                Debug.LogWarning("Character List is missing in Character Manager");
+            }
+
             foreach(Character character in _characterList)
             {
                 character.Init();
             }
-            DayManager.Instance.OnUpdateCurrentInteractionCountRemaining += CheckWhoIsComing;
-            DayManager.Instance.OnUpdateCurrentInteractionCountRemaining += CheckWhoIsLeaving;
+            if (DayManager.Instance != null)
+            {
+                DayManager.Instance.OnUpdateCurrentInteractionCountRemaining += CheckWhoIsComing;
+                DayManager.Instance.OnUpdateCurrentInteractionCountRemaining += CheckWhoIsLeaving;
+            }
         }
 
         public List<Character> GetCharactersThisDay(int day)
