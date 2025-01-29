@@ -60,6 +60,7 @@ namespace NarrativeProject
                 Debug.Log(character.Data.DaysComingData.ContainsKey(day));
                 if (character.Data.DaysComingData.ContainsKey(day))
                 {
+                    character.ComingState = ComingState.Coming;
                     CharactersThisDay.Add(character);
                     Debug.Log("Add " + character.Data.Name);
                 }
