@@ -8,7 +8,7 @@ namespace NarrativeProject
     public class EndGameTrigger : MonoBehaviour
     {
         [SerializeField] private DropZone _associatedDropZone;
-        public UnityEvent OnCallEndDayUnity;
+        public UnityEvent OnCallNextDayUnity;
 
 
         private void Awake()
@@ -40,8 +40,9 @@ namespace NarrativeProject
             {
                 if (DayManager.Instance.CurrentDayPhase == DayManager.EDayPhase.POST_DAY)
                 {
-                    DayManager.Instance.EndDay();
-                    OnCallEndDayUnity?.Invoke();
+                    Debug.Log("Call Next Day !");
+                    DayManager.Instance.NextDayPhase();
+                    OnCallNextDayUnity?.Invoke();
                 }
             }
 
