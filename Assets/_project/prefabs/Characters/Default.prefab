@@ -725,6 +725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 0}
   _visual: {fileID: 7432107011642609883}
+  Collision: {fileID: 1334337053727368434}
   _state: 0
   _friendshipState: 0
   _drunkScale: 0
