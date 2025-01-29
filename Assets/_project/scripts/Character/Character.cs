@@ -32,7 +32,7 @@ namespace NarrativeProject
 
         public void Init()
         {
-            _visual.GetComponent<SpriteRenderer>().sprite = Data.Sprites[0];
+            //_visual.GetComponent<SpriteRenderer>().sprite = Data.Sprites[0];
             SetDrunkState();
             SetFriendShipState();
             IsDead = false;
