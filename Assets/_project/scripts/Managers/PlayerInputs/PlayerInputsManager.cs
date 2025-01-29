@@ -91,6 +91,16 @@ namespace NarrativeProject
         {
             if (_currentPlayerInputsState != EPlayerInputsState.AVAILABLE) return;
 
+            /*
+            if (DayManager.Instance != null)
+            {
+                if (DayManager.Instance.CurrentDayPhase != DayManager.EDayPhase.IN_DAY)
+                {
+                    return;
+                }
+            }
+            */
+
             _currentInputInteractible = inputsInteractible;
 
             _currentInputInteractible.SetIsAbleToInteract(true);

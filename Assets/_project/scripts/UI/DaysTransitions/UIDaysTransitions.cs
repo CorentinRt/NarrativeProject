@@ -33,11 +33,26 @@ namespace NarrativeProject
 
         private void Start()
         {
-            HideTransition();
+            if (DayManager.Instance != null)
+            {
+                DayManager.Instance.OnPreDay += ShowTransition;
+            }
+            ShowTransition();
+
+            //ShowTransition(0);
+            //HideTransition();
         }
 
-        [Button]
-        public void ShowTransition()
+        private void OnDestroy()
+        {
+            if (DayManager.Instance != null)
+            {
+                DayManager.Instance.OnPreDay -= ShowTransition;
+            }
+        }
+
+        [Button] private void TestShowTransition() => ShowTransition();
+        public void ShowTransition(int dayIndex = 0)
         {
             if (_transitionTween != null)
             {
