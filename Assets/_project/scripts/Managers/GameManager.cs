@@ -103,9 +103,11 @@ namespace NarrativeProject
 
             _dayManager.InitDay();
         }
-        private void AllowCharacterComing(int _ = 0)
+        public void AllowCharacterComing(int _ = 0)
         {
-            _characterManager.GetCharactersThisDay(DayManager.Instance.CurrentDayIndex);
+            Debug.LogWarning("Allow Character Coming");
+            List<Character> tempCharaList = _characterManager.GetCharactersThisDay(DayManager.Instance.CurrentDayIndex);
+            Debug.LogWarning("Count in list : " + tempCharaList.Count);
             _characterManager.CheckWhoIsComing(DayManager.Instance.CurrentDayIndex, _dayManager.CurrentInteractionCountRemaining);
             _characterManager.BringCharacters();
         }

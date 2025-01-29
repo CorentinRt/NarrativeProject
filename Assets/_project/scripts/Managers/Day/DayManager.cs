@@ -102,6 +102,7 @@ namespace NarrativeProject
             ChangeDayPhase(EDayPhase.IN_DAY);
 
             OnBeginDay?.Invoke(CurrentDayIndex);
+            Debug.LogWarning("Call Begin Day");
             OnBeginDayUnity?.Invoke();
         }
         public void EndDay()

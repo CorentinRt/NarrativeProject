@@ -37,6 +37,7 @@ namespace NarrativeProject
             {
                 DayManager.Instance.OnPreDay += ShowTransition;
             }
+            ShowTransition();
 
             //ShowTransition(0);
             //HideTransition();
