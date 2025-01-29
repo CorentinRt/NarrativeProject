@@ -61,13 +61,12 @@ namespace NarrativeProject
             Collision.GetComponentInChildren<DropZone>().OnReceiveDrop += ReceiveDrop;
         }
 
-        public void ResetValues()
+        public void ResetDrunkState()
         {
-            _friendshipScale = Data.DefaultFriendShipScale;
             _drunkScale = Data.DefaultdrunkScale;
             SetDrunkState();
-            SetFriendShipState();
         }
+
         private void OnDestroy()
         {
             Collision.GetComponentInChildren<DropZone>().OnReceiveDrop -= ReceiveDrop;

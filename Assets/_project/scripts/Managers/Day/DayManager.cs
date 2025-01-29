@@ -25,7 +25,7 @@ namespace NarrativeProject
 
         [SerializeField] private List<DayDataSO> _daysData;
 
-        [ShowNonSerializedField] private int _currentInteractionCountRemaining;
+        [ShowNonSerializedField] private int _currentInteractionCount;
 
         private bool _canInteract;
 
@@ -35,7 +35,7 @@ namespace NarrativeProject
         public static DayManager Instance { get => _instance; set => _instance = value; }
         public int CurrentDayIndex { get => _currentDayIndex; set => _currentDayIndex = value; }
         public EDayPhase CurrentDayPhase { get => _currentDayPhase; }
-        public int CurrentInteractionCountRemaining { get => _currentInteractionCountRemaining; set => _currentInteractionCountRemaining = value; }
+        public int CurrentInteractionCount { get => _currentInteractionCount; set => _currentInteractionCount = value; }
 
         #endregion
 
@@ -50,10 +50,10 @@ namespace NarrativeProject
         public event Action<int> OnEndDay;
         public UnityEvent OnEndDayUnity;
 
-        public UnityEvent OnUpdateCurrentInteractionCountRemainingUnity;
+        public UnityEvent OnUpdateCurrentInteractionCountUnity;
 
         public event Action<EDayPhase> OnUpdateDayPhase;
-        public event Action<int, int> OnUpdateCurrentInteractionCountRemaining;
+        public event Action<int, int> OnUpdateCurrentInteractionCount;
 
         #endregion
 
@@ -85,7 +85,7 @@ namespace NarrativeProject
                 return;
             }
 
-            CurrentInteractionCountRemaining = currentDayData.MaxInteractionCount;
+            CurrentInteractionCount = currentDayData.MaxInteractionCount;
         }
 
         #region Day Global
@@ -109,7 +109,7 @@ namespace NarrativeProject
         {
             ChangeDayPhase(EDayPhase.POST_DAY);
 
-            CurrentInteractionCountRemaining = 0;
+            CurrentInteractionCount = 0;
 
             OnEndDay?.Invoke(CurrentDayIndex);
             OnEndDayUnity?.Invoke();
@@ -118,14 +118,14 @@ namespace NarrativeProject
 
         #region Day Phases / interactions
         [Button]
-        public void DecrementCurrentInteractionCountRemaining()
+        public void IncrementCurrentInteractionCount()
         {
-            --CurrentInteractionCountRemaining;
+            ++CurrentInteractionCount;
             
-            OnUpdateCurrentInteractionCountRemainingUnity?.Invoke();
-            OnUpdateCurrentInteractionCountRemaining?.Invoke(_currentDayIndex, CurrentInteractionCountRemaining);
+            OnUpdateCurrentInteractionCountUnity?.Invoke();
+            OnUpdateCurrentInteractionCount?.Invoke(_currentDayIndex, CurrentInteractionCount);
 
-            if (CurrentInteractionCountRemaining <= 0)
+            if (CurrentInteractionCount >= _daysData[_currentDayIndex].MaxInteractionCount)
             {
                 EndDay();
             }

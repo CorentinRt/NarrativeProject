@@ -29,8 +29,9 @@ namespace NarrativeProject
         {
             if (DayManager.Instance != null)
             {
-                DayManager.Instance.OnUpdateCurrentInteractionCountRemaining -= CheckWhoIsComing;
-                DayManager.Instance.OnUpdateCurrentInteractionCountRemaining -= CheckWhoIsLeaving;
+                DayManager.Instance.OnUpdateCurrentInteractionCount -= CheckWhoIsComing;
+                DayManager.Instance.OnUpdateCurrentInteractionCount -= CheckWhoIsLeaving;
+                DayManager.Instance.OnEndDay -= ResetCharactersDrunkState;
             }
         }
 
@@ -47,8 +48,9 @@ namespace NarrativeProject
             }
             if (DayManager.Instance != null)
             {
-                DayManager.Instance.OnUpdateCurrentInteractionCountRemaining += CheckWhoIsComing;
-                DayManager.Instance.OnUpdateCurrentInteractionCountRemaining += CheckWhoIsLeaving;
+                DayManager.Instance.OnUpdateCurrentInteractionCount += CheckWhoIsComing;
+                DayManager.Instance.OnUpdateCurrentInteractionCount += CheckWhoIsLeaving;
+                DayManager.Instance.OnEndDay += ResetCharactersDrunkState;
             }
         }
 
@@ -66,6 +68,15 @@ namespace NarrativeProject
                 }
             }
             return CharactersThisDay;
+        }
+
+        public void ResetCharactersDrunkState(int value)
+        {
+            foreach (Character character in _characterList)
+            {
+                if(!character.IsDead) character.ResetDrunkState();
+            }
+            RemoveAllCharacters();
         }
 
         public void CheckWhoIsComing(int currentDay, int interactions)
@@ -119,5 +130,16 @@ namespace NarrativeProject
                 }
             }
         }
-    }
+
+        public void RemoveAllCharacters()
+        {
+            foreach (Character character in _characterList)
+            {
+                if (character.ComingState != ComingState.Left)
+                {
+                    character.Leaving();
+                }
+            }
+        }
+    }   
 }
