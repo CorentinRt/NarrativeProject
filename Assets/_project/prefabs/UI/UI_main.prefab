@@ -42,6 +42,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1722872920235532548}
     m_Modifications:
+    - target: {fileID: 2894762416748587298, guid: b4e6ac038bf576544887d5373281364f, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894762416748587298, guid: b4e6ac038bf576544887d5373281364f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3d595025fd8eda247b327b9a87055163, type: 3}
     - target: {fileID: 4118724511540010910, guid: b4e6ac038bf576544887d5373281364f, type: 3}
       propertyPath: m_Name
       value: UI_DaysTransitions
