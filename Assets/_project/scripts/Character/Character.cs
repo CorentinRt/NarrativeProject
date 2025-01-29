@@ -53,11 +53,20 @@ namespace NarrativeProject
                 }
             }
             _visual.GetComponent<SpriteRenderer>().sprite = Data.Sprites[0];
+            _friendshipScale = Data.DefaultFriendShipScale;
+            _drunkScale = Data.DefaultdrunkScale;
             SetDrunkState();
             SetFriendShipState();
             IsDead = false;
-
             Collision.GetComponentInChildren<DropZone>().OnReceiveDrop += ReceiveDrop;
+        }
+
+        public void ResetValues()
+        {
+            _friendshipScale = Data.DefaultFriendShipScale;
+            _drunkScale = Data.DefaultdrunkScale;
+            SetDrunkState();
+            SetFriendShipState();
         }
         private void OnDestroy()
         {
@@ -109,7 +118,7 @@ namespace NarrativeProject
             }
             else if (_drunkScale > 30 && _drunkScale <= 60)
             {
-                _state = DrunkState.Happy;
+                _state = DrunkState.Dizzy;
                 return _state;
             }
             else
@@ -122,17 +131,17 @@ namespace NarrativeProject
         {
             if (_friendshipScale <= 30)
             {
-                _state = DrunkState.Clean;
+                _friendshipState = FriendshipState.Sad;
                 return _friendshipState;
             }
             else if (_friendshipScale > 30 && _friendshipScale <= 60)
             {
-                _state = DrunkState.Happy;
+                _friendshipState = FriendshipState.Neutral;
                 return _friendshipState;
             }
             else
             {
-                _state = DrunkState.Drunk;
+                _friendshipState = FriendshipState.Happy;
                 return _friendshipState;
             }
         }
