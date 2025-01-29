@@ -360,6 +360,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5e3a468141e2f4dbbc514477ec9bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1073998047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2241124303940271208, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
+  m_PrefabInstance: {fileID: 7114677113509614247}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c055199d973bbd547ab9f8dd667ca421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1272318742 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5016180722561284089, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
@@ -487,6 +498,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5016180722561284089, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
+      propertyPath: OnEndGameUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7466598838320584517}
     - target: {fileID: 5145444954644465899, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -637,10 +652,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1936676050396444422, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4065381152142859678, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 82859098}
+    - target: {fileID: 6612706068741103383, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1073998047}
     - target: {fileID: 7392066027106130299, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_Name
       value: UI_main
@@ -654,6 +677,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+--- !u!1 &7466598838320584517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1936676050396444422, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+  m_PrefabInstance: {fileID: 7466598838320584516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

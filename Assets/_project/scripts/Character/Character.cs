@@ -104,6 +104,12 @@ namespace NarrativeProject
                     //_friendshipScale += 2;
                     break;
             }
+
+            if (DayManager.Instance != null)
+            {
+                DayManager.Instance.IncrementCurrentInteractionCount();
+            }
+
             SetFriendShipState();
             return SetDrunkState();
         }
