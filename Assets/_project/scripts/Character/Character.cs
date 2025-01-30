@@ -25,8 +25,11 @@ namespace NarrativeProject
         [SerializeField] bool _isDead;
         [SerializeField] ComingState _comingState;
 
-        public UnityEvent _onCharacterComing = new UnityEvent();
-        public UnityEvent _onCharacterLeaving = new UnityEvent();
+        public event Action<Character> OnCharacterComing;
+        public event Action<Character> OnCharacterLeaving;
+
+        public UnityEvent OnCharacterComingUnity = new UnityEvent();
+        public UnityEvent OnCharacterLeavingUnity = new UnityEvent();
 
         public SO_CharacterData Data { get => _data; }
         public bool IsDead { get => _isDead; set => _isDead = value; }
@@ -43,7 +46,7 @@ namespace NarrativeProject
                     Debug.Log("Added " + _data.DrinkType[i] + " to the dictionary at " + _data.DrinkEffect[i]);
                 }
             }
-            for (int i = 0; i < _data.DaysComing.Count; i++)
+            /*for (int i = 0; i < _data.DaysComing.Count; i++)
             {
                 //Debug.Log("checking");
                 if (!_data.DaysComingData.ContainsKey(_data.DaysComing[i]))
@@ -51,7 +54,7 @@ namespace NarrativeProject
                     //Debug.Log("add eleemtn");
                     _data.DaysComingData.Add(_data.DaysComing[i], _data.InteractionsData[i]);
                 }
-            }
+            }*/
             _visual.GetComponent<SpriteRenderer>().sprite = Data.Sprites[0];
             _friendshipScale = Data.DefaultFriendShipScale;
             _drunkScale = Data.DefaultdrunkScale;
@@ -157,18 +160,20 @@ namespace NarrativeProject
         }
         public void Coming()
         {
-            _onCharacterComing?.Invoke();
+            OnCharacterComing?.Invoke(this);
+            OnCharacterComingUnity?.Invoke();
 
         }
 
         public void Leaving()
         {
-            _onCharacterLeaving?.Invoke();
-            _comingState = ComingState.Left;
+            OnCharacterLeaving?.Invoke(this);
+            OnCharacterLeavingUnity?.Invoke();
+            //_comingState = ComingState.Left;
         }
 
-        public bool CheckComingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeComing <= currentInteractionCount;
-        public bool CheckLeavingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeLeaving <= currentInteractionCount;
+       //public bool CheckComingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeComing <= currentInteractionCount;
+       //public bool CheckLeavingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeLeaving <= currentInteractionCount;
     }
 }
 
