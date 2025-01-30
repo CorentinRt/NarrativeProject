@@ -19,6 +19,8 @@ namespace NarrativeProject
 
         private IDropReceiver _overlappingDropReceiver;
 
+        private bool _dragEnable = true;
+
 
         [Header("Drag Drop start parameters")]
         [SerializeField] private Transform _startingPoint;
@@ -76,14 +78,27 @@ namespace NarrativeProject
             _startRotation = transform.rotation;
         }
 
+        public void DisableDrag()
+        {
+            _dragEnable = false;
+        }
+        public void EnableDrag()
+        {
+            _dragEnable = true;
+        }
+
         #region Drag
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (!_dragEnable) return;
+
             NotifyInteraction(EPlayerInputsState.DRAGGING);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
+            if (!_dragEnable) return;
+
             if (!CanInteract()) return;
 
             Vector2 targetPosition = eventData.position;
