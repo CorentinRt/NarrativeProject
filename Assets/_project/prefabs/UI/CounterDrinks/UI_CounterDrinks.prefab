@@ -765,6 +765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2023919280086261831}
+  - component: {fileID: 6803978236370950535}
   m_Layer: 0
   m_Name: Drinks_Hub
   m_TagString: Untagged
@@ -791,6 +792,19 @@ RectTransform:
   m_AnchoredPosition: {x: 225, y: -45}
   m_SizeDelta: {x: 0, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6803978236370950535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363869049289621388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f950d091be6a1646a90d6597c8a684d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gUID: ca72ec3b-9bd4-4823-a52d-2a8e7058141f
 --- !u!1001 &157864227765092284
 PrefabInstance:
   m_ObjectHideFlags: 0

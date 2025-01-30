@@ -19,7 +19,7 @@ MonoBehaviour:
     position: {x: 100, y: 200}
     entryPoint: 1
     outputPorts:
-    - 4b51f753-352a-4205-9b01-0aa487a133ea
+    - f9e36b3b-3dc2-49d6-92b9-739a58aa3163
     outputPortsChoiceId:
     - Next
     portConditions: []
@@ -52,6 +52,8 @@ MonoBehaviour:
     callFunctions:
     - gameObjectPersistantGUID: 62421f2e-89ae-497b-870c-e4e5fedc2a72
       methodName: Character.Coming
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.DisplayDrinks
   - id: 0f803713-5c2f-4a00-b1fb-8f88a1c5402f
     dialogueId: AXE_004
     title: Dialogue Node
@@ -60,7 +62,9 @@ MonoBehaviour:
     outputPorts: []
     outputPortsChoiceId: []
     portConditions: []
-    callFunctions: []
+    callFunctions:
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.GroupDrinksToHub
   - id: e838e358-4a9b-463f-a107-f0a8d19d8b41
     dialogueId: AXE_006
     title: Dialogue Node
@@ -71,7 +75,9 @@ MonoBehaviour:
     outputPortsChoiceId:
     - Choice 0
     portConditions: []
-    callFunctions: []
+    callFunctions:
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.GroupDrinksToHub
   - id: 2bc01181-6afc-4736-be3b-2807d92324e5
     dialogueId: AXE_008
     title: Dialogue Node
@@ -82,18 +88,9 @@ MonoBehaviour:
     outputPortsChoiceId:
     - Choice 0
     portConditions: []
-    callFunctions: []
-  - id: ec4de5fe-3435-466e-9453-208c34bf8deb
-    dialogueId: AXE_009
-    title: Dialogue Node
-    position: {x: 1860, y: 25}
-    entryPoint: 0
-    outputPorts:
-    - a3427041-217f-439f-96a4-5fd93c051e99
-    outputPortsChoiceId:
-    - Choice 0
-    portConditions: []
-    callFunctions: []
+    callFunctions:
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.GroupDrinksToHub
   - id: bfe4a045-e30f-40bb-9d41-fda388e04d78
     dialogueId: AXE_001
     title: Dialogue Node
@@ -109,46 +106,59 @@ MonoBehaviour:
       methodName: Character.Coming
     - gameObjectPersistantGUID: 71be5547-b154-43b5-8b28-78217fab1001
       methodName: DialogueDisplayer.ShowDisplayer
+  - id: ec4de5fe-3435-466e-9453-208c34bf8deb
+    dialogueId: AXE_009
+    title: Dialogue Node
+    position: {x: 1860, y: 25}
+    entryPoint: 0
+    outputPorts:
+    - a3427041-217f-439f-96a4-5fd93c051e99
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.DisplayDrinks
   edges:
   - fromNodeId: e8211845-5fcd-4083-9533-9e0b6d5cf09c
     fromPortId: 6bca1c95-da97-4650-a932-2ad6e028c30f
     toNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
-    toPortId: dfcb1080-4ca2-4d04-9132-1d2037c4928b
+    toPortId: 139e7e41-81d8-4c64-b178-cb5af91958f4
     fromPortIndex: 0
     toPortIndex: 0
   - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
     fromPortId: 85aefd9b-1cb6-4ef5-bca7-cbd31fe61027
     toNodeId: 2bc01181-6afc-4736-be3b-2807d92324e5
-    toPortId: 9fda1714-93c4-4cca-9640-53c5f17e3797
+    toPortId: 27b1e7b8-5c7a-4ccc-86ac-9b006aed2d1e
     fromPortIndex: 0
     toPortIndex: 0
   - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
     fromPortId: 47263f5c-1c12-434e-9cf5-585a4cd15e4f
     toNodeId: e838e358-4a9b-463f-a107-f0a8d19d8b41
-    toPortId: 7a17d576-4409-4669-9838-973bc02f9f5f
+    toPortId: 9b249ecc-4f58-4746-b29c-34d11fc8ce1d
     fromPortIndex: 1
     toPortIndex: 0
   - fromNodeId: 2bc01181-6afc-4736-be3b-2807d92324e5
     fromPortId: 20dc7be5-36c5-41b0-998c-2dd01a7822d9
     toNodeId: ec4de5fe-3435-466e-9453-208c34bf8deb
-    toPortId: 3e4ff531-4dac-4d2a-9659-e0f02d3b2af3
+    toPortId: e9071e41-bf9d-46bc-bb6f-21648b96952a
     fromPortIndex: 0
     toPortIndex: 0
   - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
     fromPortId: 73149049-c534-4844-8ea5-80f785fcbb17
     toNodeId: 0f803713-5c2f-4a00-b1fb-8f88a1c5402f
-    toPortId: 7fb81f37-35f6-43f8-ab81-799ca867d2a7
+    toPortId: 68f096cf-4d52-4966-a8f8-9d138560b095
     fromPortIndex: 2
     toPortIndex: 0
   - fromNodeId: d4c860ad-a270-48ea-8b65-2c2c86caa150
-    fromPortId: 4b51f753-352a-4205-9b01-0aa487a133ea
+    fromPortId: f9e36b3b-3dc2-49d6-92b9-739a58aa3163
     toNodeId: bfe4a045-e30f-40bb-9d41-fda388e04d78
-    toPortId: a7419ccc-32c7-4e1d-ba7f-fae0007c139e
+    toPortId: 84444321-9ac9-4206-9c8b-ff684e3d1ac9
     fromPortIndex: 0
     toPortIndex: 0
   - fromNodeId: bfe4a045-e30f-40bb-9d41-fda388e04d78
     fromPortId: f287b26a-41d7-4aeb-8b14-b6880a331c47
     toNodeId: e8211845-5fcd-4083-9533-9e0b6d5cf09c
-    toPortId: 1aded0b0-e49a-4e4e-bb2f-353d94062082
+    toPortId: e98ffef7-61ad-4968-b366-fad539c5566d
     fromPortIndex: 0
     toPortIndex: 0
