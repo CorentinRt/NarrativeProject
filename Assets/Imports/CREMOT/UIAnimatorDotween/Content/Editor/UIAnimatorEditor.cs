@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -101,3 +102,4 @@ namespace CREMOT.UIAnimatorDotween
         }
     }
 }
+#endif

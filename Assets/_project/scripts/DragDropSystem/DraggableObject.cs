@@ -1,5 +1,4 @@
 using DG.Tweening;
-using PlasticGui.WorkspaceWindow.QueryViews;
 using System;
 using System.Collections;
 using System.Collections.Generic;

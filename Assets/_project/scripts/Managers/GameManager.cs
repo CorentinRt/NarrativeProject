@@ -1,4 +1,3 @@
-using log4net.Filter;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

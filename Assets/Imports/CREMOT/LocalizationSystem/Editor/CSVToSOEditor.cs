@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -127,3 +128,4 @@ public class CSVToSOEditor : EditorWindow
         EditorUtility.DisplayDialog("Success", "The ScriptableObject has been successfully updated.", "OK");
     }
 }
+#endif
