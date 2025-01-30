@@ -1,5 +1,6 @@
 using CREMOT.DialogSystem;
 using JetBrains.Annotations;
+using NaughtyAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -158,6 +159,7 @@ namespace NarrativeProject
         {
             DialogueInventory.Instance.AddItem(Data.Name + "_" + _state + "_" + _friendshipState, 1);
         }
+        [Button]
         public void Coming()
         {
             OnCharacterComing?.Invoke(this);
@@ -165,6 +167,7 @@ namespace NarrativeProject
 
         }
 
+        [Button]
         public void Leaving()
         {
             OnCharacterLeaving?.Invoke(this);
