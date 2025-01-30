@@ -1,14 +1,23 @@
+using Codice.CM.Common;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace NarrativeProject
 {
-    public class MovementPaper : MonoBehaviour
+    public class PositionPaper : MonoBehaviour
     {
+        enum Page
+        {
+            MainMenu,
+            Settings,
+            Credits
+        }
+        [SerializeField] private Page pageLoadOnStart = Page.MainMenu;
         private void Start()
         {
-            SetPotistionPaper("Credits");
+            
+            SetPotistionPaper(pageLoadOnStart.ToString());
         }
 
         void SetPotistionPaper(string PositionPaper)
