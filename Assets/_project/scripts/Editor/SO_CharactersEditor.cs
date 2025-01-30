@@ -31,7 +31,7 @@ namespace NarrativeProject.Editor
                         Debug.Log("Added " + character.DrinkType[i] + " to the dictionary at " + character.DrinkEffect[i]);
                     }
                 }
-                for (int i = 0; i < character.DaysComing.Count; i++)
+                /*for (int i = 0; i < character.DaysComing.Count; i++)
                 {
                     Debug.Log("checking");
                     if (!character.DaysComingData.ContainsKey(character.DaysComing[i]))
@@ -39,7 +39,7 @@ namespace NarrativeProject.Editor
                         Debug.Log("add eleemtn");
                         character.DaysComingData.Add(character.DaysComing[i], character.InteractionsData[i]);
                     }
-                }
+                }*/
             }
         }
         private void OnDisable()
@@ -55,7 +55,7 @@ namespace NarrativeProject.Editor
                         Debug.Log("Added " + character.DrinkType[i] + " to the dictionary at " + character.DrinkEffect[i]);
                     }
                 }
-                for (int i = 0; i < character.DaysComing.Count; i++)
+                /*for (int i = 0; i < character.DaysComing.Count; i++)
                 {
                     Debug.Log("checking");
                     if (!character.DaysComingData.ContainsKey(character.DaysComing[i]))
@@ -63,7 +63,7 @@ namespace NarrativeProject.Editor
                         Debug.Log("add eleemtn");
                         character.DaysComingData.Add(character.DaysComing[i], character.InteractionsData[i]);
                     }
-                }
+                }*/
             }
 
         }
@@ -110,7 +110,7 @@ namespace NarrativeProject.Editor
 
                     EditorGUILayout.EndHorizontal();
                 }
-                background.normal.background = MakeBackgroundTexture(1, 1, Color.cyan);
+                /*background.normal.background = MakeBackgroundTexture(1, 1, Color.cyan);
                 GUI.backgroundColor = Color.cyan;
                 GUILayout.Space(25);
                 if (GUILayout.Button("Add Days Coming", background))
@@ -148,7 +148,7 @@ namespace NarrativeProject.Editor
                         character.InteractionsData.RemoveAt(i);
                         character.DaysComingData.Remove(character.DaysComing[i]);
                     }
-                }
+                }*/
                 background.normal.background = MakeBackgroundTexture(1, 1, Color.green);
                 GUI.backgroundColor = Color.green;
                 GUILayout.Space(25);
