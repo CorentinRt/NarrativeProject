@@ -62,6 +62,9 @@ namespace CREMOT.DialogSystem
         public UnityEvent OnShowDisplayerUnity;
         public UnityEvent OnHideDisplayerUnity;
 
+        public UnityEvent OnDisplayMultipleChoicesUnity;
+        public UnityEvent OnDisplayOnlyOneChoiceUnity;
+
         #endregion
 
 
@@ -236,10 +239,23 @@ namespace CREMOT.DialogSystem
 
             ClearAllChildren(_choicesContainer.transform);
 
+            int buttonAddCount = 0;
+
             for (int i = 0; i < choicesText.Count; ++i)
             {
                 if (choicesText[i] == null) continue;
                 AddChoiceButton(_dialogueController, i, choicesText[i]);
+
+                ++buttonAddCount;
+            }
+
+            if (buttonAddCount > 1)
+            {
+                OnDisplayMultipleChoicesUnity?.Invoke();
+            }
+            else if (buttonAddCount == 1)
+            {
+                OnDisplayOnlyOneChoiceUnity?.Invoke();
             }
 
             _currentSavedChoicesIds = choicesText;

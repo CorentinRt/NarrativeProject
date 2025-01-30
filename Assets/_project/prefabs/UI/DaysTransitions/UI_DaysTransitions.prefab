@@ -379,7 +379,7 @@ MonoBehaviour:
   _btnNewsPaper: {fileID: 8768417794035949388}
   _show: {fileID: 111808559900127773}
   _hide: {fileID: 2436983079665274361}
-  _duration: 0.7
+  _duration: 1
   _newsPaperAppearDuration: 0.7
   _ease: 7
 --- !u!1 &7906699942969600703

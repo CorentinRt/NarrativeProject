@@ -134,6 +134,19 @@ namespace CREMOT.DialogSystem
         }
         #endregion
 
+        #region Continue
+        public void Continue()
+        {
+            if (_currentDialogueNodeSO == null) return;
+
+            if (_currentDialogueNodeSO.outputPorts == null) return;
+            if (_currentDialogueNodeSO.outputPorts.Count > 1) return;
+
+            SelectChoice(0);
+        }
+
+        #endregion
+
         #region Selection Choice
         public void SelectChoice(int choiceId)
         {
