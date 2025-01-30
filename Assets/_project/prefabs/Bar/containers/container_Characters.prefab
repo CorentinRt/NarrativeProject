@@ -141,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 735342062396015566, guid: 9011cf30ea3ce2246851eaf1811f28da, type: 3}
       propertyPath: _data
       value: 
-      objectReference: {fileID: 11400000, guid: 1c925ccd9a403de4296e39f1a044f948, type: 2}
+      objectReference: {fileID: 11400000, guid: c7797501da55c734fb967add0fefb3a5, type: 2}
     - target: {fileID: 2767280867890932449, guid: 9011cf30ea3ce2246851eaf1811f28da, type: 3}
       propertyPath: m_Name
       value: container_Character_Phil
@@ -309,7 +309,7 @@ PrefabInstance:
     - target: {fileID: 735342062396015566, guid: 9011cf30ea3ce2246851eaf1811f28da, type: 3}
       propertyPath: _data
       value: 
-      objectReference: {fileID: 11400000, guid: 1c925ccd9a403de4296e39f1a044f948, type: 2}
+      objectReference: {fileID: 11400000, guid: 1d4e550008a744a4d8c9b6277686b071, type: 2}
     - target: {fileID: 2767280867890932449, guid: 9011cf30ea3ce2246851eaf1811f28da, type: 3}
       propertyPath: m_Name
       value: container_Character_Crackhead
@@ -407,7 +407,7 @@ PrefabInstance:
     - target: {fileID: 735342062396015566, guid: 9011cf30ea3ce2246851eaf1811f28da, type: 3}
       propertyPath: _data
       value: 
-      objectReference: {fileID: 11400000, guid: 7640056c458146e4e86caf3929102989, type: 2}
+      objectReference: {fileID: 11400000, guid: 1bcce099c9de86d448a30bfc28b61423, type: 2}
     - target: {fileID: 2767280867890932449, guid: 9011cf30ea3ce2246851eaf1811f28da, type: 3}
       propertyPath: m_Name
       value: container_Character_AxeMan
