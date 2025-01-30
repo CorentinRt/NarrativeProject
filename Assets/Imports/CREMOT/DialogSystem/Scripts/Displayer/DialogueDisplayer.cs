@@ -67,6 +67,13 @@ namespace CREMOT.DialogSystem
 
         private void Awake()
         {
+            if (_dialogueController != null)
+            {
+                _dialogueController.OnDialogueUpdated += DisplayDialogueText;
+
+                _dialogueController.OnChoiceUpdated += DisplayChoices;
+            }
+
             if (_idToDialogueSO != null)
             {
                 var temp = _idToDialogueSO.IdToTextConverter;   // Init dictionnary converter
@@ -162,12 +169,7 @@ namespace CREMOT.DialogSystem
 
         private void Start()
         {
-            if (_dialogueController != null)
-            {
-                _dialogueController.OnDialogueUpdated += DisplayDialogueText;
-
-                _dialogueController.OnChoiceUpdated += DisplayChoices;
-            }
+            //RefreshAllText();
 
             if (_startHidden)
             {

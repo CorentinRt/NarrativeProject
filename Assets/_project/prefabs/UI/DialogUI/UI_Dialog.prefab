@@ -525,8 +525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueController: {fileID: 1085884210771202432}
-  _idToDialogueSO: {fileID: 0}
-  _idToChoiceSO: {fileID: 0}
+  _idToDialogueSO: {fileID: 11400000, guid: 3fc2e39a8801b2540ac37d67005bff19, type: 2}
+  _idToChoiceSO: {fileID: 11400000, guid: b9ea86d6456684945a139369c1cacc55, type: 2}
   _displayerCanvas: {fileID: 4668374423370553828}
   _dialogueText: {fileID: 3454195473872658220}
   _choicesContainer: {fileID: 8396690325293267503}
