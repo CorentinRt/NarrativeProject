@@ -732,7 +732,7 @@ MonoBehaviour:
   _friendshipScale: 0
   _isDead: 0
   _comingState: 0
-  _onCharacterComing:
+  OnCharacterComingUnity:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6503960301330613154}
@@ -747,24 +747,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onCharacterLeaving:
+  OnCharacterLeavingUnity:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5408263052022059129}
         m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
         m_MethodName: PlayAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8224032962181385300}
-        m_TargetAssemblyTypeName: NarrativeProject.CameraFocusableObject, NarrativeProject
-        m_MethodName: Unfocus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

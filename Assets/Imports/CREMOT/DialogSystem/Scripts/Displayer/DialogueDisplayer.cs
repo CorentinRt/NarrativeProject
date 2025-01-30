@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CREMOT.DialogSystem
 {
@@ -55,6 +56,14 @@ namespace CREMOT.DialogSystem
         private MethodInfo _getLocalizedTextMethod;
 
         #endregion
+
+        #region Delegates
+
+        public UnityEvent OnShowDisplayerUnity;
+        public UnityEvent OnHideDisplayerUnity;
+
+        #endregion
+
 
         private void Awake()
         {
@@ -187,6 +196,8 @@ namespace CREMOT.DialogSystem
             if (_displayerCanvas == null) return;
 
             _displayerCanvas.gameObject.SetActive(true);
+
+            OnShowDisplayerUnity?.Invoke();
         }
         public void HideDisplayer()
         {
@@ -194,6 +205,8 @@ namespace CREMOT.DialogSystem
             if (_displayerCanvas == null) return;
 
             _displayerCanvas.gameObject.SetActive(false);
+
+            OnHideDisplayerUnity?.Invoke();
         }
 
         #endregion
