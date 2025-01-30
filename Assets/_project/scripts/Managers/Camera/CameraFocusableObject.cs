@@ -51,7 +51,7 @@ namespace NarrativeProject
 
                 if (detectedCollider.gameObject == gameObject)
                 {
-                    Focus();
+                    ToggleFocus();
                 }
             }
         }
@@ -61,8 +61,22 @@ namespace NarrativeProject
             return _canFocus;
         }
 
-
         public void Focus()
+        {
+            if (_isFocused) return;
+
+            CameraManager.Instance.FocusCameraOn(this, _focusCameraOffset);
+            _isFocused = true;
+        }
+        public void Unfocus()
+        {
+            if (!_isFocused) return;
+
+            CameraManager.Instance.UnfocusCamera();
+            _isFocused = false;
+            _isFocused = false;
+        }
+        public void ToggleFocus()
         {
             if (!CanFocus())    return;
 
@@ -73,13 +87,11 @@ namespace NarrativeProject
             {
                 if (_isFocused)
                 {
-                    CameraManager.Instance.UnfocusCamera();
-                    _isFocused = false;
+                    Unfocus();
                 }
                 else
                 {
-                    CameraManager.Instance.FocusCameraOn(this, _focusCameraOffset);
-                    _isFocused = true;
+                    Focus();
                 }
             }
 
@@ -96,7 +108,7 @@ namespace NarrativeProject
         private bool _isAbleToInteract = true;
         public void NotifyEndInteraction()
         {
-            OnInteractionEnd(this, EPlayerInputsState.INTERACTION);
+            OnInteractionEnd?.Invoke(this, EPlayerInputsState.INTERACTION);
         }
 
         public void NotifyInteraction(EPlayerInputsState inputState)

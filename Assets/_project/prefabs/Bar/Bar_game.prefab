@@ -125,6 +125,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7282334792213492934}
     m_Modifications:
+    - target: {fileID: 1803453189909008108, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: _focusCameraOffset.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888842818474752772, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c925ccd9a403de4296e39f1a044f948, type: 2}
+    - target: {fileID: 3329750336342793458, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075377031469189324, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075377031469189324, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 05eedd8317fe62e4d95642fdbf647ea8, type: 3}
+    - target: {fileID: 5901281098860462840, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 7640056c458146e4e86caf3929102989, type: 2}
+    - target: {fileID: 6325044621854188814, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325044621854188814, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7040339861233264288, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
       propertyPath: m_Name
       value: container_Characters

@@ -1,61 +1,129 @@
 using CREMOT.DialogSystem;
+using JetBrains.Annotations;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 
 namespace NarrativeProject
 {
+
+    public enum ComingState
+    {
+        Coming,
+        Here,
+        Leaving,
+        Left
+    };
     public class Character : MonoBehaviour
     {
-        [VisibleInDebug] SO_CharacterData _data;
-        [VisibleInDebug] SpriteRenderer _spriteRenderer;
-        [VisibleInDebug] DrunkState _state;
-        [VisibleInDebug] FriendshipState _friendshipState;
-        [VisibleInDebug] int _inComingDays, _drunkScale, _friendshipScale;
-        [VisibleInDebug] bool _isDead;
+        [SerializeField] SO_CharacterData _data;
+        [SerializeField] GameObject _visual, Collision;
+        [SerializeField] DrunkState _state;
+        [SerializeField] FriendshipState _friendshipState;
+        [SerializeField] int _drunkScale, _friendshipScale;
+        [SerializeField] bool _isDead;
+        [SerializeField] ComingState _comingState;
 
-        void Init()
+        public UnityEvent _onCharacterComing = new UnityEvent();
+        public UnityEvent _onCharacterLeaving = new UnityEvent();
+
+        public SO_CharacterData Data { get => _data; }
+        public bool IsDead { get => _isDead; set => _isDead = value; }
+        public ComingState ComingState { get => _comingState; set => _comingState = value; }
+
+        public void Init()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _spriteRenderer.sprite = _data.Sprites[0];
+            for (int i = 0; i < _data.DrinkType.Count; i++)
+            {
+                if (!_data.DrinkEffects.ContainsKey(_data.DrinkType[i]))
+                {
+                    _data.DrinkEffects.Add(_data.DrinkType[i], _data.DrinkEffect[i]);
+                    _data.DrinkEffectsFriendShip.Add(_data.DrinkType[i], _data.DrinkEffectFriendShip[i]);
+                    Debug.Log("Added " + _data.DrinkType[i] + " to the dictionary at " + _data.DrinkEffect[i]);
+                }
+            }
+            for (int i = 0; i < _data.DaysComing.Count; i++)
+            {
+                //Debug.Log("checking");
+                if (!_data.DaysComingData.ContainsKey(_data.DaysComing[i]))
+                {
+                    //Debug.Log("add eleemtn");
+                    _data.DaysComingData.Add(_data.DaysComing[i], _data.InteractionsData[i]);
+                }
+            }
+            _visual.GetComponent<SpriteRenderer>().sprite = Data.Sprites[0];
+            _friendshipScale = Data.DefaultFriendShipScale;
+            _drunkScale = Data.DefaultdrunkScale;
             SetDrunkState();
             SetFriendShipState();
-            _inComingDays = 0;
-            _isDead = false;
+            IsDead = false;
+            Collision.GetComponentInChildren<DropZone>().OnReceiveDrop += ReceiveDrop;
         }
-        void DecrementInComingDays() => _inComingDays--;
 
-        void Die() => _isDead = true;
+        public void ResetDrunkState()
+        {
+            _drunkScale = Data.DefaultdrunkScale;
+            SetDrunkState();
+        }
+
+        private void OnDestroy()
+        {
+            Collision.GetComponentInChildren<DropZone>().OnReceiveDrop -= ReceiveDrop;
+        }
+
+        private void ReceiveDrop(GameObject obj)
+        {
+            Drink _drink = obj.GetComponent<Drink>();
+            if (_drink != null)
+            {
+                Drink(_drink.DrinkType);
+
+                ReactToState();
+                Debug.Log("Drink " + _drink.DrinkType + "Reaction :" + _state + " " + _friendshipState);
+            }
+        }
+
+        public void Die() => IsDead = true;
 
 
-        DrunkState Drink(DrinkType drink)
+        public DrunkState Drink(DrinkType drink)
         {
             switch (drink)
             {
                 case DrinkType.Rhum_Puissance_2:
-                    _drunkScale += _data.DrinkEffects[drink];
-                    _friendshipScale += _data.DrinkEffectsFriendShip[drink];
+                    _drunkScale += Data.DrinkEffects[drink];
+                    _friendshipScale += Data.DrinkEffectsFriendShip[drink];
                     break;
                 case DrinkType.Whisky_Puissance_2:
-                    _drunkScale += _data.DrinkEffects[drink];
-                    _friendshipScale += _data.DrinkEffectsFriendShip[drink];
+                    _drunkScale += Data.DrinkEffects[drink];
+                    _friendshipScale += Data.DrinkEffectsFriendShip[drink];
                     break;
                 case DrinkType.Cofee:
-                    _drunkScale -= _data.DrinkEffects[drink];
+                    _drunkScale -= Data.DrinkEffects[drink];
                     //_friendshipScale += 2;
                     break;
             }
+
+            if (DayManager.Instance != null)
+            {
+                DayManager.Instance.IncrementCurrentInteractionCount();
+            }
+
+            SetFriendShipState();
             return SetDrunkState();
         }
 
-        DrunkState SetDrunkState()
+        public DrunkState SetDrunkState()
         {
-            if(_drunkScale <= 3)
+            if(_drunkScale <= 30)
             {
                 _state = DrunkState.Clean;
                 return _state;
             }
-            else if (_drunkScale > 3 && _drunkScale <= 6)
+            else if (_drunkScale > 30 && _drunkScale <= 60)
             {
-                _state = DrunkState.Happy;
+                _state = DrunkState.Dizzy;
                 return _state;
             }
             else
@@ -64,29 +132,43 @@ namespace NarrativeProject
                 return _state;
             }
         }
-        FriendshipState SetFriendShipState()
+        public FriendshipState SetFriendShipState()
         {
-            if (_friendshipScale <= 3)
+            if (_friendshipScale <= 30)
             {
-                _state = DrunkState.Clean;
+                _friendshipState = FriendshipState.Sad;
                 return _friendshipState;
             }
-            else if (_friendshipScale > 3 && _friendshipScale <= 6)
+            else if (_friendshipScale > 30 && _friendshipScale <= 60)
             {
-                _state = DrunkState.Happy;
+                _friendshipState = FriendshipState.Neutral;
                 return _friendshipState;
             }
             else
             {
-                _state = DrunkState.Drunk;
+                _friendshipState = FriendshipState.Happy;
                 return _friendshipState;
             }
         }
 
-        void ReactToState()
+        public void ReactToState()
         {
-            DialogueInventory.Instance.AddItem(_data.Name + "_" + _state + "_" + _friendshipState, 1);
+            DialogueInventory.Instance.AddItem(Data.Name + "_" + _state + "_" + _friendshipState, 1);
         }
+        public void Coming()
+        {
+            _onCharacterComing?.Invoke();
+
+        }
+
+        public void Leaving()
+        {
+            _onCharacterLeaving?.Invoke();
+            _comingState = ComingState.Left;
+        }
+
+        public bool CheckComingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeComing <= currentInteractionCount;
+        public bool CheckLeavingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeLeaving <= currentInteractionCount;
     }
 }
 

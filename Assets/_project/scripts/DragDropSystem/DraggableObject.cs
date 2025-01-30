@@ -128,6 +128,8 @@ namespace NarrativeProject
 
         protected virtual void Drop(PointerEventData eventData)
         {
+            HandleDropZoneDetection(eventData.position, true);
+
             _lagDragTween.Kill(true);
             _physicSimulationTween.Kill(true);
             if (_bDropReturnToStartingPoint)

@@ -13,7 +13,7 @@ namespace NarrativeProject
         {
             PRE_DAY = 0,
             IN_DAY = 1,
-            POST_DAY = 2
+            POST_DAY = 2,
         }
 
         #region Fields
@@ -25,7 +25,7 @@ namespace NarrativeProject
 
         [SerializeField] private List<DayDataSO> _daysData;
 
-        [ShowNonSerializedField] private int _currentInteractionCountRemaining;
+        [ShowNonSerializedField] private int _currentInteractionCount;
 
         private bool _canInteract;
 
@@ -35,17 +35,28 @@ namespace NarrativeProject
         public static DayManager Instance { get => _instance; set => _instance = value; }
         public int CurrentDayIndex { get => _currentDayIndex; set => _currentDayIndex = value; }
         public EDayPhase CurrentDayPhase { get => _currentDayPhase; }
+        public int CurrentInteractionCount { get => _currentInteractionCount; set => _currentInteractionCount = value; }
 
         #endregion
 
         #region Delegates
         public UnityEvent OnNextDayUnity;
+
+        public event Action<int> OnPreDay;
+
+        public event Action<int> OnBeginDay;
         public UnityEvent OnBeginDayUnity;
+        
+        public event Action<int> OnEndDay;
         public UnityEvent OnEndDayUnity;
 
-        public UnityEvent OnUpdateCurrentInteractionCountRemainingUnity;
+        public event Action OnEndGame;
+        public UnityEvent OnEndGameUnity;
+
+        public UnityEvent OnUpdateCurrentInteractionCountUnity;
 
         public event Action<EDayPhase> OnUpdateDayPhase;
+        public event Action<int, int> OnUpdateCurrentInteractionCount;
 
         #endregion
 
@@ -77,44 +88,59 @@ namespace NarrativeProject
                 return;
             }
 
-            _currentInteractionCountRemaining = currentDayData.MaxInteractionCount;
+            CurrentInteractionCount = 0;
         }
 
         #region Day Global
         public void NextDay()
         {
             ++_currentDayIndex;
+            if(_currentDayIndex >= _daysData.Count)
+            {
+                _currentDayIndex = 0;
+                OnEndGame?.Invoke();
+                OnEndGameUnity?.Invoke();
+                return;
+            }
+            ChangeDayPhase(EDayPhase.PRE_DAY);
 
             OnNextDayUnity?.Invoke();
         }
         public void BeginDay()
         {
+            CurrentInteractionCount = 0;
+
             ChangeDayPhase(EDayPhase.IN_DAY);
 
+            OnBeginDay?.Invoke(CurrentDayIndex);
             OnBeginDayUnity?.Invoke();
         }
         public void EndDay()
         {
             ChangeDayPhase(EDayPhase.POST_DAY);
 
-            _currentInteractionCountRemaining = 0;
+            CurrentInteractionCount = 0;
 
+            OnEndDay?.Invoke(CurrentDayIndex);
             OnEndDayUnity?.Invoke();
         }
         #endregion
 
         #region Day Phases / interactions
         [Button]
-        public void DecrementCurrentInteractionCountRemaining()
+        public void IncrementCurrentInteractionCount()
         {
-            --_currentInteractionCountRemaining;
+            ++CurrentInteractionCount;
 
-            if (_currentInteractionCountRemaining <= 0)
+            CurrentInteractionCount = Mathf.Clamp(CurrentInteractionCount, 0, _daysData[_currentDayIndex].MaxInteractionCount);
+
+            OnUpdateCurrentInteractionCountUnity?.Invoke();
+            OnUpdateCurrentInteractionCount?.Invoke(_currentDayIndex, CurrentInteractionCount);
+
+            if (CurrentInteractionCount >= _daysData[_currentDayIndex].MaxInteractionCount)
             {
                 EndDay();
             }
-
-            OnUpdateCurrentInteractionCountRemainingUnity?.Invoke();
         }
 
         [Button]
@@ -123,12 +149,13 @@ namespace NarrativeProject
             switch (_currentDayPhase)
             {
                 case EDayPhase.PRE_DAY:
-                    ChangeDayPhase(EDayPhase.IN_DAY);
+                    BeginDay();
                     break;
                 case EDayPhase.IN_DAY:
-                    ChangeDayPhase(EDayPhase.POST_DAY);
+                    EndDay();
                     break;
                 case EDayPhase.POST_DAY:
+                    NextDay();
                     break;
                 default:
                     break;
@@ -139,7 +166,13 @@ namespace NarrativeProject
             _currentDayPhase = dayPhase;
 
             OnUpdateDayPhase?.Invoke(_currentDayPhase);
+
+            if (dayPhase == EDayPhase.PRE_DAY)
+            {
+                OnPreDay?.Invoke(CurrentDayIndex);
+            }
         }
         #endregion
+
     }
 }

@@ -33,6 +33,7 @@ namespace CREMOT.DialogSystem
             }
             Instance = this;
 
+            transform.parent = null;
             DontDestroyOnLoad(gameObject);
 
             RefreshDictionaries();
