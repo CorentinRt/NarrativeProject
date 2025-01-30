@@ -16,6 +16,9 @@ namespace CREMOT.DialogSystem
         [Header("Init Parameters")]
         [SerializeField] private bool _autoInit;
 
+        [SerializeField] private bool _autoStartDialog;
+        private bool _dialogStarted;
+
         [Space(20)]
 
         [Header("Associated Dialogue Graph")]
@@ -76,6 +79,16 @@ namespace CREMOT.DialogSystem
             _currentNodeId = GetNodeIdEntryPoint();
             _currentDialogueId = GetDialogueIdEntryPoint();
 
+            if (_autoStartDialog)
+            {
+                StartDialog();
+            }
+        }
+        public void StartDialog()
+        {
+            if (_dialogStarted) return;
+
+            _dialogStarted = true;
             SelectChoice(0);
         }
 

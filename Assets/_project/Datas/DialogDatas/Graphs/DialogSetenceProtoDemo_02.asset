@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1407b570a3c98a64c8b5cb583e8b2f72, type: 3}
+  m_Name: DialogSetenceProtoDemo_02
+  m_EditorClassIdentifier: 
+  nodes:
+  - id: d4c860ad-a270-48ea-8b65-2c2c86caa150
+    dialogueId: START
+    title: START
+    position: {x: 100, y: 200}
+    entryPoint: 1
+    outputPorts:
+    - 829c0524-f4ad-4361-9c85-4d128a861128
+    outputPortsChoiceId:
+    - Next
+    portConditions: []
+    callFunctions: []
+  - id: 45dad657-3a75-4620-a325-ecc697b5aaee
+    dialogueId: AXE_001
+    title: Dialogue Node
+    position: {x: 259, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - d5ad8074-d6a4-4ef0-80fb-ab6206c4154f
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: c85c79fd-5379-492d-bfec-e1b0f3b6aa23
+      methodName: Character.Coming
+    - gameObjectPersistantGUID: 399fc2eb-bff3-4e2c-bb3a-3776278e0246
+      methodName: DialogueDisplayer.ShowDisplayer
+  - id: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    dialogueId: AXE_002
+    title: Dialogue Node
+    position: {x: 655, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - 6bca1c95-da97-4650-a932-2ad6e028c30f
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    dialogueId: AXE_003
+    title: Dialogue Node
+    position: {x: 1075, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - 85aefd9b-1cb6-4ef5-bca7-cbd31fe61027
+    - 47263f5c-1c12-434e-9cf5-585a4cd15e4f
+    - 73149049-c534-4844-8ea5-80f785fcbb17
+    outputPortsChoiceId:
+    - Choice 0
+    - Choice 1
+    - Choice 2
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: 0ab28424-3592-4c9f-9819-ffadadf28679
+      methodName: Character.Coming
+  - id: 0f803713-5c2f-4a00-b1fb-8f88a1c5402f
+    dialogueId: AXE_004
+    title: Dialogue Node
+    position: {x: 1481, y: 394}
+    entryPoint: 0
+    outputPorts: []
+    outputPortsChoiceId: []
+    portConditions: []
+    callFunctions: []
+  - id: e838e358-4a9b-463f-a107-f0a8d19d8b41
+    dialogueId: AXE_006
+    title: Dialogue Node
+    position: {x: 1481, y: 216}
+    entryPoint: 0
+    outputPorts:
+    - 112e270f-700f-4ef5-8460-e7a3ef27ce98
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: 2bc01181-6afc-4736-be3b-2807d92324e5
+    dialogueId: AXE_008
+    title: Dialogue Node
+    position: {x: 1481, y: 25}
+    entryPoint: 0
+    outputPorts:
+    - 20dc7be5-36c5-41b0-998c-2dd01a7822d9
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: ec4de5fe-3435-466e-9453-208c34bf8deb
+    dialogueId: AXE_009
+    title: Dialogue Node
+    position: {x: 1860, y: 25}
+    entryPoint: 0
+    outputPorts:
+    - a3427041-217f-439f-96a4-5fd93c051e99
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  edges:
+  - fromNodeId: d4c860ad-a270-48ea-8b65-2c2c86caa150
+    fromPortId: 829c0524-f4ad-4361-9c85-4d128a861128
+    toNodeId: 45dad657-3a75-4620-a325-ecc697b5aaee
+    toPortId: 91d70054-c4fe-490e-befd-b59a57301349
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 45dad657-3a75-4620-a325-ecc697b5aaee
+    fromPortId: d5ad8074-d6a4-4ef0-80fb-ab6206c4154f
+    toNodeId: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    toPortId: f9710a92-e764-4768-8a87-81c531b2ffd6
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    fromPortId: 6bca1c95-da97-4650-a932-2ad6e028c30f
+    toNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    toPortId: 35071233-8faa-460e-8444-d0e6aab800d5
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 85aefd9b-1cb6-4ef5-bca7-cbd31fe61027
+    toNodeId: 2bc01181-6afc-4736-be3b-2807d92324e5
+    toPortId: ed845d45-d58e-48aa-ba67-a1d9dd3bdde5
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 47263f5c-1c12-434e-9cf5-585a4cd15e4f
+    toNodeId: e838e358-4a9b-463f-a107-f0a8d19d8b41
+    toPortId: e3e963da-dd40-4f4c-a5f7-b012dbb09051
+    fromPortIndex: 1
+    toPortIndex: 0
+  - fromNodeId: 2bc01181-6afc-4736-be3b-2807d92324e5
+    fromPortId: 20dc7be5-36c5-41b0-998c-2dd01a7822d9
+    toNodeId: ec4de5fe-3435-466e-9453-208c34bf8deb
+    toPortId: 5a748840-ce98-4d6e-a24e-1b34d24b3b88
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 73149049-c534-4844-8ea5-80f785fcbb17
+    toNodeId: 0f803713-5c2f-4a00-b1fb-8f88a1c5402f
+    toPortId: 533ea7f3-ba48-4525-b23f-29b858957cf2
+    fromPortIndex: 2
+    toPortIndex: 0

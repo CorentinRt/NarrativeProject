@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1407b570a3c98a64c8b5cb583e8b2f72, type: 3}
+  m_Name: DialogSetenceProtoDemo_01
+  m_EditorClassIdentifier: 
+  nodes:
+  - id: d4c860ad-a270-48ea-8b65-2c2c86caa150
+    dialogueId: START
+    title: START
+    position: {x: 100, y: 200}
+    entryPoint: 1
+    outputPorts:
+    - ac27434f-48cd-4d52-b17d-60930f4a2eb1
+    outputPortsChoiceId:
+    - Next
+    portConditions: []
+    callFunctions: []
+  - id: 45dad657-3a75-4620-a325-ecc697b5aaee
+    dialogueId: AXE_001
+    title: Dialogue Node
+    position: {x: 259, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - d5ad8074-d6a4-4ef0-80fb-ab6206c4154f
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    dialogueId: AXE_002
+    title: Dialogue Node
+    position: {x: 655, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - 6bca1c95-da97-4650-a932-2ad6e028c30f
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    dialogueId: AXE_003
+    title: Dialogue Node
+    position: {x: 1075, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - 85aefd9b-1cb6-4ef5-bca7-cbd31fe61027
+    - 47263f5c-1c12-434e-9cf5-585a4cd15e4f
+    - 73149049-c534-4844-8ea5-80f785fcbb17
+    outputPortsChoiceId:
+    - Choice 0
+    - Choice 1
+    - Choice 2
+    portConditions: []
+    callFunctions: []
+  - id: 0f803713-5c2f-4a00-b1fb-8f88a1c5402f
+    dialogueId: AXE_004
+    title: Dialogue Node
+    position: {x: 1481, y: 394}
+    entryPoint: 0
+    outputPorts: []
+    outputPortsChoiceId: []
+    portConditions: []
+    callFunctions: []
+  - id: e838e358-4a9b-463f-a107-f0a8d19d8b41
+    dialogueId: AXE_006
+    title: Dialogue Node
+    position: {x: 1481, y: 216}
+    entryPoint: 0
+    outputPorts:
+    - 112e270f-700f-4ef5-8460-e7a3ef27ce98
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: 2bc01181-6afc-4736-be3b-2807d92324e5
+    dialogueId: AXE_008
+    title: Dialogue Node
+    position: {x: 1481, y: 25}
+    entryPoint: 0
+    outputPorts:
+    - 20dc7be5-36c5-41b0-998c-2dd01a7822d9
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: ec4de5fe-3435-466e-9453-208c34bf8deb
+    dialogueId: AXE_009
+    title: Dialogue Node
+    position: {x: 1860, y: 25}
+    entryPoint: 0
+    outputPorts:
+    - a3427041-217f-439f-96a4-5fd93c051e99
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  edges:
+  - fromNodeId: d4c860ad-a270-48ea-8b65-2c2c86caa150
+    fromPortId: ac27434f-48cd-4d52-b17d-60930f4a2eb1
+    toNodeId: 45dad657-3a75-4620-a325-ecc697b5aaee
+    toPortId: 20ffcdef-afd5-4dec-98bd-ece5e13ef99e
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 45dad657-3a75-4620-a325-ecc697b5aaee
+    fromPortId: d5ad8074-d6a4-4ef0-80fb-ab6206c4154f
+    toNodeId: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    toPortId: 271963ab-f559-445d-8b06-529344012518
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    fromPortId: 6bca1c95-da97-4650-a932-2ad6e028c30f
+    toNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    toPortId: efedec0e-678d-4580-bda8-9e3e7a6ebef9
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 85aefd9b-1cb6-4ef5-bca7-cbd31fe61027
+    toNodeId: 2bc01181-6afc-4736-be3b-2807d92324e5
+    toPortId: c6520eb9-5d3b-4544-b989-79882058719c
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 47263f5c-1c12-434e-9cf5-585a4cd15e4f
+    toNodeId: e838e358-4a9b-463f-a107-f0a8d19d8b41
+    toPortId: 1160250c-8f0f-4a0e-ba3a-99ae1aa4e0e9
+    fromPortIndex: 1
+    toPortIndex: 0
+  - fromNodeId: 2bc01181-6afc-4736-be3b-2807d92324e5
+    fromPortId: 20dc7be5-36c5-41b0-998c-2dd01a7822d9
+    toNodeId: ec4de5fe-3435-466e-9453-208c34bf8deb
+    toPortId: 737eea8f-c794-4beb-ba4d-51ac607cd7f0
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 73149049-c534-4844-8ea5-80f785fcbb17
+    toNodeId: 0f803713-5c2f-4a00-b1fb-8f88a1c5402f
+    toPortId: c7f90943-6f5a-42e0-9f06-c708f64894ce
+    fromPortIndex: 2
+    toPortIndex: 0

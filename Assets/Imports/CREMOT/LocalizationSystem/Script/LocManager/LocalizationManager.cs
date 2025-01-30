@@ -76,7 +76,7 @@ public class LocalizationManager : MonoBehaviour
         switch (language)
         {
             case Language.ENGLISH:
-                return "EN";
+                return "ENG";
             case Language.FRENCH:
                 return "FR";
             case Language.SPANISH:
