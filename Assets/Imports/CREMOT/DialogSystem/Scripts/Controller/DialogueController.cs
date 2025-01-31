@@ -16,6 +16,9 @@ namespace CREMOT.DialogSystem
         [Header("Init Parameters")]
         [SerializeField] private bool _autoInit;
 
+        [SerializeField] private bool _autoStartDialog;
+        private bool _dialogStarted;
+
         [Space(20)]
 
         [Header("Associated Dialogue Graph")]
@@ -76,6 +79,16 @@ namespace CREMOT.DialogSystem
             _currentNodeId = GetNodeIdEntryPoint();
             _currentDialogueId = GetDialogueIdEntryPoint();
 
+            if (_autoStartDialog)
+            {
+                StartDialog();
+            }
+        }
+        public void StartDialog()
+        {
+            if (_dialogStarted) return;
+
+            _dialogStarted = true;
             SelectChoice(0);
         }
 
@@ -119,6 +132,19 @@ namespace CREMOT.DialogSystem
 
             NotifyChoiceChange(_currentDialogueNodeSO.outputPortsChoiceId, _currentDialogueNodeSO.outputPorts);
         }
+        #endregion
+
+        #region Continue
+        public void Continue()
+        {
+            if (_currentDialogueNodeSO == null) return;
+
+            if (_currentDialogueNodeSO.outputPorts == null) return;
+            if (_currentDialogueNodeSO.outputPorts.Count > 1) return;
+
+            SelectChoice(0);
+        }
+
         #endregion
 
         #region Selection Choice

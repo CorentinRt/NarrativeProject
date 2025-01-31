@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CREMOT.DialogSystem
 {
@@ -56,8 +57,26 @@ namespace CREMOT.DialogSystem
 
         #endregion
 
+        #region Delegates
+
+        public UnityEvent OnShowDisplayerUnity;
+        public UnityEvent OnHideDisplayerUnity;
+
+        public UnityEvent OnDisplayMultipleChoicesUnity;
+        public UnityEvent OnDisplayOnlyOneChoiceUnity;
+
+        #endregion
+
+
         private void Awake()
         {
+            if (_dialogueController != null)
+            {
+                _dialogueController.OnDialogueUpdated += DisplayDialogueText;
+
+                _dialogueController.OnChoiceUpdated += DisplayChoices;
+            }
+
             if (_idToDialogueSO != null)
             {
                 var temp = _idToDialogueSO.IdToTextConverter;   // Init dictionnary converter
@@ -153,12 +172,7 @@ namespace CREMOT.DialogSystem
 
         private void Start()
         {
-            if (_dialogueController != null)
-            {
-                _dialogueController.OnDialogueUpdated += DisplayDialogueText;
-
-                _dialogueController.OnChoiceUpdated += DisplayChoices;
-            }
+            //RefreshAllText();
 
             if (_startHidden)
             {
@@ -187,6 +201,8 @@ namespace CREMOT.DialogSystem
             if (_displayerCanvas == null) return;
 
             _displayerCanvas.gameObject.SetActive(true);
+
+            OnShowDisplayerUnity?.Invoke();
         }
         public void HideDisplayer()
         {
@@ -194,6 +210,8 @@ namespace CREMOT.DialogSystem
             if (_displayerCanvas == null) return;
 
             _displayerCanvas.gameObject.SetActive(false);
+
+            OnHideDisplayerUnity?.Invoke();
         }
 
         #endregion
@@ -221,10 +239,23 @@ namespace CREMOT.DialogSystem
 
             ClearAllChildren(_choicesContainer.transform);
 
+            int buttonAddCount = 0;
+
             for (int i = 0; i < choicesText.Count; ++i)
             {
                 if (choicesText[i] == null) continue;
                 AddChoiceButton(_dialogueController, i, choicesText[i]);
+
+                ++buttonAddCount;
+            }
+
+            if (buttonAddCount > 1)
+            {
+                OnDisplayMultipleChoicesUnity?.Invoke();
+            }
+            else if (buttonAddCount == 1)
+            {
+                OnDisplayOnlyOneChoiceUnity?.Invoke();
             }
 
             _currentSavedChoicesIds = choicesText;

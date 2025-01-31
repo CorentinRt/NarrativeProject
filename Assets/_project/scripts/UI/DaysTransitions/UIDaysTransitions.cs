@@ -76,7 +76,8 @@ namespace NarrativeProject
             {
                 _transitionTween.Kill();
             }
-            _transitionTween = _containerTransition.DOMove(_hide.position, _duration).OnComplete(() => HideNewsPaper());
+            _transitionTween = _containerTransition.DOMove(_hide.position, _duration);
+            HideNewsPaper();
         }
 
         public void ShowNewsPaper()
@@ -95,7 +96,7 @@ namespace NarrativeProject
 
             _btnNewsPaper.gameObject.SetActive(true);
             _transitionNewsPaperTween = _btnNewsPaper.DOScale(1f, _newsPaperAppearDuration);
-            _transitionRotNewsPaperTween = _btnNewsPaper.DORotate(new Vector3(0f, 0f, 380f), 0.7f, RotateMode.FastBeyond360);
+            _transitionRotNewsPaperTween = _btnNewsPaper.DORotate(new Vector3(0f, 0f, 380f), _newsPaperAppearDuration, RotateMode.FastBeyond360);
         }
         public void HideNewsPaper()
         {
@@ -108,6 +109,7 @@ namespace NarrativeProject
                 _transitionRotNewsPaperTween.Kill(true);
             }
             _transitionNewsPaperTween = _btnNewsPaper.transform.DOScale(Vector3.zero, _newsPaperAppearDuration);
+            _transitionRotNewsPaperTween = _btnNewsPaper.DORotate(new Vector3(0f, 0f, 380f), _newsPaperAppearDuration, RotateMode.FastBeyond360);
         }
 
     }

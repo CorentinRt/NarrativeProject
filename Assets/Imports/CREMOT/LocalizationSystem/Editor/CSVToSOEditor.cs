@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using System.Text.RegularExpressions;
 
 public class CSVToSOEditor : EditorWindow
 {
@@ -77,7 +78,8 @@ public class CSVToSOEditor : EditorWindow
             if (string.IsNullOrEmpty(line)) continue;
 
             // Split the line into columns
-            string[] columns = line.Split(',');
+            //string[] columns = line.Split(',');
+            string[] columns = ParseCSVLine(line);
 
             if (columns.Length < 3)
             {
@@ -126,6 +128,24 @@ public class CSVToSOEditor : EditorWindow
 
         // Confirm success
         EditorUtility.DisplayDialog("Success", "The ScriptableObject has been successfully updated.", "OK");
+    }
+
+    private string[] ParseCSVLine(string line)
+    {
+        List<string> result = new List<string>();
+        MatchCollection matches = Regex.Matches(line, "(?<=^|,)(\"(?:[^\"]|\"\")*\"|[^,]*)");
+
+        foreach (Match match in matches)
+        {
+            string value = match.Value;
+            if (value.StartsWith("\"") && value.EndsWith("\""))
+            {
+                value = value.Substring(1, value.Length - 2).Replace("\"\"", "\""); // Retire les guillemets et remplace les doubles guillemets
+            }
+            result.Add(value);
+        }
+
+        return result.ToArray();
     }
 }
 #endif
