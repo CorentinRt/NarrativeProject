@@ -282,6 +282,8 @@ namespace CREMOT.DialogSystem
         private void AddNewCallFunctionFieldButton(DialogueNode node)
         {
             var button = new Button(() => AddCallFunctionField(node)) { text = "New Call Function Field" };
+            button.style.backgroundColor = new Color(0.3f, 0.7f, 0.3f);
+            button.style.color = Color.black;
             node.mainContainer.Add(button);
         }
         private void AddCallFunctionField(DialogueNode node)

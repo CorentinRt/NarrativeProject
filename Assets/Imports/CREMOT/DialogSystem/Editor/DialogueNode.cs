@@ -76,16 +76,23 @@ namespace CREMOT.DialogSystem
         public PopupField<string> MethodPopupField;
         public List<string> methodNames = new List<string>();
 
+        public Button RemoveCallFunctionFieldBtn;
         #endregion
-
 
 
         #region Construct
         public NodeCallFunctionContainer(DialogueNode node)
         {
+            RemoveCallFunctionFieldBtn = new Button(() =>
+            {
+                this.RemoveCallFunctionField(node);
+            });
+            RemoveCallFunctionFieldBtn.text = "Remove Call Function Field";
+            RemoveCallFunctionFieldBtn.style.backgroundColor = new Color(0.7f, 0.3f, 0.3f);
+
             CallFunctionField = new ObjectField("Event Field")
             {
-
+                
             };
             CallFunctionField.RegisterValueChangedCallback(evt =>
             {
@@ -97,6 +104,7 @@ namespace CREMOT.DialogSystem
             MethodPopupField = new PopupField<string>("Selected Method", methodNames, 0);
 
 
+            node.mainContainer.Add(RemoveCallFunctionFieldBtn);
             node.mainContainer.Add(CallFunctionField);
             node.mainContainer.Add(MethodPopupField);
         }
@@ -123,6 +131,19 @@ namespace CREMOT.DialogSystem
             MethodPopupField.choices = methodNames;
             MethodPopupField.index = 0;
         }
+        #endregion
+
+        #region Remove CallFunction
+
+        private void RemoveCallFunctionField(DialogueNode node)
+        {
+            node.mainContainer.Remove(CallFunctionField);
+            node.mainContainer.Remove(MethodPopupField);
+            node.mainContainer.Remove(RemoveCallFunctionFieldBtn);
+
+            node.nodeEventsContainers.Remove(this);
+        }
+
         #endregion
     }
 }
