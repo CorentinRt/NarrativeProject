@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: _darkenColorDuration
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8220922952346066987, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: _charactersPerSecond
+      value: 28
+      objectReference: {fileID: 0}
     - target: {fileID: 8509694781927534012, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

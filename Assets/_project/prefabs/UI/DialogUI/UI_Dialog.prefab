@@ -666,6 +666,8 @@ MonoBehaviour:
   _displayButtonsElements: 1
   _neverHideDisplayer: 0
   _startHidden: 1
+  _useTypingAppearEffect: 1
+  _charactersPerSecond: 28
   _useDynamicLocalizationDisplay: 1
   OnShowDisplayerUnity:
     m_PersistentCalls:
@@ -733,6 +735,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDisplayDialogTextUnity:
+    m_PersistentCalls:
+      m_Calls: []
   OnDisplayMultipleChoicesUnity:
     m_PersistentCalls:
       m_Calls:
