@@ -37,6 +37,7 @@ namespace CREMOT.UIAnimatorDotween
             [SerializeField] private Color _targetColor;
 
             [SerializeField] private float _idleAmplitude;
+            [SerializeField] private float _idleRandomOffsetDuration;
 
             [SerializeField] private Vector3 _bobbingScale;
 
@@ -55,6 +56,7 @@ namespace CREMOT.UIAnimatorDotween
             public Vector3 TargetScale { get => _targetScale; set => _targetScale = value; }
             public Color TargetColor { get => _targetColor; set => _targetColor = value; }
             public float IdleAmplitude { get => _idleAmplitude; set => _idleAmplitude = value; }
+            public float IdleRandomOffsetDuration { get => _idleRandomOffsetDuration; set => _idleRandomOffsetDuration = value; }
             public Vector3 BobbingScale { get => _bobbingScale; set => _bobbingScale = value; }
             public Tween AnimationTween { get => _animationTween; set => _animationTween = value; }
         }
@@ -179,7 +181,9 @@ namespace CREMOT.UIAnimatorDotween
 
         private Tween AnimateIdleInfinite(float direction, float duration, Ease ease, AnimationSettings settings)
         {
-            return transform.DOLocalMoveY(settings.IdleAmplitude * direction, duration).OnComplete(() => AnimateIdleInfinite(direction * -1f, duration, ease, settings));
+            float tempOffset = Random.Range(0f, settings.IdleRandomOffsetDuration);
+
+            return transform.DOLocalMoveY(settings.IdleAmplitude * direction, duration + tempOffset).OnComplete(() => AnimateIdleInfinite(direction * -1f, duration, ease, settings));
         }
 
         private Tween AnimateBobbingEffect(Vector3 targetScale, float duration)
