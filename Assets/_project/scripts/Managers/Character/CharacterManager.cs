@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,6 +66,34 @@ namespace NarrativeProject
                 DayManager.Instance.OnEndDay += ResetCharactersDrunkState;
             }
         }
+
+        #region Darken / Light Up
+
+        [Button]
+        public void DarkenAllCharacters()
+        {
+            if (_characterList == null) return;
+            foreach (Character character in _characterList)
+            {
+                if (character == null) continue;
+
+                character.DarkenCharacter();
+            }
+        }
+        [Button]
+        public void LightUpAllcharacters()
+        {
+            if (_characterList == null) return;
+            foreach (Character character in _characterList)
+            {
+                if (character == null) continue;
+
+                character.LightUpCharacter();
+            }
+        }
+
+
+        #endregion
 
         /*public List<Character> GetCharactersThisDay(int day)
         {

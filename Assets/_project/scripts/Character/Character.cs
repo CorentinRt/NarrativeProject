@@ -51,6 +51,8 @@ namespace NarrativeProject
         [Button]
         public void DarkenCharacter()
         {
+            if (_spriteRenderer == null) return;
+
             if (_darkenTween != null)
             {
                 _darkenTween.Kill();
@@ -61,6 +63,8 @@ namespace NarrativeProject
         [Button]
         public void LightUpCharacter()
         {
+            if (_spriteRenderer == null) return;
+
             if (_darkenTween != null)
             {
                 _darkenTween.Kill();
