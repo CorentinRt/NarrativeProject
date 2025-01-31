@@ -56,6 +56,11 @@ namespace CREMOT.UIAnimatorDotween
                         animator.Animations[i].IdleAmplitude = EditorGUILayout.FloatField("Idle Amplitude", animator.Animations[i].IdleAmplitude);
                     }
 
+                    if (animator.Animations[i].AnimationType == UIAnimator.EAnimationType.BOBBING_ONCE_6)
+                    {
+                        animator.Animations[i].BobbingScale = EditorGUILayout.Vector3Field("Bobbing Scale", animator.Animations[i].BobbingScale);
+                    }
+
                     // ---------------- Event field ---------------------
                     SerializedObject serializedObjectStarted = new SerializedObject(animator);
                     SerializedProperty animationsArrayStarted = serializedObjectStarted.FindProperty("_animations");

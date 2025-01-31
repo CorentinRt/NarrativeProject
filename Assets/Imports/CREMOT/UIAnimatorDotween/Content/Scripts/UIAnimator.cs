@@ -20,7 +20,8 @@ namespace CREMOT.UIAnimatorDotween
             MOVETO_2 = 2,
             SCALETO_3 = 3,
             COLORTO_4 = 4,
-            IDLE_INFINITE_5 = 5
+            IDLE_INFINITE_5 = 5,
+            BOBBING_ONCE_6 = 6
         }
 
         [System.Serializable]
@@ -37,6 +38,8 @@ namespace CREMOT.UIAnimatorDotween
 
             [SerializeField] private float _idleAmplitude;
 
+            [SerializeField] private Vector3 _bobbingScale;
+
             [SerializeField] private bool _playOnStart;
 
             private Tween _animationTween;
@@ -52,6 +55,7 @@ namespace CREMOT.UIAnimatorDotween
             public Vector3 TargetScale { get => _targetScale; set => _targetScale = value; }
             public Color TargetColor { get => _targetColor; set => _targetColor = value; }
             public float IdleAmplitude { get => _idleAmplitude; set => _idleAmplitude = value; }
+            public Vector3 BobbingScale { get => _bobbingScale; set => _bobbingScale = value; }
             public Tween AnimationTween { get => _animationTween; set => _animationTween = value; }
         }
         #endregion
@@ -122,6 +126,9 @@ namespace CREMOT.UIAnimatorDotween
                 case EAnimationType.IDLE_INFINITE_5:
                     settings.AnimationTween = AnimateIdleInfinite(1f, settings.Duration, settings.Ease, settings);
                     break;
+                case EAnimationType.BOBBING_ONCE_6:
+                    settings.AnimationTween = AnimateBobbingEffect(settings.BobbingScale, settings.Duration);
+                    break;
 
             }
 
@@ -175,6 +182,12 @@ namespace CREMOT.UIAnimatorDotween
             return transform.DOLocalMoveY(settings.IdleAmplitude * direction, duration).OnComplete(() => AnimateIdleInfinite(direction * -1f, duration, ease, settings));
         }
 
+        private Tween AnimateBobbingEffect(Vector3 targetScale, float duration)
+        {
+            Debug.LogWarning(targetScale);
+            return transform.DOPunchScale(targetScale, duration, 3, 0.5f);
+        }
+
         private void NotifyAnimationFinished(AnimationSettings settings)
         {
             settings.OnAnimationFinished?.Invoke();
@@ -201,7 +214,6 @@ namespace CREMOT.UIAnimatorDotween
 
             PlayAnimation(animation);
         }
-
 
         public void KillAllAnimations()
         {
@@ -234,6 +246,18 @@ namespace CREMOT.UIAnimatorDotween
             if (animation.AnimationTween == null) return;
 
             animation.AnimationTween.Kill();
+        }
+        public void KillAndCompleteAnimationAtIndex(int index)
+        {
+            if (index >= _animations.Length) return;
+
+            AnimationSettings animation = _animations[index];
+
+            if (animation == null) return;
+
+            if (animation.AnimationTween == null) return;
+
+            animation.AnimationTween.Kill(true);
         }
 
         #endregion
