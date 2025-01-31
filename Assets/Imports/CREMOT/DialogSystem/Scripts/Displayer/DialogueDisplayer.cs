@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CREMOT.DialogSystem
 {
@@ -40,6 +41,7 @@ namespace CREMOT.DialogSystem
 
         [Header("Display Parameters")]
 
+        [SerializeField] private bool _bDisableOnlyOneButtonDisplayed = false;
         [SerializeField] private bool _displayButtonsElements = true;
         [SerializeField] private bool _neverHideDisplayer = false;
         [SerializeField] private bool _startHidden = false;
@@ -56,8 +58,26 @@ namespace CREMOT.DialogSystem
 
         #endregion
 
+        #region Delegates
+
+        public UnityEvent OnShowDisplayerUnity;
+        public UnityEvent OnHideDisplayerUnity;
+
+        public UnityEvent OnDisplayMultipleChoicesUnity;
+        public UnityEvent OnDisplayOnlyOneChoiceUnity;
+
+        #endregion
+
+
         private void Awake()
         {
+            if (_dialogueController != null)
+            {
+                _dialogueController.OnDialogueUpdated += DisplayDialogueText;
+
+                _dialogueController.OnChoiceUpdated += DisplayChoices;
+            }
+
             if (_idToDialogueSO != null)
             {
                 var temp = _idToDialogueSO.IdToTextConverter;   // Init dictionnary converter
@@ -153,12 +173,7 @@ namespace CREMOT.DialogSystem
 
         private void Start()
         {
-            if (_dialogueController != null)
-            {
-                _dialogueController.OnDialogueUpdated += DisplayDialogueText;
-
-                _dialogueController.OnChoiceUpdated += DisplayChoices;
-            }
+            //RefreshAllText();
 
             if (_startHidden)
             {
@@ -187,6 +202,8 @@ namespace CREMOT.DialogSystem
             if (_displayerCanvas == null) return;
 
             _displayerCanvas.gameObject.SetActive(true);
+
+            OnShowDisplayerUnity?.Invoke();
         }
         public void HideDisplayer()
         {
@@ -194,6 +211,8 @@ namespace CREMOT.DialogSystem
             if (_displayerCanvas == null) return;
 
             _displayerCanvas.gameObject.SetActive(false);
+
+            OnHideDisplayerUnity?.Invoke();
         }
 
         #endregion
@@ -221,10 +240,38 @@ namespace CREMOT.DialogSystem
 
             ClearAllChildren(_choicesContainer.transform);
 
+            int buttonAddCount = 0;
+
+            List<ChoiceButton> tempChoicesBtn = new List<ChoiceButton>();
+
             for (int i = 0; i < choicesText.Count; ++i)
             {
                 if (choicesText[i] == null) continue;
-                AddChoiceButton(_dialogueController, i, choicesText[i]);
+                ChoiceButton tempChoicebtn = AddChoiceButton(_dialogueController, i, choicesText[i]);
+
+                if (tempChoicebtn != null)
+                {
+                    tempChoicesBtn.Add(tempChoicebtn);
+                }
+
+                ++buttonAddCount;
+            }
+
+            if (buttonAddCount > 1)
+            {
+                OnDisplayMultipleChoicesUnity?.Invoke();
+            }
+            else if (buttonAddCount == 1)
+            {
+                OnDisplayOnlyOneChoiceUnity?.Invoke();
+
+                if (_bDisableOnlyOneButtonDisplayed)
+                {
+                    foreach (ChoiceButton choiceButton in tempChoicesBtn)
+                    {
+                        choiceButton.BEnabled = false;
+                    }
+                }
             }
 
             _currentSavedChoicesIds = choicesText;
@@ -244,7 +291,7 @@ namespace CREMOT.DialogSystem
                 Destroy(child.gameObject);
             }
         }
-        private void AddChoiceButton(DialogueController dialogueController, int id, string idText = "Default Choice")
+        private ChoiceButton AddChoiceButton(DialogueController dialogueController, int id, string idText = "Default Choice")
         {
             GameObject buttonChoiceGameObject = Instantiate(_buttonChoicePrefab, _choicesContainer.transform);
 
@@ -253,6 +300,8 @@ namespace CREMOT.DialogSystem
             string textValue = GetChoiceTextFromChoiceId(idText);
 
             buttonChoice.Init(dialogueController, id, textValue);
+
+            return buttonChoice;
         }
         #endregion
 

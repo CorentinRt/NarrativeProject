@@ -1,8 +1,7 @@
-using Codice.Client.BaseCommands;
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static PlasticPipe.Server.MonitorStats;
 
 namespace NarrativeProject
 {
@@ -13,6 +12,7 @@ namespace NarrativeProject
         [SerializeField] List<Character> _characterList;
 
         [SerializeField] private bool _autoFillCharacterListOnStart;
+        [SerializeField] private bool _autoDarkenAllCharactersOnStart;
 
         List<Character> _charactersThisDay = new List<Character>();
 
@@ -31,8 +31,8 @@ namespace NarrativeProject
         {
             if (DayManager.Instance != null)
             {
-                DayManager.Instance.OnUpdateCurrentInteractionCount -= CheckWhoIsComing;
-                DayManager.Instance.OnUpdateCurrentInteractionCount -= CheckWhoIsLeaving;
+                /*DayManager.Instance.OnUpdateCurrentInteractionCount -= CheckWhoIsComing;
+                DayManager.Instance.OnUpdateCurrentInteractionCount -= CheckWhoIsLeaving;*/
                 DayManager.Instance.OnEndDay -= ResetCharactersDrunkState;
             }
         }
@@ -62,13 +62,46 @@ namespace NarrativeProject
             }
             if (DayManager.Instance != null)
             {
-                DayManager.Instance.OnUpdateCurrentInteractionCount += CheckWhoIsComing;
-                DayManager.Instance.OnUpdateCurrentInteractionCount += CheckWhoIsLeaving;
+                /*DayManager.Instance.OnUpdateCurrentInteractionCount += CheckWhoIsComing;
+                DayManager.Instance.OnUpdateCurrentInteractionCount += CheckWhoIsLeaving;*/
                 DayManager.Instance.OnEndDay += ResetCharactersDrunkState;
+            }
+
+            if (_autoDarkenAllCharactersOnStart)
+            {
+                DarkenAllCharacters();
             }
         }
 
-        public List<Character> GetCharactersThisDay(int day)
+        #region Darken / Light Up
+
+        [Button]
+        public void DarkenAllCharacters()
+        {
+            if (_characterList == null) return;
+            foreach (Character character in _characterList)
+            {
+                if (character == null) continue;
+
+                character.DarkenCharacter();
+            }
+        }
+        [Button]
+        public void LightUpAllcharacters()
+        {
+            if (_characterList == null) return;
+            foreach (Character character in _characterList)
+            {
+                if (character == null) continue;
+
+                character.LightUpCharacter();
+            }
+        }
+
+
+        #endregion
+
+        /*public List<Character> GetCharactersThisDay(int day)
         {
             CharactersThisDay = new List<Character>();
             foreach (Character character in _characterList)
@@ -82,7 +115,7 @@ namespace NarrativeProject
                 }
             }
             return CharactersThisDay;
-        }
+        }*/
 
         public void ResetCharactersDrunkState(int value)
         {
@@ -93,7 +126,7 @@ namespace NarrativeProject
             RemoveAllCharacters();
         }
 
-        public void CheckWhoIsComing(int currentDay, int interactions)
+        /*public void CheckWhoIsComing(int currentDay, int interactions)
         {
             bool changed = false;
             bool b = false;
@@ -131,9 +164,9 @@ namespace NarrativeProject
             }
 
             if (changed) BringCharacters();
-        }
+        }*/
 
-        public Character GetNextCharacter(int currentDay, int interactions)
+        /*public Character GetNextCharacter(int currentDay, int interactions)
         {
             Character chosenCharacter = null;
             int minInteraction = 1000;
@@ -155,8 +188,8 @@ namespace NarrativeProject
                 chosenCharacter.Data.DaysComingData[currentDay] = newDayInteraction;
             }
             return chosenCharacter;
-        }
-        public void CheckWhoIsLeaving(int currentDay, int interactions)
+        }*/
+        /*public void CheckWhoIsLeaving(int currentDay, int interactions)
         {
             bool changed = false;
             bool b = false;
@@ -186,9 +219,9 @@ namespace NarrativeProject
             }
 
             if (changed) RemoveCharacters();
-        }
+        }*/
 
-        public void BringCharacters()
+        /*public void BringCharacters()
         {
             foreach (Character character in CharactersThisDay)
             {
@@ -198,8 +231,8 @@ namespace NarrativeProject
 
                 }
             }
-        }
-        public void RemoveCharacters()
+        }*/
+        /*public void RemoveCharacters()
         {
             foreach (Character character in CharactersThisDay)
             {
@@ -208,7 +241,7 @@ namespace NarrativeProject
                     character.Leaving();
                 }
             }
-        }
+        }*/
 
         public void RemoveAllCharacters()
         {

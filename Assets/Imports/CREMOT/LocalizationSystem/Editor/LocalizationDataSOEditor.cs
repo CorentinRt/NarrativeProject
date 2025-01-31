@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -64,3 +65,4 @@ public class LocalizationDataSOEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

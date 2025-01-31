@@ -1,5 +1,7 @@
 using CREMOT.DialogSystem;
+using DG.Tweening;
 using JetBrains.Annotations;
+using NaughtyAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,12 +27,53 @@ namespace NarrativeProject
         [SerializeField] bool _isDead;
         [SerializeField] ComingState _comingState;
 
-        public UnityEvent _onCharacterComing = new UnityEvent();
-        public UnityEvent _onCharacterLeaving = new UnityEvent();
+        [Space(20)]
+
+        [Header("Darken / Light Up parameters")]
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private Color _darkenTargetColor;
+        [SerializeField] private float _darkenColorDuration;
+        private Tween _darkenTween;
+
+        public event Action<Character> OnCharacterComing;
+        public event Action<Character> OnCharacterLeaving;
+
+        public UnityEvent OnCharacterComingUnity = new UnityEvent();
+        public UnityEvent OnCharacterLeavingUnity = new UnityEvent();
 
         public SO_CharacterData Data { get => _data; }
         public bool IsDead { get => _isDead; set => _isDead = value; }
         public ComingState ComingState { get => _comingState; set => _comingState = value; }
+
+
+        #region Darken / light up
+
+        [Button]
+        public void DarkenCharacter()
+        {
+            if (_spriteRenderer == null) return;
+
+            if (_darkenTween != null)
+            {
+                _darkenTween.Kill();
+            }
+
+            _darkenTween = _spriteRenderer.DOColor(_darkenTargetColor, _darkenColorDuration);
+        }
+        [Button]
+        public void LightUpCharacter()
+        {
+            if (_spriteRenderer == null) return;
+
+            if (_darkenTween != null)
+            {
+                _darkenTween.Kill();
+            }
+
+            _darkenTween = _spriteRenderer.DOColor(Color.white, _darkenColorDuration);
+        }
+
+        #endregion
 
         public void Init()
         {
@@ -43,7 +86,7 @@ namespace NarrativeProject
                     Debug.Log("Added " + _data.DrinkType[i] + " to the dictionary at " + _data.DrinkEffect[i]);
                 }
             }
-            for (int i = 0; i < _data.DaysComing.Count; i++)
+            /*for (int i = 0; i < _data.DaysComing.Count; i++)
             {
                 //Debug.Log("checking");
                 if (!_data.DaysComingData.ContainsKey(_data.DaysComing[i]))
@@ -51,7 +94,7 @@ namespace NarrativeProject
                     //Debug.Log("add eleemtn");
                     _data.DaysComingData.Add(_data.DaysComing[i], _data.InteractionsData[i]);
                 }
-            }
+            }*/
             _visual.GetComponent<SpriteRenderer>().sprite = Data.Sprites[0];
             _friendshipScale = Data.DefaultFriendShipScale;
             _drunkScale = Data.DefaultdrunkScale;
@@ -71,6 +114,8 @@ namespace NarrativeProject
         {
             Collision.GetComponentInChildren<DropZone>().OnReceiveDrop -= ReceiveDrop;
         }
+
+
 
         private void ReceiveDrop(GameObject obj)
         {
@@ -155,20 +200,24 @@ namespace NarrativeProject
         {
             DialogueInventory.Instance.AddItem(Data.Name + "_" + _state + "_" + _friendshipState, 1);
         }
+        [Button]
         public void Coming()
         {
-            _onCharacterComing?.Invoke();
+            OnCharacterComing?.Invoke(this);
+            OnCharacterComingUnity?.Invoke();
 
         }
 
+        [Button]
         public void Leaving()
         {
-            _onCharacterLeaving?.Invoke();
-            _comingState = ComingState.Left;
+            OnCharacterLeaving?.Invoke(this);
+            OnCharacterLeavingUnity?.Invoke();
+            //_comingState = ComingState.Left;
         }
 
-        public bool CheckComingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeComing <= currentInteractionCount;
-        public bool CheckLeavingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeLeaving <= currentInteractionCount;
+       //public bool CheckComingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeComing <= currentInteractionCount;
+       //public bool CheckLeavingAtDay(int day, int currentInteractionCount) => _data.DaysComingData[day].InteractionsBeforeLeaving <= currentInteractionCount;
     }
 }
 

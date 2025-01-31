@@ -137,10 +137,12 @@ namespace NarrativeProject
             OnUpdateCurrentInteractionCountUnity?.Invoke();
             OnUpdateCurrentInteractionCount?.Invoke(_currentDayIndex, CurrentInteractionCount);
 
+            /*
             if (CurrentInteractionCount >= _daysData[_currentDayIndex].MaxInteractionCount)
             {
                 EndDay();
             }
+            */
         }
 
         [Button]

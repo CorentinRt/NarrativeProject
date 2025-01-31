@@ -10,9 +10,18 @@ namespace CREMOT.DialogSystem
         #region Fields
         private DialogueController _dialogueController;
 
+        private bool _bEnabled = true;
+
         private int _associatedChoiceIndex;
 
         [SerializeField] private TextMeshProUGUI _choiceText;
+
+        #endregion
+
+        #region Properties
+        public bool BEnabled { get => _bEnabled; set => _bEnabled = value; }
+
+
         #endregion
 
 
@@ -34,6 +43,8 @@ namespace CREMOT.DialogSystem
         public void TriggerSelectChoiceButton()     // send id button to indicate wich path to take -> trough UnityEvent
         {
             if (_dialogueController == null) return;
+
+            if (!_bEnabled) return;
 
             _dialogueController.SelectChoice(_associatedChoiceIndex);
         }

@@ -1,4 +1,3 @@
-using log4net.Filter;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -64,7 +63,7 @@ namespace NarrativeProject
             {
                 _dayManager.InitManager();
 
-                _dayManager.OnBeginDay += AllowCharacterComing;
+                //_dayManager.OnBeginDay += AllowCharacterComing;
             }
             else
             {
@@ -93,7 +92,7 @@ namespace NarrativeProject
         {
             if (_dayManager != null)
             {
-                _dayManager.OnBeginDay -= AllowCharacterComing;
+                //_dayManager.OnBeginDay -= AllowCharacterComing;
             }
         }
 
@@ -103,12 +102,12 @@ namespace NarrativeProject
 
             _dayManager.InitDay();
         }
-        public void AllowCharacterComing(int _ = 0)
+        /*public void AllowCharacterComing(int _ = 0)
         {
             List<Character> tempCharaList = _characterManager.GetCharactersThisDay(DayManager.Instance.CurrentDayIndex);
             _characterManager.CheckWhoIsComing(DayManager.Instance.CurrentDayIndex, _dayManager.CurrentInteractionCount);
             _characterManager.BringCharacters();
-        }
+        }*/
     }
 
 }

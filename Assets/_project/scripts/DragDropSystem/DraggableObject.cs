@@ -1,5 +1,4 @@
 using DG.Tweening;
-using PlasticGui.WorkspaceWindow.QueryViews;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +18,8 @@ namespace NarrativeProject
         [SerializeField] private Vector2 _offset = Vector2.zero;
 
         private IDropReceiver _overlappingDropReceiver;
+
+        private bool _dragEnable = true;
 
 
         [Header("Drag Drop start parameters")]
@@ -77,14 +78,27 @@ namespace NarrativeProject
             _startRotation = transform.rotation;
         }
 
+        public void DisableDrag()
+        {
+            _dragEnable = false;
+        }
+        public void EnableDrag()
+        {
+            _dragEnable = true;
+        }
+
         #region Drag
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (!_dragEnable) return;
+
             NotifyInteraction(EPlayerInputsState.DRAGGING);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
+            if (!_dragEnable) return;
+
             if (!CanInteract()) return;
 
             Vector2 targetPosition = eventData.position;

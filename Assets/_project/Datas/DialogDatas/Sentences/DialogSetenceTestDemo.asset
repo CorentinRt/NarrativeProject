@@ -1,0 +1,527 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db56d23eafa5672468a9323d76ad7433, type: 3}
+  m_Name: DialogSetenceTestDemo
+  m_EditorClassIdentifier: 
+  _keyEntries:
+  - key: AXE_001
+    translations:
+    - languageID: FR
+      text: "H\xE9 ! Tu es le nouveau, n'est-ce pas ?"
+    - languageID: ENG
+      text: Hey ! You're the new one ain't ya ?
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_002
+    translations:
+    - languageID: FR
+      text: Je m'appelle Albert Axeman, avec plaisir.
+    - languageID: ENG
+      text: My name's Albert Axeman, pleasure.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_003
+    translations:
+    - languageID: FR
+      text: "Dis-moi, qu'est-ce qui t'am\xE8ne dans un endroit merdique comme celui-ci
+        ?"
+    - languageID: ENG
+      text: Tell me, what's bringing you in a shitty place like this ?
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_004
+    translations:
+    - languageID: FR
+      text: "Ok, je m'excuse le nouveau, je ne voulais pas \xEAtre intrusif."
+    - languageID: ENG
+      text: Ok, my bad newcomer,didn't mean to be intrusive.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_005
+    translations:
+    - languageID: FR
+      text: "J'esp\xE8re que tu sers mieux les boissons que tu ne parles. Sers moi
+        un whisky."
+    - languageID: ENG
+      text: I hope you serve drinks better than you talk. Give me a whisky.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_006
+    translations:
+    - languageID: FR
+      text: "Haha, tu ne le dis pas, j'ai l'impression de me d\xE9mener comme un
+        fou depuis ma naissance !"
+    - languageID: ENG
+      text: Haha, you don't say, it feels like I've been working my ass off since
+        my birth!
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_007
+    translations:
+    - languageID: FR
+      text: "Sers moi un whisky ici, s'il te pla\xEEt, j'ai besoin de me rafra\xEEchir."
+    - languageID: ENG
+      text: Throw me a whisky up here please, I need refreshment.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_008
+    translations:
+    - languageID: FR
+      text: "Une opportunit\xE9 ? Il n'y a aucune opportunit\xE9 ici, sauf celle
+        de g\xE2cher sa vie."
+    - languageID: ENG
+      text: An opportunity ? Ain't no opportunity up here, except one of throwing
+        your life away.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_009
+    translations:
+    - languageID: FR
+      text: "En parlant de \xE7a, sers moi un whisky, s'il te pla\xEEt."
+    - languageID: ENG
+      text: Speaking about it, get me a whisky please.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_010
+    translations:
+    - languageID: FR
+      text: Eh bien, pourquoi pas, mais je crois qu'il me faut quelque chose de plus
+        "percutant", sers moi un whisky.
+    - languageID: ENG
+      text: Well, why not, but I think I need something more punchy, give me a whisky.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_011
+    translations:
+    - languageID: FR
+      text: "Aaaah, beaucoup mieux ! Juste ce qu'il me fallait apr\xE8s une journ\xE9e
+        de merde comme celle-ci."
+    - languageID: ENG
+      text: Aaaah, much better ! Just what I needed after a shitty day like this.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_012
+    translations:
+    - languageID: FR
+      text: "Pouah ! C'est de la vodka mec. Putain, c'est d\xE9go\xFBtant comme pisse
+        polonaise."
+    - languageID: ENG
+      text: Pouah ! that's some vodka boy. damn, disgusting polish piss.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_013
+    translations:
+    - languageID: FR
+      text: Vous avez besoin de vous chopper du vrai alcool, les gars.
+    - languageID: ENG
+      text: You guys need to get real booze.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_014
+    translations:
+    - languageID: FR
+      text: "Je ne peux pas parler avec la gorge s\xE8che comme \xE7a, donne-moi
+        juste mon whisky maintenant."
+    - languageID: ENG
+      text: I can't speak with a sour throat like that, just give me my whisky already.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_015
+    translations:
+    - languageID: FR
+      text: "Oublie \xE7a, donne-moi juste mon whisky."
+    - languageID: ENG
+      text: Forget about it, just give me my whisky.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_016
+    translations:
+    - languageID: FR
+      text: "Je te l'dis mec, le pire, c'est que mon coll\xE8gue a dormi toute la
+        journ\xE9e \xE0 la ferme."
+    - languageID: ENG
+      text: I tell you man, the worst, my coworker just snoozed all day at the farm.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_017
+    translations:
+    - languageID: FR
+      text: "C'est habituel chez lui, mais ce n'est pas le moment de m'\xE9nerver."
+    - languageID: ENG
+      text: It's usual with him, but now is not the period to piss me off.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_018
+    translations:
+    - languageID: FR
+      text: "Il n'y a pas grand chose \xE0 dire en fait, juste une bande de pauvres
+        fils de pute comme moi."
+    - languageID: ENG
+      text: Nothing much to say really, just a bunch of poor motherfuckers just like
+        me.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_019
+    translations:
+    - languageID: FR
+      text: "M\xE9fiez-vous de celui qui s'appelle Phil, c'est un vrai cr\xE9tin."
+    - languageID: ENG
+      text: Be warry of the one named Phil, he's a real jackass.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_020
+    translations:
+    - languageID: FR
+      text: "Il passe ses journ\xE9es \xE0 courir apr\xE8s les femmes ou \xE0 jouer
+        aux cartes."
+    - languageID: ENG
+      text: He spends his days chasing women or playing cards.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_021
+    translations:
+    - languageID: FR
+      text: "Tout le monde pense qu'il est cool, mais en r\xE9alit\xE9, il n'est
+        qu'un psychopathe sans vergogne."
+    - languageID: ENG
+      text: Everybody thinks he's cool, but really he's just a shameless psychopath.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_022
+    translations:
+    - languageID: FR
+      text: Tous les locaux ici sont de vrais connards, je vous le dis.
+    - languageID: ENG
+      text: All the locals here are real fuckers I tell you.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_023
+    translations:
+    - languageID: FR
+      text: "Surtout mon ex-femme, Linda, cette m\xE9chante sorci\xE8re."
+    - languageID: ENG
+      text: Especially my ex wife, Linda, that mean witch.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_024
+    translations:
+    - languageID: FR
+      text: "Elle ne respecte tout simplement pas un homme, peu importe \xE0 quel
+        point il travaille dur pour elle."
+    - languageID: ENG
+      text: She simply doesn't respect a man, no matter how hard he works his ass
+        of for her.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_025
+    translations:
+    - languageID: FR
+      text: Elle allait partout, trompait et buvait avec des hommes, j'en avais marre
+        d'elle.
+    - languageID: ENG
+      text: Going everywhere, cheating and drinking with men, I was sick of her.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_026
+    translations:
+    - languageID: FR
+      text: "Mais vous savez s\xFBrement ce que je veux dire."
+    - languageID: ENG
+      text: But you surely know what I mean.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_027
+    translations:
+    - languageID: FR
+      text: "Lenny, tu le vois peut-\xEAtre dans le coin, la seule chose qu'il aime
+        plus que faire la sieste, c'est boire."
+    - languageID: ENG
+      text: Lenny, you might see him around, the only thing he likes more than napping
+        is drinking.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_028
+    translations:
+    - languageID: FR
+      text: "Mais attention, il ne supporte pas l'alcool, et a une mauvaise barri\xE8re
+        morale."
+    - languageID: ENG
+      text: But be careful, he can't stand his alcool, and has poor moral barrier.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_029
+    translations:
+    - languageID: FR
+      text: "Cela finit souvent par \xEAtre un vrai d\xE9sastre quand il boit trop."
+    - languageID: ENG
+      text: It often ends up bloody messy when he drinks to much.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_030
+    translations:
+    - languageID: FR
+      text: "Il n'y a pas grand chose \xE0 dire sur lui, mais il est dangereux, crois-moi."
+    - languageID: ENG
+      text: Nothing much to say about him, but he's dangerous, trust me.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_031
+    translations:
+    - languageID: FR
+      text: "Ferme-la, bon sang ! Je pourrais jamais \xEAtre jaloux de ce satan\xE9
+        cr\xE9tin."
+    - languageID: ENG
+      text: Shut the hell up ! the fuck I could be jealous about that damn moron.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_032
+    translations:
+    - languageID: FR
+      text: "Il ne pourrait m\xEAme pas planter une carotte si je le faisais pour
+        lui."
+    - languageID: ENG
+      text: He couldn't even plant a carrot if I was doing it for him.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_033
+    translations:
+    - languageID: FR
+      text: "Mais j'ai un mauvais pressentiment \xE0 son sujet, je crois qu'il pr\xE9pare
+        quelque chose."
+    - languageID: ENG
+      text: But I have a bad feeling concerning him, I think he might be up to something.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_034
+    translations:
+    - languageID: FR
+      text: "Tais-toi... *hic* ce salaud m'a vol\xE9 ma femme, c'est un *hic* j'aimerais
+        pouvoir le tuer."
+    - languageID: ENG
+      text: Shut up... *hips* that bastard stole my wife, he's a  *hips* I wish I
+        could kill him.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_035
+    translations:
+    - languageID: FR
+      text: "Il aura ce qu'il m\xE9rite un jour, que Dieu m'aide."
+    - languageID: ENG
+      text: He's gonna have what he deserve one day, god helps me.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_036
+    translations:
+    - languageID: FR
+      text: "Peut-\xEAtre que je ne devrais pas, je ne te connais pas encore assez."
+    - languageID: ENG
+      text: Maybe I shouldn't ,I don't know you enough yet.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_037
+    translations:
+    - languageID: FR
+      text: "Je ne suis pas vraiment d'humeur \xE0 le faire pour \xEAtre honn\xEAte.
+        Je suis un peu trop sobre pour pleurer sur ton \xE9paule."
+    - languageID: ENG
+      text: I'm not quite in the mood for this to be honest. I'm a little too sober
+        to cry on your shoulder.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_038
+    translations:
+    - languageID: FR
+      text: "Pfffff, rien \xE0 dire, elle m'a quitt\xE9 pour un connard nomm\xE9
+        Phil, et maintenant je les vois souvent ensemble au bar..."
+    - languageID: ENG
+      text: Pfffff, nothing much to say, she left me for some jerk named Phil, and
+        now I gotta see them together at the bar quite often...
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_039
+    translations:
+    - languageID: FR
+      text: "Je sais que j'ai merd\xE9 en flirtant avec la barmaid pr\xE9c\xE9dente,
+        mais je ne m\xE9ritais pas \xE7a, n'est-ce pas ?"
+    - languageID: ENG
+      text: I know I fucked up by flirting with the previous barmaid, but I didn't
+        deserve this, did I ?
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_040
+    translations:
+    - languageID: FR
+      text: Eh bien, ne le faites pas trop boire, c'est tout.
+    - languageID: ENG
+      text: Well, just don't make him drink too much that's all.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_041
+    translations:
+    - languageID: FR
+      text: Il n'a pas de filtre, donc quand il veut faire quelque chose, il le fait.
+    - languageID: ENG
+      text: He doesn't have no filter, so when he wants to do something he's going
+        to do it.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_042
+    translations:
+    - languageID: FR
+      text: "Le gar\xE7on n'avait pas d'argent. Il y a deux ans, il a \xE9pous\xE9
+        une vieille femme riche."
+    - languageID: ENG
+      text: The lad had no money. 2 years ago, he married a rich old woman.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_043
+    translations:
+    - languageID: FR
+      text: "Et il h\xE9rita de toute sa fortune lorsqu'elle d\xE9c\xE9da \xE9trangement
+        quelques mois plus tard."
+    - languageID: ENG
+      text: And he inherited all of her fortune when she strangely passed away a
+        few months later.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_044
+    translations:
+    - languageID: FR
+      text: "*soupir* Ce chien galeux a manipul\xE9 mon ex-femme, il l'a dans sa
+        poche."
+    - languageID: ENG
+      text: '*sigh* That gally dog manipulated my ex-wife, he has her in his pocket.'
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_045
+    translations:
+    - languageID: FR
+      text: "C'est un vrai probl\xE8me, il maltraite les gens, vole leurs femmes,
+        je l'ai m\xEAme vu mettre une pilule dans le verre de quelqu'un une fois."
+    - languageID: ENG
+      text: He is real trouble, he abuses people, steel their wives, I even saw him
+        put a pill in someone's drink once.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_046
+    translations:
+    - languageID: FR
+      text: "Eh bien, dites cela \xE0 Mademoiselle Kina, votre pr\xE9d\xE9cesseure..."
+    - languageID: ENG
+      text: Well, tell that to Miss Kina, your predecessor...
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_047
+    translations:
+    - languageID: FR
+      text: "Ouais, peu importe, je vais rentrer \xE0 la maison. *hic*"
+    - languageID: ENG
+      text: Yeah, whatever, Imma head home. *hips*
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_048
+    translations:
+    - languageID: FR
+      text: "Rooh, comme d'habitude, juste du flirt, et tout, c'\xE9tait une belle
+        fille, tu sais."
+    - languageID: ENG
+      text: Rooooh, the usual,just flirting, and all, she was a beautyful girl you
+        know.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_049
+    translations:
+    - languageID: FR
+      text: Elle avait un mari je crois, ou un petit ami... enfin je ne m'en souviens
+        plus.
+    - languageID: ENG
+      text: She had a husband I think, or a boyfriend... well I don't remember anymore.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_050
+    translations:
+    - languageID: FR
+      text: "Mais elle ne semblait pas trop se soucier de cette relation \xE9tant
+        donn\xE9 la fa\xE7on dont elle faisait d'elle-m\xEAme un spectacle, cette
+        coquine."
+    - languageID: ENG
+      text: But she didn't seem to care too much about this relationship given how
+        she made a spectacle of herself, this tease.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_051
+    translations:
+    - languageID: FR
+      text: "Un peu r\xE9ceptif parfois, mais tellement jolie haha."
+    - languageID: ENG
+      text: A bit unreceptive at times, but sooooo pretty haha.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_052
+    translations:
+    - languageID: FR
+      text: Vraiment ? C'est l'enfer, je me suis jamais fait un seul copain, je te
+        le dis.
+    - languageID: ENG
+      text: Really ? It's hell, just never get one buddy I tell you.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_053
+    translations:
+    - languageID: FR
+      text: "Toutes les femmes sont les m\xEAmes, tu fais tout pour elle et \xE0
+        la premi\xE8re occasion,"
+    - languageID: ENG
+      text: All women are the same, you do everything for her and at the first opportunity,
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_054
+    translations:
+    - languageID: FR
+      text: Elles vous poignardent dans le dos et vous laissent pour mort dans la
+        boue.
+    - languageID: ENG
+      text: They stab you in the back and leave you for dead in the mud.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_055
+    translations:
+    - languageID: FR
+      text: "Quoi ? Kina \xE9tait ta femme ??? Pas question !"
+    - languageID: ENG
+      text: What ? Kina was your wife ??? No way !
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_056
+    translations:
+    - languageID: FR
+      text: "C'est terrible ce qui lui est arriv\xE9..."
+    - languageID: ENG
+      text: It's terrible what happened to her...
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_057
+    translations:
+    - languageID: FR
+      text: Je l'aimais beaucoup, elle va nous manquer au bar.
+    - languageID: ENG
+      text: I really liked her, she will be missed around the bar.
+    - languageID: COR
+      text: Corentin !
+  - key: AXE_058
+    translations:
+    - languageID: FR
+      text: Vous n'avez pas lu les journeaux ?
+    - languageID: ENG
+      text: You didn't read the news ?
+    - languageID: COR
+      text: Corentin !
