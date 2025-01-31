@@ -119,14 +119,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1722872920235532548}
     m_Modifications:
-    - target: {fileID: 2894762416748587298, guid: b4e6ac038bf576544887d5373281364f, type: 3}
-      propertyPath: m_Type
+    - target: {fileID: 385500039193992459, guid: b4e6ac038bf576544887d5373281364f, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2894762416748587298, guid: b4e6ac038bf576544887d5373281364f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3d595025fd8eda247b327b9a87055163, type: 3}
+    - target: {fileID: 385500039193992459, guid: b4e6ac038bf576544887d5373281364f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 385500039193992459, guid: b4e6ac038bf576544887d5373281364f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4118724511540010910, guid: b4e6ac038bf576544887d5373281364f, type: 3}
       propertyPath: m_Name
       value: UI_DaysTransitions
@@ -482,25 +486,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1722872920235532548}
     m_Modifications:
     - target: {fileID: 4682915496085895533, guid: c9324534e55790c4c92e4c6c1e937aa8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4682915496085895533, guid: c9324534e55790c4c92e4c6c1e937aa8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3169793946179090238}
-    - target: {fileID: 4682915496085895533, guid: c9324534e55790c4c92e4c6c1e937aa8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayAnimationAtIndex
-      objectReference: {fileID: 0}
-    - target: {fileID: 4682915496085895533, guid: c9324534e55790c4c92e4c6c1e937aa8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-      objectReference: {fileID: 0}
-    - target: {fileID: 4682915496085895533, guid: c9324534e55790c4c92e4c6c1e937aa8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5063690421098414816, guid: c9324534e55790c4c92e4c6c1e937aa8, type: 3}
       propertyPath: m_Name
       value: UI_CounterDrinks
