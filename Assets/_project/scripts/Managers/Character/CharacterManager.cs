@@ -12,6 +12,7 @@ namespace NarrativeProject
         [SerializeField] List<Character> _characterList;
 
         [SerializeField] private bool _autoFillCharacterListOnStart;
+        [SerializeField] private bool _autoDarkenAllCharactersOnStart;
 
         List<Character> _charactersThisDay = new List<Character>();
 
@@ -64,6 +65,11 @@ namespace NarrativeProject
                 /*DayManager.Instance.OnUpdateCurrentInteractionCount += CheckWhoIsComing;
                 DayManager.Instance.OnUpdateCurrentInteractionCount += CheckWhoIsLeaving;*/
                 DayManager.Instance.OnEndDay += ResetCharactersDrunkState;
+            }
+
+            if (_autoDarkenAllCharactersOnStart)
+            {
+                DarkenAllCharacters();
             }
         }
 

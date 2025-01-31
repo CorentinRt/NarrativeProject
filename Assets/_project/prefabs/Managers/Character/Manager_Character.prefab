@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterList: []
   _autoFillCharacterListOnStart: 1
+  _autoDarkenAllCharactersOnStart: 1
