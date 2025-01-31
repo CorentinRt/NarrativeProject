@@ -662,6 +662,7 @@ MonoBehaviour:
   _dialogueText: {fileID: 3454195473872658220}
   _choicesContainer: {fileID: 8396690325293267503}
   _buttonChoicePrefab: {fileID: 8664488508792781418, guid: 52195dba17d51094fbb5db81e6cb8e2d, type: 3}
+  _bDisableOnlyOneButtonDisplayed: 1
   _displayButtonsElements: 1
   _neverHideDisplayer: 0
   _startHidden: 1
@@ -1354,10 +1355,6 @@ PrefabInstance:
     - target: {fileID: 610124302850252260, guid: 41d37c251177d4449a2dd35e8e1a3b41, type: 3}
       propertyPath: m_Name
       value: Controller_Dialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 8820898146673431925, guid: 41d37c251177d4449a2dd35e8e1a3b41, type: 3}
-      propertyPath: _dialogueGraphSO
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -41,6 +41,7 @@ namespace CREMOT.DialogSystem
 
         [Header("Display Parameters")]
 
+        [SerializeField] private bool _bDisableOnlyOneButtonDisplayed = false;
         [SerializeField] private bool _displayButtonsElements = true;
         [SerializeField] private bool _neverHideDisplayer = false;
         [SerializeField] private bool _startHidden = false;
@@ -241,10 +242,17 @@ namespace CREMOT.DialogSystem
 
             int buttonAddCount = 0;
 
+            List<ChoiceButton> tempChoicesBtn = new List<ChoiceButton>();
+
             for (int i = 0; i < choicesText.Count; ++i)
             {
                 if (choicesText[i] == null) continue;
-                AddChoiceButton(_dialogueController, i, choicesText[i]);
+                ChoiceButton tempChoicebtn = AddChoiceButton(_dialogueController, i, choicesText[i]);
+
+                if (tempChoicebtn != null)
+                {
+                    tempChoicesBtn.Add(tempChoicebtn);
+                }
 
                 ++buttonAddCount;
             }
@@ -256,6 +264,14 @@ namespace CREMOT.DialogSystem
             else if (buttonAddCount == 1)
             {
                 OnDisplayOnlyOneChoiceUnity?.Invoke();
+
+                if (_bDisableOnlyOneButtonDisplayed)
+                {
+                    foreach (ChoiceButton choiceButton in tempChoicesBtn)
+                    {
+                        choiceButton.BEnabled = false;
+                    }
+                }
             }
 
             _currentSavedChoicesIds = choicesText;
@@ -275,7 +291,7 @@ namespace CREMOT.DialogSystem
                 Destroy(child.gameObject);
             }
         }
-        private void AddChoiceButton(DialogueController dialogueController, int id, string idText = "Default Choice")
+        private ChoiceButton AddChoiceButton(DialogueController dialogueController, int id, string idText = "Default Choice")
         {
             GameObject buttonChoiceGameObject = Instantiate(_buttonChoicePrefab, _choicesContainer.transform);
 
@@ -284,6 +300,8 @@ namespace CREMOT.DialogSystem
             string textValue = GetChoiceTextFromChoiceId(idText);
 
             buttonChoice.Init(dialogueController, id, textValue);
+
+            return buttonChoice;
         }
         #endregion
 
