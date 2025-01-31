@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 919152004749395033}
+    - target: {fileID: 4354795007365718561, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 919152004749395033}
     - target: {fileID: 6612706068741103383, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2107,9 +2111,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7772017508614166565, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5530919796009013652}
-    - targetCorrespondingSourceObject: {fileID: 8819146587328421642, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6866784658502853510}
     - targetCorrespondingSourceObject: {fileID: 4280952599263534763, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2097285330273990755}
@@ -2312,24 +2313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gUID: 8efed25f-ac13-4d7d-8fb2-f4010bee01ed
---- !u!1 &710391476445259909 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8819146587328421642, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
-  m_PrefabInstance: {fileID: 8338474430845106063}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6866784658502853510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710391476445259909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f950d091be6a1646a90d6597c8a684d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gUID: 72668613-daf7-413c-97ec-2bfab3bdce2a
 --- !u!1 &793582204964927914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8699662138382372389, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}
