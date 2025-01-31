@@ -13,30 +13,50 @@ namespace NarrativeProject
             Settings,
             Credits
         }
+        [SerializeField] private GameObject Menu;
+        private Vector3 CenterScreen;
+        private float distanceBetweenPage;
         [SerializeField] private Page pageLoadOnStart = Page.MainMenu;
         private void Start()
         {
-            
+            distanceBetweenPage = 1000;
+            CenterScreen = Menu.transform.position;
             SetPotistionPaper(pageLoadOnStart.ToString());
+        }
+
+        public void ButtonBack()
+        {
+            SetPotistionPaper("MainMenu");
+        }
+
+        public void ButtonSettings()
+        {
+            SetPotistionPaper("Settings");
+        }
+
+        public void ButtonCredits()
+        {
+            SetPotistionPaper("Credits");
         }
 
         void SetPotistionPaper(string PositionPaper)
         {
+            print(distanceBetweenPage);
             switch (PositionPaper)
             {
                 case "MainMenu":
                 {
-                    gameObject.transform.position = gameObject.transform.position + gameObject.transform.GetChild(0).position + new Vector3(100,-180,0);
-                        break;
+                    gameObject.transform.position =  Camera.main.transform.position + new Vector3(CenterScreen.x,CenterScreen.y - distanceBetweenPage, 0);
+                    break;
                 }
                 case "Settings":
-                {
-                    gameObject.transform.position += new Vector3(0, -50,0);
+            {
+                    gameObject.transform.position = Camera.main.transform.position + new Vector3(CenterScreen.x, CenterScreen.y, 0);
                     break; 
                 }
                 case "Credits":
                 {
-                    gameObject.transform.position = gameObject.transform.position - gameObject.transform.GetChild(2).position;
+                    gameObject.transform.position = Camera.main.transform.position + new Vector3(CenterScreen.x, CenterScreen.y +distanceBetweenPage, 0);
                     break;
                 }
             }
