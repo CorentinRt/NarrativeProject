@@ -731,6 +731,9 @@ MonoBehaviour:
   _friendshipScale: 0
   _isDead: 0
   _comingState: 0
+  _spriteRenderer: {fileID: 3051914967097897864}
+  _darkenTargetColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  _darkenColorDuration: 0.3
   OnCharacterComingUnity:
     m_PersistentCalls:
       m_Calls:

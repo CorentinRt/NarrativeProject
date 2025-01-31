@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CREMOT.DialogSystem
 {
     [DisallowMultipleComponent]
-    public class PersistentGUID : MonoBehaviour
+    public class PersistentGUID : MonoBehaviour 
     {
         [SerializeField, ReadOnly] private string _gUID;
 

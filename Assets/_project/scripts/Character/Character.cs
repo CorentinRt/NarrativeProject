@@ -1,4 +1,5 @@
 using CREMOT.DialogSystem;
+using DG.Tweening;
 using JetBrains.Annotations;
 using NaughtyAttributes;
 using System;
@@ -26,6 +27,14 @@ namespace NarrativeProject
         [SerializeField] bool _isDead;
         [SerializeField] ComingState _comingState;
 
+        [Space(20)]
+
+        [Header("Darken / Light Up parameters")]
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private Color _darkenTargetColor;
+        [SerializeField] private float _darkenColorDuration;
+        private Tween _darkenTween;
+
         public event Action<Character> OnCharacterComing;
         public event Action<Character> OnCharacterLeaving;
 
@@ -35,6 +44,32 @@ namespace NarrativeProject
         public SO_CharacterData Data { get => _data; }
         public bool IsDead { get => _isDead; set => _isDead = value; }
         public ComingState ComingState { get => _comingState; set => _comingState = value; }
+
+
+        #region Darken / light up
+
+        [Button]
+        public void DarkenCharacter()
+        {
+            if (_darkenTween != null)
+            {
+                _darkenTween.Kill();
+            }
+
+            _darkenTween = _spriteRenderer.DOColor(_darkenTargetColor, _darkenColorDuration);
+        }
+        [Button]
+        public void LightUpCharacter()
+        {
+            if (_darkenTween != null)
+            {
+                _darkenTween.Kill();
+            }
+
+            _darkenTween = _spriteRenderer.DOColor(Color.white, _darkenColorDuration);
+        }
+
+        #endregion
 
         public void Init()
         {
@@ -75,6 +110,8 @@ namespace NarrativeProject
         {
             Collision.GetComponentInChildren<DropZone>().OnReceiveDrop -= ReceiveDrop;
         }
+
+
 
         private void ReceiveDrop(GameObject obj)
         {
