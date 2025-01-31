@@ -10,7 +10,7 @@ namespace NarrativeProject
     {
         CluesManager _instance;
 
-        public event Action<string, string, string> OnAddClue;
+        public event Action<string, int, string> OnAddClue;
         public UnityEvent OnAddClueUnity;
 
         public CluesManager Instance { get => _instance; set => _instance = value; }
@@ -24,7 +24,7 @@ namespace NarrativeProject
             _instance = this;
         }
 
-        public void AddClue(string characterName, string key, string clue)
+        public void AddClue(string characterName, int key, string clue)
         {
             OnAddClue?.Invoke(characterName, key, clue);
             OnAddClueUnity?.Invoke();
