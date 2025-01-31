@@ -31,6 +31,7 @@ namespace NarrativeProject
             FindAnyObjectByType<CluesManager>().OnAddClue += UnlockClue;
             clues = new Dictionary<string, Dictionary<int, string>>();
             InitializeClues();
+            GetComponent<CanvasGroup>().alpha = 0;
         }
 
         void InitializeClues()
