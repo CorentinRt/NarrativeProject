@@ -8,12 +8,12 @@ namespace NarrativeProject
 {
     public class CluesManager : MonoBehaviour
     {
-        CluesManager _instance;
+        private static CluesManager _instance;
 
         public event Action<string, int, string> OnAddClue;
         public UnityEvent OnAddClueUnity;
 
-        public CluesManager Instance { get => _instance; set => _instance = value; }
+        public static CluesManager Instance { get => _instance; set => _instance = value; }
 
         private void Awake()
         {
