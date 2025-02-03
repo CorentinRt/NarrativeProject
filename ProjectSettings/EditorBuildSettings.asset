@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_project/Scenes/EndingDrinkDemo/EndingDrinkDemoScene.unity
-    guid: 0e6e91726ebd5d341b3e001aaf81692e
+    path: Assets/_project/Scenes/BarDrinkDemoScenes/BarDrinkDemoScene.unity
+    guid: 767a565716f8c3f4b9c9d7102b409d52
   m_configObjects: {}
