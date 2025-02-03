@@ -18,7 +18,10 @@ namespace NarrativeProject
         UI_Carnet_Data instance;
 
         public event Action OnCloseUI;
+        public event Action<string, int, string> OnNewClue;
+
         public UnityEvent OnCloseUIUnity;
+        public UnityEvent OnNewClueUnity;
 
         public Dictionary<string, Dictionary<int, string>> Clues { get => clues; set => clues = value; }
         public UI_Carnet_Data Instance { get => instance; set => instance = value; }
@@ -65,9 +68,18 @@ namespace NarrativeProject
             if (!clues.ContainsKey(characterName))
             {
                 clues.Add(characterName, new Dictionary<int, string>());
+                OnNewClue?.Invoke(characterName, key, clue);
+                OnNewClueUnity?.Invoke();
             }
 
-            if (!clues[characterName].ContainsValue(clue)) clues[characterName][key] = clue;
+            if (!clues[characterName].ContainsValue(clue))
+            {
+                clues[characterName][key] = clue;
+                OnNewClue?.Invoke(characterName, key, clue);
+                OnNewClueUnity?.Invoke();
+            }
+
+
 
         }
 
