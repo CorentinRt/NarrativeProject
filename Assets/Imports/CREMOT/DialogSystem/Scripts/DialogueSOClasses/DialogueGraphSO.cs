@@ -76,5 +76,6 @@ namespace CREMOT.DialogSystem
     {
         public string gameObjectPersistantGUID;
         public string methodName;
+        public List<string> parameters;
     }
 }

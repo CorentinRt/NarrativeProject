@@ -38,9 +38,19 @@ namespace NarrativeProject
 
         void Start()
         {
-            FindAnyObjectByType<CluesManager>().OnAddClue += UnlockClue;
+            if (CluesManager.Instance != null)
+            {
+                CluesManager.Instance.OnAddClue += UnlockClue;
+            }
             InitializeCarnet();
 
+        }
+        private void OnDestroy()
+        {
+            if (CluesManager.Instance != null)
+            {
+                CluesManager.Instance.OnAddClue -= UnlockClue;
+            }
         }
 
         void InitializeCarnet()

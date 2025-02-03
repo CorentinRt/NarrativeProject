@@ -62,7 +62,9 @@ namespace CREMOT.DialogSystem
                 {
                     gameObjectPersistantGUID = (container.CallFunctionField.value as GameObject).GetComponent<PersistentGUID>().GUID,
 
-                    methodName = container.MethodPopupField.value
+                    methodName = container.MethodPopupField.value,
+
+                    parameters = container.MethodParameters
                 }).ToList()
             };
         }
@@ -77,6 +79,9 @@ namespace CREMOT.DialogSystem
         public List<string> methodNames = new List<string>();
 
         public Button RemoveCallFunctionFieldBtn;
+
+        public List<TextField> parameterFields = new List<TextField>();
+        public List<string> MethodParameters = new List<string>();
         #endregion
 
 
@@ -96,17 +101,27 @@ namespace CREMOT.DialogSystem
             };
             CallFunctionField.RegisterValueChangedCallback(evt =>
             {
+                Debug.Log("CallFunctionField changed");
                 UpdateMethodPopup(evt.newValue as GameObject);
             });
 
             CallFunctionField.objectType = typeof(GameObject);
 
             MethodPopupField = new PopupField<string>("Selected Method", methodNames, 0);
+            MethodPopupField.RegisterValueChangedCallback(evt =>
+            {
+                Debug.Log("MethodPopupField changed");
+                UpdateParameterFields();
+            });
 
+            this.Add(RemoveCallFunctionFieldBtn);
+            this.Add(CallFunctionField);
+            this.Add(MethodPopupField);
+            node.mainContainer.Add(this);
 
-            node.mainContainer.Add(RemoveCallFunctionFieldBtn);
-            node.mainContainer.Add(CallFunctionField);
-            node.mainContainer.Add(MethodPopupField);
+            //node.mainContainer.Add(RemoveCallFunctionFieldBtn);
+            //node.mainContainer.Add(CallFunctionField);
+            //node.mainContainer.Add(MethodPopupField);
         }
         #endregion
 
@@ -130,6 +145,72 @@ namespace CREMOT.DialogSystem
             }
             MethodPopupField.choices = methodNames;
             MethodPopupField.index = 0;
+        }
+        #endregion
+
+        #region parameterFields
+        private void UpdateParameterFields()
+        {
+            foreach (var field in parameterFields)
+            {
+                this.Remove(field);
+            }
+            parameterFields.Clear();
+            MethodParameters.Clear();
+
+            Debug.Log("Test1");
+
+            var selectedMethod = MethodPopupField.value;
+            Debug.Log(selectedMethod);
+            var parts = selectedMethod.Split('.');
+            if (parts.Length != 2) return;
+
+            Debug.Log("Test2");
+
+            var selectedObject = CallFunctionField.value as GameObject;
+            if (selectedObject != null)
+            {
+                Debug.Log("Test3");
+
+                var component = selectedObject.GetComponent(parts[0]);
+                if (component != null)
+                {
+                    Debug.Log("Test4");
+
+                    var method = component.GetType().GetMethod(parts[1]);
+                    if (method != null)
+                    {
+                        Debug.Log("Test5");
+
+                        var parameters = method.GetParameters();
+                        foreach (var param in parameters)
+                        {
+                            Debug.Log("Test6");
+
+                            var paramField = new TextField(param.Name)
+                            {
+                                
+                            };
+
+                            paramField.RegisterValueChangedCallback(evt =>
+                            {
+                                var index = parameterFields.IndexOf(paramField);
+                                MethodParameters[index] = evt.newValue;
+                            });
+
+                            parameterFields.Add(paramField);
+                            MethodParameters.Add(string.Empty);
+
+                            Debug.Log(paramField);
+
+                            this.Add(paramField);
+                            this.MarkDirtyRepaint();
+
+                            Debug.Log("Test7");
+                        }
+                    }
+                }
+            }
         }
         #endregion
 
