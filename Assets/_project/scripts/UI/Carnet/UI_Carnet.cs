@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,67 +11,34 @@ namespace NarrativeProject
 {
     public class UI_Carnet : MonoBehaviour
     {
-        [SerializeField] Dictionary<string, Dictionary<int, string>> clues;
-        [SerializeField] SO_Characters charactersDatabase;
-
         [SerializeField] Image characterImage;
         [SerializeField] TextMeshProUGUI characterName;
         [SerializeField] GameObject content;
         [SerializeField] List<string> characterNames;
 
-        int currentIndexInCarnet = 0;
+        [VisibleInDebug] int indexInCarnet;
+        UI_Carnet_Data data;
 
-        public event Action OnCloseUI;
-        public UnityEvent OnCloseUIUnity;
+        public UI_Carnet_Data Data { get => data; set => data = value; }
 
-        public Dictionary<string, Dictionary<int, string>> Clues { get => clues; set => clues = value; }
-
-
-        private void Start()
+        public void Initialize(string name, Sprite image, UI_Carnet_Data d, int index)
         {
-            FindAnyObjectByType<CluesManager>().OnAddClue += UnlockClue;
-            clues = new Dictionary<string, Dictionary<int, string>>();
-            InitializeClues();
-            GetComponent<CanvasGroup>().alpha = 0;
+            data = d;
+            characterImage.sprite = image;
+            characterName.text = name;
+            indexInCarnet = index;
+            gameObject.SetActive(false);
         }
 
-        void InitializeClues()
+
+        public void ShowUI()
         {
-            foreach (SO_CharacterData character in charactersDatabase.Characters)
+            gameObject.SetActive(true);
+            foreach (GameObject go in content.transform)
             {
-                characterNames.Add(character.Name);
-                if (!clues.ContainsKey(character.Name))
-                {
-                    clues.Add(character.Name, new Dictionary<int, string>());
-                }
-                for(int i = 0; i < character.NumberOfClues; i++)
-                {
-                    clues[character.Name].Add(i, "???");
-                }
+                Destroy(go);
             }
-        }
-
-        void UnlockClue(string characterName, int key, string clue)
-        {
-            if (!clues.ContainsKey(characterName))
-            {
-                clues.Add(characterName, new Dictionary<int, string>());
-            }
-
-            if (!clues[characterName].ContainsValue(clue)) clues[characterName][key] = clue;
-
-        }
-
-        void ShowUI(string CharacterName)
-        {
-            characterImage.sprite = charactersDatabase.GetCharacter(CharacterName).Sprites[0];
-            characterName.text = CharacterName;
-
-            foreach (Transform child in content.transform)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach(KeyValuePair<int, string> clue in clues[CharacterName])
+            foreach (KeyValuePair<int, string> clue in data.Clues[characterName.text] )
             {
                 GameObject go = new GameObject(clue.Value);
                 go.transform.SetParent(content.transform);
@@ -81,35 +49,68 @@ namespace NarrativeProject
 
         public void ShowNextCharacter()
         {
-            currentIndexInCarnet++;
-            if (currentIndexInCarnet >= characterNames.Count) currentIndexInCarnet = 0;
-            ShowUI(characterNames[currentIndexInCarnet]);
+            if(indexInCarnet + 1 >= data.Pages.Count)
+            {
+                Debug.Log("End of the list");
+                data.ReturnFirstPage(0.25f);
+                return;
+            }
+            data.ShowCharacter(indexInCarnet + 1);
+            StartCoroutine(NextPage(1f));
         }
 
         public void ShowPreviousCharacter()
         {
-            currentIndexInCarnet--;
-            if (currentIndexInCarnet < 0) currentIndexInCarnet = characterNames.Count - 1;
-            ShowUI(characterNames[currentIndexInCarnet]);
+            if(indexInCarnet - 1 < 0)
+            {
+                Debug.Log("End of the list");
+                data.ReturnLastPage(0.5f);
+                return;
+            }
+            data.ShowCharacter(indexInCarnet - 1);
+            StartCoroutine(PreviousPage(1f));
         }
 
-        public void CloseUI()
+        IEnumerator NextPage(float time)
         {
-            currentIndexInCarnet = 0;
-            OnCloseUI?.Invoke();
-            OnCloseUIUnity?.Invoke();
+            float elapsedTime = 0;
+            while (elapsedTime < time)
+            {
+                GetComponent<RectTransform>().rotation = Quaternion.Euler(0, Mathf.Lerp(0, -90, elapsedTime), 0);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
+            gameObject.SetActive(false);
+            yield return null;
         }
 
-        [Button]
-        void UnlockClue_Test()
+        IEnumerator PreviousPage(float time)
         {
-            UnlockClue("a", 0, "Elle est pas sympa");
+            Debug.Log("PreivousPage");
+            float elapsedTime = 0;
+            int index = indexInCarnet - 1;
+            RectTransform page;
+            if (index - 1 < 0) page = data.Pages[data.Pages.Count - 1].GetComponent<RectTransform>();
+            else page = data.Pages[indexInCarnet - 1].GetComponent<RectTransform>();
+            while (elapsedTime < time)
+            {
+                page.rotation = Quaternion.Euler(0, Mathf.Lerp(-90, 0, elapsedTime), 0);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            gameObject.SetActive(false);
+            yield return null;
+        }
+        public void Close()
+        {
+            data.CloseUI();
         }
 
         [Button]
         void ShowUI_Test()
         {
-            ShowUI("a");
+            //ShowUI("a");
         }
     }
 }
