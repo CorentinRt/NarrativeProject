@@ -608,6 +608,36 @@ namespace CREMOT.DialogSystem
                     // --------------------------------------------------------------------------------
 
                     container.MethodPopupField.value = callFunctionData.methodName;
+
+                    // Load parameters of methods
+                    for (int i = 0; i < callFunctionData.parametersValues.Count; ++i)
+                    {
+                        var paramValue = callFunctionData.parametersValues[i];
+                        var paramName = "DefaultName";
+
+                        if (i < callFunctionData.parametersName.Count)
+                        {
+                            paramName = callFunctionData.parametersName[i];
+                        }
+                        var paramField = new TextField(paramName)
+                        {
+                            value = paramValue
+                        };
+                        paramField.RegisterValueChangedCallback(evt =>
+                        {
+                            var index = container.parameterFields.IndexOf(paramField);
+                            container.MethodParametersValues[index] = evt.newValue;
+                        });
+
+                        container.parameterFields.Add(paramField);
+                        container.MethodParametersValues.Add(paramValue);
+                        container.MethodParametersNames.Add(paramName);
+
+                        container.Add(paramField);
+
+                        Debug.Log($"Load param {paramName} with value : {paramValue}");
+                    }
+
                     node.nodeEventsContainers.Add(container);
                 }
 

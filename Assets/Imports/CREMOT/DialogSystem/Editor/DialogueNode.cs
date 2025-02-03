@@ -64,7 +64,9 @@ namespace CREMOT.DialogSystem
 
                     methodName = container.MethodPopupField.value,
 
-                    parameters = container.MethodParameters
+                    parametersValues = container.MethodParametersValues,
+
+                    parametersName = container.MethodParametersNames
                 }).ToList()
             };
         }
@@ -81,7 +83,8 @@ namespace CREMOT.DialogSystem
         public Button RemoveCallFunctionFieldBtn;
 
         public List<TextField> parameterFields = new List<TextField>();
-        public List<string> MethodParameters = new List<string>();
+        public List<string> MethodParametersValues = new List<string>();
+        public List<string> MethodParametersNames = new List<string>();
         #endregion
 
 
@@ -156,37 +159,25 @@ namespace CREMOT.DialogSystem
                 this.Remove(field);
             }
             parameterFields.Clear();
-            MethodParameters.Clear();
-
-            Debug.Log("Test1");
+            MethodParametersValues.Clear();
+            MethodParametersNames.Clear();
 
             var selectedMethod = MethodPopupField.value;
-            Debug.Log(selectedMethod);
             var parts = selectedMethod.Split('.');
             if (parts.Length != 2) return;
-
-            Debug.Log("Test2");
 
             var selectedObject = CallFunctionField.value as GameObject;
             if (selectedObject != null)
             {
-                Debug.Log("Test3");
-
                 var component = selectedObject.GetComponent(parts[0]);
                 if (component != null)
                 {
-                    Debug.Log("Test4");
-
                     var method = component.GetType().GetMethod(parts[1]);
                     if (method != null)
                     {
-                        Debug.Log("Test5");
-
                         var parameters = method.GetParameters();
                         foreach (var param in parameters)
                         {
-                            Debug.Log("Test6");
-
                             var paramField = new TextField(param.Name)
                             {
                                 
@@ -195,18 +186,17 @@ namespace CREMOT.DialogSystem
                             paramField.RegisterValueChangedCallback(evt =>
                             {
                                 var index = parameterFields.IndexOf(paramField);
-                                MethodParameters[index] = evt.newValue;
+                                MethodParametersValues[index] = evt.newValue;
                             });
 
                             parameterFields.Add(paramField);
-                            MethodParameters.Add(string.Empty);
+                            MethodParametersValues.Add(string.Empty);
+                            MethodParametersNames.Add(param.Name);
 
                             Debug.Log(paramField);
 
                             this.Add(paramField);
                             this.MarkDirtyRepaint();
-
-                            Debug.Log("Test7");
                         }
                     }
                 }
