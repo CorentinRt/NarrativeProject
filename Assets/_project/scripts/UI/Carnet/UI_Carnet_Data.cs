@@ -104,6 +104,48 @@ namespace NarrativeProject
             }
         }
 
+        public void ReturnFirstPage(float time) => StartCoroutine(ReturnFirstPageCoroutine(time));
+        public void ReturnLastPage(float time) => StartCoroutine(ReturnLastPageCoroutine(time));
+
+        IEnumerator ReturnFirstPageCoroutine(float time)
+        {
+            for (int i = pages.Count - 1; i > 0; i--)
+            {
+                ShowCharacter(i - 1);
+                float elapsedTime = 0f;
+                RectTransform page;
+                if (i - 1 < 0) page = pages[pages.Count - 1].GetComponent<RectTransform>();
+                else page = pages[i - 1].GetComponent<RectTransform>();
+                while (elapsedTime < time)
+                {
+                    page.rotation = Quaternion.Euler(0, Mathf.Lerp(-90, 0, Mathf.InverseLerp(0, time, elapsedTime)), 0);
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+                pages[i].gameObject.SetActive(false);
+                yield return null;
+            }
+        }
+        IEnumerator ReturnLastPageCoroutine(float time)
+        {
+            for (int i = 0; i < pages.Count - 1; i++)
+            {
+                ShowCharacter(i + 1);
+                float elapsedTime = 0f;
+                RectTransform page;
+                if (i + 1 < 0) page = pages[pages.Count + 1].GetComponent<RectTransform>();
+                else page = pages[i].GetComponent<RectTransform>();
+                while (elapsedTime < time)
+                {
+                    page.rotation = Quaternion.Euler(0, Mathf.Lerp(0, -90, Mathf.InverseLerp(0, time, elapsedTime)), 0);
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+                pages[i].gameObject.SetActive(false);
+                yield return null;
+            }
+        }
+
         [Button]
         void UnlockClue_Test()
         {

@@ -52,7 +52,7 @@ namespace NarrativeProject
             if(indexInCarnet + 1 >= data.Pages.Count)
             {
                 Debug.Log("End of the list");
-                StartCoroutine(ReturnFirstPage(1f));
+                data.ReturnFirstPage(0.25f);
                 return;
             }
             data.ShowCharacter(indexInCarnet + 1);
@@ -61,6 +61,12 @@ namespace NarrativeProject
 
         public void ShowPreviousCharacter()
         {
+            if(indexInCarnet - 1 < 0)
+            {
+                Debug.Log("End of the list");
+                data.ReturnLastPage(0.5f);
+                return;
+            }
             data.ShowCharacter(indexInCarnet - 1);
             StartCoroutine(PreviousPage(1f));
         }
@@ -94,19 +100,6 @@ namespace NarrativeProject
                 yield return null;
             }
             gameObject.SetActive(false);
-            yield return null;
-        }
-
-        IEnumerator ReturnFirstPage(float time)
-        {
-            for (int i = indexInCarnet; i >= 1; --i)
-            {
-
-                data.Pages[i].ShowUI();
-                Debug.Log("i: " + i);
-                yield return StartCoroutine(data.Pages[i].PreviousPage(time));
-            }
-            Debug.Log("sorti");
             yield return null;
         }
         public void Close()
