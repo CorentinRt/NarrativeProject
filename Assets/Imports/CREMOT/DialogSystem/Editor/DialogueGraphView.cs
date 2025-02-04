@@ -217,13 +217,31 @@ namespace CREMOT.DialogSystem
         }
         private void AddEditConditionsButton(VisualElement container, Port port, DialogueNode node) // Add a button to open Edit Condition window
         {
-            var editConditionsButton = new Button(() =>
+            Button editConditionsButton = null;
+            editConditionsButton = new Button(() =>
             {
-                ShowConditionEditor(node, port.name);   // Open edition window
+                ShowConditionEditor(node, port.name, editConditionsButton);   // Open edition window
             })
             {
-                text = "Edit Conditions"
+                text = "Add Conditions"
             };
+
+            var portCondition = node.PortConditions.FirstOrDefault(cond => cond.portId == port.name);
+            if (editConditionsButton != null)
+            {
+                if (portCondition == null || portCondition.conditions.Count <= 0)
+                {
+                    editConditionsButton.style.backgroundColor = new Color(0.3f, 0.7f, 0.5f);
+                    editConditionsButton.style.color = Color.black;
+                }
+                else
+                {
+                    editConditionsButton.style.backgroundColor = new Color(0.3f, 0.3f, 0.7f);
+                    editConditionsButton.style.color = Color.white;
+                    editConditionsButton.text = "Edit Conditions";
+                }
+            }
+
 
             container.Add(editConditionsButton);
         }
@@ -708,11 +726,11 @@ namespace CREMOT.DialogSystem
 
 
         #region Conditions
-        private void ShowConditionEditor(DialogueNode node, string portId)
+        private void ShowConditionEditor(DialogueNode node, string portId, Button associatedBtn = null)
         {
             // Implémentez une fenêtre contextuelle pour éditer les conditions
             var window = EditorWindow.CreateInstance<ConditionEditorWindow>();
-            window.Init(node, portId); // Passez le nœud et l'identifiant du port
+            window.Init(node, portId, associatedBtn); // Passez le nœud et l'identifiant du port
             window.Show();
         }
 

@@ -208,9 +208,7 @@ namespace CREMOT.DialogSystem
 
         private void RemoveCallFunctionField(DialogueNode node)
         {
-            node.mainContainer.Remove(CallFunctionField);
-            node.mainContainer.Remove(MethodPopupField);
-            node.mainContainer.Remove(RemoveCallFunctionFieldBtn);
+            node.mainContainer.Remove(this);
 
             node.nodeEventsContainers.Remove(this);
         }

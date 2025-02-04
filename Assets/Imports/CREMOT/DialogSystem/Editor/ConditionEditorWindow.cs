@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace CREMOT.DialogSystem
 {
@@ -15,8 +16,12 @@ namespace CREMOT.DialogSystem
 
         private List<ConditionSO> _conditions;
 
-        public void Init(DialogueNode node, string portId)
+        private Button _associatedEditCondBtn;
+
+        public void Init(DialogueNode node, string portId, Button associatedBtn = null)
         {
+            _associatedEditCondBtn = associatedBtn;
+
             _node = node;
             _portId = portId;
 
@@ -34,6 +39,24 @@ namespace CREMOT.DialogSystem
             if (_conditions == null) return;
 
             GUILayout.Label("Conditions for port: " + _portId, EditorStyles.boldLabel);
+
+            Debug.LogWarning("TestColor");
+
+            if (_associatedEditCondBtn != null)
+            {
+                if (_conditions.Count <= 0)
+                {
+                    _associatedEditCondBtn.style.backgroundColor = new Color(0.3f, 0.7f, 0.5f);
+                    _associatedEditCondBtn.style.color = Color.black;
+                    _associatedEditCondBtn.text = "Add Conditions";
+                }
+                else
+                {
+                    _associatedEditCondBtn.style.backgroundColor = new Color(0.3f, 0.3f, 0.7f);
+                    _associatedEditCondBtn.style.color = Color.white;
+                    _associatedEditCondBtn.text = "Edit Conditions";
+                }
+            }
 
             for (int i = 0; i < _conditions.Count; i++)
             {
