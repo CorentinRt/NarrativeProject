@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4166505576364671562, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
+      propertyPath: _slideDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4249336466194265830, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
       propertyPath: m_Pivot.x
       value: 0
