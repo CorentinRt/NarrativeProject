@@ -19,7 +19,7 @@ namespace NarrativeProject
         [SerializeField] private Page pageLoadOnStart = Page.MainMenu;
         private void Start()
         {
-            distanceBetweenPage = Screen.height*1.3f;
+            distanceBetweenPage = Screen.height*1.2f;
             CenterScreen = Menu.transform.position;
             SetPotistionPaper(pageLoadOnStart.ToString());
         }
