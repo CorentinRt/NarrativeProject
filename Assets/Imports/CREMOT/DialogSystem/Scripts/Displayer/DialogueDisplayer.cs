@@ -48,6 +48,14 @@ namespace CREMOT.DialogSystem
 
         [Space(20)]
 
+        [Header("Typing appear effect")]
+        [SerializeField] private bool _useTypingAppearEffect;
+        [SerializeField] private float _charactersPerSecond;
+        private string _currentDialogText;
+        private Coroutine _typingEffectCoroutine;
+
+        [Space(20)]
+
         [Header("Localization Parameters")]
 
         [SerializeField] private bool _useDynamicLocalizationDisplay;
@@ -62,6 +70,8 @@ namespace CREMOT.DialogSystem
 
         public UnityEvent OnShowDisplayerUnity;
         public UnityEvent OnHideDisplayerUnity;
+
+        public UnityEvent OnDisplayDialogTextUnity;
 
         public UnityEvent OnDisplayMultipleChoicesUnity;
         public UnityEvent OnDisplayOnlyOneChoiceUnity;
@@ -222,11 +232,25 @@ namespace CREMOT.DialogSystem
         {
             if (_dialogueText == null)   return;
 
-            string text = GetDialogueTextFromDialogueId(textId);
+            _currentDialogText = GetDialogueTextFromDialogueId(textId);
 
-            _dialogueText.text = text;
+            if (_useTypingAppearEffect)
+            {
+                if (_typingEffectCoroutine != null)
+                {
+                    StopCoroutine(_typingEffectCoroutine);
+                    _typingEffectCoroutine = null;
+                }
+                _typingEffectCoroutine = StartCoroutine(TypingEffectCoroutine(_currentDialogText));
+            }
+            else
+            {
+                _dialogueText.text = _currentDialogText;
+            }
 
             _currentSavedDialogueId = textId;
+
+            OnDisplayDialogTextUnity?.Invoke();
         }
 
         #endregion
@@ -372,5 +396,27 @@ namespace CREMOT.DialogSystem
 
         #endregion
 
+
+        #region Typing effect entering
+
+        private IEnumerator TypingEffectCoroutine(string text)
+        {
+            string textBuffer = null;
+            foreach (char c in text)
+            {
+                textBuffer += c;
+                _dialogueText.text = textBuffer;
+
+                yield return new WaitForSeconds(1 / _charactersPerSecond);
+            }
+
+            StopCoroutine(_typingEffectCoroutine);
+
+            _typingEffectCoroutine = null;
+
+            yield return null;
+        }
+
+        #endregion
     }
 }

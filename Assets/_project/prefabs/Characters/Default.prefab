@@ -277,6 +277,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -291,6 +293,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 1
     OnAnimationStarted:
       m_PersistentCalls:
@@ -317,7 +321,9 @@ MonoBehaviour:
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
-    _idleAmplitude: 0.15
+    _idleAmplitude: 0.2
+    _idleRandomOffsetDuration: 0.2
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 1
     OnAnimationStarted:
       m_PersistentCalls:
@@ -345,6 +351,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0.016223945, g: 0.509434, b: 0, a: 1}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -359,6 +367,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 1, g: 1, b: 1, a: 1}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -596,6 +606,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -647,6 +659,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:

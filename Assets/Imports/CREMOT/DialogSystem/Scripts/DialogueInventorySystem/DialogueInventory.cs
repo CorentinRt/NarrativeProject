@@ -42,6 +42,8 @@ namespace CREMOT.DialogSystem
         {
             if (string.IsNullOrEmpty(stringName)) return;
 
+            Debug.LogWarning($"Call functions with param worked : {stringName} + {quantity}");
+
             if (_dialogueItemsInventory.ContainsKey(stringName))
             {
                 _dialogueItemsInventory[stringName] += quantity;

@@ -54,6 +54,12 @@ namespace CREMOT.UIAnimatorDotween
                     if (animator.Animations[i].AnimationType == UIAnimator.EAnimationType.IDLE_INFINITE_5)
                     {
                         animator.Animations[i].IdleAmplitude = EditorGUILayout.FloatField("Idle Amplitude", animator.Animations[i].IdleAmplitude);
+                        animator.Animations[i].IdleRandomOffsetDuration = EditorGUILayout.FloatField("Idle Random Offset Duration", animator.Animations[i].IdleRandomOffsetDuration);
+                    }
+
+                    if (animator.Animations[i].AnimationType == UIAnimator.EAnimationType.BOBBING_ONCE_6)
+                    {
+                        animator.Animations[i].BobbingScale = EditorGUILayout.Vector3Field("Bobbing Scale", animator.Animations[i].BobbingScale);
                     }
 
                     // ---------------- Event field ---------------------
