@@ -6131,6 +6131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu: {fileID: 3244209848575248211}
   pageLoadOnStart: 0
+  _slideDuration: 0.5
 --- !u!114 &3609356610550384334
 MonoBehaviour:
   m_ObjectHideFlags: 0

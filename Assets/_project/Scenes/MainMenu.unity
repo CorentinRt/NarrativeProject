@@ -369,14 +369,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 350090032863951007, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 350090032863951007, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 8.333332
-      objectReference: {fileID: 0}
     - target: {fileID: 497499844479040169, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
       propertyPath: m_Camera
       value: 
@@ -384,14 +376,6 @@ PrefabInstance:
     - target: {fileID: 3244209848575248211, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
       propertyPath: m_Name
       value: Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 3293343513775778224, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4166505576364671562, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
-      propertyPath: _slideDuration
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4249336466194265830, guid: 7c41b6458bc273949a7beabc3b783034, type: 3}
       propertyPath: m_Pivot.x
