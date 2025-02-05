@@ -395,10 +395,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2696233876923568326, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: _dialogueGraphSO
-      value: 
-      objectReference: {fileID: 11400000, guid: bb80b08ceff3b674dac7bfd127e391c9, type: 2}
     - target: {fileID: 4065381152142859678, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_Camera
       value: 
@@ -513,15 +509,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3422071505473500501, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1513233336716623810}
+    - targetCorrespondingSourceObject: {fileID: 4731464565607873728, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4886994866553284561}
     - targetCorrespondingSourceObject: {fileID: 3522492700418081424, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4634984310755994082}
     - targetCorrespondingSourceObject: {fileID: 8608411581908284531, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8297465732027633494}
-    - targetCorrespondingSourceObject: {fileID: 4731464565607873728, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4886994866553284561}
     - targetCorrespondingSourceObject: {fileID: 3357536570087645172, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1718579217409765987}

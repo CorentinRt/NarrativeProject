@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DialogSetenceTestDemo
   m_EditorClassIdentifier: 
   _keyEntries:
-  - key: AXE_001
+  - key: AXM_001
     translations:
     - languageID: FR
       text: "H\xE9 ! Tu es le nouveau, n'est-ce pas ?"
@@ -21,7 +21,7 @@ MonoBehaviour:
       text: Hey ! You're the new one ain't ya ?
     - languageID: COR
       text: Corentin !
-  - key: AXE_002
+  - key: AXM_002
     translations:
     - languageID: FR
       text: Je m'appelle Albert Axeman, avec plaisir.
@@ -29,7 +29,7 @@ MonoBehaviour:
       text: My name's Albert Axeman, pleasure.
     - languageID: COR
       text: Corentin !
-  - key: AXE_003
+  - key: AXM_003
     translations:
     - languageID: FR
       text: "Dis-moi, qu'est-ce qui t'am\xE8ne dans un endroit merdique comme celui-ci
@@ -38,7 +38,7 @@ MonoBehaviour:
       text: Tell me, what's bringing you in a shitty place like this ?
     - languageID: COR
       text: Corentin !
-  - key: AXE_004
+  - key: AXM_004
     translations:
     - languageID: FR
       text: "Ok, je m'excuse le nouveau, je ne voulais pas \xEAtre intrusif."
@@ -46,7 +46,7 @@ MonoBehaviour:
       text: Ok, my bad newcomer,didn't mean to be intrusive.
     - languageID: COR
       text: Corentin !
-  - key: AXE_005
+  - key: LEN_005
     translations:
     - languageID: FR
       text: "J'esp\xE8re que tu sers mieux les boissons que tu ne parles. Sers moi
@@ -55,7 +55,7 @@ MonoBehaviour:
       text: I hope you serve drinks better than you talk. Give me a whisky.
     - languageID: COR
       text: Corentin !
-  - key: AXE_006
+  - key: LEN_006
     translations:
     - languageID: FR
       text: "Haha, tu ne le dis pas, j'ai l'impression de me d\xE9mener comme un
@@ -65,7 +65,7 @@ MonoBehaviour:
         my birth!
     - languageID: COR
       text: Corentin !
-  - key: AXE_007
+  - key: LEN_007
     translations:
     - languageID: FR
       text: "Sers moi un whisky ici, s'il te pla\xEEt, j'ai besoin de me rafra\xEEchir."
@@ -73,7 +73,7 @@ MonoBehaviour:
       text: Throw me a whisky up here please, I need refreshment.
     - languageID: COR
       text: Corentin !
-  - key: AXE_008
+  - key: LEN_008
     translations:
     - languageID: FR
       text: "Une opportunit\xE9 ? Il n'y a aucune opportunit\xE9 ici, sauf celle
@@ -83,7 +83,7 @@ MonoBehaviour:
         your life away.
     - languageID: COR
       text: Corentin !
-  - key: AXE_009
+  - key: LOG_009
     translations:
     - languageID: FR
       text: "En parlant de \xE7a, sers moi un whisky, s'il te pla\xEEt."
@@ -91,7 +91,7 @@ MonoBehaviour:
       text: Speaking about it, get me a whisky please.
     - languageID: COR
       text: Corentin !
-  - key: AXE_010
+  - key: LOG_010
     translations:
     - languageID: FR
       text: Eh bien, pourquoi pas, mais je crois qu'il me faut quelque chose de plus
@@ -100,7 +100,7 @@ MonoBehaviour:
       text: Well, why not, but I think I need something more punchy, give me a whisky.
     - languageID: COR
       text: Corentin !
-  - key: AXE_011
+  - key: LOG_011
     translations:
     - languageID: FR
       text: "Aaaah, beaucoup mieux ! Juste ce qu'il me fallait apr\xE8s une journ\xE9e

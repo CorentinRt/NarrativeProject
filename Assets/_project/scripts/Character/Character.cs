@@ -29,11 +29,15 @@ namespace NarrativeProject
 
         [Space(20)]
 
+        [Header("State drunk visual")]
+        [SerializeField] private GameObject _cleanVisual;
+        [SerializeField] private GameObject _dizzyVisual;
+        [SerializeField] private GameObject _drunkVisual;
+
+        [Space(20)]
+
         [Header("Darken / Light Up parameters")]
-        [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Color _darkenTargetColor;
-        [SerializeField] private float _darkenColorDuration;
-        private Tween _darkenTween;
+        [SerializeField] private PackSpriteRendererAnim _packSpriteRdAnim;
 
         public event Action<Character> OnCharacterComing;
         public event Action<Character> OnCharacterLeaving;
@@ -46,31 +50,38 @@ namespace NarrativeProject
         public ComingState ComingState { get => _comingState; set => _comingState = value; }
 
 
+        private void Start()
+        {
+            if (_dizzyVisual != null)
+            {
+                _dizzyVisual.SetActive(false);
+            }
+            if (_drunkVisual != null)
+            {
+                _drunkVisual.SetActive(false);
+            }
+
+            if (_packSpriteRdAnim != null)
+            {
+                _packSpriteRdAnim.FadeOutAll();
+            }
+        }
+
         #region Darken / light up
 
         [Button]
         public void DarkenCharacter()
         {
-            if (_spriteRenderer == null) return;
+            if (_packSpriteRdAnim == null)  return;
 
-            if (_darkenTween != null)
-            {
-                _darkenTween.Kill();
-            }
-
-            _darkenTween = _spriteRenderer.DOColor(_darkenTargetColor, _darkenColorDuration);
+            _packSpriteRdAnim.DarkenAll();
         }
         [Button]
         public void LightUpCharacter()
         {
-            if (_spriteRenderer == null) return;
+            if (_packSpriteRdAnim == null) return;
 
-            if (_darkenTween != null)
-            {
-                _darkenTween.Kill();
-            }
-
-            _darkenTween = _spriteRenderer.DOColor(Color.white, _darkenColorDuration);
+            _packSpriteRdAnim.LightUpAll();
         }
 
         #endregion
@@ -164,16 +175,19 @@ namespace NarrativeProject
             if(_drunkScale <= 30)
             {
                 _state = DrunkState.Clean;
+                SetVisualState(DrunkState.Clean);
                 return _state;
             }
             else if (_drunkScale > 30 && _drunkScale <= 60)
             {
                 _state = DrunkState.Dizzy;
+                SetVisualState(DrunkState.Dizzy);
                 return _state;
             }
             else
             {
                 _state = DrunkState.Drunk;
+                SetVisualState(DrunkState.Drunk);
                 return _state;
             }
         }
@@ -193,6 +207,28 @@ namespace NarrativeProject
             {
                 _friendshipState = FriendshipState.Happy;
                 return _friendshipState;
+            }
+        }
+
+        private void SetVisualState(DrunkState drunkState)
+        {
+            _cleanVisual.SetActive(false);
+            _dizzyVisual.SetActive(false);
+            _drunkVisual.SetActive(false);
+            switch (drunkState)
+            {
+                case DrunkState.Clean:
+                    _cleanVisual.SetActive(true);
+                    break;
+                case DrunkState.Dizzy:
+                    _dizzyVisual.SetActive(true);
+                    break;
+                case DrunkState.Drunk:
+                    _drunkVisual.SetActive(true);
+                    break;
+
+                default:
+                    break;
             }
         }
 

@@ -127,7 +127,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.3
+  m_fontSize: 23.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -280,8 +280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.67}
   m_AnchorMax: {x: 0.49, y: 1}
-  m_AnchoredPosition: {x: 131.5, y: 0}
-  m_SizeDelta: {x: 263, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3912814555910489280
 CanvasRenderer:
@@ -452,12 +452,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3946776457062921516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5258932313630204618}
+  m_Father: {fileID: 7206669781776585603}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.95, y: 0.2}
   m_AnchorMax: {x: 1.04, y: 0.8}
@@ -809,7 +809,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.5
+  m_fontSize: 35.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -886,8 +886,8 @@ RectTransform:
   - {fileID: 6115887855978474821}
   m_Father: {fileID: 9097019462432591740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.65, y: 0.05}
-  m_AnchorMax: {x: 0.95, y: 0.55}
+  m_AnchorMin: {x: 0.65, y: 0.35}
+  m_AnchorMax: {x: 0.95, y: 0.95}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1188,6 +1188,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _titleCharaText: {fileID: 6949421980287008884}
   _testName: Test name
+  _dialogueController: {fileID: 5910622529329617194}
+  _prefixToCharaTitleList:
+  - _dialogPrefix: AXM
+    _charaTitle: Albert Axeman
+  - _dialogPrefix: LOG
+    _charaTitle: Lady-Log
+  - _dialogPrefix: LEN
+    _charaTitle: Lenny the Devil
+  - _dialogPrefix: CRA
+    _charaTitle: Sergeant Crackhead
+  - _dialogPrefix: MUD
+    _charaTitle: Muddy Oldman
+  - _dialogPrefix: PHI
+    _charaTitle: Beautiful Phil
 --- !u!1 &7096029574347208600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1512,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1734355650279979070}
+  - {fileID: 8528231174456244401}
   m_Father: {fileID: 5258932313630204618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1577,11 +1592,10 @@ RectTransform:
   - {fileID: 7206669781776585603}
   - {fileID: 2957561521570178623}
   - {fileID: 6987069179103981657}
-  - {fileID: 8528231174456244401}
   m_Father: {fileID: 9097019462432591740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3, y: 0.6}
-  m_AnchorMax: {x: 0.95, y: 0.95}
+  m_AnchorMin: {x: 0.15, y: 0.5}
+  m_AnchorMax: {x: 0.6, y: 0.95}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1694,6 +1708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controller_Dialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 8820898146673431925, guid: 41d37c251177d4449a2dd35e8e1a3b41, type: 3}
+      propertyPath: _dialogueGraphSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 637f1fca7059e38428a6bf22f13eae17, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
