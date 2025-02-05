@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +29,13 @@ namespace NarrativeProject
         {
             OnAddClue?.Invoke(characterName, key, clue);
             OnAddClueUnity?.Invoke();
+            SaveManager.SaveClue(characterName, key, clue);
+        }
+
+        [Button]
+        public void AddClueTest()
+        {
+            AddClue("Linda", 0, " Bah c'est une pute");
         }
     }
 }
