@@ -60,6 +60,11 @@ namespace NarrativeProject
             {
                 _drunkVisual.SetActive(false);
             }
+
+            if (_packSpriteRdAnim != null)
+            {
+                _packSpriteRdAnim.FadeOutAll();
+            }
         }
 
         #region Darken / light up

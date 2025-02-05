@@ -1081,12 +1081,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3406083824059221746}
+        m_TargetAssemblyTypeName: NarrativeProject.PackSpriteRendererAnim, NarrativeProject
+        m_MethodName: FadeInAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCharacterLeavingUnity:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5408263052022059129}
         m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
         m_MethodName: PlayAllAnimations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3406083824059221746}
+        m_TargetAssemblyTypeName: NarrativeProject.PackSpriteRendererAnim, NarrativeProject
+        m_MethodName: FadeOutAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
