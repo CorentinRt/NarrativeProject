@@ -578,6 +578,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2761570505129571247, guid: c9324534e55790c4c92e4c6c1e937aa8, type: 3}
+      propertyPath: m_Name
+      value: Drinks_Vodk
+      objectReference: {fileID: 0}
     - target: {fileID: 4682915496085895533, guid: c9324534e55790c4c92e4c6c1e937aa8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
