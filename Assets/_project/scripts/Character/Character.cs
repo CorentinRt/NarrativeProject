@@ -37,10 +37,7 @@ namespace NarrativeProject
         [Space(20)]
 
         [Header("Darken / Light Up parameters")]
-        [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Color _darkenTargetColor;
-        [SerializeField] private float _darkenColorDuration;
-        private Tween _darkenTween;
+        [SerializeField] private PackSpriteRendererAnim _packSpriteRdAnim;
 
         public event Action<Character> OnCharacterComing;
         public event Action<Character> OnCharacterLeaving;
@@ -53,31 +50,33 @@ namespace NarrativeProject
         public ComingState ComingState { get => _comingState; set => _comingState = value; }
 
 
+        private void Start()
+        {
+            if (_dizzyVisual != null)
+            {
+                _dizzyVisual.SetActive(false);
+            }
+            if (_drunkVisual != null)
+            {
+                _drunkVisual.SetActive(false);
+            }
+        }
+
         #region Darken / light up
 
         [Button]
         public void DarkenCharacter()
         {
-            if (_spriteRenderer == null) return;
+            if (_packSpriteRdAnim == null)  return;
 
-            if (_darkenTween != null)
-            {
-                _darkenTween.Kill();
-            }
-
-            _darkenTween = _spriteRenderer.DOColor(_darkenTargetColor, _darkenColorDuration);
+            _packSpriteRdAnim.DarkenAll();
         }
         [Button]
         public void LightUpCharacter()
         {
-            if (_spriteRenderer == null) return;
+            if (_packSpriteRdAnim == null) return;
 
-            if (_darkenTween != null)
-            {
-                _darkenTween.Kill();
-            }
-
-            _darkenTween = _spriteRenderer.DOColor(Color.white, _darkenColorDuration);
+            _packSpriteRdAnim.LightUpAll();
         }
 
         #endregion

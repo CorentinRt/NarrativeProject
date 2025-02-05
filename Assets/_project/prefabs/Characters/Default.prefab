@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8421659174861594722
 Transform:
   m_ObjectHideFlags: 0
@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 4357992396756984744}
   - component: {fileID: 4382368166637365762}
   - component: {fileID: 298597698793029414}
+  - component: {fileID: 3406083824059221746}
   m_Layer: 7
   m_Name: Visuals
   m_TagString: Untagged
@@ -560,6 +561,21 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &3406083824059221746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432107011642609883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a2db632d90fa345ba06d270bfa8afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _darkenColor: {r: 0.5999999, g: 0.5999999, b: 0.5999999, a: 1}
+  _animColorDuration: 0.3
+  _animFadeDuration: 1
 --- !u!1 &7532661835920762981
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8409927935649413713
 Transform:
   m_ObjectHideFlags: 0
@@ -1049,9 +1065,7 @@ MonoBehaviour:
   _cleanVisual: {fileID: 6759791224774392071}
   _dizzyVisual: {fileID: 6080900094742768280}
   _drunkVisual: {fileID: 7532661835920762981}
-  _spriteRenderer: {fileID: 3051914967097897864}
-  _darkenTargetColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
-  _darkenColorDuration: 0.3
+  _packSpriteRdAnim: {fileID: 3406083824059221746}
   OnCharacterComingUnity:
     m_PersistentCalls:
       m_Calls:
