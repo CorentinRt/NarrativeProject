@@ -1188,6 +1188,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _titleCharaText: {fileID: 6949421980287008884}
   _testName: Test name
+  _dialogueController: {fileID: 5910622529329617194}
+  _prefixToCharaTitleList:
+  - _dialogPrefix: AXM
+    _charaTitle: Albert Axeman
+  - _dialogPrefix: LOG
+    _charaTitle: Lady-Log
+  - _dialogPrefix: LEN
+    _charaTitle: Lenny the Devil
+  - _dialogPrefix: CRA
+    _charaTitle: Sergeant Crackhead
+  - _dialogPrefix: MUD
+    _charaTitle: Muddy Oldman
+  - _dialogPrefix: PHI
+    _charaTitle: Beautiful Phil
 --- !u!1 &7096029574347208600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controller_Dialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 8820898146673431925, guid: 41d37c251177d4449a2dd35e8e1a3b41, type: 3}
+      propertyPath: _dialogueGraphSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 637f1fca7059e38428a6bf22f13eae17, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

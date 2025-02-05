@@ -410,7 +410,10 @@ namespace CREMOT.DialogSystem
                 yield return new WaitForSeconds(1 / _charactersPerSecond);
             }
 
-            StopCoroutine(_typingEffectCoroutine);
+            if (_typingEffectCoroutine != null)
+            {
+                StopCoroutine(_typingEffectCoroutine);
+            }
 
             _typingEffectCoroutine = null;
 

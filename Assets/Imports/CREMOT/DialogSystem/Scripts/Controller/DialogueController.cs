@@ -185,9 +185,9 @@ namespace CREMOT.DialogSystem
         #endregion
 
         #region Notify Dialogue / Choices changes
-        private void NotifyDialogueChange(string dialogueText)
+        private void NotifyDialogueChange(string dialogueId)
         {
-            OnDialogueUpdated?.Invoke(dialogueText);
+            OnDialogueUpdated?.Invoke(dialogueId);
             OnDialogueUpdatedUnity?.Invoke();
         }
         private void NotifyChoiceChange(List<string> choicesText, List<string> outputPortGuid)
