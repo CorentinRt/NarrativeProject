@@ -305,8 +305,20 @@ namespace CREMOT.DialogSystem
                 var method = component.GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.Instance);
                 if (method == null) continue;
 
+                // Prepare parameters
+                var parameterInfos = method.GetParameters();
+                var parameters = new object[parameterInfos.Length];
+                for (int i = 0; i < parameterInfos.Length; i++)
+                {
+                    var paramType = parameterInfos[i].ParameterType;
+                    var paramValue = callFunData.parametersValues[i];
+
+                    // Convert the parameter to the correct type
+                    parameters[i] = Convert.ChangeType(paramValue, paramType);
+                }
+
                 // Invoke the method
-                method.Invoke(component, null);
+                method.Invoke(component, parameters);
             }
         }
 

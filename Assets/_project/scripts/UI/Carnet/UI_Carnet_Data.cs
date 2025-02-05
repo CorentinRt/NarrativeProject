@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static PlasticGui.Help.GuiHelp;
 
 namespace NarrativeProject
 {
@@ -39,9 +38,19 @@ namespace NarrativeProject
 
         void Start()
         {
-            FindAnyObjectByType<CluesManager>().OnAddClue += UnlockClue;
+            if (CluesManager.Instance != null)
+            {
+                CluesManager.Instance.OnAddClue += UnlockClue;
+            }
             InitializeCarnet();
 
+        }
+        private void OnDestroy()
+        {
+            if (CluesManager.Instance != null)
+            {
+                CluesManager.Instance.OnAddClue -= UnlockClue;
+            }
         }
 
         void InitializeCarnet()
