@@ -46,6 +46,7 @@ namespace NarrativeProject
 
         void InitializeCarnet()
         {
+            var _ = charactersDatabase;
             clues = new Dictionary<string, Dictionary<int, string>>();
             int i = charactersDatabase.Characters.Count - 1;
             foreach (SO_CharacterData character in charactersDatabase.Characters)
