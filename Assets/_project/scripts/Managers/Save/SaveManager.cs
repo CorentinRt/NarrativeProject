@@ -10,6 +10,7 @@ namespace NarrativeProject
             string keySave = name + "_" + key;
             PlayerPrefs.SetString(keySave, clue);
             PlayerPrefs.Save();
+            Debug.Log("Saved " + keySave + " " + clue);
         }
 
         public static void LoadClues(Dictionary<string, Dictionary<int, string>> clues, string name, int nClues)
@@ -22,8 +23,14 @@ namespace NarrativeProject
                 if (!clues[name].ContainsKey(i))
                 {
                     clues[name].Add(i, clue);
+                    Debug.Log("Loaded " + key + " " + clue);
                 }
             }
+        }
+
+        public static void ResetSave()
+        {
+            PlayerPrefs.DeleteAll();
         }
     }
 }
