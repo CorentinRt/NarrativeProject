@@ -1187,21 +1187,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _titleCharaText: {fileID: 6949421980287008884}
-  _testName: Test name
-  _dialogueController: {fileID: 5910622529329617194}
+  _useAutoHighlight: 1
   _prefixToCharaTitleList:
   - _dialogPrefix: AXM
     _charaTitle: Albert Axeman
+    _character: {fileID: 0}
   - _dialogPrefix: LOG
     _charaTitle: Lady-Log
+    _character: {fileID: 0}
   - _dialogPrefix: LEN
     _charaTitle: Lenny the Devil
+    _character: {fileID: 0}
   - _dialogPrefix: CRA
     _charaTitle: Sergeant Crackhead
+    _character: {fileID: 0}
   - _dialogPrefix: MUD
     _charaTitle: Muddy Oldman
+    _character: {fileID: 0}
   - _dialogPrefix: PHI
     _charaTitle: Beautiful Phil
+    _character: {fileID: 0}
+  _testName: Test name
+  _dialogueController: {fileID: 5910622529329617194}
 --- !u!1 &7096029574347208600
 GameObject:
   m_ObjectHideFlags: 0
