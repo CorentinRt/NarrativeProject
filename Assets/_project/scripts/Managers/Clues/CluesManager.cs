@@ -28,6 +28,7 @@ namespace NarrativeProject
         {
             OnAddClue?.Invoke(characterName, key, clue);
             OnAddClueUnity?.Invoke();
+            SaveManager.SaveClue(characterName, key, clue);
         }
     }
 }

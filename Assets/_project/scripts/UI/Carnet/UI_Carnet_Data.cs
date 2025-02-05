@@ -70,6 +70,10 @@ namespace NarrativeProject
                 Debug.Log(character.Name + " " + i);
                 i--;
             }
+            foreach ( string name in clues.Keys)
+            {
+                SaveManager.LoadClues(clues, name, 6);
+            }
             Pages.Reverse();
         }
 
