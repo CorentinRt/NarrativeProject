@@ -959,6 +959,7 @@ GameObject:
   - component: {fileID: 6668773481751632150}
   - component: {fileID: 3877965438306833320}
   - component: {fileID: 8982145958169591294}
+  - component: {fileID: 1708115343570467439}
   m_Layer: 0
   m_Name: UI_Dialog
   m_TagString: Untagged
@@ -1173,6 +1174,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1708115343570467439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911124329878487279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2e2d082b9b943459013928c242e189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _titleCharaText: {fileID: 6949421980287008884}
+  _testName: Test name
 --- !u!1 &7096029574347208600
 GameObject:
   m_ObjectHideFlags: 0
