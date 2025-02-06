@@ -45,7 +45,7 @@ namespace NarrativeProject
         
 
 
-        #region Play Sound Geneeric
+        #region Play Sound Generic
 
         private void PlaySFXSound(AudioClip clip, float volumeScale = 0f)
         {
@@ -57,14 +57,14 @@ namespace NarrativeProject
         private void PlayVOCSound(AudioClip clip, float volumeScale = 0f)
         {
             if (clip == null) return;
-            if (_sourceSFX == null) return;
+            if (_sourceVOC == null) return;
 
             _sourceVOC.PlayOneShot(clip, volumeScale);
         }
         private void PlayMUSSound(AudioClip clip, float volumeScale = 0f)
         {
             if (clip == null) return;
-            if (_sourceSFX == null) return;
+            if (_sourceMUS == null) return;
 
             _sourceMUS.PlayOneShot(clip, volumeScale);
         }
@@ -72,7 +72,7 @@ namespace NarrativeProject
         #endregion
 
 
-        public void PlaySound(UnityEngine.Object obj)
+        public void PlaySoundSFX(UnityEngine.Object obj)
         {
             DataSound sound = null;
 
@@ -88,7 +88,43 @@ namespace NarrativeProject
 
             if (sound == null) return;
 
-            _sourceSFX.PlayOneShot(sound.clip, sound.volumeScale);
+            PlaySFXSound(sound.clip, sound.volumeScale);
+        }
+        public void PlaySoundMUS(UnityEngine.Object obj)
+        {
+            DataSound sound = null;
+
+            if (obj is DataSound so)
+            {
+                sound = so;
+                //Debug.Log("ScriptableObject reçu : " + so.name);
+            }
+            else
+            {
+                Debug.LogWarning("L'objet fourni n'est pas un ScriptableObject valide !");
+            }
+
+            if (sound == null) return;
+
+            PlayMUSSound(sound.clip, sound.volumeScale);
+        }
+        public void PlaySoundVOC(UnityEngine.Object obj)
+        {
+            DataSound sound = null;
+
+            if (obj is DataSound so)
+            {
+                sound = so;
+                //Debug.Log("ScriptableObject reçu : " + so.name);
+            }
+            else
+            {
+                Debug.LogWarning("L'objet fourni n'est pas un ScriptableObject valide !");
+            }
+
+            if (sound == null) return;
+
+            PlayVOCSound(sound.clip, sound.volumeScale);
         }
 
         #region Volume
