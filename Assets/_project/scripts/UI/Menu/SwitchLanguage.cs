@@ -24,7 +24,6 @@ namespace NarrativeProject
             if((int)localizationManager.CurrentLanguage == 0) 
             {
                 localizationManager.ChangeLanguages(numberLanguage - 1);
-                SoundManager.Instance.PlaySound(Sound);
             }
             else
             {

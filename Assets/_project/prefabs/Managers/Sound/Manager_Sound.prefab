@@ -435,3 +435,4 @@ MonoBehaviour:
   _sourceMUS: {fileID: 1497290592945967652}
   _sourceVOC: {fileID: 7120815356232002427}
   _mixer: {fileID: 24100000, guid: 4d40000ca2a44204eaa6f354e182e310, type: 2}
+  _dataSound: {fileID: 11400000, guid: db973faf82d8bb949b1ecd82fd039e03, type: 2}

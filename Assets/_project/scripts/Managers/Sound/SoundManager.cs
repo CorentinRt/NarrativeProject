@@ -72,8 +72,22 @@ namespace NarrativeProject
         #endregion
 
 
-        public void PlaySound(DataSound sound)
+        public void PlaySound(UnityEngine.Object obj)
         {
+            DataSound sound = null;
+
+            if (obj is DataSound so)
+            {
+                sound = so;
+                //Debug.Log("ScriptableObject reçu : " + so.name);
+            }
+            else
+            {
+                Debug.LogWarning("L'objet fourni n'est pas un ScriptableObject valide !");
+            }
+
+            if (sound == null) return;
+
             _sourceSFX.PlayOneShot(sound.clip, sound.volumeScale);
         }
 
