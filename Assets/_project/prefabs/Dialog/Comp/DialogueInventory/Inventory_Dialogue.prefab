@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4502529778159255733}
   - component: {fileID: 7606724166287361932}
+  - component: {fileID: 9222947531821660752}
   m_Layer: 0
   m_Name: Inventory_Dialogue
   m_TagString: Untagged
@@ -44,3 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c9d7f5bafa05248b851ca823b40bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9222947531821660752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557911872919608134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122e2c459a4baff429ee9b200f64282e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueInventory: {fileID: 7606724166287361932}

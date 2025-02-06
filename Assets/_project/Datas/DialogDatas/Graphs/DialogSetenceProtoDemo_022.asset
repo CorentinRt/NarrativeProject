@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1407b570a3c98a64c8b5cb583e8b2f72, type: 3}
+  m_Name: DialogSetenceProtoDemo_022
+  m_EditorClassIdentifier: 
+  nodes:
+  - id: d4c860ad-a270-48ea-8b65-2c2c86caa150
+    dialogueId: START
+    title: START
+    position: {x: 100, y: 200}
+    entryPoint: 1
+    outputPorts:
+    - b3f632a2-7596-4fcb-8688-79e395dd7a02
+    outputPortsChoiceId:
+    - Next
+    portConditions: []
+    callFunctions: []
+  - id: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    dialogueId: AXM_002
+    title: Dialogue Node
+    position: {x: 655, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - 6bca1c95-da97-4650-a932-2ad6e028c30f
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    dialogueId: LOG_003
+    title: Dialogue Node
+    position: {x: 1075, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - 85aefd9b-1cb6-4ef5-bca7-cbd31fe61027
+    - 47263f5c-1c12-434e-9cf5-585a4cd15e4f
+    - 73149049-c534-4844-8ea5-80f785fcbb17
+    outputPortsChoiceId:
+    - Choice 0
+    - Choice 1
+    - Choice 2
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: 62421f2e-89ae-497b-870c-e4e5fedc2a72
+      methodName: Character.Coming
+      parametersName: []
+      parametersValues: []
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.DisplayDrinks
+      parametersName: []
+      parametersValues: []
+  - id: 0f803713-5c2f-4a00-b1fb-8f88a1c5402f
+    dialogueId: AXM_004
+    title: Dialogue Node
+    position: {x: 1482, y: 394}
+    entryPoint: 0
+    outputPorts: []
+    outputPortsChoiceId: []
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.GroupDrinksToHub
+      parametersName: []
+      parametersValues: []
+  - id: e838e358-4a9b-463f-a107-f0a8d19d8b41
+    dialogueId: AXM_006
+    title: Dialogue Node
+    position: {x: 1482, y: 216}
+    entryPoint: 0
+    outputPorts:
+    - 112e270f-700f-4ef5-8460-e7a3ef27ce98
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.GroupDrinksToHub
+      parametersName: []
+      parametersValues: []
+  - id: 2bc01181-6afc-4736-be3b-2807d92324e5
+    dialogueId: AXM_008
+    title: Dialogue Node
+    position: {x: 1482, y: 25}
+    entryPoint: 0
+    outputPorts:
+    - 20dc7be5-36c5-41b0-998c-2dd01a7822d9
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.GroupDrinksToHub
+      parametersName: []
+      parametersValues: []
+  - id: bfe4a045-e30f-40bb-9d41-fda388e04d78
+    dialogueId: AXM_001
+    title: Dialogue Node
+    position: {x: 258, y: 200}
+    entryPoint: 0
+    outputPorts:
+    - f287b26a-41d7-4aeb-8b14-b6880a331c47
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: 4281712e-359d-4937-8f29-feae1dbb7936
+      methodName: Character.Coming
+      parametersName: []
+      parametersValues: []
+    - gameObjectPersistantGUID: 71be5547-b154-43b5-8b28-78217fab1001
+      methodName: DialogueDisplayer.ShowDisplayer
+      parametersName: []
+      parametersValues: []
+  - id: ec4de5fe-3435-466e-9453-208c34bf8deb
+    dialogueId: AXM_009
+    title: Dialogue Node
+    position: {x: 1860, y: 25}
+    entryPoint: 0
+    outputPorts:
+    - a3427041-217f-439f-96a4-5fd93c051e99
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions:
+    - gameObjectPersistantGUID: ee75bc04-63db-4a18-b5b5-e6895827d9d1
+      methodName: UICounterDrinks.DisplayDrinks
+      parametersName: []
+      parametersValues: []
+  edges:
+  - fromNodeId: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    fromPortId: 6bca1c95-da97-4650-a932-2ad6e028c30f
+    toNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    toPortId: 4baa2a62-775b-4d02-becf-c2772c9c92fe
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 85aefd9b-1cb6-4ef5-bca7-cbd31fe61027
+    toNodeId: 2bc01181-6afc-4736-be3b-2807d92324e5
+    toPortId: d3d493a7-4791-4ad1-aac3-3a855e33988d
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 47263f5c-1c12-434e-9cf5-585a4cd15e4f
+    toNodeId: e838e358-4a9b-463f-a107-f0a8d19d8b41
+    toPortId: 86d74711-bbe1-4f47-a84c-b658448c9318
+    fromPortIndex: 1
+    toPortIndex: 0
+  - fromNodeId: 2bc01181-6afc-4736-be3b-2807d92324e5
+    fromPortId: 20dc7be5-36c5-41b0-998c-2dd01a7822d9
+    toNodeId: ec4de5fe-3435-466e-9453-208c34bf8deb
+    toPortId: 552f8c35-39d4-404b-b17a-fa306b6134f0
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 7bc42c5f-bc79-44b6-b313-04a760a0d7bc
+    fromPortId: 73149049-c534-4844-8ea5-80f785fcbb17
+    toNodeId: 0f803713-5c2f-4a00-b1fb-8f88a1c5402f
+    toPortId: cc8cbdd4-e700-4d25-9dc8-51b9fb0ed732
+    fromPortIndex: 2
+    toPortIndex: 0
+  - fromNodeId: d4c860ad-a270-48ea-8b65-2c2c86caa150
+    fromPortId: b3f632a2-7596-4fcb-8688-79e395dd7a02
+    toNodeId: bfe4a045-e30f-40bb-9d41-fda388e04d78
+    toPortId: 3243dee4-263a-41a3-a24d-69e74a742ae6
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: bfe4a045-e30f-40bb-9d41-fda388e04d78
+    fromPortId: f287b26a-41d7-4aeb-8b14-b6880a331c47
+    toNodeId: e8211845-5fcd-4083-9533-9e0b6d5cf09c
+    toPortId: 0dc91dfd-3139-48ab-8b9f-71863fbaf9d8
+    fromPortIndex: 0
+    toPortIndex: 0

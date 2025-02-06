@@ -185,9 +185,9 @@ namespace CREMOT.DialogSystem
         #endregion
 
         #region Notify Dialogue / Choices changes
-        private void NotifyDialogueChange(string dialogueText)
+        private void NotifyDialogueChange(string dialogueId)
         {
-            OnDialogueUpdated?.Invoke(dialogueText);
+            OnDialogueUpdated?.Invoke(dialogueId);
             OnDialogueUpdatedUnity?.Invoke();
         }
         private void NotifyChoiceChange(List<string> choicesText, List<string> outputPortGuid)
@@ -258,13 +258,13 @@ namespace CREMOT.DialogSystem
                     return DialogueInventory.Instance.HasItem(condition.requiredItem, condition.requiredQuantity);
                 case EConditionType.UNDER:
                     return DialogueInventory.Instance.IsUnderItem(condition.requiredItem, condition.requiredQuantity);
+                case EConditionType.STRICTLYEQUAL:
+                    return DialogueInventory.Instance.HasExactlyItem(condition.requiredItem, condition.requiredQuantity);
                 default:
                     break;
             }
 
             return false;
-
-            //return DialogueInventory.Instance.HasItem(condition.requiredItem, condition.requiredQuantity);
         }
 
         #endregion

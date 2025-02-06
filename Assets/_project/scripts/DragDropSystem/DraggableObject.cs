@@ -47,6 +47,7 @@ namespace NarrativeProject
         #endregion
 
         public UnityEvent OnDropUnity;
+        public UnityEvent OnDropSucceedUnity;
 
 
         private void Reset()
@@ -192,6 +193,8 @@ namespace NarrativeProject
                 if (bDropping)
                 {
                     dropReceiver.OnReceiveDropDraggable(gameObject);
+
+                    OnDropSucceedUnity?.Invoke();
                 }
             }
         }

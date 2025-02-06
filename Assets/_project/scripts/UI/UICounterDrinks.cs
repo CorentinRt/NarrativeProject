@@ -24,7 +24,7 @@ namespace NarrativeProject
         public UnityEvent OnGroupAllDrinks;
         public UnityEvent OnDisplayAllDrinks;
 
-        private void Awake()
+        private void Start()
         {
             _drinksOriginalPosition = new List<Vector3>();
             _drinksHubsPosition = new List<Vector3>();
@@ -42,9 +42,7 @@ namespace NarrativeProject
 
                 currentOffset += new Vector3(_offsetsHub, 0f, 0f);
             }
-        }
-        private void Start()
-        {
+
             GroupDrinksToHub();
         }
 

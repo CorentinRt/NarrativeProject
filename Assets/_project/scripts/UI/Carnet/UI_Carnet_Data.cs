@@ -55,6 +55,7 @@ namespace NarrativeProject
 
         void InitializeCarnet()
         {
+            var _ = charactersDatabase;
             clues = new Dictionary<string, Dictionary<int, string>>();
             int i = charactersDatabase.Characters.Count - 1;
             foreach (SO_CharacterData character in charactersDatabase.Characters)
@@ -68,6 +69,10 @@ namespace NarrativeProject
                 Pages.Add(page);
                 Debug.Log(character.Name + " " + i);
                 i--;
+            }
+            foreach ( string name in clues.Keys)
+            {
+                SaveManager.LoadClues(clues, name, 6);
             }
             Pages.Reverse();
         }

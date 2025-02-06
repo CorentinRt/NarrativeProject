@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec06fcefcb1954a4193a3b36f683e64a, type: 3}
   m_Name: SdfData
   m_EditorClassIdentifier: 
-  _name: Sdf
+  _name: Muddy Oldman
   _defaultFriendShipScale: 0
   _defaultdrunkScale: 0
   _dialogueGraphData: {fileID: 0}
+  numberOfClues: 0
   _sprites:
   - {fileID: 21300000, guid: 291db4b6d0798d34791a1f1124088d57, type: 3}
   - {fileID: 0}
@@ -24,5 +25,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _drinkType: 000000000100000002000000
-  _drinkEffect: 000000000000000000000000
-  _drinkEffectFriendShip: 000000000000000000000000
+  _drinkEffect: 05000000050000000a000000
+  _drinkEffectFriendShip: 05000000050000000a000000
