@@ -25,6 +25,8 @@ namespace CREMOT.DialogSystem
 
         public event Action OnUpdatedDialogueInventory;
 
+        public event Action<string, int> OnUpdateDialogInventoryWithNewValue;
+
         #endregion
 
 
@@ -54,6 +56,7 @@ namespace CREMOT.DialogSystem
             }
 
             OnUpdatedDialogueInventory?.Invoke();
+            OnUpdateDialogInventoryWithNewValue?.Invoke(stringName, _dialogueItemsInventory[stringName]);
         }
         public void RemoveItem(string stringName, int quantity)
         {
@@ -69,8 +72,17 @@ namespace CREMOT.DialogSystem
             }
 
             OnUpdatedDialogueInventory?.Invoke();
+            OnUpdateDialogInventoryWithNewValue?.Invoke(stringName, _dialogueItemsInventory[stringName]);
         }
+        public void SetItem(string stringName, int quantity)
+        {
+            if (string.IsNullOrEmpty(stringName)) return;
 
+            _dialogueItemsInventory[stringName] = quantity;
+            
+            OnUpdatedDialogueInventory?.Invoke();
+            OnUpdateDialogInventoryWithNewValue?.Invoke(stringName, _dialogueItemsInventory[stringName]);
+        }
         public bool HasItem(string item, int quantity)
         {
             if (string.IsNullOrEmpty(item)) return false;
