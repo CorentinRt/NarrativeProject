@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52972b255fe6d948a9bccfd9bfef064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizationDataSO: {fileID: 11400000, guid: fe1af78774b31a546bc0c8cfbb2f3839, type: 2}
+  _localizationDataSO: {fileID: 11400000, guid: 09f31c17f6ce6644a849d1674cfc18fb, type: 2}
   OnLanguageUpdatedUnity:
     m_PersistentCalls:
       m_Calls: []

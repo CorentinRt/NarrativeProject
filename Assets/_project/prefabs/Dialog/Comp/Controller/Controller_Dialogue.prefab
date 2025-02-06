@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoInit: 1
-  _dialogueGraphSO: {fileID: 11400000, guid: bb80b08ceff3b674dac7bfd127e391c9, type: 2}
+  _autoStartDialog: 0
+  _dialogueGraphSO: {fileID: 11400000, guid: 6867a8dac1927dd46bd125564dc820f8, type: 2}
   OnDialogueUpdatedUnity:
     m_PersistentCalls:
       m_Calls: []
