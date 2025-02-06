@@ -176,18 +176,30 @@ namespace NarrativeProject
             {
                 _state = DrunkState.Clean;
                 SetVisualState(DrunkState.Clean);
+                if (DialogInventoryToGameLink.Instance != null)
+                {
+                    DialogInventoryToGameLink.Instance.AddDrinkStateToInventoryDialog(this, (int)_state);
+                }
                 return _state;
             }
             else if (_drunkScale > 30 && _drunkScale <= 60)
             {
                 _state = DrunkState.Dizzy;
                 SetVisualState(DrunkState.Dizzy);
+                if (DialogInventoryToGameLink.Instance != null)
+                {
+                    DialogInventoryToGameLink.Instance.AddDrinkStateToInventoryDialog(this, (int)_state);
+                }
                 return _state;
             }
             else
             {
                 _state = DrunkState.Drunk;
                 SetVisualState(DrunkState.Drunk);
+                if (DialogInventoryToGameLink.Instance != null)
+                {
+                    DialogInventoryToGameLink.Instance.AddDrinkStateToInventoryDialog(this, (int)_state);
+                }
                 return _state;
             }
         }
