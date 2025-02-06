@@ -1487,3 +1487,6 @@ MonoBehaviour:
   characterName: {fileID: 6624655339116721937}
   content: {fileID: 6740596196767183876}
   characterNames: []
+  nextButton: {fileID: 3183571436690730956}
+  previousButton: {fileID: 3104988143769905947}
+  closeButton: {fileID: 3858176118300985809}
