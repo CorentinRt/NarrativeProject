@@ -9,6 +9,7 @@ namespace NarrativeProject
 {
     public class DialogInventoryToGameLink : MonoBehaviour
     {
+        #region Datas
         [System.Serializable]
         enum EActionType
         {
@@ -31,6 +32,8 @@ namespace NarrativeProject
             public string DialogPrefix { get => _dialogPrefix; set => _dialogPrefix = value; }
             public Character Character { get => _character; set => _character = value; }
         }
+        #endregion
+
 
         #region Fields
         [SerializeField] private DialogueInventory _dialogueInventory;
@@ -41,50 +44,34 @@ namespace NarrativeProject
 
         #endregion
 
-
-        private void Awake()
-        {
-            if (_dialogueInventory != null)
-            {
-                _dialogueInventory.OnUpdateDialogInventoryWithNewValue += LinkNewValueToGame;
-            }
-        }
-        private void OnDestroy()
-        {
-            if (_dialogueInventory != null)
-            {
-                _dialogueInventory.OnUpdateDialogInventoryWithNewValue -= LinkNewValueToGame;
-            }
-        }
-
-
-        private void LinkNewValueToGame(string keyName, int newValue)
-        {
-            var matchingChara = _inventoryPrefixToGameAction.FirstOrDefault(entry => keyName.StartsWith(entry.DialogPrefix));
-
-            EActionType actionType = GetActionType(keyName);
-
-
-        }
-
-        private EActionType GetActionType(string keyName)
-        {
-            var action = _keyNameToActionsTypes.FirstOrDefault(entry => keyName.Contains(entry.actionNom));
-
-            return action.actionType;
-        }
-
+        // Drink state create key
         public void AddDrinkStateToInventoryDialog(Character character, int drinkLevel)
         {
             if (_dialogueInventory == null) return;
+            if (character == null) return;
 
             var matchingChara = _inventoryPrefixToGameAction.FirstOrDefault(entry => character == entry.Character);
 
             string tempKey = matchingChara.DialogPrefix + "_" + "Drunkness";
 
-            Debug.LogWarning("Set key : " + tempKey + " : " + drinkLevel.ToString());
+            Debug.LogWarning("Set drink key : " + tempKey + " : " + drinkLevel.ToString());
 
             _dialogueInventory.SetItem(tempKey, drinkLevel);
+        }
+
+        // Clue create key
+        public void AddClueToInventoryDialog(Character character, int clueId)
+        {
+            if (_dialogueInventory == null) return;
+            if (character == null) return;
+
+            var matchingChara = _inventoryPrefixToGameAction.FirstOrDefault(entry => character == entry.Character);
+
+            string tempKey = matchingChara.DialogPrefix + "_" + "Clue" + clueId.ToString();
+
+            Debug.LogWarning("Set Clue key : " + tempKey);
+
+            _dialogueInventory.SetItem(tempKey, 1);
         }
     }
 }
