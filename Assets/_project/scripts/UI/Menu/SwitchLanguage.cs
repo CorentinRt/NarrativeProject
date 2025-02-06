@@ -9,6 +9,7 @@ namespace NarrativeProject
 {
     public class SwitchLanguage : MonoBehaviour
     {
+        [SerializeField] private DataSound Sound;
         [SerializeField] private TextMeshProUGUI textLanguage;
         private LocalizationManager localizationManager;
         private int numberLanguage = Enum.GetValues(typeof(LocalizationManager.Language)).Length;
@@ -23,6 +24,7 @@ namespace NarrativeProject
             if((int)localizationManager.CurrentLanguage == 0) 
             {
                 localizationManager.ChangeLanguages(numberLanguage - 1);
+                SoundManager.Instance.PlaySound(Sound);
             }
             else
             {
@@ -44,7 +46,7 @@ namespace NarrativeProject
             UpdateText();
         }
 
-        private void UpdateText ()
+        private void UpdateText()
         {
             textLanguage.text = localizationManager.CurrentLanguage.ToString();
         }

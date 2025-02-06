@@ -36,13 +36,32 @@ namespace NarrativeProject
 
 
         #region Fields
+        private static DialogInventoryToGameLink _instance;
+
         [SerializeField] private DialogueInventory _dialogueInventory;
 
         [SerializeField] private List<InventoryPrefixToGameAction> _inventoryPrefixToGameAction;
 
         [SerializeField] private List<KeyNameToActionType> _keyNameToActionsTypes;
 
+
         #endregion
+
+        #region Properties
+        public static DialogInventoryToGameLink Instance { get => _instance; set => _instance = value; }
+
+        #endregion
+
+
+        private void Awake()
+        {
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+            }
+            _instance = this;
+        }
+
 
         // Drink state create key
         public void AddDrinkStateToInventoryDialog(Character character, int drinkLevel)

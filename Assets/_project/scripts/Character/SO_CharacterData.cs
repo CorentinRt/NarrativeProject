@@ -15,9 +15,9 @@ namespace NarrativeProject
 
     public enum DrunkState
     {
-        Clean,
-        Dizzy,
-        Drunk
+        Clean = 0,
+        Dizzy = 1,
+        Drunk = 2
     };
 
     public enum FriendshipState
