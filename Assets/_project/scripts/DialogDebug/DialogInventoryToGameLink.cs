@@ -60,14 +60,14 @@ namespace NarrativeProject
         }
 
         // Clue create key
-        public void AddClueToInventoryDialog(Character character, int clueId)
+        public void AddClueToInventoryDialog(string characterPrefix, int clueId)
         {
             if (_dialogueInventory == null) return;
-            if (character == null) return;
+            if (characterPrefix == "") return;
 
-            var matchingChara = _inventoryPrefixToGameAction.FirstOrDefault(entry => character == entry.Character);
+            //var matchingChara = _inventoryPrefixToGameAction.FirstOrDefault(entry => character == entry.Character);
 
-            string tempKey = matchingChara.DialogPrefix + "_" + "Clue" + clueId.ToString();
+            string tempKey = characterPrefix + "_" + "Clue" + clueId.ToString();
 
             Debug.LogWarning("Set Clue key : " + tempKey);
 

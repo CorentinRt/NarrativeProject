@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,12 +10,21 @@ namespace NarrativeProject
 {
     public class UI_Carnet_Data : MonoBehaviour
     {
+        [System.Serializable]
+        struct PrefixToCharacterName
+        {
+            public string prefix;
+            public string name;
+        }
+
         [SerializeField] Dictionary<string, Dictionary<int, string>> clues;
         [SerializeField] SO_Characters charactersDatabase;
         [SerializeField] GameObject prefabPage, anchor;
 
         [VisibleInDebug] List<UI_Carnet> pages = new List<UI_Carnet>();
         UI_Carnet_Data instance;
+
+        [SerializeField] private List<PrefixToCharacterName> _prefixToCharacterNames;
 
         public event Action OnCloseUI;
         public event Action<string, int, string> OnNewClue;
@@ -77,8 +87,13 @@ namespace NarrativeProject
             Pages.Reverse();
         }
 
-        void UnlockClue(string characterName, int key, string clue)
+        void UnlockClue(string characterPrefix, int key, string clue)
         {
+            string characterName = "";
+
+            characterName = _prefixToCharacterNames.FirstOrDefault(entry => entry.prefix == characterPrefix).name;
+
+
             if (!clues.ContainsKey(characterName))
             {
                 clues.Add(characterName, new Dictionary<int, string>());
