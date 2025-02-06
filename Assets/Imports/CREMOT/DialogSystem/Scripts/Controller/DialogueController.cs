@@ -31,6 +31,8 @@ namespace CREMOT.DialogSystem
 
         private DialogueNodeSO _currentDialogueNodeSO;
 
+        [SerializeField] private List<DialogueGraphSO> _allDialogueGraph;
+
         #endregion
 
 
@@ -90,6 +92,19 @@ namespace CREMOT.DialogSystem
 
             _dialogStarted = true;
             SelectChoice(0);
+        }
+
+        public void SwitchDialogGraph(int dialogGraphId)
+        {
+            if (dialogGraphId >= _allDialogueGraph.Count) return;
+
+            _dialogueGraphSO = _allDialogueGraph[dialogGraphId];
+
+            Init();
+
+            StartDialog();
+
+            Debug.LogWarning("SwitchToOtherGraph");
         }
 
         private string GetNodeIdEntryPoint()

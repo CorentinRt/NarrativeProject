@@ -47,6 +47,18 @@ MonoBehaviour:
   _autoInit: 1
   _autoStartDialog: 0
   _dialogueGraphSO: {fileID: 11400000, guid: 6867a8dac1927dd46bd125564dc820f8, type: 2}
+  _allDialogueGraph:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   OnDialogueUpdatedUnity:
     m_PersistentCalls:
       m_Calls: []
