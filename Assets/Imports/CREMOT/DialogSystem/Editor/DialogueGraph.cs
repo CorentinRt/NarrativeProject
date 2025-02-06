@@ -16,6 +16,8 @@ namespace CREMOT.DialogSystem
 
         private Label _currentSaveLabel;
 
+        private string _targetNodeSearchID;
+
         #endregion
 
 
@@ -123,6 +125,10 @@ namespace CREMOT.DialogSystem
 
             // Save Dialogue
             GenerateSaveDialogueButton(toolbarContainer);
+
+            // Search Node
+            GenerateSearchNodeTextField(toolbarContainer);
+            GenerateSearchNodeButton(toolbarContainer);
 
             // Clear Graph
             GenerateClearGraphButton(toolbarContainer);
@@ -245,6 +251,31 @@ namespace CREMOT.DialogSystem
             dialogueSaveButton.text = "Save Dialogue Graph";
             SetButtonStyle(dialogueSaveButton, Color.green, Color.black);
             toolbar.Add(dialogueSaveButton);
+
+            rootVisualElement.Add(toolbar);
+        }
+
+        private void GenerateSearchNodeTextField(VisualElement toolbar)
+        {
+            var searchNodeTextField = new TextField();
+
+            searchNodeTextField.RegisterValueChangedCallback(evt =>
+            {
+                _targetNodeSearchID = evt.newValue.ToString();
+            });
+            
+            toolbar.Add(searchNodeTextField);
+        }
+        private void GenerateSearchNodeButton(VisualElement toolbar)
+        {
+            var searchNodeButton = new Button(() =>
+            {
+                if (_targetNodeSearchID == "") return;
+                _graphView.FocusOnNode(_targetNodeSearchID);
+            });
+            searchNodeButton.text = "Search Node by ID";
+            SetButtonStyle(searchNodeButton, new Color(0.4f, 0.5f, 0.6f), Color.black);
+            toolbar.Add(searchNodeButton);
 
             rootVisualElement.Add(toolbar);
         }
