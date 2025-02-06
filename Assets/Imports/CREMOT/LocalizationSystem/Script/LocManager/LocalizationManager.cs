@@ -17,7 +17,7 @@ public class LocalizationManager : MonoBehaviour
     {
         ENGLISH = 0,
         FRENCH = 1,
-        SPANISH = 2
+        //SPANISH = 2
     }
 
     [SerializeField] private LocalizationDataSO _localizationDataSO;
@@ -79,8 +79,8 @@ public class LocalizationManager : MonoBehaviour
                 return "ENG";
             case Language.FRENCH:
                 return "FR";
-            case Language.SPANISH:
-                return "SP";
+            //case Language.SPANISH:
+            //    return "SP";
             default:
                 return "";
         }

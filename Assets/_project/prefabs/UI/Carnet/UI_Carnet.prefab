@@ -190,6 +190,19 @@ MonoBehaviour:
   charactersDatabase: {fileID: 11400000, guid: 055c55aa16d12f94a8339ed32c6cafc3, type: 2}
   prefabPage: {fileID: 9179146718514939143, guid: 5af1f6450b271c24b8212069d7632b40, type: 3}
   anchor: {fileID: 2949687303047600323}
+  _prefixToCharacterNames:
+  - prefix: AXM
+    name: Albert Axeman
+  - prefix: LOG
+    name: Lady-log
+  - prefix: LEN
+    name: Lenny the Devil
+  - prefix: CRA
+    name: Sergeant Crackhead
+  - prefix: MUD
+    name: Muddy Oldman
+  - prefix: PHI
+    name: Beautiful Phil
   OnCloseUIUnity:
     m_PersistentCalls:
       m_Calls:

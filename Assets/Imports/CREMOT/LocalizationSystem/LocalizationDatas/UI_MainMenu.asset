@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db56d23eafa5672468a9323d76ad7433, type: 3}
+  m_Name: UI_MainMenu
+  m_EditorClassIdentifier: 
+  _keyEntries:
+  - key: ID_STG
+    translations:
+    - languageID: EN
+      text: Settings
+    - languageID: FR
+      text: "Param\xE8tres"
+    - languageID: SP
+      text: "Configuraci\xF3n"
+    - languageID: ENG
+      text: Settings
+  - key: ID_PLY
+    translations:
+    - languageID: EN
+      text: Play
+    - languageID: FR
+      text: Jouer
+    - languageID: SP
+      text: Jugar
+    - languageID: ENG
+      text: Play
+  - key: ID_CRD
+    translations:
+    - languageID: EN
+      text: Credits
+    - languageID: FR
+      text: "Cr\xE9dits"
+    - languageID: SP
+      text: "Cr\xE9ditos"
+    - languageID: ENG
+      text: Credits
+  - key: ID_LNG
+    translations:
+    - languageID: EN
+      text: Language
+    - languageID: FR
+      text: Langue
+    - languageID: SP
+      text: Idioma
+    - languageID: ENG
+      text: Language
+  - key: ID_SND
+    translations:
+    - languageID: EN
+      text: Sound
+    - languageID: FR
+      text: Son
+    - languageID: SP
+      text: Sonido
+    - languageID: ENG
+      text: Sound
+  - key: ID_BCK
+    translations:
+    - languageID: EN
+      text: Back
+    - languageID: FR
+      text: Retour
+    - languageID: SP
+      text: "Atr\xE1s"
+    - languageID: ENG
+      text: Back

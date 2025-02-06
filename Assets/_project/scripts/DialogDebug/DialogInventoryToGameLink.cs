@@ -2,13 +2,13 @@ using CREMOT.DialogSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Plastic.Newtonsoft.Json.Bson;
 using UnityEngine;
 
 namespace NarrativeProject
 {
     public class DialogInventoryToGameLink : MonoBehaviour
     {
+        #region Datas
         [System.Serializable]
         enum EActionType
         {
@@ -31,60 +31,65 @@ namespace NarrativeProject
             public string DialogPrefix { get => _dialogPrefix; set => _dialogPrefix = value; }
             public Character Character { get => _character; set => _character = value; }
         }
+        #endregion
+
 
         #region Fields
+        private static DialogInventoryToGameLink _instance;
+
         [SerializeField] private DialogueInventory _dialogueInventory;
 
         [SerializeField] private List<InventoryPrefixToGameAction> _inventoryPrefixToGameAction;
 
         [SerializeField] private List<KeyNameToActionType> _keyNameToActionsTypes;
 
+
+        #endregion
+
+        #region Properties
+        public static DialogInventoryToGameLink Instance { get => _instance; set => _instance = value; }
+
         #endregion
 
 
         private void Awake()
         {
-            if (_dialogueInventory != null)
+            if (_instance != null)
             {
-                _dialogueInventory.OnUpdateDialogInventoryWithNewValue += LinkNewValueToGame;
+                Destroy(gameObject);
             }
-        }
-        private void OnDestroy()
-        {
-            if (_dialogueInventory != null)
-            {
-                _dialogueInventory.OnUpdateDialogInventoryWithNewValue -= LinkNewValueToGame;
-            }
+            _instance = this;
         }
 
 
-        private void LinkNewValueToGame(string keyName, int newValue)
-        {
-            var matchingChara = _inventoryPrefixToGameAction.FirstOrDefault(entry => keyName.StartsWith(entry.DialogPrefix));
-
-            EActionType actionType = GetActionType(keyName);
-
-
-        }
-
-        private EActionType GetActionType(string keyName)
-        {
-            var action = _keyNameToActionsTypes.FirstOrDefault(entry => keyName.Contains(entry.actionNom));
-
-            return action.actionType;
-        }
-
+        // Drink state create key
         public void AddDrinkStateToInventoryDialog(Character character, int drinkLevel)
         {
             if (_dialogueInventory == null) return;
+            if (character == null) return;
 
             var matchingChara = _inventoryPrefixToGameAction.FirstOrDefault(entry => character == entry.Character);
 
             string tempKey = matchingChara.DialogPrefix + "_" + "Drunkness";
 
-            Debug.LogWarning("Set key : " + tempKey + " : " + drinkLevel.ToString());
+            Debug.LogWarning("Set drink key : " + tempKey + " : " + drinkLevel.ToString());
 
             _dialogueInventory.SetItem(tempKey, drinkLevel);
+        }
+
+        // Clue create key
+        public void AddClueToInventoryDialog(string characterPrefix, int clueId)
+        {
+            if (_dialogueInventory == null) return;
+            if (characterPrefix == "") return;
+
+            //var matchingChara = _inventoryPrefixToGameAction.FirstOrDefault(entry => character == entry.Character);
+
+            string tempKey = characterPrefix + "_" + "Clue" + clueId.ToString();
+
+            Debug.LogWarning("Set Clue key : " + tempKey);
+
+            _dialogueInventory.SetItem(tempKey, 1);
         }
     }
 }

@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -17,8 +18,9 @@ namespace NarrativeProject
         [SerializeField] private AudioSource _sourceMUS;
         [SerializeField] private AudioSource _sourceVOC;
 
+        [Header("Others")]
         [SerializeField] private AudioMixer _mixer;
-
+        [SerializeField] public CreateSoundData _dataSound;
 
         #endregion
 
@@ -38,8 +40,10 @@ namespace NarrativeProject
 
         public void InitManager()
         {
-
         }
+
+        
+
 
         #region Play Sound Geneeric
 
@@ -67,6 +71,11 @@ namespace NarrativeProject
 
         #endregion
 
+
+        public void PlaySound(DataSound sound)
+        {
+            _sourceSFX.PlayOneShot(sound.clip, sound.volumeScale);
+        }
 
         #region Volume
 

@@ -33,6 +33,10 @@ public class LocalizationInfoBox : MonoBehaviour
 
         if (LocalizationManager.Instance == null) return;
 
-        _localizationTargetText.text = LocalizationManager.Instance.GetLocalisedTextWithID(_localizationId);
+        string tempText = LocalizationManager.Instance.GetLocalisedTextWithID(_localizationId);
+
+        if (tempText == null || tempText == "") return;
+
+        _localizationTargetText.text = tempText;
     }
 }
