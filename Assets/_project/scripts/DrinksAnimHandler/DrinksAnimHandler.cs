@@ -10,6 +10,10 @@ namespace NarrativeProject
         [SerializeField] private Animator _greenAnimator;
         [SerializeField] private Animator _coffeeAnimator;
 
+        [SerializeField] private Animator _blueCupAnimator;
+        [SerializeField] private Animator _greenCupAnimator;
+        [SerializeField] private Animator _coffeeCupAnimator;
+
 
         public void PlayBlueDrinkAnimation()
         {
@@ -28,6 +32,25 @@ namespace NarrativeProject
             if (_coffeeAnimator == null) return;
 
             _coffeeAnimator.SetTrigger("AnimBottle");
+        }
+
+        public void PlayBlueCupAnimation()
+        {
+            if (_blueCupAnimator == null) return;
+
+            _blueCupAnimator.SetTrigger("AnimBottle");
+        }
+        public void PlayGreenCupAnimation()
+        {
+            if (_greenCupAnimator == null) return;
+
+            _greenCupAnimator.SetTrigger("AnimBottle");
+        }
+        public void PlayCofeeCupAnimation()
+        {
+            if (_coffeeCupAnimator == null) return;
+
+            _coffeeCupAnimator.SetTrigger("AnimBottle");
         }
     }
 }
