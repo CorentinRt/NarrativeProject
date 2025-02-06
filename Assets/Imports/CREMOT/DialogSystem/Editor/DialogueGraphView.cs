@@ -735,6 +735,48 @@ namespace CREMOT.DialogSystem
         }
 
         #endregion
+
+        #region Focus On Node
+        public void FocusOnNode(string nodeId)
+        {
+            var targetNode = FindSearchedNode(nodeId);
+
+            if (targetNode == null) return;
+
+            // Obtenir la position du nœud
+            Rect nodeRect = targetNode.GetPosition();
+
+            // Calculer la position centrée dans la vue
+            Vector3 nodeWorldPosition = nodeRect.center; // Position centrale du nœud dans le graph
+
+            // Obtenir la taille de la fenêtre (Editor Window)
+            Vector3 graphViewCenter = this.contentViewContainer.layout.size * 0.5f;
+
+            this.viewTransform.position = graphViewCenter - nodeWorldPosition * this.scale;
+        }
+        private Node FindSearchedNode(string nodeId)
+        {
+            DialogueNode foundNode = null;
+
+            foreach (var node in nodes)
+            {
+                DialogueNode tempDialNode = node as DialogueNode;
+
+                if (tempDialNode == null) continue;
+
+                if (tempDialNode.DialogueText == nodeId)
+                {
+                    foundNode = tempDialNode;
+                    break;
+                }
+            }
+
+            if (foundNode == null) return null;
+
+            return foundNode;
+        }
+
+        #endregion
     }
 }
 
