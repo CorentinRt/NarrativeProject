@@ -6699,9 +6699,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LOGO
-
-'
+  m_text: Moonshine Murder
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7dd4636c7f8162b47a438dbc24f9c87c, type: 2}
   m_sharedMaterial: {fileID: 2819030905481124008, guid: 7dd4636c7f8162b47a438dbc24f9c87c, type: 2}
@@ -6728,7 +6726,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.85
+  m_fontSize: 35.45
   m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 1
