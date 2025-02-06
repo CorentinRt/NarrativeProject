@@ -1402,7 +1402,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 705394906909749522, guid: 562db79af363398458ba13b6f80eaa80, type: 3}
       propertyPath: m_Name
-      value: Drinks_Rhum
+      value: Drinks_Vodk
       objectReference: {fileID: 0}
     - target: {fileID: 3728181390485989209, guid: 562db79af363398458ba13b6f80eaa80, type: 3}
       propertyPath: m_Pivot.x
