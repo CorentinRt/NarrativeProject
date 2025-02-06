@@ -64,9 +64,10 @@ namespace CREMOT.DialogSystem
                 _conditions[i].requiredItem = EditorGUILayout.TextField("Item", _conditions[i].requiredItem);
                 _conditions[i].requiredQuantity = EditorGUILayout.IntField("Quantity", _conditions[i].requiredQuantity);
 
-                string[] conditionTypeList = new string[2];
+                string[] conditionTypeList = new string[3];
                 conditionTypeList[0] = "REACHOREQUAL";
                 conditionTypeList[1] = "UNDER";
+                conditionTypeList[2] = "STRICTLYEQUAL";
                 _conditions[i].conditionType = (EConditionType)EditorGUILayout.Popup((int)_conditions[i].conditionType, conditionTypeList);
 
                 if (GUILayout.Button("Remove"))

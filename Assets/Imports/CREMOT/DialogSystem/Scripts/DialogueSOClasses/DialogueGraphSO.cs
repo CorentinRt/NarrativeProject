@@ -62,7 +62,8 @@ namespace CREMOT.DialogSystem
     public enum EConditionType
     {
         REACHOREQUAL = 0,
-        UNDER = 1
+        UNDER = 1,
+        STRICTLYEQUAL = 2
     }
 
     [System.Serializable]

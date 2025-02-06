@@ -72,11 +72,6 @@ namespace NarrativeProject
         [Button]
         public void HideTransition()
         {
-            if (_transitionTween != null)
-            {
-                _transitionTween.Kill();
-            }
-            _transitionTween = _containerTransition.DOMove(_hide.position, _duration);
             HideNewsPaper();
         }
 
@@ -109,7 +104,15 @@ namespace NarrativeProject
                 _transitionRotNewsPaperTween.Kill(true);
             }
             _transitionNewsPaperTween = _btnNewsPaper.transform.DOScale(Vector3.zero, _newsPaperAppearDuration);
-            _transitionRotNewsPaperTween = _btnNewsPaper.DORotate(new Vector3(0f, 0f, 380f), _newsPaperAppearDuration, RotateMode.FastBeyond360);
+            _transitionRotNewsPaperTween = _btnNewsPaper.DORotate(new Vector3(0f, 0f, 380f), _newsPaperAppearDuration, RotateMode.FastBeyond360).OnComplete(() => HideTransitionBackground());
+        }
+        public void HideTransitionBackground()
+        {
+            if (_transitionTween != null)
+            {
+                _transitionTween.Kill();
+            }
+            _transitionTween = _containerTransition.DOMove(_hide.position, _duration);
         }
 
     }

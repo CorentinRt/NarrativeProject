@@ -15,9 +15,11 @@ namespace NarrativeProject
         [SerializeField] TextMeshProUGUI characterName;
         [SerializeField] GameObject content;
         [SerializeField] List<string> characterNames;
+        [SerializeField] Button nextButton, previousButton, closeButton;
 
         [VisibleInDebug] int indexInCarnet;
         UI_Carnet_Data data;
+        List<GameObject> clues = new List<GameObject>();
 
         public UI_Carnet_Data Data { get => data; set => data = value; }
 
@@ -34,7 +36,7 @@ namespace NarrativeProject
         public void ShowUI()
         {
             gameObject.SetActive(true);
-            foreach (GameObject go in content.transform)
+            foreach (GameObject go in clues)
             {
                 Destroy(go);
             }
@@ -44,12 +46,20 @@ namespace NarrativeProject
                 go.transform.SetParent(content.transform);
                 go.AddComponent<TextMeshProUGUI>().text = clue.Value;
                 go.GetComponent<TextMeshProUGUI>().margin = new Vector4(0, 0, -550, 0);
+                clues.Add(go);
             }
+            previousButton.interactable = true;
+            nextButton.interactable = true;
+            closeButton.interactable = true;
         }
 
         public void ShowNextCharacter()
         {
-            if(indexInCarnet + 1 >= data.Pages.Count)
+            previousButton.interactable = false;
+            nextButton.interactable = false;
+            closeButton.interactable = false;
+
+            if (indexInCarnet + 1 >= data.Pages.Count)
             {
                 Debug.Log("End of the list");
                 data.ReturnFirstPage(0.25f);
@@ -61,7 +71,11 @@ namespace NarrativeProject
 
         public void ShowPreviousCharacter()
         {
-            if(indexInCarnet - 1 < 0)
+            previousButton.interactable = false;
+            nextButton.interactable = false;
+            closeButton.interactable = false;
+
+            if (indexInCarnet - 1 < 0)
             {
                 Debug.Log("End of the list");
                 data.ReturnLastPage(0.5f);
@@ -74,6 +88,7 @@ namespace NarrativeProject
         IEnumerator NextPage(float time)
         {
             float elapsedTime = 0;
+            GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
             while (elapsedTime < time)
             {
                 GetComponent<RectTransform>().rotation = Quaternion.Euler(0, Mathf.Lerp(0, -90, elapsedTime), 0);
@@ -87,14 +102,16 @@ namespace NarrativeProject
 
         IEnumerator PreviousPage(float time)
         {
-            Debug.Log("PreivousPage");
+            Debug.Log("PreivousPage" + indexInCarnet);
             float elapsedTime = 0;
             int index = indexInCarnet - 1;
             RectTransform page;
-            if (index - 1 < 0) page = data.Pages[data.Pages.Count - 1].GetComponent<RectTransform>();
+            if (index - 1 < 0) page = data.Pages[0].GetComponent<RectTransform>();
             else page = data.Pages[indexInCarnet - 1].GetComponent<RectTransform>();
+            page.rotation = Quaternion.Euler(0, -90, 0);
             while (elapsedTime < time)
             {
+                Debug.Log("anim");
                 page.rotation = Quaternion.Euler(0, Mathf.Lerp(-90, 0, elapsedTime), 0);
                 elapsedTime += Time.deltaTime;
                 yield return null;
@@ -104,6 +121,9 @@ namespace NarrativeProject
         }
         public void Close()
         {
+            previousButton.interactable = false;
+            nextButton.interactable = false;
+            closeButton.interactable = false;
             data.CloseUI();
         }
 
