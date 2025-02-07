@@ -67,6 +67,11 @@ namespace NarrativeProject
             }
             data.ShowCharacter(indexInCarnet + 1);
             StartCoroutine(NextPage(1f));
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlayNextPage();
+            }
         }
 
         public void ShowPreviousCharacter()
@@ -83,6 +88,11 @@ namespace NarrativeProject
             }
             data.ShowCharacter(indexInCarnet - 1);
             StartCoroutine(PreviousPage(1f));
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlayNextPage();
+            }
         }
 
         IEnumerator NextPage(float time)

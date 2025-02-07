@@ -22,6 +22,9 @@ namespace NarrativeProject
         [SerializeField] private AudioMixer _mixer;
         [SerializeField] public CreateSoundData _dataSound;
 
+
+        [SerializeField] private DataSound _nextPage;
+
         #endregion
 
         #region Properties
@@ -43,7 +46,12 @@ namespace NarrativeProject
         }
 
         
+        public void PlayNextPage()
+        {
+            if (_nextPage == null)  return;
 
+            PlaySoundSFX(_nextPage);
+        }
 
         #region Play Sound Generic
 
