@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec06fcefcb1954a4193a3b36f683e64a, type: 3}
   m_Name: CrackheadData
   m_EditorClassIdentifier: 
-  _name: Crackhead
+  _name: Sergeant Crackhead
   _defaultFriendShipScale: 0
   _defaultdrunkScale: 0
   _dialogueGraphData: {fileID: 0}
   numberOfClues: 0
   _sprites:
   - {fileID: 21300000, guid: 2169866fbf4792a4684187977d653f00, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: a061515a5ce0d86449f48360f5ea3600, type: 3}
+  - {fileID: 21300000, guid: 5d9795ba59d4863439f0ece997c24c96, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   _drinkType: 000000000100000002000000
-  _drinkEffect: 0a0000000500000005000000
+  _drinkEffect: 280000001400000014000000
   _drinkEffectFriendShip: 020000000200000002000000

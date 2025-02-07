@@ -97,16 +97,19 @@ namespace NarrativeProject
 
             if (!clues.ContainsKey(characterName))
             {
+                Debug.Log("CREATE DICT " + characterPrefix);
                 clues.Add(characterName, new Dictionary<int, string>());
                 OnNewClue?.Invoke(characterName, key, clue);
                 OnNewClueUnity?.Invoke();
             }
-
+            Debug.Log("Unlocking clue " + characterPrefix + " " + key + " " + clue);
+            Debug.Log("value: " + clues[characterName].ContainsValue(clue));
             if (!clues[characterName].ContainsValue(clue))
             {
                 clues[characterName][key] = clue;
                 OnNewClue?.Invoke(characterName, key, clue);
                 OnNewClueUnity?.Invoke();
+                Debug.Log("ADDING TO DICT clue " + characterPrefix + " " + key + " " + clue);
             }
 
 

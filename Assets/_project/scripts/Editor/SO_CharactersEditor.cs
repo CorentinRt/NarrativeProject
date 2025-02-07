@@ -64,12 +64,16 @@ namespace NarrativeProject.Editor
 
         public override void OnInspectorGUI()
         {
-            EditorUtility.SetDirty(_target);
             Color baseColor = GUI.backgroundColor;
             GUIStyle background = new GUIStyle(GUI.skin.button);
             background.normal.background = MakeBackgroundTexture(1, 1, new Color(0.75f, 0.75f, 0.75f, 1));
             GUI.backgroundColor = Color.grey;
-            if(GUILayout.Button("Get all Character Data", background))
+            if(GUILayout.Button("Save", background))
+            {
+                EditorUtility.SetDirty(_target);
+                AssetDatabase.SaveAssetIfDirty(_target);
+            }
+            if (GUILayout.Button("Get all Character Data", background))
             {
                 string[] files = AssetDatabase.FindAssets("t:SO_CharacterData");
                 foreach (string file in files)
