@@ -256,7 +256,7 @@ namespace CREMOT.DialogSystem
         #endregion
 
         #region Display choices
-        private void DisplayChoices(List<string> choicesText)
+        private void DisplayChoices(List<string> choicesText, int originalChoicesCount)
         {
             if (_choicesContainer == null) return;
             if (_dialogueController == null) return;
@@ -281,6 +281,24 @@ namespace CREMOT.DialogSystem
                 ++buttonAddCount;
             }
 
+            if (originalChoicesCount > 1)
+            {
+                OnDisplayMultipleChoicesUnity?.Invoke();
+            }
+            else if (originalChoicesCount == 1)
+            {
+                OnDisplayOnlyOneChoiceUnity?.Invoke();
+
+                if (_bDisableOnlyOneButtonDisplayed)
+                {
+                    foreach (ChoiceButton choiceButton in tempChoicesBtn)
+                    {
+                        choiceButton.BEnabled = false;
+                    }
+                }
+            }
+
+            /*
             if (buttonAddCount > 1)
             {
                 OnDisplayMultipleChoicesUnity?.Invoke();
@@ -297,6 +315,7 @@ namespace CREMOT.DialogSystem
                     }
                 }
             }
+            */
 
             _currentSavedChoicesIds = choicesText;
         }
@@ -391,7 +410,7 @@ namespace CREMOT.DialogSystem
         public void RefreshAllText()
         {
             DisplayDialogueText(_currentSavedDialogueId);
-            DisplayChoices(_currentSavedChoicesIds);
+            DisplayChoices(_currentSavedChoicesIds, _currentSavedChoicesIds.Count);
         }
 
         #endregion

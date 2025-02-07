@@ -1360,14 +1360,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 2696233876923568326, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: _dialogueGraphSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 0951a60d733f7134db3cdfcc0134db2d, type: 2}
-    - target: {fileID: 2696233876923568326, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      propertyPath: _allDialogueGraph.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0951a60d733f7134db3cdfcc0134db2d, type: 2}
     - target: {fileID: 3786281340222758897, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.size
       value: 4

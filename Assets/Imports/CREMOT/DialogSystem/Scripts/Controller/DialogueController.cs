@@ -49,7 +49,7 @@ namespace CREMOT.DialogSystem
         public UnityEvent OnChoiceUpdatedUnity;
 
 
-        public event Action<List<string>> OnChoiceUpdated;
+        public event Action<List<string>, int> OnChoiceUpdated;
 
         #endregion
 
@@ -207,6 +207,8 @@ namespace CREMOT.DialogSystem
         }
         private void NotifyChoiceChange(List<string> choicesText, List<string> outputPortGuid)
         {
+            int originalChoicesCount = choicesText.Count;
+
             var availableChoices = new List<string>();
 
             //foreach (var choiceText in choicesText)
@@ -228,7 +230,7 @@ namespace CREMOT.DialogSystem
                 }
             }
 
-            OnChoiceUpdated?.Invoke(availableChoices);
+            OnChoiceUpdated?.Invoke(availableChoices, originalChoicesCount);
             //OnChoiceUpdated?.Invoke(choicesText);
             OnChoiceUpdatedUnity?.Invoke();
         }
