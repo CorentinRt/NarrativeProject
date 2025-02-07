@@ -7778,11 +7778,11 @@ MonoBehaviour:
       text: Hum... nice for you I suppose.
     - languageID: COR
       text: Corentin !
-  - key: 
+  - key: PLA_000
     translations:
     - languageID: FR
-      text: 
+      text: ...
     - languageID: ENG
-      text: 
+      text: ...
     - languageID: COR
       text: Corentin !
