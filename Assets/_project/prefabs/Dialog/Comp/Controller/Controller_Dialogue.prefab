@@ -46,15 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _autoInit: 1
   _autoStartDialog: 0
-  _dialogueGraphSO: {fileID: 11400000, guid: 6867a8dac1927dd46bd125564dc820f8, type: 2}
+  _dialogueGraphSO: {fileID: 11400000, guid: a1508bb64809b49d5b74fb5e81203023, type: 2}
   _allDialogueGraph:
+  - {fileID: 11400000, guid: a1508bb64809b49d5b74fb5e81203023, type: 2}
+  - {fileID: 11400000, guid: c57220a767f6a4bb0afbc66ab0ebae04, type: 2}
+  - {fileID: 11400000, guid: 0c8b2c47d79d58e47b977db82b6192d0, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 04fc77dc6457d1b4fb8aa44d050a60d2, type: 2}
+  - {fileID: 11400000, guid: b5ce50da3089c7942a608b9879672000, type: 2}
+  - {fileID: 11400000, guid: 5efd788b517795242a2f9e1464c1f8e3, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
