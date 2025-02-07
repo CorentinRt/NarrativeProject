@@ -28,6 +28,7 @@ namespace NarrativeProject
 
         public void AddClue(string characterName, int key, string clue)
         {
+            Debug.Log("Adding clue " + characterName + " " + key + " " + clue);
             OnAddClue?.Invoke(characterName, key, clue);
             OnAddClueUnity?.Invoke();
             OnAddClueWithParamUnity?.Invoke(characterName, key);

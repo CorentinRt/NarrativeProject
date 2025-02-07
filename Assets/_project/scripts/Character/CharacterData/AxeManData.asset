@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec06fcefcb1954a4193a3b36f683e64a, type: 3}
   m_Name: AxeManData
   m_EditorClassIdentifier: 
-  _name: AxeMan
+  _name: Albert Axeman
   _defaultFriendShipScale: 0
   _defaultdrunkScale: 0
   _dialogueGraphData: {fileID: 0}
   numberOfClues: 0
   _sprites:
   - {fileID: 21300000, guid: 8fa863c070a89aa41b414da8dbeb5014, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f0eaab65688a72e428d7c9c0905b5ea4, type: 3}
+  - {fileID: 21300000, guid: ea96aedcffdacb64fbd77029ed3dfd16, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   _drinkType: 000000000100000002000000
-  _drinkEffect: 050000000a00000005000000
+  _drinkEffect: 140000002800000014000000
   _drinkEffectFriendShip: 050000000a00000005000000

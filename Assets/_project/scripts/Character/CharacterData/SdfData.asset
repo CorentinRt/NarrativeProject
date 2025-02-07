@@ -19,8 +19,8 @@ MonoBehaviour:
   numberOfClues: 0
   _sprites:
   - {fileID: 21300000, guid: 291db4b6d0798d34791a1f1124088d57, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4f0e4c87d974cd044aa815a2bd83cf52, type: 3}
+  - {fileID: 21300000, guid: 86a73d7bb8d7d0e4981005c81ea6311d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

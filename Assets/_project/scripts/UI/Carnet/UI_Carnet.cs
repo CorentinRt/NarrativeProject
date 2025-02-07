@@ -40,12 +40,17 @@ namespace NarrativeProject
             {
                 Destroy(go);
             }
-            foreach (KeyValuePair<int, string> clue in data.Clues[characterName.text] )
+            Debug.Log("for each in" + characterName.text);
+            foreach (string clue in data.Clues[characterName.text].Values )
             {
-                GameObject go = new GameObject(clue.Value);
+                Debug.Log(clue);
+                GameObject go = new GameObject(clue);
                 go.transform.SetParent(content.transform);
-                go.AddComponent<TextMeshProUGUI>().text = clue.Value;
-                go.GetComponent<TextMeshProUGUI>().margin = new Vector4(0, 0, -550, 0);
+                go.AddComponent<TextMeshProUGUI>().text = clue;
+                TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
+                text.margin = new Vector4(0, 0, -550, 0);
+                text.fontSize = 70;
+                text.color = Color.black;
                 clues.Add(go);
             }
             previousButton.interactable = true;

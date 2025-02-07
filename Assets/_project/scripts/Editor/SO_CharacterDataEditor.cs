@@ -123,6 +123,11 @@ namespace NarrativeProject.Editor
             background.normal.background = MakeBackgroundTexture(1, 1, Color.green);
             GUI.backgroundColor = Color.green;
             GUILayout.Space(25);
+            if(GUILayout.Button("Save", background))
+            {
+                EditorUtility.SetDirty(_target);
+                AssetDatabase.SaveAssetIfDirty(_target);
+            }
             if (GUILayout.Button("Add Drinks Effects", background))
             {
                 _target.DrinkEffect.Add(0);
