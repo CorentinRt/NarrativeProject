@@ -21,33 +21,33 @@ namespace NarrativeProject
 
         public void LeftButton()
         {
-            if((int)localizationManager.CurrentLanguage == 0) 
+            if((int)localizationManager.GetLanguage() == 0)
             {
                 localizationManager.ChangeLanguages(numberLanguage - 1);
             }
             else
             {
-                localizationManager.ChangeLanguages((int)localizationManager.CurrentLanguage - 1);
+                localizationManager.ChangeLanguages((int)localizationManager.GetLanguage() - 1);
             }
             UpdateText();
         }
 
         public void RightButton()
         {
-            if ((int)localizationManager.CurrentLanguage == numberLanguage-1)
+            if ((int)localizationManager.GetLanguage() == numberLanguage-1)
             {
                 localizationManager.ChangeLanguages(0);
             }
             else
             {
-                localizationManager.ChangeLanguages((int)localizationManager.CurrentLanguage + 1);
+                localizationManager.ChangeLanguages((int)localizationManager.GetLanguage() + 1);
             }
             UpdateText();
         }
 
         private void UpdateText()
         {
-            textLanguage.text = localizationManager.CurrentLanguage.ToString();
+            textLanguage.text = localizationManager.GetLanguage().ToString();
         }
 
     }

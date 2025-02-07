@@ -1,8 +1,11 @@
+using Codice.CM.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static LocalizationManager;
+
 
 public class LocalizationManager : MonoBehaviour
 {
@@ -10,7 +13,7 @@ public class LocalizationManager : MonoBehaviour
     #region Fields
     private static LocalizationManager _instance;
 
-    private Language _currentLanguage = Language.ENGLISH;
+    //private Language _currentLanguage;
 
     [System.Serializable]
     public enum Language
@@ -36,7 +39,7 @@ public class LocalizationManager : MonoBehaviour
 
     #region Properties
     public static LocalizationManager Instance { get => _instance; set => _instance = value; }
-    public Language CurrentLanguage { get => _currentLanguage; set => _currentLanguage = value; }
+    //public Language CurrentLanguage { get => _currentLanguage; set => _currentLanguage = value; }
 
     #endregion
 
@@ -49,11 +52,24 @@ public class LocalizationManager : MonoBehaviour
         _instance = this;
     }
 
+    public void SetLanguage(Language language)
+    {
+        PlayerPrefs.SetInt("CurrentLanguage", (int)language);
+        PlayerPrefs.Save();
+    }
+
+    public Language GetLanguage()
+    {
+        
+        int languageIndex = PlayerPrefs.GetInt("CurrentLanguage", 0);
+        print((Language)languageIndex);
+        return (Language)languageIndex;
+    }
+
     public void ChangeLanguages(int nextLanguage)
     {
-        _currentLanguage = (Language)nextLanguage;
-
-        OnLanguageUpdated?.Invoke(_currentLanguage);
+        SetLanguage((Language)nextLanguage);
+        OnLanguageUpdated?.Invoke(GetLanguage());
         OnLanguageUpdatedNoParam?.Invoke();
         OnLanguageUpdatedUnity?.Invoke();
     }
@@ -64,7 +80,7 @@ public class LocalizationManager : MonoBehaviour
 
         if (!_localizationDataSO.LocalizationData.ContainsKey(textId)) return "";
 
-        string languageKeyId = GetLanguagekeyIdFromEnum(_currentLanguage);
+        string languageKeyId = GetLanguagekeyIdFromEnum(GetLanguage());
 
         if (!_localizationDataSO.LocalizationData[textId].ContainsKey(languageKeyId)) return "";
 
@@ -80,10 +96,9 @@ public class LocalizationManager : MonoBehaviour
             case Language.FRENCH:
                 return "FR";
             //case Language.SPANISH:
-            //    return "SP";
+            //    return "COR";
             default:
                 return "";
         }
     }
-
 }

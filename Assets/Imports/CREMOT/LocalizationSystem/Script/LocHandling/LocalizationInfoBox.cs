@@ -23,7 +23,7 @@ public class LocalizationInfoBox : MonoBehaviour
         {
             LocalizationManager.Instance.OnLanguageUpdated += DisplayLocalizationText;
 
-            DisplayLocalizationText(LocalizationManager.Instance.CurrentLanguage);
+            DisplayLocalizationText(LocalizationManager.Instance.GetLanguage());
         }
     }
 
