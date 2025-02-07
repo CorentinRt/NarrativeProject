@@ -87,11 +87,13 @@ namespace CREMOT.DialogSystem
         {
             if (string.IsNullOrEmpty(item)) return false;
 
-            if (quantity <= 0) return true;
-
             if (!_dialogueItemsInventory.ContainsKey(item)) return false;
 
+            if (quantity <= 0) return true;
+
             if (_dialogueItemsInventory[item] < quantity) return false;
+
+            Debug.LogWarning("Has Item");
 
             return true;
         }
@@ -99,11 +101,13 @@ namespace CREMOT.DialogSystem
         {
             if (string.IsNullOrEmpty(item)) return false;
 
-            if (quantity <= 0) return true;
-
             if (!_dialogueItemsInventory.ContainsKey(item)) return false;
 
+            if (quantity <= 0) return true;
+
             if (_dialogueItemsInventory[item] == quantity) return true;
+
+            Debug.LogWarning("Has exactly Item");
 
             return false;
         }
@@ -111,11 +115,13 @@ namespace CREMOT.DialogSystem
         {
             if (string.IsNullOrEmpty(item)) return false;
 
-            if (quantity <= 0) return true;
-
             if (!_dialogueItemsInventory.ContainsKey(item)) return true;
 
+            if (quantity <= 0) return true;
+
             if (_dialogueItemsInventory[item] < quantity) return true;
+
+            Debug.LogWarning("Has Under Item");
 
             return false;
         }

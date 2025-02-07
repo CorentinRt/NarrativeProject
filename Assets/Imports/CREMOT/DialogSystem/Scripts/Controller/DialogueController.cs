@@ -263,6 +263,39 @@ namespace CREMOT.DialogSystem
             return true; // Toutes les conditions sont remplies
         }
 
+        private List<int> GetFirstChoiceAvailableIndex(string choiceTextId)
+        {
+            List<int> result = new List<int>();
+            DialogueNodeSO currentNode = DialogueGraphSO.Nodes.FirstOrDefault(node => node.id == _currentNodeId);
+            if (currentNode == null)
+            {
+                Debug.LogWarning("ICI");
+                //Debug.Log("Break at current node null");
+                return result;
+            }
+
+            PortCondition condition = currentNode.portConditions.FirstOrDefault(cond => cond.portId == choiceTextId);
+            if (condition == null)
+            {
+                Debug.LogWarning("ICI");
+                //Debug.Log("Pas de condition -> Toujours dispo");
+                result.Add(0);
+                return result; // Pas de condition = toujours disponible
+            }
+            // Vérifier si toutes les conditions sont remplies
+            for (int i = 0; i < condition.conditions.Count; ++i)
+            {
+                var tempCond = condition.conditions[i];
+
+                if (CheckCondition(tempCond))
+                {
+                    result.Add(i);
+                }
+            }
+            Debug.LogWarning("ICI");
+            return result; // Toutes les conditions sont remplies
+        }
+
         private bool CheckCondition(ConditionSO condition)
         {
             if (DialogueInventory.Instance == null) return false;
