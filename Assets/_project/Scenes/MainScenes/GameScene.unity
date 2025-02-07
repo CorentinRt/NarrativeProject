@@ -285,20 +285,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistantGUIDSceneSaver
       objectReference: {fileID: 0}
-    - target: {fileID: 1567647414794906281, guid: b449de877611637449cdb62f3b87af7c, type: 3}
-      propertyPath: _dialogueGraphSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 0951a60d733f7134db3cdfcc0134db2d, type: 2}
-    - target: {fileID: 1567647414794906281, guid: b449de877611637449cdb62f3b87af7c, type: 3}
-      propertyPath: _allDialogueGraph.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0951a60d733f7134db3cdfcc0134db2d, type: 2}
     - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
@@ -355,6 +351,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030389048064388605, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030389048064388605, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9030389048064388605, guid: b449de877611637449cdb62f3b87af7c, type: 3}
