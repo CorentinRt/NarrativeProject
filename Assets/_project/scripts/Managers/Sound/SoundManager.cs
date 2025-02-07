@@ -96,7 +96,7 @@ namespace NarrativeProject
 
             if (sound == null) return;
 
-            PlaySFXSound(sound.clip, sound.volumeScale);
+            PlaySFXSound(sound.clip, sound.volumeScale + _sourceSFX.volume);
         }
         public void PlaySoundMUS(UnityEngine.Object obj)
         {
@@ -114,7 +114,7 @@ namespace NarrativeProject
 
             if (sound == null) return;
 
-            PlayMUSSound(sound.clip, sound.volumeScale);
+            PlayMUSSound(sound.clip, sound.volumeScale + _sourceMUS.volume);
         }
         public void PlaySoundVOC(UnityEngine.Object obj)
         {
@@ -132,7 +132,7 @@ namespace NarrativeProject
 
             if (sound == null) return;
 
-            PlayVOCSound(sound.clip, sound.volumeScale);
+            PlayVOCSound(sound.clip, sound.volumeScale + _sourceVOC.volume);
         }
 
         #region Volume

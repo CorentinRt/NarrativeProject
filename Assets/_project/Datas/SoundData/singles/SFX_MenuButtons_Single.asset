@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SFX_MenuButtons_Single
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 1d7e36b00f80a244dba91c0b7d902b0e, type: 3}
-  volumeScale: 0.7
+  volumeScale: 0

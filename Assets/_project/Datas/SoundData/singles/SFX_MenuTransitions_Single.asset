@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SFX_MenuTransitions_Single
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 8ec2f1a92a1d3a84b9413aba951c9249, type: 3}
-  volumeScale: 0.7
+  volumeScale: 0

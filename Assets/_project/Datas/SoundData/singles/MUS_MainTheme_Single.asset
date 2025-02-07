@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MUS_MainTheme_Single
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 105bbc935e4b0854cb34d9a0eb959762, type: 3}
-  volumeScale: 0.7
+  volumeScale: 0

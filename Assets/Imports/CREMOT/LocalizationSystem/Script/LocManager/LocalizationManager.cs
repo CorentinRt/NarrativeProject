@@ -62,7 +62,6 @@ public class LocalizationManager : MonoBehaviour
     {
         
         int languageIndex = PlayerPrefs.GetInt("CurrentLanguage", 0);
-        print((Language)languageIndex);
         return (Language)languageIndex;
     }
 

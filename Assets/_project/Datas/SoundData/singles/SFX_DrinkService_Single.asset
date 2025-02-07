@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SFX_DrinkService_Single
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: d8de1b640ddb6f148bdc071d7a3194b2, type: 3}
-  volumeScale: 0.7
+  volumeScale: 0

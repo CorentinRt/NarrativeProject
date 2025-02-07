@@ -135,12 +135,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2809734739439556908, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809734739439556908, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809734739439556908, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2809734739439556908, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 16.666664
       objectReference: {fileID: 0}
     - target: {fileID: 6643266310645200939, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -148,6 +156,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6643266310645200939, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643266310645200939, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6643266310645200939, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
@@ -210,6 +222,18 @@ PrefabInstance:
       propertyPath: _localizationUIDataSO
       value: 
       objectReference: {fileID: 11400000, guid: 33b050334d8169449bf22f0387bc31fc, type: 2}
+    - target: {fileID: 8006603476112129448, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
+      propertyPath: m_MaxValue
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006603476112129448, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006603476112129448, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8463542972241266108, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_Name
       value: MenuScenePref

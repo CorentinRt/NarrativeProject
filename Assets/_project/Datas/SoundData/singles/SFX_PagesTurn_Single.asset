@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SFX_PagesTurn_Single
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 9f1faf186a78bcf4985d3cc76f49da23, type: 3}
-  volumeScale: 0.7
+  volumeScale: 0

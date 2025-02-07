@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SFX_Bubble_Single
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: e2d4b39523837da4d99bcf064bc568f3, type: 3}
-  volumeScale: 0.7
+  volumeScale: 0

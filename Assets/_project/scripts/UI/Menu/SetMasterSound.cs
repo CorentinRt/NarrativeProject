@@ -16,6 +16,7 @@ public class SetMasterSound : MonoBehaviour
 
     void UpdateValue(float value)
     {
+        print(value);
         SoundManager.Instance.SetMasterVolume(value);
     }
 }

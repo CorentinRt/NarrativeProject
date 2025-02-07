@@ -194,6 +194,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -245,6 +247,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -322,42 +326,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 0}
   _visual: {fileID: 0}
+  Collision: {fileID: 0}
   _state: 0
   _friendshipState: 0
   _drunkScale: 0
   _friendshipScale: 0
   _isDead: 0
   _comingState: 0
-  _onCharacterComing:
+  _cleanVisual: {fileID: 0}
+  _dizzyVisual: {fileID: 0}
+  _drunkVisual: {fileID: 0}
+  _packSpriteRdAnim: {fileID: 0}
+  OnCharacterComingUnity:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4101009653428669414}
-        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-        m_MethodName: PlayAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onCharacterLeaving:
+      m_Calls: []
+  OnCharacterLeavingUnity:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7388433449954888656}
-        m_TargetAssemblyTypeName: CREMOT.UIAnimatorDotween.UIAnimator, CREMOT.UIAnimatorDotween
-        m_MethodName: PlayAllAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1401267932509922164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +1088,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoInit: 1
+  _autoStartDialog: 0
   _dialogueGraphSO: {fileID: 11400000, guid: 6dd537d2bddc13e4ba4670e7f75f5cba, type: 2}
+  _allDialogueGraph: []
   OnDialogueUpdatedUnity:
     m_PersistentCalls:
       m_Calls: []
@@ -1324,6 +1311,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -1338,6 +1327,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 1
     OnAnimationStarted:
       m_PersistentCalls:
@@ -1365,6 +1356,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0.15
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 1
     OnAnimationStarted:
       m_PersistentCalls:
@@ -1392,6 +1385,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0.016223945, g: 0.509434, b: 0, a: 1}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -1406,6 +1401,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 1, g: 1, b: 1, a: 1}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -1511,10 +1508,28 @@ MonoBehaviour:
   _dialogueText: {fileID: 4669137211366708616}
   _choicesContainer: {fileID: 2845139060692491968}
   _buttonChoicePrefab: {fileID: 8664488508792781418, guid: 0fd138e0dc3638c4e9a8d3b301075cfa, type: 3}
+  _bDisableOnlyOneButtonDisplayed: 0
   _displayButtonsElements: 1
   _neverHideDisplayer: 0
   _startHidden: 1
+  _useTypingAppearEffect: 0
+  _charactersPerSecond: 0
   _useDynamicLocalizationDisplay: 0
+  OnShowDisplayerUnity:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHideDisplayerUnity:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisplayDialogTextUnity:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisplayMultipleChoicesUnity:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisplayOnlyOneChoiceUnity:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2551470644737048853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,6 +1550,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -1549,6 +1566,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -1576,6 +1595,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
@@ -1602,6 +1623,8 @@ MonoBehaviour:
     _targetScale: {x: 0, y: 0, z: 0}
     _targetColor: {r: 0, g: 0, b: 0, a: 0}
     _idleAmplitude: 0
+    _idleRandomOffsetDuration: 0
+    _bobbingScale: {x: 0, y: 0, z: 0}
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:

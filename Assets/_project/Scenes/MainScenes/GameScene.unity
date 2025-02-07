@@ -285,12 +285,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistantGUIDSceneSaver
       objectReference: {fileID: 0}
+    - target: {fileID: 2032557793474616824, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: _soundCafe
+      value: 
+      objectReference: {fileID: 11400000, guid: ef0cea3d69f578240acc2433f3ab1e31, type: 2}
+    - target: {fileID: 2032557793474616824, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: _soundDrinkService
+      value: 
+      objectReference: {fileID: 11400000, guid: 907f32ca7034d82449842891937126a6, type: 2}
     - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2626522758507227955, guid: b449de877611637449cdb62f3b87af7c, type: 3}
@@ -343,6 +355,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030389048064388605, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030389048064388605, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

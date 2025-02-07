@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SFX_NotebookOpen_Single
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b8022c200eda9b74798e692f0ddd487a, type: 3}
-  volumeScale: 0.7
+  volumeScale: 0

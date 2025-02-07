@@ -13,25 +13,14 @@ MonoBehaviour:
   m_Name: DataSound
   m_EditorClassIdentifier: 
   soundClips:
-  - clip: {fileID: 8300000, guid: c1fc8e01b01e4b94f906863b28d78c11, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: 105bbc935e4b0854cb34d9a0eb959762, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: e2d4b39523837da4d99bcf064bc568f3, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: b75c2a3b2a89ed549af018404520a4f0, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: d8de1b640ddb6f148bdc071d7a3194b2, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: 9d2a99e27f9963f40a59d232920c9bb4, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: 1d7e36b00f80a244dba91c0b7d902b0e, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: 8ec2f1a92a1d3a84b9413aba951c9249, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: 8c2e2bf0bd0e1ed47b9e73fb66bd9b91, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: b8022c200eda9b74798e692f0ddd487a, type: 3}
-    volumeScale: 0
-  - clip: {fileID: 8300000, guid: 9f1faf186a78bcf4985d3cc76f49da23, type: 3}
-    volumeScale: 0
+  - {fileID: 11400000, guid: 049777690bb12fe43b22d690e8be2218, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
