@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace NarrativeProject
 {
@@ -30,6 +31,10 @@ namespace NarrativeProject
 
 
         #endregion
+
+        public UnityEvent OnShowTransitionUnity;
+        public UnityEvent OnHideTransitionUnity;
+
 
         private void Start()
         {
@@ -67,12 +72,16 @@ namespace NarrativeProject
                 _transitionTween.Kill();
             }
             _transitionTween = _containerTransition.DOMove(_show.position, _duration).SetEase(_ease).OnComplete(() => ShowNewsPaper());
+
+            OnShowTransitionUnity?.Invoke();
         }
 
         [Button]
         public void HideTransition()
         {
             HideNewsPaper();
+
+            OnHideTransitionUnity?.Invoke();
         }
 
         public void ShowNewsPaper()
