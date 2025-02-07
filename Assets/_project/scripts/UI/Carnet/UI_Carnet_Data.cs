@@ -65,6 +65,7 @@ namespace NarrativeProject
 
         void InitializeCarnet()
         {
+            //SaveManager.ResetSave();
             var _ = charactersDatabase;
             clues = new Dictionary<string, Dictionary<int, string>>();
             int i = charactersDatabase.Characters.Count - 1;
@@ -73,7 +74,7 @@ namespace NarrativeProject
                 GameObject go = Instantiate(prefabPage, anchor.transform);
                 go.name = "Page_" + character.Name;
                 UI_Carnet page = go.GetComponent<UI_Carnet>();
-                page.Initialize(character.Name, character.Sprites[0], this, i);
+                page.Initialize(character.Name, character.Sprites[1], this, i);
 
                 if(!clues.ContainsKey(character.Name)) clues.Add(character.Name, new Dictionary<int, string>());
                 Pages.Add(page);
