@@ -45,7 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoInit: 1
-  _dialogueGraphSO: {fileID: 11400000, guid: bb80b08ceff3b674dac7bfd127e391c9, type: 2}
+  _autoStartDialog: 0
+  _dialogueGraphSO: {fileID: 11400000, guid: dc41a009731976d4396e6012cf177152, type: 2}
+  _allDialogueGraph:
+  - {fileID: 11400000, guid: dc41a009731976d4396e6012cf177152, type: 2}
+  - {fileID: 11400000, guid: 9add3a16ae0d1524d83996dce6c0659e, type: 2}
+  - {fileID: 11400000, guid: 6c2adda2fa3a7b648b8d5f5d1ef276ec, type: 2}
+  - {fileID: 11400000, guid: df20b9d5758e7fd488097b83b6de0e6b, type: 2}
+  - {fileID: 11400000, guid: 04fc77dc6457d1b4fb8aa44d050a60d2, type: 2}
+  - {fileID: 11400000, guid: b5ce50da3089c7942a608b9879672000, type: 2}
+  - {fileID: 11400000, guid: 5efd788b517795242a2f9e1464c1f8e3, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   OnDialogueUpdatedUnity:
     m_PersistentCalls:
       m_Calls: []

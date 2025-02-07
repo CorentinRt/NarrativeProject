@@ -13,6 +13,7 @@ namespace NarrativeProject
 
         public event Action<string, int, string> OnAddClue;
         public UnityEvent OnAddClueUnity;
+        public UnityEvent<string, int> OnAddClueWithParamUnity;
 
         public static CluesManager Instance { get => _instance; set => _instance = value; }
 
@@ -29,6 +30,7 @@ namespace NarrativeProject
         {
             OnAddClue?.Invoke(characterName, key, clue);
             OnAddClueUnity?.Invoke();
+            OnAddClueWithParamUnity?.Invoke(characterName, key);
             SaveManager.SaveClue(characterName, key, clue);
         }
 

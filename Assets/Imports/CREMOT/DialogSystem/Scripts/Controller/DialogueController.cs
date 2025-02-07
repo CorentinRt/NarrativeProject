@@ -31,6 +31,8 @@ namespace CREMOT.DialogSystem
 
         private DialogueNodeSO _currentDialogueNodeSO;
 
+        [SerializeField] private List<DialogueGraphSO> _allDialogueGraph;
+
         #endregion
 
 
@@ -47,7 +49,7 @@ namespace CREMOT.DialogSystem
         public UnityEvent OnChoiceUpdatedUnity;
 
 
-        public event Action<List<string>> OnChoiceUpdated;
+        public event Action<List<string>, int> OnChoiceUpdated;
 
         #endregion
 
@@ -90,6 +92,19 @@ namespace CREMOT.DialogSystem
 
             _dialogStarted = true;
             SelectChoice(0);
+        }
+
+        public void SwitchDialogGraph(int dialogGraphId)
+        {
+            if (dialogGraphId >= _allDialogueGraph.Count) return;
+
+            _dialogueGraphSO = _allDialogueGraph[dialogGraphId];
+
+            Init();
+
+            StartDialog();
+
+            Debug.LogWarning("SwitchToOtherGraph");
         }
 
         private string GetNodeIdEntryPoint()
@@ -192,6 +207,8 @@ namespace CREMOT.DialogSystem
         }
         private void NotifyChoiceChange(List<string> choicesText, List<string> outputPortGuid)
         {
+            int originalChoicesCount = choicesText.Count;
+
             var availableChoices = new List<string>();
 
             //foreach (var choiceText in choicesText)
@@ -213,7 +230,7 @@ namespace CREMOT.DialogSystem
                 }
             }
 
-            OnChoiceUpdated?.Invoke(availableChoices);
+            OnChoiceUpdated?.Invoke(availableChoices, originalChoicesCount);
             //OnChoiceUpdated?.Invoke(choicesText);
             OnChoiceUpdatedUnity?.Invoke();
         }
@@ -246,6 +263,39 @@ namespace CREMOT.DialogSystem
                 }
             }
             return true; // Toutes les conditions sont remplies
+        }
+
+        private List<int> GetFirstChoiceAvailableIndex(string choiceTextId)
+        {
+            List<int> result = new List<int>();
+            DialogueNodeSO currentNode = DialogueGraphSO.Nodes.FirstOrDefault(node => node.id == _currentNodeId);
+            if (currentNode == null)
+            {
+                Debug.LogWarning("ICI");
+                //Debug.Log("Break at current node null");
+                return result;
+            }
+
+            PortCondition condition = currentNode.portConditions.FirstOrDefault(cond => cond.portId == choiceTextId);
+            if (condition == null)
+            {
+                Debug.LogWarning("ICI");
+                //Debug.Log("Pas de condition -> Toujours dispo");
+                result.Add(0);
+                return result; // Pas de condition = toujours disponible
+            }
+            // Vérifier si toutes les conditions sont remplies
+            for (int i = 0; i < condition.conditions.Count; ++i)
+            {
+                var tempCond = condition.conditions[i];
+
+                if (CheckCondition(tempCond))
+                {
+                    result.Add(i);
+                }
+            }
+            Debug.LogWarning("ICI");
+            return result; // Toutes les conditions sont remplies
         }
 
         private bool CheckCondition(ConditionSO condition)

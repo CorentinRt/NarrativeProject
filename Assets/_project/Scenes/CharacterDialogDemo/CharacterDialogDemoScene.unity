@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 1112508368}
   - component: {fileID: 1112508369}
   - component: {fileID: 1112508370}
+  - component: {fileID: 1112508371}
   m_Layer: 6
   m_Name: DropZoneTest
   m_TagString: Untagged
@@ -663,6 +664,19 @@ MonoBehaviour:
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &1112508371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112508365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a125406f5cb1e2f47ae37ad98a82f4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dsffsdf: {fileID: 11400000, guid: aa8502b227c7fa946a19dfa9301916b5, type: 2}
 --- !u!4 &1160018853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8424288983215023353, guid: b99d7f70968252a49b1331690a6ff99d, type: 3}

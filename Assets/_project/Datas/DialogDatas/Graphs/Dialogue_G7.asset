@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1407b570a3c98a64c8b5cb583e8b2f72, type: 3}
+  m_Name: Dialogue_G7
+  m_EditorClassIdentifier: 
+  nodes:
+  - id: c651bfb9-c22f-4ed1-9b66-b3e942ab80c6
+    dialogueId: START
+    title: START
+    position: {x: 448.80002, y: 302.4}
+    entryPoint: 1
+    outputPorts:
+    - c00742c0-9afe-4f2f-a788-b1e7ef0b1b40
+    outputPortsChoiceId:
+    - Next
+    portConditions: []
+    callFunctions: []
+  - id: e801cb5a-de22-4a00-a694-56fb2107a08f
+    dialogueId: LEN_073
+    title: Dialogue Node
+    position: {x: 637.60004, y: 302.4}
+    entryPoint: 0
+    outputPorts:
+    - 6d46d4f6-80be-48f5-b66a-69f15496231d
+    - 249577bd-51b8-4f96-a879-1a20efc54e4b
+    - 486b75cc-0ef1-4ffd-a440-ac2b843541dc
+    outputPortsChoiceId:
+    - PLA_183
+    - PLA_184
+    - PLA_185
+    portConditions:
+    - portId: 486b75cc-0ef1-4ffd-a440-ac2b843541dc
+      conditions:
+      - requiredItem: LEN_Clue_3
+        requiredQuantity: 1
+        isMet: 0
+        conditionType: 2
+    callFunctions: []
+  - id: 2acce211-123e-4049-b2f8-a8d9662948a9
+    dialogueId: LEN_074
+    title: Dialogue Node
+    position: {x: 1133.6, y: 226.40001}
+    entryPoint: 0
+    outputPorts:
+    - 0b71e24d-3dda-4a5e-ac75-ed349284848b
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: 33f1e85f-f3ef-46f5-be69-23b16e20526c
+    dialogueId: LEN_076
+    title: Dialogue Node
+    position: {x: 1133.6, y: 385.59998}
+    entryPoint: 0
+    outputPorts:
+    - ab3a4915-ec08-4704-aa45-db1a4a364bbf
+    outputPortsChoiceId:
+    - Choice 0
+    portConditions: []
+    callFunctions: []
+  - id: 3088d7fe-f7e8-4abb-90c6-43041fd36f92
+    dialogueId: LEN_075
+    title: Dialogue Node
+    position: {x: 1544, y: 226.40001}
+    entryPoint: 0
+    outputPorts: []
+    outputPortsChoiceId: []
+    portConditions: []
+    callFunctions: []
+  - id: e62a195b-7b03-42f8-aed3-a840656c3cdc
+    dialogueId: LEN_077
+    title: Dialogue Node
+    position: {x: 1554.3999, y: 385.59998}
+    entryPoint: 0
+    outputPorts: []
+    outputPortsChoiceId: []
+    portConditions: []
+    callFunctions: []
+  edges:
+  - fromNodeId: c651bfb9-c22f-4ed1-9b66-b3e942ab80c6
+    fromPortId: c00742c0-9afe-4f2f-a788-b1e7ef0b1b40
+    toNodeId: e801cb5a-de22-4a00-a694-56fb2107a08f
+    toPortId: e0100be3-782e-42cf-970d-fdba4d1e787e
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: e801cb5a-de22-4a00-a694-56fb2107a08f
+    fromPortId: 6d46d4f6-80be-48f5-b66a-69f15496231d
+    toNodeId: 2acce211-123e-4049-b2f8-a8d9662948a9
+    toPortId: 9f39ba36-b421-4e2b-bf3a-f28e29079c9a
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: e801cb5a-de22-4a00-a694-56fb2107a08f
+    fromPortId: 249577bd-51b8-4f96-a879-1a20efc54e4b
+    toNodeId: 33f1e85f-f3ef-46f5-be69-23b16e20526c
+    toPortId: 148a6c4b-f611-4e6c-b035-38b2554a3578
+    fromPortIndex: 1
+    toPortIndex: 0
+  - fromNodeId: e801cb5a-de22-4a00-a694-56fb2107a08f
+    fromPortId: 486b75cc-0ef1-4ffd-a440-ac2b843541dc
+    toNodeId: 33f1e85f-f3ef-46f5-be69-23b16e20526c
+    toPortId: 148a6c4b-f611-4e6c-b035-38b2554a3578
+    fromPortIndex: 2
+    toPortIndex: 0
+  - fromNodeId: 2acce211-123e-4049-b2f8-a8d9662948a9
+    fromPortId: 0b71e24d-3dda-4a5e-ac75-ed349284848b
+    toNodeId: 3088d7fe-f7e8-4abb-90c6-43041fd36f92
+    toPortId: 8f7091f4-27ce-4683-a273-5438b2a00f9b
+    fromPortIndex: 0
+    toPortIndex: 0
+  - fromNodeId: 33f1e85f-f3ef-46f5-be69-23b16e20526c
+    fromPortId: ab3a4915-ec08-4704-aa45-db1a4a364bbf
+    toNodeId: e62a195b-7b03-42f8-aed3-a840656c3cdc
+    toPortId: 0338761b-a17f-4e07-9b3b-3409355f99e6
+    fromPortIndex: 0
+    toPortIndex: 0

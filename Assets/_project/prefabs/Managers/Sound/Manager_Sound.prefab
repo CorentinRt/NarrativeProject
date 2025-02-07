@@ -299,10 +299,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 275922157267375687, guid: 4d40000ca2a44204eaa6f354e182e310, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.25
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -435,3 +435,6 @@ MonoBehaviour:
   _sourceMUS: {fileID: 1497290592945967652}
   _sourceVOC: {fileID: 7120815356232002427}
   _mixer: {fileID: 24100000, guid: 4d40000ca2a44204eaa6f354e182e310, type: 2}
+  _dataSound: {fileID: 11400000, guid: db973faf82d8bb949b1ecd82fd039e03, type: 2}
+  _closeCarnet: {fileID: 11400000, guid: 35648a1dd638ccb4db7b22f49f0da2ff, type: 2}
+  _nextPage: {fileID: 11400000, guid: 98422b7910002a147baa3062cf375ce8, type: 2}

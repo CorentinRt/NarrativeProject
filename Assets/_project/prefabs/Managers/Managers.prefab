@@ -611,6 +611,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 996873933140693557}
+    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddClueToInventoryDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NarrativeProject.DialogInventoryToGameLink, NarrativeProject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -740,6 +764,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3e04b0785c0230459b3fc29d0527310, type: 3}
+--- !u!114 &996873933140693557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9222947531821660752, guid: d3e04b0785c0230459b3fc29d0527310, type: 3}
+  m_PrefabInstance: {fileID: 8226922466979162213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122e2c459a4baff429ee9b200f64282e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5501099249610533072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4502529778159255733, guid: d3e04b0785c0230459b3fc29d0527310, type: 3}
