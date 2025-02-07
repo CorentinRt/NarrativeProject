@@ -285,6 +285,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistantGUIDSceneSaver
       objectReference: {fileID: 0}
+    - target: {fileID: 297246066106262942, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 297246066106262942, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 297246066106262942, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1863368678}
+    - target: {fileID: 297246066106262942, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 297246066106262942, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlayBlueDrinkAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 297246066106262942, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: NarrativeProject.DrinksAnimHandler, NarrativeProject
+      objectReference: {fileID: 0}
+    - target: {fileID: 297246066106262942, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567647414794906281, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: _dialogueGraphSO
       value: 
@@ -302,6 +330,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425373016940546939, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -309,6 +341,62 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 934914961}
+    - target: {fileID: 2993167815957059743, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993167815957059743, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993167815957059743, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1863368678}
+    - target: {fileID: 2993167815957059743, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993167815957059743, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlayCoffeeDrinkAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993167815957059743, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: NarrativeProject.DrinksAnimHandler, NarrativeProject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993167815957059743, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024524182657540599, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024524182657540599, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024524182657540599, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1863368678}
+    - target: {fileID: 5024524182657540599, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024524182657540599, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlayGreenDrinkAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024524182657540599, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: NarrativeProject.DrinksAnimHandler, NarrativeProject
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024524182657540599, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8729630487655228077, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -358,6 +446,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9030389048064388605, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030389048064388605, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -366,6 +458,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+--- !u!114 &1863368678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2032557793474616824, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+  m_PrefabInstance: {fileID: 1863368677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7073ac368e816944b62c476fb930232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
