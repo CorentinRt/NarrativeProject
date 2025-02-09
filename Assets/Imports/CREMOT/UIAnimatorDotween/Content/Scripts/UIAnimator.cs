@@ -188,7 +188,6 @@ namespace CREMOT.UIAnimatorDotween
 
         private Tween AnimateBobbingEffect(Vector3 targetScale, float duration)
         {
-            Debug.LogWarning(targetScale);
             return transform.DOPunchScale(targetScale, duration, 3, 0.5f);
         }
 

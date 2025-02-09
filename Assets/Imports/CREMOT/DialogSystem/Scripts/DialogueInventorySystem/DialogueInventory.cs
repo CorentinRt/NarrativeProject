@@ -101,13 +101,23 @@ namespace CREMOT.DialogSystem
         {
             if (string.IsNullOrEmpty(item)) return false;
 
-            if (!_dialogueItemsInventory.ContainsKey(item)) return false;
+            if (!_dialogueItemsInventory.ContainsKey(item))
+            {
+                if (quantity <= 0)
+                {
+                    Debug.LogWarning("Has exactly Item : " + item + " / quantity : " + quantity.ToString());
+                    return true;
+                }
+                else
+                    return false;
+            }
 
-            if (quantity <= 0) return true;
+            if (_dialogueItemsInventory[item] == quantity)
+            {
+                Debug.LogWarning("Has exactly Item : " + item + " / quantity : " + quantity.ToString());
+                return true;
+            }
 
-            if (_dialogueItemsInventory[item] == quantity) return true;
-
-            Debug.LogWarning("Has exactly Item");
 
             return false;
         }

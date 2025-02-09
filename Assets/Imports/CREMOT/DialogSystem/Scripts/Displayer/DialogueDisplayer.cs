@@ -344,6 +344,8 @@ namespace CREMOT.DialogSystem
 
             buttonChoice.Init(dialogueController, id, textValue);
 
+            Debug.LogWarning("Display choice id : " + id);
+
             return buttonChoice;
         }
         #endregion
