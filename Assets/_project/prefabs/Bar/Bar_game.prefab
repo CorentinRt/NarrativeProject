@@ -667,6 +667,8 @@ MonoBehaviour:
   _blueCupAnimator: {fileID: 0}
   _greenCupAnimator: {fileID: 0}
   _coffeeCupAnimator: {fileID: 0}
+  _soundCafe: {fileID: 0}
+  _soundDrinkService: {fileID: 0}
 --- !u!1 &6218802789203131334
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,10 +932,6 @@ PrefabInstance:
       propertyPath: _data
       value: 
       objectReference: {fileID: 11400000, guid: 7640056c458146e4e86caf3929102989, type: 2}
-    - target: {fileID: 6325044621854188814, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.53
-      objectReference: {fileID: 0}
     - target: {fileID: 7040339861233264288, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
       propertyPath: m_Name
       value: container_Characters
