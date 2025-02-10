@@ -55,10 +55,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa206a32e61c51147bba377e00da40d2, type: 2}
   - {fileID: 11400000, guid: 7170a1dd1ef58d64da9c5e08458dc861, type: 2}
   - {fileID: 11400000, guid: 25e342a28d0a5294798b5dd7c7c05378, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3c3b480fdb8749d46ad4da4919c38044, type: 2}
+  - {fileID: 11400000, guid: ee551915e051b5140ab16367f172f58e, type: 2}
+  - {fileID: 11400000, guid: 326327b7fc0ee3745bca8f85e2efd82b, type: 2}
+  - {fileID: 11400000, guid: 3bd89e0443cb0465891569192dd2bbc8, type: 2}
   OnDialogueUpdatedUnity:
     m_PersistentCalls:
       m_Calls: []
