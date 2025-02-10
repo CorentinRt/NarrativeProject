@@ -285,6 +285,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistantGUIDSceneSaver
       objectReference: {fileID: 0}
+    - target: {fileID: 1567647414794906281, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: _allDialogueGraph.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567647414794906281, guid: b449de877611637449cdb62f3b87af7c, type: 3}
+      propertyPath: _allDialogueGraph.Array.data[11]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2032557793474616824, guid: b449de877611637449cdb62f3b87af7c, type: 3}
       propertyPath: _soundCafe
       value: 

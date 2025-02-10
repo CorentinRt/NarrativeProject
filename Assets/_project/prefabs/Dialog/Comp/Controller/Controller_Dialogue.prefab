@@ -49,16 +49,16 @@ MonoBehaviour:
   _dialogueGraphSO: {fileID: 11400000, guid: 78404aa9b2e49bd4c998621ea37d5bfb, type: 2}
   _allDialogueGraph:
   - {fileID: 11400000, guid: 78404aa9b2e49bd4c998621ea37d5bfb, type: 2}
-  - {fileID: 11400000, guid: 9add3a16ae0d1524d83996dce6c0659e, type: 2}
-  - {fileID: 11400000, guid: 1d16401b9a1c9c6459368807ece54064, type: 2}
-  - {fileID: 11400000, guid: df20b9d5758e7fd488097b83b6de0e6b, type: 2}
+  - {fileID: 11400000, guid: c17a8d4c8bd8db741b1ebd40289cd665, type: 2}
+  - {fileID: 11400000, guid: d57d4a4d28db96c4b858d9f0c49a976c, type: 2}
+  - {fileID: 11400000, guid: a356e6088ac17864a9127348c269995d, type: 2}
   - {fileID: 11400000, guid: aa206a32e61c51147bba377e00da40d2, type: 2}
   - {fileID: 11400000, guid: 7170a1dd1ef58d64da9c5e08458dc861, type: 2}
   - {fileID: 11400000, guid: 25e342a28d0a5294798b5dd7c7c05378, type: 2}
   - {fileID: 11400000, guid: 3c3b480fdb8749d46ad4da4919c38044, type: 2}
-  - {fileID: 11400000, guid: ee551915e051b5140ab16367f172f58e, type: 2}
-  - {fileID: 11400000, guid: 326327b7fc0ee3745bca8f85e2efd82b, type: 2}
-  - {fileID: 11400000, guid: 3bd89e0443cb0465891569192dd2bbc8, type: 2}
+  - {fileID: 11400000, guid: cdd8a3fec39143647a0b48e44b09c1a6, type: 2}
+  - {fileID: 11400000, guid: 153221e0fb729f94fac976b7bbbdef7f, type: 2}
+  - {fileID: 11400000, guid: b7cdeedaabb2da94cb6ffb2099ccd2ed, type: 2}
   OnDialogueUpdatedUnity:
     m_PersistentCalls:
       m_Calls: []
