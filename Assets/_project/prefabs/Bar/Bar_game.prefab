@@ -667,8 +667,8 @@ MonoBehaviour:
   _blueCupAnimator: {fileID: 0}
   _greenCupAnimator: {fileID: 0}
   _coffeeCupAnimator: {fileID: 0}
-  _soundCafe: {fileID: 0}
-  _soundDrinkService: {fileID: 0}
+  _soundCafe: {fileID: 11400000, guid: ef0cea3d69f578240acc2433f3ab1e31, type: 2}
+  _soundDrinkService: {fileID: 11400000, guid: 907f32ca7034d82449842891937126a6, type: 2}
 --- !u!1 &6218802789203131334
 GameObject:
   m_ObjectHideFlags: 0
