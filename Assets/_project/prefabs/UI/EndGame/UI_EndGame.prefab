@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28063c5ccfb297418e9c1a0c6829b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasEndGame: {fileID: 4989234584344077180}
   titleText: {fileID: 6749516982285767402}
   fact1: {fileID: 8768516414994119412}
   fact2: {fileID: 5796768973247592180}
