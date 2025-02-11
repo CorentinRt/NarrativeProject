@@ -612,13 +612,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
-      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
       propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 996873933140693557}
+    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3329459890554476289, guid: 1bb5b9f03a552d24b8006a5646521011, type: 3}
       propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

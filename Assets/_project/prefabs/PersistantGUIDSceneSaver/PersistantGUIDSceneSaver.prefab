@@ -2848,6 +2848,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gUID: eb8f617e-2bfb-439f-bdd3-da5b806a367e
+--- !u!114 &3413222251119330136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2302930283523143991, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+  m_PrefabInstance: {fileID: 3507061015635278447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483036921535107271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5e3a468141e2f4dbbc514477ec9bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3693182070011742636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 282395198811272131, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
@@ -3786,6 +3797,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 5532107137604026843, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3413222251119330136}
+    - target: {fileID: 5532107137604026843, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
+      propertyPath: OnAddClueWithParamUnity.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 3413222251119330136}
     - target: {fileID: 6794648885389778507, guid: eaed5c1d95fad8a488db508fc7eaf39b, type: 3}
       propertyPath: _unfocusedCameraTransform
       value: 
