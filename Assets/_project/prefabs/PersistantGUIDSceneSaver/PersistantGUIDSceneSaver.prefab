@@ -1348,10 +1348,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
+  m_fontSize: 36.35
   m_fontSizeBase: 16
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 8
   m_fontSizeMax: 52
   m_fontStyle: 0
@@ -1469,7 +1469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1665491604761676184, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_fontSize
-      value: 13.05
+      value: 15.7
       objectReference: {fileID: 0}
     - target: {fileID: 1722872920235532548, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_LocalPosition.x
