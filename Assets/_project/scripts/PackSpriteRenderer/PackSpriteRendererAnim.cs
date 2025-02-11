@@ -1,4 +1,5 @@
 using DG.Tweening;
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace NarrativeProject
         [Header("Fade in / out")]
         [SerializeField] private float _animFadeDuration;
 
+        private List<Tween> _materialsFadeTweens;
+
         private List<SpriteRenderer> _packSpriteRenderer;
 
         private List<Tween> _allFadeInTweens;
@@ -25,10 +28,17 @@ namespace NarrativeProject
         {
             _packSpriteRenderer = new List<SpriteRenderer>();
 
+            _materialsFadeTweens = new List<Tween>();
+
             _allFadeInTweens = new List<Tween>();
             _allDarkenLightUpTweens = new List<Tween>();
 
             _packSpriteRenderer = InitPackSpriteRenderer();
+
+        }
+        private void Start()
+        {
+            FadeOutMaterials();
         }
 
         private List<SpriteRenderer> InitPackSpriteRenderer()
@@ -43,6 +53,7 @@ namespace NarrativeProject
 
                 _allFadeInTweens.Add(null);
                 _allDarkenLightUpTweens.Add(null);
+                _materialsFadeTweens.Add(null);
             }
 
             return spriteRenderersList;
@@ -52,8 +63,8 @@ namespace NarrativeProject
         {
             for (int i = 0; i < _packSpriteRenderer.Count; ++i)
             {
-                if (_allFadeInTweens.Count <= i) return;
-                if (_packSpriteRenderer[i] == null) return;
+                if (_allFadeInTweens.Count <= i) continue;
+                if (_packSpriteRenderer[i] == null) continue;
 
                 if (_allFadeInTweens[i] != null)
                 {
@@ -67,8 +78,8 @@ namespace NarrativeProject
         {
             for (int i = 0; i < _packSpriteRenderer.Count; ++i)
             {
-                if (_allFadeInTweens.Count <= i) return;
-                if (_packSpriteRenderer[i] == null) return;
+                if (_allFadeInTweens.Count <= i) continue;
+                if (_packSpriteRenderer[i] == null) continue;
 
                 if (_allFadeInTweens[i] != null)
                 {
@@ -82,8 +93,8 @@ namespace NarrativeProject
         {
             for (int i = 0; i < _packSpriteRenderer.Count ; ++i)
             {
-                if (_allDarkenLightUpTweens.Count <= i) return;
-                if (_packSpriteRenderer[i] == null) return;
+                if (_allDarkenLightUpTweens.Count <= i) continue;
+                if (_packSpriteRenderer[i] == null) continue;
 
                 if (_allDarkenLightUpTweens[i] != null)
                 {
@@ -97,8 +108,8 @@ namespace NarrativeProject
         {
             for (int i = 0; i < _packSpriteRenderer.Count; ++i)
             {
-                if (_allDarkenLightUpTweens.Count <= i) return;
-                if (_packSpriteRenderer[i] == null) return;
+                if (_allDarkenLightUpTweens.Count <= i) continue;
+                if (_packSpriteRenderer[i] == null) continue;
 
                 if (_allDarkenLightUpTweens[i] != null)
                 {
@@ -106,6 +117,49 @@ namespace NarrativeProject
                 }
 
                 _allDarkenLightUpTweens[i] = _packSpriteRenderer[i].DOColor(Color.white, _animColorDuration);
+            }
+        }
+
+        [Button]
+        public void FadeOutMaterials()
+        {
+            foreach (Tween tween in _materialsFadeTweens)
+            {
+                if (tween == null) continue;
+
+                tween.Kill();
+            }
+
+            for (int i = 0; i < _packSpriteRenderer.Count;  ++i)
+            {
+                Material mat = _packSpriteRenderer[i].material;
+
+                if (i >= _materialsFadeTweens.Count) continue;
+                if (mat == null) continue;
+
+                if (mat.HasProperty("_Alpha"))
+                    _materialsFadeTweens[i] = mat.DOFloat(0f, "_Alpha", _animFadeDuration / 2f);
+            }
+        }
+        [Button]
+        public void FadeInMaterials()
+        {
+            foreach (Tween tween in _materialsFadeTweens)
+            {
+                if (tween == null) continue;
+
+                tween.Kill();
+            }
+
+            for (int i = 0; i < _packSpriteRenderer.Count; ++i)
+            {
+                Material mat = _packSpriteRenderer[i].material;
+
+                if (i >= _materialsFadeTweens.Count) continue;
+                if (mat == null) continue;
+
+                if (mat.HasProperty("_Alpha"))
+                    _materialsFadeTweens[i] = mat.DOFloat(1f, "_Alpha", _animFadeDuration / 2f);
             }
         }
     }

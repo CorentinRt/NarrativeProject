@@ -916,6 +916,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7282334792213492934}
     m_Modifications:
+    - target: {fileID: 1019377816767982633, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 630d62b114a17d4499567eb349584da8, type: 2}
     - target: {fileID: 1803453189909008108, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
       propertyPath: _focusCameraOffset.x
       value: 4.5
@@ -924,6 +928,10 @@ PrefabInstance:
       propertyPath: _data
       value: 
       objectReference: {fileID: 11400000, guid: 1c925ccd9a403de4296e39f1a044f948, type: 2}
+    - target: {fileID: 3292631488248915744, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 630d62b114a17d4499567eb349584da8, type: 2}
     - target: {fileID: 4075377031469189324, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -932,10 +940,18 @@ PrefabInstance:
       propertyPath: _data
       value: 
       objectReference: {fileID: 11400000, guid: 7640056c458146e4e86caf3929102989, type: 2}
+    - target: {fileID: 6531753860814224609, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 630d62b114a17d4499567eb349584da8, type: 2}
     - target: {fileID: 7040339861233264288, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
       propertyPath: m_Name
       value: container_Characters
       objectReference: {fileID: 0}
+    - target: {fileID: 7400849918907065488, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 630d62b114a17d4499567eb349584da8, type: 2}
     - target: {fileID: 8245801543929424476, guid: abce3e140239fc04f8a4d27f3a6a0884, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
