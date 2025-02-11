@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 5743876795740132945}
   - component: {fileID: 4044521390526997347}
   - component: {fileID: 3104988143769905947}
+  - component: {fileID: 7200727577830547836}
   m_Layer: 0
   m_Name: Button_PreviousPage
   m_TagString: Untagged
@@ -573,6 +574,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7200727577830547836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955736744829812838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5d42dc4dba23640a3272388ea06816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetPressedScale: 0.7
+  _duration: 0.2
 --- !u!1 &3227579916915262313
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +818,7 @@ GameObject:
   - component: {fileID: 488309753311479969}
   - component: {fileID: 6678720403864907284}
   - component: {fileID: 3183571436690730956}
+  - component: {fileID: 6763405614453818533}
   m_Layer: 0
   m_Name: Button_NextPage
   m_TagString: Untagged
@@ -923,6 +939,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6763405614453818533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465089225970703330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5d42dc4dba23640a3272388ea06816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetPressedScale: 0.7
+  _duration: 0.2
 --- !u!1 &5550906664541580399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,6 +1099,7 @@ GameObject:
   - component: {fileID: 1184650753987527866}
   - component: {fileID: 7083561972148991755}
   - component: {fileID: 3858176118300985809}
+  - component: {fileID: 2275705020974757986}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -1190,6 +1221,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2275705020974757986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757203332118066646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5d42dc4dba23640a3272388ea06816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetPressedScale: 0.7
+  _duration: 0.2
 --- !u!1 &6186883444528283924
 GameObject:
   m_ObjectHideFlags: 0

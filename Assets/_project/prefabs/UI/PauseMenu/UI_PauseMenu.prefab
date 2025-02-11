@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 3979506697387189637}
   - component: {fileID: 6120954452718140544}
   - component: {fileID: 7467919082724802730}
+  - component: {fileID: 6620508938400306139}
   m_Layer: 5
   m_Name: ButtonSettings
   m_TagString: Untagged
@@ -216,7 +217,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 0.7}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6120954452718140544
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -281,6 +282,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6620508938400306139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261093572367595739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5d42dc4dba23640a3272388ea06816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetPressedScale: 0.7
+  _duration: 0.2
 --- !u!1 &1331802139900695566
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +836,7 @@ GameObject:
   - component: {fileID: 8473753747444717430}
   - component: {fileID: 870618434594072000}
   - component: {fileID: 3699766697356459855}
+  - component: {fileID: 9159391840047274596}
   m_Layer: 5
   m_Name: ButtonPlay
   m_TagString: Untagged
@@ -847,7 +863,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &870618434594072000
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -924,6 +940,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9159391840047274596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621315463979190681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5d42dc4dba23640a3272388ea06816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetPressedScale: 0.7
+  _duration: 0.2
 --- !u!1 &2660078711294135153
 GameObject:
   m_ObjectHideFlags: 0
