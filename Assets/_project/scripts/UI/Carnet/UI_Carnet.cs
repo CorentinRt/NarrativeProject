@@ -48,8 +48,8 @@ namespace NarrativeProject
                 go.transform.SetParent(content.transform);
                 go.AddComponent<TextMeshProUGUI>().text = clue;
                 TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
-                text.margin = new Vector4(0, 0, -550, 0);
-                text.fontSize = 70;
+                text.fontSize = 40;
+                text.enableAutoSizing = true;
                 text.color = Color.black;
                 clues.Add(go);
             }
