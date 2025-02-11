@@ -130,25 +130,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1121859915731503107, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2809734739439556908, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.6666667
       objectReference: {fileID: 0}
     - target: {fileID: 2809734739439556908, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2809734739439556908, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.6666667
       objectReference: {fileID: 0}
     - target: {fileID: 2809734739439556908, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 16.666664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6643266310645200939, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -206,22 +202,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7776867979209428528, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
-      propertyPath: _currentLanguageSO
-      value: 
-      objectReference: {fileID: 11400000, guid: a476a3a0e4ca17047b02fd73e7fbac8a, type: 2}
-    - target: {fileID: 7776867979209428528, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
-      propertyPath: _localizationDataSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 33b050334d8169449bf22f0387bc31fc, type: 2}
-    - target: {fileID: 7776867979209428528, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
-      propertyPath: _UIDataLocalizationSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 33b050334d8169449bf22f0387bc31fc, type: 2}
-    - target: {fileID: 7776867979209428528, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
-      propertyPath: _localizationUIDataSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 33b050334d8169449bf22f0387bc31fc, type: 2}
+    - target: {fileID: 6955640135753667331, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8006603476112129448, guid: 31f1fdcc42f446946b3937193d3dbed0, type: 3}
       propertyPath: m_MaxValue
       value: 40

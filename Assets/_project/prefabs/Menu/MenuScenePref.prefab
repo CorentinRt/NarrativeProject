@@ -863,6 +863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager_Localization
       objectReference: {fileID: 0}
+    - target: {fileID: 4991431217606360002, guid: 75da0c274dc5d8144b612621adeaf72b, type: 3}
+      propertyPath: _localizationDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 33b050334d8169449bf22f0387bc31fc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
