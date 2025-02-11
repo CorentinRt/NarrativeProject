@@ -585,7 +585,19 @@ MonoBehaviour:
     _playOnStart: 0
     OnAnimationStarted:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: NarrativeProject.SoundManager, NarrativeProject
+          m_MethodName: PlaySoundSFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: c1dacdba9bb87eb42871b74564c59a40, type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     OnAnimationFinished:
       m_PersistentCalls:
         m_Calls:
@@ -602,7 +614,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - _animationType: 1
-    _duration: 0.5
+    _duration: 0.7
     _ease: 6
     _targetMove: {fileID: 0}
     _targetScale: {x: 0, y: 0, z: 0}

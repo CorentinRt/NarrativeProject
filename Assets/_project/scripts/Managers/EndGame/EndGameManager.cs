@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -75,6 +76,7 @@ namespace NarrativeProject
             img = sprite;
         }
 
+        [Button]
         public void OpenEndGame()
         {
             if (_canvasEndGame)

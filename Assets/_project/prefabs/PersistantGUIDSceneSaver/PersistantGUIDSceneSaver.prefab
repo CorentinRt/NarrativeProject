@@ -1667,6 +1667,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2871032502378712430, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      propertyPath: _animations.Array.data[0].OnAnimationStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6367928590829820699}
     - target: {fileID: 3786281340222758897, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -2270,12 +2274,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6926222165798267964, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1767228402718341561}
-    - targetCorrespondingSourceObject: {fileID: 974003473244967910, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4882233643020772941}
     - targetCorrespondingSourceObject: {fileID: 4061330334733588937, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4124541075111258862}
+    - targetCorrespondingSourceObject: {fileID: 974003473244967910, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4882233643020772941}
     - targetCorrespondingSourceObject: {fileID: 1523647754049343332, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 100532858460053749}
