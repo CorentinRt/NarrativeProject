@@ -23,6 +23,8 @@ namespace NarrativeProject
         [SerializeField] private AudioMixer _mixer;
         [SerializeField] public CreateSoundData _dataSound;
 
+        [SerializeField] private DataSound _btnClickSingle;
+
 
         [SerializeField] private DataSound _nextPage;
 
@@ -221,5 +223,12 @@ namespace NarrativeProject
         #endregion
 
         #endregion
+
+        public void PlayBtnClickSingle()
+        {
+            if (!_btnClickSingle) return;
+
+            PlaySoundSFX(_btnClickSingle);
+        }
     }
 }

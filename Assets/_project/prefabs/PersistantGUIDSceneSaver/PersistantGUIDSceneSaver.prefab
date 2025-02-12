@@ -477,6 +477,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6367928590829820699}
+        m_TargetAssemblyTypeName: NarrativeProject.SoundManager, NarrativeProject
+        m_MethodName: PlaySoundSFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 61e962d314bb45f46afdd279c360ef4f, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6656103302074895393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,6 +1475,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2361543116852221283}
+    - target: {fileID: 730214199862767859, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6367928590829820699}
     - target: {fileID: 1149576757911108890, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: OnDisplayGunUnity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1907,6 +1923,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2361543116852221283}
+    - target: {fileID: 5379919343572016702, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6367928590829820699}
     - target: {fileID: 5539815042589905621, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2103,6 +2123,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2361543116852221283}
+    - target: {fileID: 7711199462688384230, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6367928590829820699}
     - target: {fileID: 8435566965239978904, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
       propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -2207,6 +2231,10 @@ PrefabInstance:
       propertyPath: OnDropSucceedUnity.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8661641121951332217, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6367928590829820699}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1016674009704066065, guid: 55a107c5b1d63574584f5088a50aceb4, type: 3}
