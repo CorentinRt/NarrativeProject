@@ -584,7 +584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e18cb042b495a9745b0eec6bd68442fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dcfe453f773e7c4428d2b295d68201db, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -641,6 +641,18 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NarrativeProject.EndGameManager, NarrativeProject
         m_MethodName: OpenEndGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8111057558004927297}
+        m_TargetAssemblyTypeName: NarrativeProject.UICounterDrinks, NarrativeProject
+        m_MethodName: DisableGun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
