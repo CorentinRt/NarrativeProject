@@ -26,15 +26,14 @@ namespace CREMOT.DialogSystem
 
         private void Awake()
         {
-            if (Instance != null && Instance != this)
+            if (_instance != null)
             {
-                Destroy(this);
-                return;
+                Destroy(gameObject);
             }
-            Instance = this;
+            _instance = this;
 
-            transform.parent = null;
-            DontDestroyOnLoad(gameObject);
+            //transform.parent = null;
+            //DontDestroyOnLoad(gameObject);
 
             RefreshDictionaries();
         }

@@ -4,11 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace NarrativeProject
 {
     public class UICounterDrinks : MonoBehaviour
     {
+        [Header("Drinks")]
+
         [SerializeField] private RectTransform _drinksHub;
 
         [SerializeField] private List<RectTransform> _drinks;
@@ -18,6 +21,13 @@ namespace NarrativeProject
 
         [SerializeField] private float _displayAllDuration;
         [SerializeField] private float _groupHubAllDuration;
+
+
+        [Header("Gun")]
+
+        [SerializeField] private Button _gunButton;
+        public UnityEvent OnDisplayGunUnity;
+
 
         private List<Tween> _moveTweens;
 
@@ -44,6 +54,9 @@ namespace NarrativeProject
             }
 
             GroupDrinksToHub();
+
+            HideGun();
+            DisableGun();
         }
 
         [Button]
@@ -75,6 +88,35 @@ namespace NarrativeProject
                 _moveTweens[i] = _drinks[i].DOMoveX(_drinksOriginalPosition[i].x, _displayAllDuration);
             }
             OnDisplayAllDrinks?.Invoke();
+        }
+
+        [Button]
+        public void DisplayGun()
+        {
+            if (!_gunButton.gameObject) return;
+
+            _gunButton.gameObject.SetActive(true);
+            OnDisplayGunUnity?.Invoke();
+        }
+
+        [Button]
+        public void HideGun()
+        {
+            if (!_gunButton.gameObject) return;
+
+            _gunButton.gameObject.SetActive(false);
+        }
+        public void EnableGun()
+        {
+            if (!_gunButton) return;
+
+            _gunButton.enabled = true;
+        }
+        public void DisableGun()
+        {
+            if (!_gunButton) return;
+
+            _gunButton.enabled = false;
         }
     }
 }
