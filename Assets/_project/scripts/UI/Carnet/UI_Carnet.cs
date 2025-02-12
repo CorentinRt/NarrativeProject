@@ -17,6 +17,8 @@ namespace NarrativeProject
         [SerializeField] List<string> characterNames;
         [SerializeField] Button nextButton, previousButton, closeButton;
 
+        [SerializeField] private TMP_FontAsset _cluesFont;
+
         [VisibleInDebug] int indexInCarnet;
         UI_Carnet_Data data;
         List<GameObject> clues = new List<GameObject>();
@@ -49,6 +51,7 @@ namespace NarrativeProject
                 go.AddComponent<TextMeshProUGUI>().text = clue;
                 TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
                 text.fontSize = 40;
+                text.font = _cluesFont;
                 text.enableAutoSizing = true;
                 text.color = Color.black;
                 clues.Add(go);

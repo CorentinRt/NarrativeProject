@@ -1,3 +1,4 @@
+using DG.Tweening;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
@@ -74,7 +75,8 @@ namespace NarrativeProject
             if (clip == null) return;
             if (_sourceMUS == null) return;
 
-            _sourceMUS.PlayOneShot(clip, volumeScale);
+            _sourceMUS.clip = clip;
+            _sourceMUS.Play();
         }
 
         #endregion
@@ -133,6 +135,25 @@ namespace NarrativeProject
             if (sound == null) return;
 
             PlayVOCSound(sound.clip, sound.volumeScale + _sourceVOC.volume);
+        }
+
+        public void FadeOutMusic()
+        {
+            if (_sourceMUS ==  null) return;
+
+            _sourceMUS.DOFade(0f, 2f);
+        }
+        public void FadeInMusic()
+        {
+            if (_sourceMUS == null) return;
+
+            _sourceMUS.DOFade(0.5f, 1f);
+        }
+        public void SwitchMusic(DataSound sound)
+        {
+            if (_sourceMUS == null) return;
+
+            _sourceMUS.DOFade(0f, 2f).OnComplete(() => { PlaySoundMUS(sound); FadeInMusic(); });
         }
 
         #region Volume

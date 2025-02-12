@@ -1535,3 +1535,4 @@ MonoBehaviour:
   nextButton: {fileID: 3183571436690730956}
   previousButton: {fileID: 3104988143769905947}
   closeButton: {fileID: 3858176118300985809}
+  _cluesFont: {fileID: 11400000, guid: 7dd4636c7f8162b47a438dbc24f9c87c, type: 2}
