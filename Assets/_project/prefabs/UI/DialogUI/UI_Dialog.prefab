@@ -1007,7 +1007,7 @@ MonoBehaviour:
   _neverHideDisplayer: 0
   _startHidden: 1
   _useTypingAppearEffect: 1
-  _charactersPerSecond: 28
+  _charactersPerSecond: 40
   _useDynamicLocalizationDisplay: 1
   OnShowDisplayerUnity:
     m_PersistentCalls:
