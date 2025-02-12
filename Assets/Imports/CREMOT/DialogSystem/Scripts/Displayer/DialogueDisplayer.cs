@@ -53,6 +53,8 @@ namespace CREMOT.DialogSystem
         [SerializeField] private float _charactersPerSecond;
         private string _currentDialogText;
         private Coroutine _typingEffectCoroutine;
+        private bool _isTyping = false;
+        private bool _requestTypingSkip = false;
 
         [Space(20)]
 
@@ -240,6 +242,7 @@ namespace CREMOT.DialogSystem
                 {
                     StopCoroutine(_typingEffectCoroutine);
                     _typingEffectCoroutine = null;
+                    _isTyping = false;
                 }
                 _typingEffectCoroutine = StartCoroutine(TypingEffectCoroutine(_currentDialogText));
             }
@@ -420,17 +423,40 @@ namespace CREMOT.DialogSystem
 
         #region Typing effect entering
 
+        public void RequestSkip()
+        {
+            if (_isTyping)
+            {
+                _requestTypingSkip = true;
+            }
+            else
+            {
+                if (_dialogueController != null)
+                {
+                    _dialogueController.Continue();
+                }
+            }
+        }
+
         private IEnumerator TypingEffectCoroutine(string text)
         {
+            _requestTypingSkip = false;
+            _isTyping = true;
+
             string textBuffer = null;
             foreach (char c in text)
             {
+                if (_requestTypingSkip) break;
+
                 textBuffer += c;
                 _dialogueText.text = textBuffer;
 
                 yield return new WaitForSeconds(1 / _charactersPerSecond);
             }
 
+            _dialogueText.text = text;
+
+            _isTyping = false;
             if (_typingEffectCoroutine != null)
             {
                 StopCoroutine(_typingEffectCoroutine);
